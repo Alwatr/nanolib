@@ -1,0 +1,38 @@
+{
+  "name": "@alwatr/nano-build",
+  "version": "1.0.0",
+  "description": "Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses esbuild for enhanced performance.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "keywords": [
+    "build",
+    "bundle",
+    "esbuild",
+    "typescript",
+    "esm",
+    "alwatr"
+  ],
+  "bin": "./nano-build.cjs",
+  "license": "MIT",
+  "files": [
+    "**/*.{d.ts.map,d.ts,js.map,js,html,md}"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/nano-build"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/nano-build#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "devDependencies": {
+    "@alwatr/tsconfig-base": "workspace:^",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "esbuild": "^0.19.10"
+  }
+}
