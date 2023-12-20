@@ -32,5 +32,8 @@
   "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/flat-string#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "devDependencies": {
+    "@alwatr/tsconfig-base": "workspace:^"
   }
 }
