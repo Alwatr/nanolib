@@ -24,7 +24,7 @@ const devMode = process.env.NODE_ENV !== 'production';
     cjs: true,
     minify: true,
     mangleProps: '_$',
-    // treeShaking: true,
+    treeShaking: false,
     sourcemap: true,
     sourcesContent: true,
     bundle: true,
