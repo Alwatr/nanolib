@@ -1,0 +1,55 @@
+{
+  "cSpell.language": "en,fa,fa-IR",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.wordWrapColumn": 120,
+  "eslint.nodePath": ".yarn/sdks",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
+    "*.ts": "${capture}.js, ${capture}.js.map, ${capture}.d.ts, ${capture}.d.ts.map",
+    "tsconfig.json": "tsconfig.*.json"
+  },
+  "files.associations": {
+    "*.ajs": "json",
+    "*.ajs.bk": "json",
+    "*.conf.template": "nginx"
+  },
+  "files.exclude": {
+    // "**/*.map": true,
+    // "**/*.d.ts": true,
+    "**/*.tsbuildinfo": true
+  },
+  "git.autoStash": true,
+  "git.branchProtection": [
+    "main",
+    "next"
+  ],
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "main",
+    "next"
+  ],
+  "markdownlint.ignore": [
+    "**/CHANGELOG.md"
+  ],
+  "npm.packageManager": "yarn",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+  "prettier.useEditorConfig": true,
+  "search.exclude": {
+    "**/.pnp.*": true,
+    "**/.yarn": true,
+    "**/*.lock": true,
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "cSpell.words": [
+    "Alwatr",
+    "nanolib",
+    "flatomise",
+  ],
+}
