@@ -23,7 +23,7 @@
     "upd": "yarn set version latest; yarn up '*' -i; yarn up '*' -R; yarn dlx @yarnpkg/sdks vscode;",
     "lint": "run-s lint:ts lint:es",
     "lint:es": "eslint . --config .eslintrc.json --ext .ts",
-    "lint:ts": "tsc --build",
+    "lint:ts": "lerna run lint:ts",
     "build": "lerna run build",
     "format": "run-s format:prettier format:eslint",
     "format:eslint": "yarn run lint:es --fix",
@@ -34,7 +34,6 @@
     "publish": "lerna publish from-package"
   },
   "devDependencies": {
-    "@alwatr/tsconfig-base": "workspace:^",
     "@lerna-lite/changed": "^3.1.0",
     "@lerna-lite/cli": "^3.1.0",
     "@lerna-lite/diff": "^3.1.0",
