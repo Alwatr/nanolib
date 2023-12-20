@@ -43,7 +43,7 @@
   "search.exclude": {
     "**/.pnp.*": true,
     "**/.yarn": true,
-    "**/*.lock": true,
+    "**/*.lock": true
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
@@ -52,5 +52,5 @@
     "flatomise",
     "nanolib",
     "tsbuildinfo"
-  ],
+  ]
 }
