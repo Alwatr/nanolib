@@ -33,8 +33,24 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "scripts": {
+    "b": "yarn run build",
+    "w": "yarn run watch",
+    "c": "yarn run clean",
+    "cb": "yarn run clean && yarn run build",
+    "d": "yarn run build && ALWATR_DEBUG=1 yarn node",
+    "build": "yarn run build:ts & yarn run build:es",
+    "build:es": "yarn node ./esbuild.mjs",
+    "build:ts": "tsc --build",
+    "watch": "run-p -l 'watch:*'",
+    "watch:es": "yarn run build:es --watch",
+    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
+    "clean": "rm -rfv *.js *.d.ts *.d.ts.map *.js.map .tsbuildinfo"
+  },
+  "dependencies": {},
   "devDependencies": {
-    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^",
+    "typescript": "^5.3.3"
   },
   "tsconfig": {
     "extends": "@alwatr/tsconfig-base",
