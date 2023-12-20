@@ -13,7 +13,7 @@
   "explorer.fileNesting.patterns": {
     "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
     "*.ts": "${capture}.js, ${capture}.js.map, ${capture}.d.ts, ${capture}.d.ts.map",
-    "tsconfig.json": "tsconfig.*.json"
+    "tsconfig.json": "tsconfig.*.json, .tsbuildinfo"
   },
   "files.associations": {
     "*.ajs": "json",
@@ -23,7 +23,7 @@
   "files.exclude": {
     // "**/*.map": true,
     // "**/*.d.ts": true,
-    "**/*.tsbuildinfo": true
+    // "**/*.tsbuildinfo": true
   },
   "git.autoStash": true,
   "git.branchProtection": [
@@ -43,13 +43,14 @@
   "search.exclude": {
     "**/.pnp.*": true,
     "**/.yarn": true,
-    "**/*.lock": true,
+    "**/*.lock": true
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "cSpell.words": [
     "Alwatr",
-    "nanolib",
     "flatomise",
-  ],
+    "nanolib",
+    "tsbuildinfo"
+  ]
 }

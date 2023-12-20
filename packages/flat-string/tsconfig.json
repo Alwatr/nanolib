@@ -1,13 +1,11 @@
 {
   "extends": "@alwatr/tsconfig-base",
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
     "rootDir": "src",
-    "outDir": "."
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "composite": true,
+    "tsBuildInfoFile": ".tsbuildinfo"
   },
-
-  "include": ["src/**/*.ts"],
-  "exclude": [],
-  "references": []
+  "include": ["src/**/*.ts"]
 }

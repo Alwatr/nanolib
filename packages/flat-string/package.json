@@ -1,22 +1,30 @@
 {
   "name": "@alwatr/flat-string",
   "version": "1.0.0",
-  "description": "The `flat-string` function Flattens the underlying C structures of a concatenated JavaScript string.",
+  "description": "The `flat-string` function flattens the underlying C structures of a concatenated JavaScript string.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "string",
     "flat",
+    "flatten",
     "optimize",
     "concat",
-    "concatenation",
     "util",
     "typescript",
     "esm",
     "alwatr"
   ],
-  "main": "main.js",
   "type": "module",
-  "types": "main.d.ts",
-  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs",
+      "types": "./dist/main.d.ts"
+    }
+  },
   "license": "MIT",
   "files": [
     "**/*.{d.ts.map,d.ts,js.map,js,html,md}"
@@ -32,5 +40,23 @@
   "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/flat-string#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "scripts": {
+    "b": "yarn run build",
+    "w": "yarn run watch",
+    "c": "yarn run clean",
+    "cb": "yarn run clean && yarn run build",
+    "d": "yarn run build:es && ALWATR_DEBUG=1 yarn node",
+    "build": "yarn run build:ts & yarn run build:es",
+    "build:es": "echo underdevelopment",
+    "build:ts": "tsc --build",
+    "watch": "yarn run watch:ts & yarn run watch:es",
+    "watch:es": "yarn run build:es --watch",
+    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
+    "clean": "rm -rfv dist .tsbuildinfo"
+  },
+  "devDependencies": {
+    "@alwatr/tsconfig-base": "workspace:^",
+    "typescript": "^5.3.3"
   }
 }
