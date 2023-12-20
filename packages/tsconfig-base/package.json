@@ -14,7 +14,7 @@
   "license": "MIT",
   "files": [
     "tsconfig.json",
-    "**/*.{d.ts.map,d.ts,js.map,js,html,md}"
+    "**/*.{d.ts.map,d.ts,js.map,js,html,md,cjs,mjs,cjs.map,mjs.map}"
   ],
   "publishConfig": {
     "access": "public"
