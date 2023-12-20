@@ -35,5 +35,15 @@
   },
   "devDependencies": {
     "@alwatr/tsconfig-base": "workspace:^"
+  },
+  "tsconfig": {
+    "extends": "@alwatr/tsconfig-base",
+    "compilerOptions": {
+      "composite": true,
+      "tsBuildInfoFile": ".tsbuildinfo",
+      "rootDir": "src",
+      "outDir": "."
+    },
+    "include": ["src/**/*.ts"]
   }
 }
