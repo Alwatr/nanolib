@@ -19,6 +19,6 @@ Create a `tsconfig.json` file in the root of your project:
     "rootDir": "src",
     "outDir": "."
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts"]
 }
 ```
