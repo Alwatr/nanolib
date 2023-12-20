@@ -1,0 +1,77 @@
+{
+  // https://www.typescriptlang.org/tsconfig
+  "compilerOptions": {
+    /* Basic Options */
+    "incremental": true,
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2023"],
+    // "allowJs": true,
+    // "checkJs": true,
+    // "jsx": "preserve",
+    "declaration": true,
+    // "outFile": "./",
+    "outDir": "./",
+    // "rootDir": "./src",
+    "composite": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    // "removeComments": true,
+    // "noEmit": true,
+    // "emitDeclarationOnly": true,
+    // "importHelpers": true,
+    // "noEmitHelpers": true,
+    // "downlevelIteration": true,
+    "isolatedModules": true, // need for esbuild
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    // "noUncheckedIndexedAccess": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    /* Module Resolution Options */
+    // "paths": {},
+    // "rootDirs": [],
+    // "typeRoots": [],
+    // "types": [],
+    "allowSyntheticDefaultImports": true,
+    // "esModuleInterop": true,
+    // "preserveSymlinks": true,
+    // "allowUmdGlobalAccess": true,
+
+    /* Source Map Options */
+    "sourceMap": true,
+    "declarationMap": true,
+    // "sourceRoot": "",
+    // "mapRoot": "",
+    // "inlineSourceMap": true,
+    "inlineSources": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* Advanced Options */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    // "resolveJsonModule": true, // temporary for fix import json issue
+
+    "listEmittedFiles": true,
+    // "diagnostics": true,
+  },
+}

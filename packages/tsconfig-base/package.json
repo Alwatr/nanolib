@@ -1,0 +1,31 @@
+{
+  "name": "@alwatr/tsconfig-base",
+  "version": "1.0.0",
+  "description": "This is a base TypeScript configuration for Alwatr projects.",
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "tsconfig.json",
+    "tsconfig-base",
+    "esm",
+    "alwatr"
+  ],
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "tsconfig.json",
+    "**/*.{d.ts.map,d.ts,js.map,js,html,md}"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/tsconfig-base"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/tsconfig-base#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  }
+}
