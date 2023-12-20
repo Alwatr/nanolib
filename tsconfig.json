@@ -1,0 +1,13 @@
+// https://www.typescriptlang.org/tsconfig
+{
+  "extends": "@alwatr/tsconfig-base",
+  "compilerOptions": {
+    "composite": true,
+    "tsBuildInfoFile": ".tsbuildinfo"
+  },
+  "files": [],
+  "exclude": [],
+  "references": [
+    {"path": "./packages/flat-string"}
+  ]
+}
