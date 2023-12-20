@@ -1,0 +1,36 @@
+{
+  "name": "@alwatr/flat-string",
+  "version": "1.0.0",
+  "description": "The `flat-string` function Flattens the underlying C structures of a concatenated JavaScript string.",
+  "keywords": [
+    "string",
+    "flat",
+    "optimize",
+    "concat",
+    "concatenation",
+    "util",
+    "typescript",
+    "esm",
+    "alwatr"
+  ],
+  "main": "main.js",
+  "type": "module",
+  "types": "main.d.ts",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "**/*.{d.ts.map,d.ts,js.map,js,html,md}"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/flat-string"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/flat-string#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  }
+}
