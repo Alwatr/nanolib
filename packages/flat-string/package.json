@@ -47,7 +47,6 @@
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv *.js *.d.ts *.d.ts.map *.js.map .tsbuildinfo"
   },
-  "dependencies": {},
   "devDependencies": {
     "@alwatr/tsconfig-base": "workspace:^",
     "typescript": "^5.3.3"
@@ -60,6 +59,8 @@
       "rootDir": "src",
       "outDir": "."
     },
-    "include": ["src/**/*.ts"]
+    "include": [
+      "src/**/*.ts"
+    ]
   }
 }

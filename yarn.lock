@@ -17,6 +17,7 @@ __metadata:
   resolution: "@alwatr/flat-string@workspace:packages/flat-string"
   dependencies:
     "@alwatr/tsconfig-base": "workspace:^"
+    typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
@@ -1130,7 +1131,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "alwatr-nanolib@workspace:."
   dependencies:
-    "@alwatr/tsconfig-base": "workspace:^"
     "@lerna-lite/changed": "npm:^3.1.0"
     "@lerna-lite/cli": "npm:^3.1.0"
     "@lerna-lite/diff": "npm:^3.1.0"
