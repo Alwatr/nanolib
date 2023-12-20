@@ -13,7 +13,7 @@
   "explorer.fileNesting.patterns": {
     "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
     "*.ts": "${capture}.js, ${capture}.js.map, ${capture}.d.ts, ${capture}.d.ts.map",
-    "tsconfig.json": "tsconfig.*.json"
+    "tsconfig.json": "tsconfig.*.json, .tsbuildinfo"
   },
   "files.associations": {
     "*.ajs": "json",
@@ -23,12 +23,20 @@
   "files.exclude": {
     // "**/*.map": true,
     // "**/*.d.ts": true,
-    "**/*.tsbuildinfo": true
+    // "**/*.tsbuildinfo": true
   },
   "git.autoStash": true,
-  "git.branchProtection": ["main", "next"],
-  "githubPullRequests.ignoredPullRequestBranches": ["main", "next"],
-  "markdownlint.ignore": ["**/CHANGELOG.md"],
+  "git.branchProtection": [
+    "main",
+    "next"
+  ],
+  "githubPullRequests.ignoredPullRequestBranches": [
+    "main",
+    "next"
+  ],
+  "markdownlint.ignore": [
+    "**/CHANGELOG.md"
+  ],
   "npm.packageManager": "yarn",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
   "prettier.useEditorConfig": true,
@@ -39,5 +47,10 @@
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "cSpell.words": ["Alwatr", "flatomise", "nanolib", "tsbuildinfo"]
+  "cSpell.words": [
+    "Alwatr",
+    "flatomise",
+    "nanolib",
+    "tsbuildinfo"
+  ]
 }
