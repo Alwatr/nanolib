@@ -1,0 +1,51 @@
+{
+  "name": "@alwatr/eslint-config",
+  "version": "1.0.0",
+  "description": "Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses esbuild for enhanced performance.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "keywords": [
+    "build",
+    "bundle",
+    "esbuild",
+    "typescript",
+    "esm",
+    "alwatr"
+  ],
+  "type": "commonjs",
+  "main": "./eslint-config.cjs",
+  "license": "MIT",
+  "files": [
+    "**/*.{d.ts.map,d.ts,js.map,js,html,md,cjs,mjs,cjs.map,mjs.map}"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/eslint-config"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "devDependencies": {
+    "@alwatr/tsconfig-base": "workspace:^",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "esbuild": "^0.19.10"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">6.0.0",
+    "@typescript-eslint/parser": ">6.0.0",
+    "eslint": ">8.0.0",
+    "eslint-import-resolver-typescript": ">3.0.0",
+    "eslint-plugin-import": ">2.0.0"
+  }
+}
