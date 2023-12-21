@@ -12,6 +12,7 @@
   ],
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "license": "MIT",
+  "main": "tsconfig.json",
   "files": [
     "tsconfig.json",
     "**/*.{d.ts.map,d.ts,js.map,js,html,md,cjs,mjs,cjs.map,mjs.map}"
