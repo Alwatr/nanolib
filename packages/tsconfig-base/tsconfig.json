@@ -23,6 +23,9 @@
     // "noEmitHelpers": true,
     // "downlevelIteration": true,
     "isolatedModules": true, // need for esbuild
+    "pretty": true,
+    "newLine": "lf",
+    // "stripInternal": true,
 
     /* Strict Type-Checking Options */
     "strict": true,
@@ -40,8 +43,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noEmitOnError": true,
     // "noUncheckedIndexedAccess": true,
-    // "noPropertyAccessFromIndexSignature": true,
 
     /* Module Resolution Options */
     // "paths": {},
