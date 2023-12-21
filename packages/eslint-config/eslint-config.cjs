@@ -1,3 +1,6 @@
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
   extends: [
     'eslint:recommended',
@@ -31,7 +34,7 @@ module.exports = {
     },
   },
   rules: {
-    'max-len': ['error', {code: 120}],
+    'max-len': ['error', {code: 140}],
     'no-eval': ['error', {allowIndirect: true}],
     'no-floating-decimal': 'error',
     'space-infix-ops': 'error',

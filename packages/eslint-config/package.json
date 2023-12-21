@@ -1,12 +1,14 @@
 {
   "name": "@alwatr/eslint-config",
   "version": "1.0.0",
-  "description": "Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses esbuild for enhanced performance.",
+  "description": "Alwatr ECMAScript Style Guide as a ESLint shareable configurations.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "build",
-    "bundle",
-    "esbuild",
+    "eslint",
+    "eslint-config",
+    "lint",
+    "linter",
+    "style-guide",
     "typescript",
     "esm",
     "alwatr"
@@ -29,7 +31,12 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "prettier": "@alwatr/prettier-config",
+  "dependencies": {
+    "esbuild": "^0.19.10"
+  },
   "devDependencies": {
+    "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
@@ -37,9 +44,6 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "esbuild": "^0.19.10"
   },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": ">6.0.0",

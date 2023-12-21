@@ -1,20 +1,19 @@
 {
-  "name": "@alwatr/tsconfig-base",
+  "name": "@alwatr/prettier-config",
   "version": "1.0.0",
-  "description": "This is a base TypeScript configuration for Alwatr projects.",
+  "description": "Alwatr's shareable configurations for Prettier.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
+    "prettier",
+    "config",
     "typescript",
-    "tsconfig",
-    "tsconfig.json",
-    "tsconfig-base",
     "esm",
     "alwatr"
   ],
-  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "type": "commonjs",
+  "main": "./prettier.config.cjs",
   "license": "MIT",
-  "main": "tsconfig.json",
   "files": [
-    "tsconfig.json",
     "**/*.{d.ts.map,d.ts,js.map,js,html,md,cjs,mjs,cjs.map,mjs.map}"
   ],
   "publishConfig": {
@@ -23,9 +22,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/tsconfig-base"
+    "directory": "packages/prettier-config"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/tsconfig-base#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/prettier-config#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },

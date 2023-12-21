@@ -29,10 +29,12 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "prettier": "@alwatr/prettier-config",
   "dependencies": {
     "esbuild": "^0.19.10"
   },
   "devDependencies": {
+    "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "typescript": "^5.3.3"
   }

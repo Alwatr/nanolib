@@ -41,6 +41,7 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "prettier": "@alwatr/prettier-config",
   "scripts": {
     "b": "yarn run build",
     "w": "yarn run watch",
@@ -57,6 +58,7 @@
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
+    "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "typescript": "^5.3.3"
   }
