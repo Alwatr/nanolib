@@ -2,13 +2,13 @@
 
 This is a base TypeScript configuration for Alwatr projects.
 
-## Usage
-
-Install the package:
+## installation
 
 ```bash
 yarn add -D @alwatr/tsconfig-base
 ```
+
+## Usage
 
 Create a `tsconfig.json` file in the root of your project:
 
