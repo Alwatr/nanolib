@@ -45,7 +45,7 @@ const devMode = process.env.NODE_ENV !== 'production';
   const alsoCjs = esbuildOptions.format === 'esm' && esbuildOptions.cjs;
   delete esbuildOptions.cjs;
 
-  if(alsoCjs) {
+  if (alsoCjs) {
     esbuildOptions.outExtension = {
       ...esbuildOptions.outExtension,
       '.js': '.mjs',

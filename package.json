@@ -20,7 +20,7 @@
     "l": "yarn run lint",
     "f": "yarn run format",
     "rl": "yarn run pull && yarn run clean && yarn run build && yarn run release",
-    "upd": "yarn set version latest; yarn up '*' -i; yarn up '*' -R; yarn dlx @yarnpkg/sdks vscode; yarn dedupe",
+    "upd": "yarn set version latest; yarn up '*'; yarn up '*' -R; yarn dlx @yarnpkg/sdks vscode; yarn dedupe",
     "lint": "eslint . --config .eslintrc.json --ext .ts",
     "build": "lerna run build",
     "format": "yarn run format:prettier && yarn run format:eslint",
@@ -32,6 +32,7 @@
     "publish": "lerna publish from-package"
   },
   "devDependencies": {
+    "@alwatr/eslint-config": "workspace:^",
     "@lerna-lite/changed": "^3.1.0",
     "@lerna-lite/cli": "^3.1.0",
     "@lerna-lite/diff": "^3.1.0",
@@ -42,7 +43,6 @@
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8.56.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3"

@@ -12,6 +12,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@alwatr/eslint-config@workspace:^, @alwatr/eslint-config@workspace:packages/eslint-config":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/eslint-config@workspace:packages/eslint-config"
+  dependencies:
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
+    "@typescript-eslint/parser": "npm:^6.15.0"
+    esbuild: "npm:^0.19.10"
+    eslint: "npm:^8.56.0"
+    eslint-import-resolver-typescript: "npm:^3.6.1"
+    eslint-plugin-import: "npm:^2.29.1"
+    typescript: "npm:^5.3.3"
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": ">6.0.0"
+    "@typescript-eslint/parser": ">6.0.0"
+    eslint: ">8.0.0"
+    eslint-import-resolver-typescript: ">3.0.0"
+    eslint-plugin-import: ">2.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/flat-string@workspace:packages/flat-string":
   version: 0.0.0-use.local
   resolution: "@alwatr/flat-string@workspace:packages/flat-string"
@@ -1233,6 +1254,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "alwatr-nanolib@workspace:."
   dependencies:
+    "@alwatr/eslint-config": "workspace:^"
     "@lerna-lite/changed": "npm:^3.1.0"
     "@lerna-lite/cli": "npm:^3.1.0"
     "@lerna-lite/diff": "npm:^3.1.0"
@@ -1243,7 +1265,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^6.15.0"
     "@typescript-eslint/parser": "npm:^6.15.0"
     eslint: "npm:^8.56.0"
-    eslint-import-resolver-typescript: "npm:^3.6.1"
     eslint-plugin-import: "npm:^2.29.1"
     prettier: "npm:^3.1.1"
     typescript: "npm:^5.3.3"

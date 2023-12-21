@@ -18,7 +18,7 @@ Add the following scripts to your `package.json`:
     "build": "nano-build",
     "watch": "nano-build --watch",
     "clean": "rm -rfv dist .tsbuildinfo"
-  },
+  }
 }
 ```
 

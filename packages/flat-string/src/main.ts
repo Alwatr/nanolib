@@ -8,7 +8,7 @@
  * myStr = flatString(myStr);
  * ```
  */
-export function flatString (str: string): string {
+export function flatString(str: string): string {
   // @ts-expect-error because it alters wrong compilation errors.
   str | 0;
   return str;

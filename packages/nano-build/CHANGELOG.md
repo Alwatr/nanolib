@@ -7,4 +7,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **nano-build:** new package for esbuild ([224a09e](https://github.com/Alwatr/nanolib/commit/224a09e9e20c0b8b1ff1de3c224ef84ee2be1f5b)) by @AliMD
+- **nano-build:** new package for esbuild ([224a09e](https://github.com/Alwatr/nanolib/commit/224a09e9e20c0b8b1ff1de3c224ef84ee2be1f5b)) by @AliMD
