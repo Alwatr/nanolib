@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@alwatr/eslint-config": "workspace:^",
+    "@alwatr/prettier-config": "workspace:^",
     "@lerna-lite/changed": "^3.1.0",
     "@lerna-lite/cli": "^3.1.0",
     "@lerna-lite/diff": "^3.1.0",

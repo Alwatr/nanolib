@@ -34,6 +34,7 @@
     "esbuild": "^0.19.10"
   },
   "devDependencies": {
+    "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",

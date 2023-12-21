@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
-  "prettier": "@alwatr/prettier-config"
+  "prettier": "@alwatr/prettier-config",
+  "devDependencies": {
+    "@alwatr/prettier-config": "workspace:^"
+  }
 }
