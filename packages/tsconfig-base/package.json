@@ -28,5 +28,6 @@
   "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/tsconfig-base#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
-  }
+  },
+  "prettier": "@alwatr/prettier-config"
 }

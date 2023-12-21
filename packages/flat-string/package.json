@@ -41,6 +41,7 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "prettier": "@alwatr/prettier-config",
   "scripts": {
     "b": "yarn run build",
     "w": "yarn run watch",

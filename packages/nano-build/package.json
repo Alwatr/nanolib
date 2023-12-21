@@ -29,6 +29,7 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "prettier": "@alwatr/prettier-config",
   "dependencies": {
     "esbuild": "^0.19.10"
   },

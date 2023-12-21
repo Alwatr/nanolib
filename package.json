@@ -13,6 +13,7 @@
   "workspaces": [
     "packages/*"
   ],
+  "prettier": "@alwatr/prettier-config",
   "scripts": {
     "b": "yarn run build",
     "c": "yarn run clean",
