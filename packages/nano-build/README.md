@@ -2,13 +2,13 @@
 
 Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses esbuild for enhanced performance.
 
-## Usage
-
-Install the package:
+## Installation
 
 ```bash
 yarn add -D @alwatr/nano-build
 ```
+
+## Usage
 
 Add the following scripts to your `package.json`:
 

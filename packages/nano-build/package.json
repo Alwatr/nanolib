@@ -11,6 +11,7 @@
     "esm",
     "alwatr"
   ],
+  "type": "commonjs",
   "bin": "./nano-build.cjs",
   "license": "MIT",
   "files": [
@@ -28,11 +29,11 @@
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
+  "dependencies": {
+    "esbuild": "^0.19.10"
+  },
   "devDependencies": {
     "@alwatr/tsconfig-base": "workspace:^",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "esbuild": "^0.19.10"
   }
 }
