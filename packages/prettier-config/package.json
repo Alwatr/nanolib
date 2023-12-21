@@ -1,12 +1,11 @@
 {
   "name": "@alwatr/prettier-config",
   "version": "1.0.0",
-  "description": "Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses esbuild for enhanced performance.",
+  "description": "Alwatr's shareable configurations for Prettier.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "build",
-    "bundle",
-    "esbuild",
+    "prettier",
+    "config",
     "typescript",
     "esm",
     "alwatr"
