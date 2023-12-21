@@ -5,7 +5,7 @@
  * @returns The flattened string.
  * @example
  * ```typescript
- * flatString(myStr);
+ * myStr = flatString(myStr);
  * ```
  */
 export function flatString (str: string): string {
