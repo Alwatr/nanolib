@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.0.1...@alwatr/global-scope@1.1.0) (2023-12-22)
+
+### Features
+
+* **global-scope:** polyfill for globalThis ([17ac530](https://github.com/Alwatr/nanolib/commit/17ac530922c4b4300f370ece38b155d2b3d6713a)) by @AliMD
+
 ## [1.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.0.0...@alwatr/global-scope@1.0.1) (2023-12-22)
 
 **Note:** Version bump only for package @alwatr/global-scope
