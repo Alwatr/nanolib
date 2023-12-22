@@ -10,6 +10,7 @@ The `platformInfo` constant object has the following properties:
 - `development`: A boolean indicating whether the NODE_ENV environment variable is not set to `production` or in browser location.hostname is `localhost` or `127.xxx`.
 - `isNode`: A boolean indicating whether the current platform is node.js.
 - `isBrowser`: A boolean indicating whether the current platform is a browser.
+- `isWebWorker`: A boolean indicating whether the current platform is a web worker.
 - `isDeno`: A boolean indicating whether the current platform is Deno.
 - `isNw`: A boolean indicating whether the current platform is nw.js.
 - `isElectron`: A boolean indicating whether the current platform is Electron.

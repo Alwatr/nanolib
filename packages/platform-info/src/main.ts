@@ -27,6 +27,11 @@ interface PlatformInfo {
   isBrowser: boolean;
 
   /**
+   * Whether the current platform is a web worker.
+   */
+  isWebWorker: boolean;
+
+  /**
    * Whether the current platform is deno.
    */
   isDeno: boolean;
@@ -50,6 +55,7 @@ const platformInfo: PlatformInfo = {
   development: false,
   isNode: false,
   isBrowser: false,
+  isWebWorker: false,
   isDeno: false,
   isNw: false,
   isElectron: false,
@@ -58,6 +64,8 @@ const platformInfo: PlatformInfo = {
 if (typeof window === 'object' && typeof document === 'object' && document.nodeType === Node.DOCUMENT_NODE) {
   platformInfo.name = 'browser';
   platformInfo.isBrowser = true;
+  // @ts-expect-error - Cannot find name 'WorkerGlobalScope'
+  platformInfo.isWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 }
 else if (process.versions?.node != null) {
   platformInfo.name = 'node';
