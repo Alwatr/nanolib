@@ -15,7 +15,10 @@
   "bin": "./nano-build.cjs",
   "license": "MIT",
   "files": [
-    "**/*.{d.ts.map,d.ts,js.map,js,html,md,cjs,mjs,cjs.map,mjs.map}"
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "nano-build.cjs"
   ],
   "publishConfig": {
     "access": "public"
