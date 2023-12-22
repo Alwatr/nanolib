@@ -15,6 +15,12 @@ export const globalScope: typeof globalThis =
   (typeof global === 'object' && global) ||
   self;
 
+// polyfill for globalThis.
+if (globalScope.globalThis !== globalScope) {
+  // @ts-expect-error - Cannot assign to 'globalThis' because it is a read-only property.
+  globalScope.globalThis = globalScope;
+}
+
 /**
  * A global variable that can be used to share state across modules without accessible publicly in the global scope.
  *
