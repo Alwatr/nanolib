@@ -1,18 +1,8 @@
-# Global Scope
+# Global Scope Module
 
-Cross-platform substitute for globalThis that operates in both Node.js and the browser, providing accurate type definitions and additional global variables to improve debugging.
+## globalScope
 
-## Installation
-
-```bash
-yarn add @alwatr/global-scope
-```
-
-## Usage
-
-### globalScope
-
-Alternative to `globalThis` that works cross-platform.
+This TypeScript module provides a cross-platform alternative to `globalThis` named `globalScope`. This object works across different environments, including browsers (`window`), Node.js (`global`), and Web Workers (`self`).
 
 ```typescript
 import {globalScope} from '@alwatr/global-scope';
@@ -27,9 +17,19 @@ globalScope.setTimeout(() => {
 }, 1_000);
 ```
 
-### sharedScope_
+The module also includes a polyfill for `globalThis` to ensure compatibility across different JavaScript environments.
 
-A global variable that can be used to share state across modules without accessible publicly in the global scope.
+```typescript
+if (globalScope.globalThis !== globalScope) {
+  globalScope.globalThis = globalScope;
+}
+```
+
+## Shared Scope
+
+The module exports a `sharedScope_` object. This object can be used to share state across different modules without making the data publicly accessible in the global scope.
+
+For example, one module can set a property on `sharedScope_`, and another module can read that property. This allows for data sharing between different parts of your application.
 
 ```typescript
 // module1.ts
@@ -42,3 +42,16 @@ sharedScope_.foo = 'bar';
 import {sharedScope_} from '@alwatr/global-scope';
 console.log(sharedScope_.foo); // 'bar'
 ```
+
+### Global Scope Duplication Check
+
+The module includes a check for duplication of the global scope definition. If the global scope has already been defined, an error is thrown.
+
+```typescript
+if (globalScope.__shared_scope_defined__ !== undefined) {
+  throw new Error('global_scope_module_duplicated');
+}
+globalScope.__shared_scope_defined__ = true;
+```
+
+This ensures that the global scope module is not accidentally included multiple times, which could lead to unexpected behavior from shared scope.
