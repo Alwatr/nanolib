@@ -53,6 +53,7 @@
     "nanolib",
     "outdir",
     "outfile",
-    "tsbuildinfo"
+    "tsbuildinfo",
+    "typeof"
   ]
 }
