@@ -11,7 +11,7 @@ yarn add @alwatr/deep-clone
 ## Usage
 
 ```typescript
-import deepClone from '@alwatr/deep-clone';
+import {deepClone} from '@alwatr/deep-clone';
 
 const obj1 = {
   a: 1,
