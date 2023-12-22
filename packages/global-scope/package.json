@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/global-scope",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cross-platform substitute for globalThis that operates in both Node.js and the browser, providing accurate type definitions and additional global variables to improve debugging.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

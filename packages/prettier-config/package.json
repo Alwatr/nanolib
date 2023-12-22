@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/prettier-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Alwatr's shareable configurations for Prettier.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
