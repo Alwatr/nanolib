@@ -49,6 +49,7 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "cSpell.words": [
     "Alwatr",
+    "Deno",
     "flatomise",
     "nanolib",
     "outdir",
