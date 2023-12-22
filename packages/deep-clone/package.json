@@ -62,8 +62,5 @@
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "deep-clone": "^4.0.0"
   }
 }
