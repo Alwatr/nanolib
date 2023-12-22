@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/global-scope",
   "version": "1.1.0",
-  "description": "Cross-platform substitute for globalThis that operates in both Node.js and the browser, providing accurate type definitions and additional global variables to improve debugging.",
+  "description": "This TypeScript module provides a cross-platform alternative to `globalThis` named `globalScope`. This object works across different environments, including browsers (`window`), Node.js (`global`), and Web Workers (`self`).",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "global",
