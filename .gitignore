@@ -27,13 +27,9 @@ package-lock.json
 
 # Build
 dist
-build
 .tsbuildinfo
 *.map
 *.d.ts
-*.js
-!*.config.js
-!**/res/*.js
 
 # Output of 'npm pack'
 *.tgz
