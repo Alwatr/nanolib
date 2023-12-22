@@ -25,7 +25,8 @@
   },
   "license": "MIT",
   "files": [
-    "dist/**/*"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
   ],
   "publishConfig": {
     "access": "public"
