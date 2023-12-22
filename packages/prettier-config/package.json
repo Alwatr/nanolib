@@ -14,10 +14,8 @@
   "main": "./prettier.config.cjs",
   "license": "MIT",
   "files": [
-    "package.json",
-    "README.md",
-    "CHANGELOG.md",
-    "prettier.config.cjs"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
   ],
   "publishConfig": {
     "access": "public"

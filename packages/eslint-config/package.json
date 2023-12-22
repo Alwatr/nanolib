@@ -17,10 +17,8 @@
   "main": "./eslint-config.cjs",
   "license": "MIT",
   "files": [
-    "package.json",
-    "README.md",
-    "CHANGELOG.md",
-    "eslint-config.cjs"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
   ],
   "publishConfig": {
     "access": "public"

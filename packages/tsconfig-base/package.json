@@ -14,10 +14,8 @@
   "license": "MIT",
   "main": "tsconfig.json",
   "files": [
-    "package.json",
-    "README.md",
-    "CHANGELOG.md",
-    "tsconfig.json"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
   ],
   "publishConfig": {
     "access": "public"

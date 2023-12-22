@@ -27,10 +27,8 @@
   },
   "license": "MIT",
   "files": [
-    "package.json",
-    "README.md",
-    "CHANGELOG.md",
-    "dist/**/*"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
   ],
   "publishConfig": {
     "access": "public"
