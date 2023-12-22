@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/Alwatr/nanolib/compare/@alwatr/deep-clone@1.0.2...@alwatr/deep-clone@1.0.3) (2023-12-22)
+
+### Bug Fixes
+
+* package.json include files ([97b35d1](https://github.com/Alwatr/nanolib/commit/97b35d11bf4125f482f595db81f284804d2870ed)) by @
+
 ## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/deep-clone@1.0.1...@alwatr/deep-clone@1.0.2) (2023-12-22)
 
 ### Bug Fixes
