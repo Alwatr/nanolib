@@ -12,6 +12,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@alwatr/deep-clone@workspace:packages/math":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/math@workspace:packages/math"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/deep-clone@workspace:packages/deep-clone":
   version: 0.0.0-use.local
   resolution: "@alwatr/deep-clone@workspace:packages/deep-clone"
