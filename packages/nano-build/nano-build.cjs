@@ -4,7 +4,7 @@ const {existsSync} = require('fs');
 
 const packageJsonPath = resolve(process.cwd(), 'package.json');
 if (existsSync(packageJsonPath) === false) {
-  console.error('package.json not found', {path: packageJsonPath});
+  console.error('❌ package.json not found', {path: packageJsonPath});
   process.exit(1);
 }
 const packageJson = require(packageJsonPath);
@@ -75,8 +75,8 @@ function getOptions() {
   let presetName = process.argv.find((arg) => arg.startsWith('--preset='))?.split('=')[1] ?? 'default';
   console.log('preset: %s', presetName);
   const presetOptions = presetRecord[presetName];
-  if (presetOptions) {
-    console.error('preset not found', {preset: presetName});
+  if (!presetOptions) {
+    console.error('❌ preset not found', {preset: presetName});
     process.exit(1);
   }
 
