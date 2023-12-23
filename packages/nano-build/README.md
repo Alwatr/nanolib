@@ -31,7 +31,6 @@ Add the following scripts to your `package.json`:
   entryPoints: ['src/main.ts'],
   outdir: 'dist',
   logLevel: 'info',
-  platform: 'node',
   target: 'es2020',
   minify: true,
   treeShaking: false,
@@ -55,6 +54,7 @@ Add the following scripts to your `package.json`:
 ```js
 {
   ...defaultPreset,
+  platform: 'node',
   format: 'esm',
   cjs: true,
   mangleProps: '_$',
@@ -67,8 +67,8 @@ Add the following scripts to your `package.json`:
 ```js
 {
   ...defaultPreset,
-  format: 'iife',
   platform: 'browser',
+  format: 'iife',
   mangleProps: '_$',
   treeShaking: true,
   sourcemap: false,
@@ -90,8 +90,8 @@ Add the following scripts to your `package.json`:
   ...defaultPreset,
   entryPoints: ['site/_ts/*.ts'],
   outdir: 'dist/es',
-  format: 'iife',
   platform: 'browser',
+  format: 'iife',
   mangleProps: '_$',
   treeShaking: true,
   sourcemap: false,
@@ -103,6 +103,21 @@ Add the following scripts to your `package.json`:
     'firefox78',
     'safari11',
   ],
+}
+```
+
+### `--preset=microservice`
+
+```js
+{
+  ...defaultPreset,
+  platform: 'node',
+  format: 'esm',
+  treeShaking: true,
+  mangleProps: '_$',
+  sourcemap: false,
+  sourcesContent: false,
+  target: 'node20',
 }
 ```
 

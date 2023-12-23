@@ -23,7 +23,6 @@ const defaultOptions = {
   entryPoints: ['src/main.ts'],
   outdir: 'dist',
   logLevel: 'info',
-  platform: 'node',
   target: 'es2020',
   minify: true,
   treeShaking: false,
@@ -42,16 +41,17 @@ const defaultOptions = {
 };
 
 const presetRecord = {
-  default: defaultOptions,
+  default: {},
   module: {
+    platform: 'node',
     format: 'esm',
     cjs: true,
     mangleProps: '_$',
     packages: 'external',
   },
   pwa: {
-    format: 'iife',
     platform: 'browser',
+    format: 'iife',
     mangleProps: '_$',
     treeShaking: true,
     sourcemap: false,
@@ -67,8 +67,8 @@ const presetRecord = {
   pmpa: {
     entryPoints: ['site/_ts/*.ts'],
     outdir: 'dist/es',
-    format: 'iife',
     platform: 'browser',
+    format: 'iife',
     mangleProps: '_$',
     treeShaking: true,
     sourcemap: false,
@@ -80,6 +80,15 @@ const presetRecord = {
       'firefox78',
       'safari11',
     ],
+  },
+  microservice: {
+    platform: 'node',
+    format: 'esm',
+    treeShaking: true,
+    mangleProps: '_$',
+    sourcemap: false,
+    sourcesContent: false,
+    target: 'node20',
   },
 };
 
@@ -115,14 +124,18 @@ function getOptions() {
   return options;
 }
 
+/**
+ * Nano build process.
+ * @param {import('esbuild').BuildOptions} options
+ */
 async function nanoBuild(options) {
   const alsoCjs = options.format === 'esm' && options.cjs;
   delete options.cjs;
 
-  if (alsoCjs) {
+  if (options.format === 'esm' || options.format === 'cjs') {
     options.outExtension = {
+      '.js': options.format === 'esm' ? '.mjs' : '.cjs',
       ...options.outExtension,
-      '.js': '.mjs',
     };
   }
 
