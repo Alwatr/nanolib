@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.1.1...@alwatr/nano-build@1.2.0) (2023-12-23)
+
+### Bug Fixes
+
+* refactor nano-build.cjs to include microservice preset and update all presets configs ([3f662b8](https://github.com/Alwatr/nanolib/commit/3f662b83be33d7b75469734be4490bc00f935112)) by @AliMD
+
+### Features
+
+* **nano-build:** microservice preset ([3b464d5](https://github.com/Alwatr/nanolib/commit/3b464d5400c84cd0719bb95bdb7a3ef9edfc3d09)) by @njfamirm
+
 ## [1.1.1](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.1.0...@alwatr/nano-build@1.1.1) (2023-12-23)
 
 ### Bug Fixes
