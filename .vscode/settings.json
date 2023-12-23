@@ -54,6 +54,7 @@
     "nanolib",
     "outdir",
     "outfile",
+    "pmpa",
     "tsbuildinfo",
     "typeof"
   ]

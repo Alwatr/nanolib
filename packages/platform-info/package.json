@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/platform-info",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This module provides a way to detect the current platform where the script is running. It defines a constant `platformInfo` which holds the information about the current platform.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -67,7 +67,7 @@
     "cb": "yarn run clean && yarn run build",
     "d": "yarn run build:es && ALWATR_DEBUG=1 yarn node",
     "build": "yarn run build:ts & yarn run build:es",
-    "build:es": "nano-build",
+    "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",

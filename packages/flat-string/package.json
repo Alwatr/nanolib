@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/flat-string",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "The `flat-string` function flattens the underlying C structures of a concatenated JavaScript string.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -60,7 +60,7 @@
     "cb": "yarn run clean && yarn run build",
     "d": "yarn run build:es && ALWATR_DEBUG=1 yarn node",
     "build": "yarn run build:ts & yarn run build:es",
-    "build:es": "nano-build",
+    "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",

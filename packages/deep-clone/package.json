@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/deep-clone",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Clone deeply nested objects and arrays in JavaScript.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -59,7 +59,7 @@
     "cb": "yarn run clean && yarn run build",
     "d": "yarn run build:es && ALWATR_DEBUG=1 yarn node",
     "build": "yarn run build:ts & yarn run build:es",
-    "build:es": "nano-build",
+    "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",
