@@ -27,7 +27,7 @@ package-lock.json
 
 # Build
 dist
-.tsbuildinfo
+*.tsbuildinfo
 *.map
 *.d.ts
 
