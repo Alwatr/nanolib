@@ -27,7 +27,7 @@
     "format": "yarn run format:prettier && yarn run format:eslint",
     "format:eslint": "yarn run lint --fix",
     "format:prettier": "prettier . --ignore-path .gitignore --write",
-    "clean": "git add . && git clean -d -x -f --exclude=node_modules --exclude='*.env' --exclude=_data --exclude='.pnp*' --exclude=.yarn",
+    "clean": "git add -v . && git clean -d -x -f --exclude=node_modules --exclude='*.env' --exclude=_data --exclude='.pnp*' --exclude=.yarn",
     "pull": "git pull",
     "release": "lerna version",
     "publish": "lerna publish from-package"
