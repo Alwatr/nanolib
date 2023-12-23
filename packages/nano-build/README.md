@@ -69,11 +69,17 @@ Add the following scripts to your `package.json`:
   ...defaultPreset,
   format: 'iife',
   platform: 'browser',
-  target: 'es2017',
   mangleProps: '_$',
   treeShaking: true,
   sourcemap: false,
   sourcesContent: false,
+  target: [
+    'es2018',
+    'chrome62',
+    'edge79',
+    'firefox78',
+    'safari11',
+  ],
 }
 ```
 
@@ -86,11 +92,17 @@ Add the following scripts to your `package.json`:
   outdir: 'dist/es',
   format: 'iife',
   platform: 'browser',
-  target: 'es2017',
   mangleProps: '_$',
   treeShaking: true,
   sourcemap: false,
   sourcesContent: false,
+  target: [
+    'es2018',
+    'chrome62',
+    'edge79',
+    'firefox78',
+    'safari11',
+  ],
 }
 ```
 

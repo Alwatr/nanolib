@@ -52,22 +52,34 @@ const presetRecord = {
   pwa: {
     format: 'iife',
     platform: 'browser',
-    target: 'es2017',
     mangleProps: '_$',
     treeShaking: true,
     sourcemap: false,
     sourcesContent: false,
+    target: [
+      'es2018',
+      'chrome62',
+      'edge79',
+      'firefox78',
+      'safari11',
+    ],
   },
   pmpa: {
     entryPoints: ['site/_ts/*.ts'],
     outdir: 'dist/es',
     format: 'iife',
     platform: 'browser',
-    target: 'es2017',
     mangleProps: '_$',
     treeShaking: true,
     sourcemap: false,
     sourcesContent: false,
+    target: [
+      'es2018',
+      'chrome62',
+      'edge79',
+      'firefox78',
+      'safari11',
+    ],
   },
 };
 
