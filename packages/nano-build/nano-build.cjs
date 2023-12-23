@@ -103,7 +103,7 @@ function getOptions() {
   return options;
 }
 
-async function build(options) {
+async function nanoBuild(options) {
   const alsoCjs = options.format === 'esm' && options.cjs;
   delete options.cjs;
 
@@ -136,4 +136,4 @@ async function build(options) {
   }
 }
 
-build(getOptions());
+nanoBuild(getOptions());
