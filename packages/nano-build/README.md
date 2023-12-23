@@ -17,7 +17,6 @@ Add the following scripts to your `package.json`:
   "scripts": {
     "build": "nano-build --preset=module",
     "watch": "yarn run build --watch",
-    "clean": "rm -rfv dist .tsbuildinfo"
   }
 }
 ```

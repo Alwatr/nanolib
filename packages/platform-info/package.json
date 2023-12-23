@@ -72,7 +72,7 @@
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
-    "clean": "rm -rfv dist .tsbuildinfo"
+    "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
