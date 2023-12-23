@@ -1,6 +1,12 @@
 const {context, build} = require('esbuild');
 const {resolve} = require('path');
+const {existsSync} = require('fs');
+
 const packageJsonPath = resolve(process.cwd(), 'package.json');
+if (existsSync(packageJsonPath) === false) {
+  console.error('package.json not found', {path: packageJsonPath});
+  process.exit(1);
+}
 const packageJson = require(packageJsonPath);
 
 console.log('🚀 nano-build');
