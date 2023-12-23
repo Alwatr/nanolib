@@ -15,16 +15,88 @@ Add the following scripts to your `package.json`:
 ```json
 {
   "scripts": {
-    "build": "nano-build",
-    "watch": "nano-build --watch",
+    "build": "nano-build --preset=module",
+    "watch": "yarn run build --watch",
     "clean": "rm -rfv dist .tsbuildinfo"
   }
 }
 ```
 
+## Presets
+
+### default
+
+```js
+{
+  entryPoints: ['src/main.ts'],
+  outdir: 'dist',
+  logLevel: 'info',
+  platform: 'node',
+  target: 'es2020',
+  minify: true,
+  treeShaking: false,
+  sourcemap: true,
+  sourcesContent: true,
+  bundle: true,
+  splitting: false,
+  charset: 'utf8',
+  legalComments: 'none',
+  banner: {
+    js: "/* @package_name v@package_version */"
+  },
+  define: {
+    __package_version: `'@package_version'`,
+  },
+}
+```
+
+### `--preset=module`
+
+```js
+{
+  ...defaultPreset,
+  format: 'esm',
+  cjs: true,
+  mangleProps: '_$',
+  packages: 'external',
+}
+```
+
+### `--preset=pwa`
+
+```js
+{
+  ...defaultPreset,
+  format: 'iife',
+  platform: 'browser',
+  target: 'es2017',
+  mangleProps: '_$',
+  treeShaking: true,
+  sourcemap: false,
+  sourcesContent: false,
+}
+```
+
+### `--preset=pmpa`
+
+```js
+{
+  ...defaultPreset,
+  entryPoints: ['site/_ts/*.ts'],
+  outdir: 'dist/es',
+  format: 'iife',
+  platform: 'browser',
+  target: 'es2017',
+  mangleProps: '_$',
+  treeShaking: true,
+  sourcemap: false,
+  sourcesContent: false,
+}
+```
+
 ## Configuration
 
-Add 'nano-build' field to your `package.json`:
+Add 'nano-build' field to your `package.json` for overwriting configuration:
 
 ```json
 {
@@ -38,36 +110,6 @@ Add 'nano-build' field to your `package.json`:
   "nano-build-production": {
     "minify": true,
     "sourcemap": false
-  }
-}
-```
-
-default configuration:
-
-```json
-{
-  "entryPoints": ["src/main.ts"],
-  "outdir": "dist",
-  "logLevel": "info",
-  "platform": "node",
-  "target": "es2020",
-  "format": "esm",
-  "cjs": true,
-  "minify": true,
-  "mangleProps": "_$",
-  "treeShaking": false,
-  "sourcemap": true,
-  "sourcesContent": true,
-  "bundle": true,
-  "packages": "external",
-  "splitting": false,
-  "charset": "utf8",
-  "legalComments": "none",
-  "banner": {
-    "js": "/* @package_name v@package_version */"
-  },
-  "define": {
-    "__package_version": "'@package_version'"
   }
 }
 ```
