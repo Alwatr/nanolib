@@ -10,7 +10,7 @@ if (existsSync(packageJsonPath) === false) {
 const packageJson = require(packageJsonPath);
 
 console.log('🚀 nano-build');
-console.log('📦 ' + packageJson.name);
+console.log('📦 %s\n', packageJson.name);
 
 const watchMode = process.argv.includes('--watch');
 
@@ -73,7 +73,7 @@ const presetRecord = {
 
 function getOptions() {
   let presetName = process.argv.find((arg) => arg.startsWith('--preset='))?.split('=')[1] ?? 'default';
-  console.log('preset: %s', presetName);
+  console.log('🔧 preset: %s', presetName);
   const presetOptions = presetRecord[presetName];
   if (!presetOptions) {
     console.error('❌ preset not found', {preset: presetName});
@@ -94,7 +94,7 @@ function getOptions() {
     }
   });
 
-  console.log('options: %o', options);
+  console.log('🛠️  options: %o\n', options);
 
   if (typeof options.mangleProps === 'string') {
     options.mangleProps = new RegExp(options.mangleProps);
@@ -122,7 +122,7 @@ async function nanoBuild(options) {
   }
 
   // else
-  console.log('🛠️ Building...');
+  console.log('🛠️  Building...');
   await build(options);
   if (alsoCjs) {
     await build({
