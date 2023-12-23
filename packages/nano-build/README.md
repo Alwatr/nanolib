@@ -106,6 +106,19 @@ Add the following scripts to your `package.json`:
 }
 ```
 
+### `--preset=microservice`
+
+```js
+{
+  ...defaultPreset,
+  format: 'esm',
+  treeShaking: true,
+  outfile: 'dist/main.mjs',
+  mangleProps: '_$',
+  target: 'node20'
+}
+```
+
 ## Configuration
 
 Add 'nano-build' field to your `package.json` for overwriting configuration:

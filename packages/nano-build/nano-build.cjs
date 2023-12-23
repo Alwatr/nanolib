@@ -43,6 +43,13 @@ const defaultOptions = {
 
 const presetRecord = {
   default: defaultOptions,
+  microservice: {
+    format: 'esm',
+    treeShaking: true,
+    outfile: 'dist/main.mjs',
+    mangleProps: '_$',
+    target: 'node20'
+  },
   module: {
     format: 'esm',
     cjs: true,
