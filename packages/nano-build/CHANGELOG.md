@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.1.0...@alwatr/nano-build@1.1.1) (2023-12-23)
+
+### Bug Fixes
+
+* **nano-build:** target versions in presets ([b73cb26](https://github.com/Alwatr/nanolib/commit/b73cb26d88835694fe6eb8ff8959909460a00259)) by @
+
 # [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.0.4...@alwatr/nano-build@1.1.0) (2023-12-23)
 
 ### Bug Fixes
