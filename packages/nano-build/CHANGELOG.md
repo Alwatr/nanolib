@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.0.4...@alwatr/nano-build@1.1.0) (2023-12-23)
+
+### Bug Fixes
+
+* **nano-build:** Add check for package.json existence ([2a95315](https://github.com/Alwatr/nanolib/commit/2a95315b069644737d170195d8dc6f415407fa15)) by @AliMD
+* **nano-build:** error messages ([e95b497](https://github.com/Alwatr/nanolib/commit/e95b4970e6faeb3f600cefb7246233d45b102c37)) by @AliMD
+* **nano-build:** root fn name ([adf7b8f](https://github.com/Alwatr/nanolib/commit/adf7b8f4c2b71b528279d26fe5609cfde7095197)) by @AliMD
+
+### Features
+
+* **nano-build:** Refactor build options and add presets ([c24f0b7](https://github.com/Alwatr/nanolib/commit/c24f0b79f34167cfbb5f769dbb2de981ca377a9f)) by @AliMD
+* **nano-lib:** enhance console.log statements ([92f9b2a](https://github.com/Alwatr/nanolib/commit/92f9b2a84035e4d1d92480d692e06426f9e2d371)) by @AliMD
+
 ## [1.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.0.3...@alwatr/nano-build@1.0.4) (2023-12-22)
 
 **Note:** Version bump only for package @alwatr/nano-build
