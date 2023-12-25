@@ -17,7 +17,7 @@ Create a `tsconfig.json` file in the root of your project:
   "extends": "@alwatr/tsconfig-base",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "."
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts"]
 }
