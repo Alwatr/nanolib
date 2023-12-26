@@ -55,6 +55,7 @@
     "outdir",
     "outfile",
     "pmpa",
+    "Strigifyable",
     "tsbuildinfo",
     "typeof"
   ]
