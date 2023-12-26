@@ -1,0 +1,56 @@
+{
+  "name": "@alwatr/type-helper",
+  "version": "1.0.0",
+  "description": "Collection of useful typescript type helpers.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "keywords": [
+    "type",
+    "type-helper",
+    "types",
+    "typescript",
+    "utility",
+    "util",
+    "utils",
+    "nanolib",
+    "alwatr"
+  ],
+  "main": "",
+  "types": "./dist/main.d.ts",
+  "license": "MIT",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/type-helper"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/type-helper#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "prettier": "@alwatr/prettier-config",
+  "scripts": {
+    "b": "yarn run build",
+    "w": "yarn run watch",
+    "c": "yarn run clean",
+    "cb": "yarn run clean && yarn run build",
+    "d": "yarn run build:es && ALWATR_DEBUG=1 yarn node",
+    "build": "yarn run build:ts",
+    "build:es": "echo skip build:es",
+    "build:ts": "tsc --build",
+    "watch": "yarn run watch:ts & yarn run watch:es",
+    "watch:es": "yarn run build:es --watch",
+    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
+    "clean": "rm -rfv dist *.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@alwatr/prettier-config": "workspace:^",
+    "@alwatr/tsconfig-base": "workspace:^",
+    "typescript": "^5.3.3"
+  }
+}
