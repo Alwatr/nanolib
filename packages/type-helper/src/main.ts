@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/consistent-indexed-object-style */
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/consistent-indexed-object-style, @typescript-eslint/ban-types */
 
 /**
  * Represents a primitive type in TypeScript.
