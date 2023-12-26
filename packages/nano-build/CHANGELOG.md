@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.2.1...@alwatr/nano-build@1.2.2) (2023-12-26)
+
+### Bug Fixes
+
+* **nano-build:** mangle with 2 underline in module ([bb7b18d](https://github.com/Alwatr/nanolib/commit/bb7b18d81adfe2334aed1cbaedeea519485ce63e)) by @njfamirm
+
 ## [1.2.1](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.2.0...@alwatr/nano-build@1.2.1) (2023-12-23)
 
 **Note:** Version bump only for package @alwatr/nano-build

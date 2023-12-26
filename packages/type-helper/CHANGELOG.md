@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.1](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.0.0-beta.0...@alwatr/type-helper@1.0.0-beta.1) (2023-12-26)
+
+### Features
+
+* **type:** add number key to dictionary ([e6cae47](https://github.com/Alwatr/nanolib/commit/e6cae47d1cf5344961ea7776dc4ca1a10d41e2fd)) by @njfamirm
+
 # 1.0.0-beta.0 (2023-12-26)
 
 ### Features
