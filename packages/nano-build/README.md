@@ -56,7 +56,7 @@ Add the following scripts to your `package.json`:
   platform: 'node',
   format: 'esm',
   cjs: true,
-  mangleProps: '_$',
+  mangleProps: '__$',
   packages: 'external',
 }
 ```
