@@ -168,8 +168,8 @@ export type Merge<M, N> = Omit<M, keyof N> & N;
 /**
  * Represents a dictionary object with string keys and values of type T.
  */
-export interface Dictionary<T> {
-  [key: string]: T;
+export interface Dictionary<T = unknown> {
+  [key: string | number]: T;
 }
 
 /**
