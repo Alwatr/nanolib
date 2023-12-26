@@ -85,7 +85,7 @@ const presetRecord = {
     platform: 'node',
     format: 'esm',
     treeShaking: true,
-    mangleProps: '_$',
+    mangleProps: '.*',
     sourcemap: false,
     sourcesContent: false,
     target: 'node20',
