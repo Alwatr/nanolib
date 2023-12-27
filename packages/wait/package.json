@@ -64,8 +64,10 @@
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
+  "dependencies": {
+    "@alwatr/global-scope": "workspace:^"
+  },
   "devDependencies": {
-    "@alwatr/global-scope": "workspace:^",
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
