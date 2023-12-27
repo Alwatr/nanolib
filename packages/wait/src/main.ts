@@ -91,9 +91,11 @@ export function waitForEvent(target: HasAddEventListener, eventName: string): Pr
  */
 export function waitForImmediate(): Promise<void> {
   if (typeof setImmediate !== 'function') {
-    if (typeof queueMicrotask !== 'function') {
-      return waitForTimeout(0);
+    if (typeof queueMicrotask === 'function') {
+      return waitForMicrotask();
     }
+
+    // else
     return waitForTimeout(0);
   }
   return new Promise((resolve) => setImmediate(resolve));
@@ -110,9 +112,11 @@ export function waitForImmediate(): Promise<void> {
  */
 export function waitForMicrotask(): Promise<void> {
   if (typeof queueMicrotask !== 'function') {
-    if (typeof setImmediate !== 'function') {
+    if (typeof setImmediate === 'function') {
       return waitForImmediate();
     }
+
+    // else
     return waitForTimeout(0);
   }
   return new Promise((resolve) => queueMicrotask(resolve));
