@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.2](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.0.0-beta.1...@alwatr/type-helper@1.0.0-beta.2) (2023-12-27)
+
+### Features
+
+* **type-helper:** add HasAddEventListener ([ba2b6fa](https://github.com/Alwatr/nanolib/commit/ba2b6fac1003c2028d8b75d8dfb9242e3f0cc730)) by @AliMD
+
 # [1.0.0-beta.1](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.0.0-beta.0...@alwatr/type-helper@1.0.0-beta.1) (2023-12-26)
 
 ### Features
