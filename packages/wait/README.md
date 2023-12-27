@@ -1,10 +1,8 @@
 # Wait
 
-This function simplifies the complex C structures that are part of a combined JavaScript string.
+Comprehensive toolkit for managing asynchronous operations in JavaScript.
 
-If you're frequently combining strings and then using that combined string somewhere else, you might discover that running your string through `flatString` significantly enhances performance.
-
-In simpler terms, `flatString` is a function that optimizes the way strings are stored in memory in JavaScript. When you concatenate strings, JavaScript internally creates a complex structure to save memory. However, when you need to use this string, for example, to write it to a file or send it over the network, this complex structure needs to be flattened, which can take time. By using `flatString`, you flatten the string right after concatenation, making the subsequent use of the string faster.
+It comprises a set of utility functions, each designed to pause execution until specific conditions are met or certain events occur. This feature makes these utilities particularly useful for controlling the flow of asynchronous code, allowing developers to handle complex scenarios with ease. The functions can be used individually or combined to create intricate asynchronous flows, providing a robust solution for various programming needs.
 
 ## Installation
 
@@ -12,10 +10,10 @@ In simpler terms, `flatString` is a function that optimizes the way strings are 
 yarn add @alwatr/wait
 ```
 
-<!-- ## Usage
+## Usage
 
 ```typescript
-import flatString from '@alwatr/wait';
+import {waitForTime} from '@alwatr/wait';
 
-myStr = flatString(myStr);
-``` -->
+await waitForTime(2000);
+```

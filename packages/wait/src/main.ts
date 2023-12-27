@@ -1,18 +1,19 @@
-import {globalScope} from '@alwatr/global-scope';
-
 import {requestAnimationFrame} from './polyfill';
+
+import type {HasAddEventListener} from '@alwatr/type-helper';
 
 /**
  * Wait for a given duration.
- * Use `zero` to wait for the next tick.
+ * Use `zero` for deferring the execution of a function until the call stack is clear.
  *
  * @param duration The duration to wait for.
  * @example
  * ```ts
- * await waitForTime(1000);
+ * await waitForTimeout(1000);
  * ```
+ * TODO: parse string duration using @alwatr/parse-duration.
  */
-export function waitForTime(duration: number): Promise<void> {
+export function waitForTimeout(duration: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, duration));
 }
 
@@ -23,10 +24,10 @@ export function waitForTime(duration: number): Promise<void> {
  * @returns A promise that resolves with the current time.
  * @example
  * ```ts
- * await waitForNextFrame();
+ * await waitForAnimationFrame();
  * ```
  */
-export function waitForNextFrame(): Promise<DOMHighResTimeStamp> {
+export function waitForAnimationFrame(): Promise<DOMHighResTimeStamp> {
   return new Promise((resolve) => requestAnimationFrame(resolve));
 }
 
@@ -38,7 +39,7 @@ export function waitForNextFrame(): Promise<DOMHighResTimeStamp> {
  * @returns A promise that resolves with the current time.
  * @example
  * ```ts
- * await waitForNextFrame();
+ * await waitForIdle();
  * ```
  */
 export function waitForIdle(timeout?: number): Promise<IdleDeadline> {
@@ -50,6 +51,7 @@ export function waitForIdle(timeout?: number): Promise<IdleDeadline> {
  *
  * @param element The element to listen on.
  * @param eventName The event name to listen for.
+ * @template T The event map type.
  * @returns A promise that resolves with the event.
  * @example
  * ```ts
@@ -61,24 +63,26 @@ export function waitForDomEvent<T extends keyof HTMLElementEventMap>(element: HT
 }
 
 /**
- * Wait for a DOM event to be dispatched.
+ * Wait for a event to be dispatched.
  *
+ * @param target The target to listen on.
  * @param eventName The event name to listen for.
  * @returns A promise that resolves with the event.
  * @example
  * ```ts
- * await waitForEvent('click');
+ * const sever = http.createServer();
+ * await waitForEvent(sever, 'request');
  * ```
  */
-export function waitForEvent(eventName: string): Promise<Event> {
+export function waitForEvent(target: HasAddEventListener, eventName: string): Promise<Event> {
   return new Promise((resolve) => {
-    globalScope.addEventListener(eventName, resolve, {once: true, passive: true});
+    target.addEventListener(eventName, resolve, {once: true, passive: true});
   });
 }
 
 /**
  * Wait immediate.
- * If `setImmediate` is not available, it will wait for 0 time.
+ * If `setImmediate` is not available, use `queueMicrotask` and if that is not available, use `setTimeout`.
  *
  * @example
  * ```ts
@@ -87,25 +91,16 @@ export function waitForEvent(eventName: string): Promise<Event> {
  */
 export function waitForImmediate(): Promise<void> {
   if (typeof setImmediate !== 'function') {
-    return waitForTime(0);
+    if (typeof queueMicrotask !== 'function') {
+      return waitForTimeout(0);
+    }
+    return waitForTimeout(0);
   }
   return new Promise((resolve) => setImmediate(resolve));
 }
 
 /**
- * Wait for the next tick.
- *
- * @example
- * ```ts
- * await waitForNextTick();
- * ```
- */
-export function waitForNextTick(): Promise<void> {
-  return new Promise((resolve) => process.nextTick(resolve));
-}
-
-/**
- * Wait for the next microtask.
+ * Wait for the next microtask queue.
  * Microtasks are tasks that are executed after the current task and before the next task.
  *
  * @example
@@ -114,5 +109,11 @@ export function waitForNextTick(): Promise<void> {
  * ```
  */
 export function waitForMicrotask(): Promise<void> {
+  if (typeof queueMicrotask !== 'function') {
+    if (typeof setImmediate !== 'function') {
+      return waitForImmediate();
+    }
+    return waitForTimeout(0);
+  }
   return new Promise((resolve) => queueMicrotask(resolve));
 }

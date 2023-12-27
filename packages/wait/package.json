@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/wait",
   "version": "0.0.0",
-  "description": "The `flat-string` function flattens the underlying C structures of a concatenated JavaScript string.",
+  "description": "Comprehensive toolkit for managing asynchronous operations.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "wait",
@@ -43,9 +43,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/flat-string"
+    "directory": "packages/wait"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/flat-string#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/wait#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
@@ -69,6 +69,7 @@
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
+    "@alwatr/type-helper": "workspace:^",
     "@types/node": "^20.10.5",
     "typescript": "^5.3.3"
   }
