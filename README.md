@@ -12,6 +12,8 @@ Here is a brief overview of the included libraries:
 6. [`eslint-config`](./packages/eslint-config/README.md): This is Alwatr's ECMAScript Style Guide presented as shareable ESLint configurations.
 7. [`deep-clone`](./packages/deep-clone/README.md): This function allows you to clone deeply nested objects and arrays in JavaScript.
 8. [`nano-build`](./packages/nano-build/README.md): This is a tool for building/bundling ECMAScript, TypeScript, and JavaScript libraries. It's user-friendly, requires no setup, follows best practices, has no dependencies, and uses esbuild for improved performance.
-9. [`async-queue`](./packages/async-queue/README.md): This is a utility for managing asynchronous operations in a queue.
+9. [`type-helper`](./packages/type-helper/README.md): Collection of useful typescript type helpers.
+10. [`wait`](./packages/wait/README.md): Comprehensive toolkit for managing asynchronous operations.
+<!-- 9. [`async-queue`](./packages/async-queue/README.md): This is a utility for managing asynchronous operations in a queue. -->
 
 For more detailed information and guidelines on how to use each package, please refer to to each package's README.
