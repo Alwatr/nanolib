@@ -190,3 +190,10 @@ type JSONArray = JSONValue[];
  * Represents an object of Record<string, JSONValues>
  */
 type JSONObject = Dictionary<JSONValue>;
+
+/**
+ * Represents an object that has the ability to add event listeners.
+ */
+export interface HasAddEventListener {
+  addEventListener: (type: string, listener: EventListenerOrEventListenerObject, options?: AddEventListenerOptions) => void;
+}
