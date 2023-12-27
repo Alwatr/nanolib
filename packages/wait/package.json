@@ -6,6 +6,7 @@
   "keywords": [
     "wait",
     "delay",
+    "until",
     "cross-platform",
     "ECMAScript",
     "typescript",
