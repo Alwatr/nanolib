@@ -2,7 +2,7 @@ import {platformInfo} from '@alwatr/platform-info';
 
 import type {AlwatrLogger} from './type.js';
 
-export const debugMode = platformInfo.isCli
+export const debugMode = platformInfo.development || platformInfo.isCli
   ? process.env.DEBUG !== undefined && process.env.DEBUG !== ''
   : typeof localStorage !== 'undefined' && localStorage.getItem('debug') === '1';
 
