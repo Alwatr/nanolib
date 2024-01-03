@@ -21,7 +21,7 @@ export const definedPackageList: Dictionary<string> = {};
  *
  * @example
  * ```typescript
- * definePackage('@scope/package-name', '2.0.1');
+ * definePackage('@scope/package-name', __package_version__);
  * ```
  */
 export function definePackage (packageName: string, version = 'v?'): void {

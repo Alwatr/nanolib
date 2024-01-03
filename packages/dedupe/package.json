@@ -1,13 +1,14 @@
 {
   "name": "@alwatr/dedupe",
   "version": "2.4.1",
-  "description": "A global package manager for defining and managing package versions across different parts of applications to prevent version conflicts.",
+  "description": "A package manager helper tool for debug list of defined (imported) packages in your ecosystem and prevent to duplicate import (install) multiple versions of the same package in your project (deduplicate packages).",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "dedupe",
     "define-package",
     "deduplicate",
     "package",
+    "package-manager",
     "cross-platform",
     "ECMAScript",
     "typescript",
