@@ -52,7 +52,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.10.5"
+    "@types/node": "npm:^20.10.6"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
