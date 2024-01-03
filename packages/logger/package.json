@@ -69,12 +69,10 @@
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
-    "@alwatr/type-helper": "workspace:^",
     "@types/node": "^20.10.6",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@alwatr/global-scope": "workspace:^",
     "@alwatr/platform-info": "workspace:^"
   }
 }

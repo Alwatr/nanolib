@@ -1,53 +1,35 @@
-# Async Queue
+# Alwatr Logger - `@alwatr/logger`
 
-A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.
+Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.
 
-## Installation
+## Example usage
 
-```bash
-yarn add @alwatr/async-queue
+```ts
+import {createLogger} from '@alwatr/logger';
+
+const logger = createLogger('demo');
+
+function sayHello(name: string) {
+  logger.logMethodArgs?.('sayHello', {name});
+}
 ```
 
-## Usage
+### Debug/Develope Mode (DEBUG_MODE)
 
-```typescript
-import {AsyncQueue} from '@alwatr/async-queue';
-import {waitForTimeout} from '@alwatr/wait';
+Many of the methods in the logger are no-ops when the debug mode is off. This is to prevent unnecessary performance impact in production.
 
-const queue = new AsyncQueue();
+#### Browser
 
-async function longTask(n) {
-  console.log('longTask(%s)', n);
-  await queue.push('longTaskId', async () => {
-    console.log('longTask %s start', n);
-    // Simulate a long task
-    await waitForTimeout(1000);
-  });
-  console.log('longTask %s end', n);
-}
+```ts
+window.localStorage?.setItem('debug', '1');
 
-// run the tasks parallel
-longTask(1);
-longTask(2);
-longTask(3).then(() => console.log('longTask 3 resolved'));
-longTask(4);
+// Please remember to **reload** the window after changing the debug mode.
+```
 
-/*
-Output:
+> Make sure the [log level](https://developer.chrome.com/docs/devtools/console/log/#browser) in set correctly.
 
-  longTask(1)
-  longTask(2)
-  longTask(3)
-  longTask(4)
-  longTask 1 start
-  longTask 1 end
-  longTask 2 start
-  longTask 2 end
-  longTask 3 start
-  longTask 3 end
-  longTask 3 resolved
-  longTask 4 start
-  longTask 4 end
+#### CLI
 
-*/
+```sh
+DEBUG=1 node index.js
 ```
