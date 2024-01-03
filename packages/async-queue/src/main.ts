@@ -17,6 +17,9 @@ import type {Dictionary} from '@alwatr/type-helper';
  * ```
  */
 export class AsyncQueue {
+  /**
+   * A record of task IDs and their corresponding last queued task promises.
+   */
   private queue__: Dictionary<Promise<void>> = {};
 
   /**
