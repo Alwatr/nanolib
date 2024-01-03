@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/dedupe",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A package manager helper tool for debug list of defined (imported) packages in your ecosystem and prevent to duplicate import (install) multiple versions of the same package in your project (deduplicate packages).",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -23,7 +23,6 @@
     "nanolib",
     "alwatr"
   ],
-  "private": true,
   "type": "module",
   "main": "./dist/main.cjs",
   "module": "./dist/main.mjs",
