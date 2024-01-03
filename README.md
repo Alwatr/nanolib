@@ -15,6 +15,7 @@ Here is a brief overview of the included libraries:
 9. [`type-helper`](./packages/type-helper/README.md): Collection of useful typescript type helpers.
 10. [`wait`](./packages/wait/README.md): Comprehensive toolkit for managing asynchronous operations.
 11. [`exit-hook`](./packages/exit-hook/README.md): A utility for registering exit handlers in Node.js.
-<!-- 9. [`async-queue`](./packages/async-queue/README.md): This is a utility for managing asynchronous operations in a queue. -->
+12. [`flatomise`](./packages/flatomise/README.md): A utility for creating promises that can be externally resolved or rejected.
+13. [`async-queue`](./packages/async-queue/README.md): A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.
 
 For more detailed information and guidelines on how to use each package, please refer to to each package's README.
