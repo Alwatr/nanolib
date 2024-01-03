@@ -7,5 +7,5 @@
     "composite": true,
   },
   "include": ["src/**/*.ts"],
-  "references": []
+  "references": [{"path": "../platform-info"}]
 }
