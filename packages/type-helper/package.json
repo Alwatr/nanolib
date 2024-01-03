@@ -39,7 +39,7 @@
     "w": "yarn run watch",
     "c": "yarn run clean",
     "cb": "yarn run clean && yarn run build",
-    "d": "yarn run build:es && ALWATR_DEBUG=1 yarn node",
+    "d": "yarn run build:es && DEBUG=1 yarn node",
     "build": "yarn run build:ts",
     "build:es": "echo skip build:es",
     "build:ts": "tsc --build",

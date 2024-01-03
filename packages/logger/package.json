@@ -1,19 +1,13 @@
 {
-  "name": "@alwatr/async-queue",
-  "version": "1.0.0",
-  "description": "A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.",
+  "name": "@alwatr/logger",
+  "version": "2.4.1",
+  "description": "Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "async-queue",
-    "async",
-    "queue",
-    "mutex",
-    "semaphore",
-    "lock",
-    "SpinLock",
-    "spin-lock",
-    "SemaphoreSlim",
-    "semaphore-slim",
+    "logger",
+    "log",
+    "console",
+    "debug",
     "cross-platform",
     "ECMAScript",
     "typescript",
@@ -50,9 +44,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/async-queue"
+    "directory": "packages/logger"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/async-queue#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/logger#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
@@ -71,15 +65,14 @@
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
-  "dependencies": {
-    "@alwatr/flatomise": "workspace:^"
-  },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
-    "@alwatr/type-helper": "workspace:^",
     "@types/node": "^20.10.6",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@alwatr/platform-info": "workspace:^"
   }
 }
