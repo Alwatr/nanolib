@@ -73,6 +73,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@alwatr/dedupe": "workspace:^",
     "@alwatr/platform-info": "workspace:^"
   }
 }

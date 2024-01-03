@@ -1,4 +1,4 @@
-# Alwatr Logger - `@alwatr/logger`
+# Logger
 
 Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.
 
