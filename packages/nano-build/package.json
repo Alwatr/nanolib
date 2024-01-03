@@ -24,6 +24,8 @@
   ],
   "type": "commonjs",
   "bin": "./nano-build.cjs",
+  "main": "",
+  "types": "./global.d.ts",
   "license": "MIT",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md}",
