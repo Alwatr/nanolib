@@ -1,10 +1,11 @@
-/// <reference types="@alwatr/nano-build/global.d.ts" />
-
 import type {Dictionary} from '@alwatr/type-helper'
 
 declare global {
   // eslint-disable-next-line no-var
   var __dedupe__: true;
+
+  // eslint-disable-next-line no-var
+  var __package_version__: string;
 }
 
 if (typeof __dedupe__ !== 'undefined') {

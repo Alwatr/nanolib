@@ -1,5 +1,3 @@
-/// <reference types="@alwatr/nano-build/global.d.ts" />
-
 import {definePackage} from '@alwatr/dedupe';
 import {platformInfo} from '@alwatr/platform-info';
 
