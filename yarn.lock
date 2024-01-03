@@ -45,6 +45,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/exit-hook@workspace:packages/exit-hook":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/exit-hook@workspace:packages/exit-hook"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@types/node": "npm:^20.10.6"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/flat-string@workspace:packages/flat-string":
   version: 0.0.0-use.local
   resolution: "@alwatr/flat-string@workspace:packages/flat-string"
