@@ -22,7 +22,7 @@ let exiting = false;
  * existHook(saveAllData);
  * ```
  */
-export function existHook(callback: () => void): void {
+export function exitHook(callback: () => void): void {
   callbacks.push(callback);
 }
 
