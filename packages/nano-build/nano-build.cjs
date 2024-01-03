@@ -36,7 +36,7 @@ const defaultOptions = {
     js: '/* ' + packageJson.name + ' v' + packageJson.version + ' */',
   },
   define: {
-    __package_version: `'${packageJson.version}'`,
+    __package_version__: `'${packageJson.version}'`,
   },
 };
 

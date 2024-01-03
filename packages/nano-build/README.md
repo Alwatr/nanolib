@@ -43,7 +43,7 @@ Add the following scripts to your `package.json`:
     js: "/* @package_name v@package_version */"
   },
   define: {
-    __package_version: `'@package_version'`,
+    __package_version__: `'@package_version'`,
   },
 }
 ```

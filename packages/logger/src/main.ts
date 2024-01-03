@@ -1,6 +1,9 @@
+import {definePackage} from '@alwatr/dedupe';
 import {platformInfo} from '@alwatr/platform-info';
 
 import type {AlwatrLogger} from './type.js';
+
+definePackage('@alwatr/logger', __package_version__);
 
 export const debugMode = platformInfo.development || platformInfo.isCli
   ? process.env.DEBUG !== undefined && process.env.DEBUG !== ''
