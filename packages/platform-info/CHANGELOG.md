@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.0.7...@alwatr/platform-info@1.1.0) (2024-01-03)
+
+### Features
+
+* **platform-info:** support bun and isCli ([d693067](https://github.com/Alwatr/nanolib/commit/d693067b9d8de749d909600cfdc9587a7cd207f4)) by @njfamirm
+
 ## [1.0.7](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.0.6...@alwatr/platform-info@1.0.7) (2024-01-03)
 
 **Note:** Version bump only for package @alwatr/platform-info

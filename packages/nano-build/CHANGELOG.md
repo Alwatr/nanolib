@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.2.3...@alwatr/nano-build@1.3.0) (2024-01-03)
+
+### Features
+
+* **nano-build:** __package_version__ types ([7894c4b](https://github.com/Alwatr/nanolib/commit/7894c4bd635d1208b612a392f33d0545cb7cf6ed)) by @njfamirm
+
 ## [1.2.3](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.2.2...@alwatr/nano-build@1.2.3) (2024-01-03)
 
 **Note:** Version bump only for package @alwatr/nano-build
