@@ -15,7 +15,7 @@ yarn add @alwatr/flat-string
 ## Usage
 
 ```typescript
-import flatString from '@alwatr/flat-string';
+import {flatString} from '@alwatr/flat-string';
 
 myStr = flatString(myStr);
 ```
