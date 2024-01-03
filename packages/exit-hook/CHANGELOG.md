@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.0...@alwatr/exit-hook@1.0.1) (2024-01-03)
+
+### Bug Fixes
+
+* **exit-hook:** typo function name ([e8df52a](https://github.com/Alwatr/nanolib/commit/e8df52a8f527e653025abe6a8bc54719498db83e)) by @njfamirm
+
 # 1.0.0 (2024-01-03)
 
 ### Features
