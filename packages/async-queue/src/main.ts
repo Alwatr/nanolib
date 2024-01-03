@@ -17,7 +17,7 @@ import type {Dictionary} from '@alwatr/type-helper';
  * ```
  */
 export class AsyncQueue {
-  queue_: Dictionary<Promise<void>> = {};
+  private queue__: Dictionary<Promise<void>> = {};
 
   /**
    * Push a async task to the queue.
@@ -39,8 +39,8 @@ export class AsyncQueue {
   async push(taskId: string, task: () => Promise<void>): Promise<void> {
     const flatomise = newFlatomise();
 
-    const previousTaskPromise = this.queue_[taskId];
-    this.queue_[taskId] = flatomise.promise;
+    const previousTaskPromise = this.queue__[taskId];
+    this.queue__[taskId] = flatomise.promise;
 
     try {
       await previousTaskPromise;
@@ -51,12 +51,22 @@ export class AsyncQueue {
 
     setTimeout(() => {
       task().then(flatomise.resolve, flatomise.reject).then(() => {
-        if (this.queue_[taskId] === flatomise.promise) {
-          delete this.queue_[taskId];
+        if (this.queue__[taskId] === flatomise.promise) {
+          delete this.queue__[taskId];
         }
       });
     }, 0);
 
     return flatomise.promise;
+  }
+
+  /**
+   * Check if the task running in the queue.
+   *
+   * @param taskId task id
+   * @returns true if the task is running, otherwise false.
+   */
+  isRunning(taskId: string): boolean {
+    return this.queue__[taskId] !== undefined;
   }
 }
