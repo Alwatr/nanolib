@@ -18,7 +18,6 @@ parseDuration('10d'); // 864,000,000
 parseDuration('10w'); // 6,048,000,000
 parseDuration('10M'); // 25,920,000,000
 parseDuration('10y'); // 315,360,000,000
-parseDuration('10ly');// 316,224,000,000 
 parseDuration('10d', 'h'); // 240
 ```
 
@@ -33,4 +32,3 @@ parseDuration('10d', 'h'); // 240
 |      `w`      |  Week       |
 |      `M`      |  Month      |
 |      `y`      |  Year       |
-|      `ly`     |  Leap year  |
