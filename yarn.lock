@@ -84,7 +84,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/flat-string@workspace:packages/flat-string":
+"@alwatr/flat-string@workspace:^, @alwatr/flat-string@workspace:packages/flat-string":
   version: 0.0.0-use.local
   resolution: "@alwatr/flat-string@workspace:packages/flat-string"
   dependencies:
@@ -143,6 +143,21 @@ __metadata:
     typescript: "npm:^5.3.3"
   bin:
     nano-build: ./nano-build.cjs
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/node-fs@workspace:packages/node-fs":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/node-fs@workspace:packages/node-fs"
+  dependencies:
+    "@alwatr/flat-string": "workspace:^"
+    "@alwatr/flatomise": "workspace:^"
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
+    "@types/node": "npm:^20.10.6"
+    typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
 
