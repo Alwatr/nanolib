@@ -5,9 +5,10 @@ import type {AlwatrLogger} from './type.js';
 
 definePackage('@alwatr/logger', __package_version__);
 
-export const debugMode = platformInfo.development || platformInfo.isCli
-  ? process.env.DEBUG !== undefined && process.env.DEBUG !== ''
-  : typeof localStorage !== 'undefined' && localStorage.getItem('debug') === '1';
+const defaultDebugMode =
+  platformInfo.development || platformInfo.isCli
+    ? process.env.DEBUG !== undefined && process.env.DEBUG !== ''
+    : typeof localStorage !== 'undefined' && localStorage.getItem('debug') === '1';
 
 /**
  * Color list storage for logger.
@@ -71,7 +72,7 @@ const _sanitizeDomain = (domain: string): string => {
  * const logger = createLogger('logger/demo');
  * ```
  */
-export const createLogger = (domain: string, debugMode_ = debugMode): AlwatrLogger => {
+export const createLogger = (domain: string, debugMode = defaultDebugMode): AlwatrLogger => {
   const color = _getNextColor();
   const styleScope = _style.scope.replace('{{color}}', color);
   domain = _sanitizeDomain(domain);
@@ -80,6 +81,8 @@ export const createLogger = (domain: string, debugMode_ = debugMode): AlwatrLogg
    * Required logger object, accident, error always reported even when the devMode is false.
    */
   const requiredItems: AlwatrLogger = {
+    debugMode,
+
     banner: platformInfo.isCli
       ? console.log.bind(console, `\x1b[1;37;45m {{{ %s }}} ${_style.reset}`)
       : console.log.bind(
@@ -97,7 +100,7 @@ export const createLogger = (domain: string, debugMode_ = debugMode): AlwatrLogg
       : console.error.bind(console, '%c%s%c.%s() Error `%s`\n', styleScope, domain, _style.reset),
   };
 
-  if (!debugMode_) {
+  if (!debugMode) {
     return requiredItems;
   }
   // else
