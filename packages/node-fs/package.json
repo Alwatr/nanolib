@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/node-fs",
   "version": "0.0.0",
-  "description": "A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.",
+  "description": "Enhanced file system operations in Node.js, including reading, writing, and handling JSON files, with both synchronous and asynchronous options.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "node-fs",
@@ -72,6 +72,7 @@
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
+    "@alwatr/type-helper": "workspace:^",
     "@types/node": "^20.10.6",
     "typescript": "^5.3.3"
   }
