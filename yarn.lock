@@ -151,7 +151,6 @@ __metadata:
   resolution: "@alwatr/node-fs@workspace:packages/node-fs"
   dependencies:
     "@alwatr/flat-string": "workspace:^"
-    "@alwatr/flatomise": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"

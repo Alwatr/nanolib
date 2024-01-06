@@ -242,8 +242,6 @@ export function writeFile(path: string, content: string, mode: WriteFileMode, sy
     .then(() => {
       return writeFile_(path, content, {encoding: 'utf-8', flag: 'w'});
     })
-    .then(() => {
-    })
     .catch((err) => {
       throw new Error('write_file_failed', {cause: (err as Error).cause});
     });
@@ -304,6 +302,7 @@ export function handleExistsFile(path: string, mode: WriteFileMode, sync = false
           copyFileSync(path, path + '.bk');
         }
         catch (err) {
+          throw new Error('copy_file_failed', {cause: (err as Error).cause});
         }
       }
       else if (mode === WriteFileMode.Rename) {
@@ -311,6 +310,7 @@ export function handleExistsFile(path: string, mode: WriteFileMode, sync = false
           renameSync(path, path + '.bk');
         }
         catch (err) {
+          throw new Error('rename_file_failed', {cause: (err as Error).cause});
         }
       }
     }
@@ -329,20 +329,19 @@ export function handleExistsFile(path: string, mode: WriteFileMode, sync = false
       // existsSync is much faster than access.
       if (mode === WriteFileMode.Copy) {
         return copyFile(path, path + '.bk').catch((err) => {
+          throw new Error('copy_file_failed', {cause: (err as Error).cause});
         });
       }
       else if (mode === WriteFileMode.Rename) {
         return rename(path, path + '.bk').catch((err) => {
+          throw new Error('rename_file_failed', {cause: (err as Error).cause});
         });
       }
     }
     else {
-      return mkdir(dirname(path), {recursive: true})
-        .then(() => {
-        })
-        .catch((err) => {
-          throw new Error('make_dir_failed', {cause: (err as Error).cause});
-        });
+      return mkdir(dirname(path), {recursive: true}).catch((err) => {
+        throw new Error('make_dir_failed', {cause: (err as Error).cause});
+      });
     }
 
     return Promise.resolve(); // do nothing but return a resolved promise.
