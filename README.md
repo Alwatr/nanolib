@@ -17,5 +17,6 @@ Here is a brief overview of the included libraries:
 11. [`exit-hook`](./packages/exit-hook/README.md): A utility for registering exit handlers in Node.js.
 12. [`flatomise`](./packages/flatomise/README.md): A utility for creating promises that can be externally resolved or rejected.
 13. [`async-queue`](./packages/async-queue/README.md): A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.
+14. [`node-fs`](./packages/node-fs/README.md): Enhanced file system operations in Node.js, including reading, writing, and handling JSON files, with both synchronous and asynchronous options.
 
 For more detailed information and guidelines on how to use each package, please refer to to each package's README.
