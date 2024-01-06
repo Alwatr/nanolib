@@ -2,12 +2,18 @@ import {existsSync, readFileSync as readFileSync_, writeFileSync as writeFileSyn
 import {copyFile, mkdir, readFile as readFile_, rename, writeFile as writeFile_, unlink} from 'node:fs/promises';
 import {dirname} from 'node:path';
 
+import {AsyncQueue} from '@alwatr/async-queue';
 import {flatString} from '@alwatr/flat-string';
 
 import type {MaybePromise} from '@alwatr/type-helper';
 
 export {resolve} from 'node:path';
 export {unlink, existsSync};
+
+/**
+ * Async queue to prevent write conflicts.
+ */
+const queue_ = new AsyncQueue();
 
 /**
  * Write file mode for exists file.
@@ -240,7 +246,7 @@ export function writeFile(path: string, content: string, mode: WriteFileMode, sy
   // else, async mode
   return handleExistsFile(path, mode)
     .then(() => {
-      return writeFile_(path, content, {encoding: 'utf-8', flag: 'w'});
+      return queue_.push('writeFile-' + path, () => writeFile_(path, content, {encoding: 'utf-8', flag: 'w'}));
     })
     .catch((err) => {
       throw new Error('write_file_failed', {cause: (err as Error).cause});
@@ -328,20 +334,26 @@ export function handleExistsFile(path: string, mode: WriteFileMode, sync = false
     if (existsSync(path)) {
       // existsSync is much faster than access.
       if (mode === WriteFileMode.Copy) {
-        return copyFile(path, path + '.bk').catch((err) => {
-          throw new Error('copy_file_failed', {cause: (err as Error).cause});
-        });
+        return queue_
+          .push('handleExistsFile - ' + path, () => copyFile(path, path + '.bk'))
+          .catch((err) => {
+            throw new Error('copy_file_failed', {cause: (err as Error).cause});
+          });
       }
       else if (mode === WriteFileMode.Rename) {
-        return rename(path, path + '.bk').catch((err) => {
-          throw new Error('rename_file_failed', {cause: (err as Error).cause});
-        });
+        return queue_
+          .push('handleExistsFile - ' + path, () => rename(path, path + '.bk'))
+          .catch((err) => {
+            throw new Error('rename_file_failed', {cause: (err as Error).cause});
+          });
       }
     }
     else {
-      return mkdir(dirname(path), {recursive: true}).catch((err) => {
-        throw new Error('make_dir_failed', {cause: (err as Error).cause});
-      });
+      return queue_
+        .push('handleExistsFile - ' + path, () => mkdir(dirname(path), {recursive: true}) as Promise<void>)
+        .catch((err) => {
+          throw new Error('make_dir_failed', {cause: (err as Error).cause});
+        });
     }
 
     return Promise.resolve(); // do nothing but return a resolved promise.

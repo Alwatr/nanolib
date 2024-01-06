@@ -66,6 +66,7 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
+    "@alwatr/async-queue": "workspace:^",
     "@alwatr/flat-string": "workspace:^"
   },
   "devDependencies": {

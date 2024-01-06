@@ -12,7 +12,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@alwatr/async-queue@workspace:packages/async-queue":
+"@alwatr/async-queue@workspace:^, @alwatr/async-queue@workspace:packages/async-queue":
   version: 0.0.0-use.local
   resolution: "@alwatr/async-queue@workspace:packages/async-queue"
   dependencies:
@@ -150,6 +150,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/node-fs@workspace:packages/node-fs"
   dependencies:
+    "@alwatr/async-queue": "workspace:^"
     "@alwatr/flat-string": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
