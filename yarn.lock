@@ -151,7 +151,6 @@ __metadata:
   resolution: "@alwatr/node-fs@workspace:packages/node-fs"
   dependencies:
     "@alwatr/async-queue": "workspace:^"
-    "@alwatr/dedupe": "workspace:^"
     "@alwatr/flat-string": "workspace:^"
     "@alwatr/logger": "workspace:^"
     "@alwatr/nano-build": "workspace:^"

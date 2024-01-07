@@ -67,7 +67,6 @@
   },
   "dependencies": {
     "@alwatr/async-queue": "workspace:^",
-    "@alwatr/dedupe": "workspace:^",
     "@alwatr/flat-string": "workspace:^",
     "@alwatr/logger": "workspace:^"
   },

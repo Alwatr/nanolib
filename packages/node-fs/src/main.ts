@@ -3,13 +3,15 @@ import {copyFile, mkdir, readFile as readFile_, rename, writeFile as writeFile_,
 import {dirname} from 'node:path';
 
 import {flatString} from '@alwatr/flat-string';
+import {definePackage} from '@alwatr/logger';
 
-import {logger} from '../logger.js';
-
+import type {} from '@alwatr/nano-build'
 import type {MaybePromise} from '@alwatr/type-helper';
 
 export {resolve} from 'node:path';
 export {unlink, existsSync};
+
+const logger = definePackage('@alwatr/node-fs', __package_version__)
 
 /**
  * Parse json string.
