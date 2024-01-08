@@ -1,8 +1,8 @@
 import {logger} from './common';
 import {parseJson} from './json';
-import {readFile} from './read-file';
+import {readFile, readFileSync} from './read-file';
 
-import type {MaybePromise} from '@alwatr/type-helper';
+import type {Dictionary, MaybePromise} from '@alwatr/type-helper';
 
 /**
  * Enhanced read json file (async).
@@ -14,7 +14,7 @@ import type {MaybePromise} from '@alwatr/type-helper';
  * const fileContent = await readJson('./file.json');
  * ```
  */
-export function readJson(path: string): Promise<unknown>;
+export function readJson<T extends Dictionary>(path: string): Promise<T>;
 /**
  * Enhanced read json file (sync).
  *
@@ -26,7 +26,7 @@ export function readJson(path: string): Promise<unknown>;
  * const fileContent = readJson('./file.json', true);
  * ```
  */
-export function readJson(path: string, sync: true): unknown;
+export function readJson<T extends Dictionary>(path: string, sync: true): T;
 /**
  * Enhanced read json file.
  *
@@ -38,7 +38,7 @@ export function readJson(path: string, sync: true): unknown;
  * const fileContent = await readJson('./file.json', sync);
  * ```
  */
-export function readJson(path: string, sync: boolean): MaybePromise<unknown>;
+export function readJson<T extends Dictionary>(path: string, sync: boolean): MaybePromise<T>;
 /**
  * Enhanced read json file.
  *
@@ -50,11 +50,12 @@ export function readJson(path: string, sync: boolean): MaybePromise<unknown>;
  * const fileContent = await readJson('./file.json');
  * ```
  */
-export function readJson(path: string, sync = false): MaybePromise<unknown> {
+export function readJson<T extends Dictionary>(path: string, sync = false): MaybePromise<T> {
   logger.logMethodArgs?.('readJson', {path: path.slice(-32), sync});
   if (sync === true) {
-    return parseJson(readFile(path, true));
+    return parseJson<T>(readFileSync(path));
   }
-  // else, async mode
-  return readFile(path).then((content) => parseJson(content));
+  else {
+    return readFile(path).then((content) => parseJson<T>(content));
+  }
 }
