@@ -1,6 +1,6 @@
 import {definePackage as definePackage_} from '@alwatr/dedupe';
 
-import {createLogger} from './logge';
+import {createLogger} from './logger';
 
 import type {AlwatrLogger} from './type';
 
