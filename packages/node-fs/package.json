@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/node-fs",
-  "version": "0.0.0",
+  "version": "1.0.0-beta",
   "description": "Enhanced file system operations in Node.js with asynchronous queue to prevent parallel writes.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
