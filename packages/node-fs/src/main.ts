@@ -1,17 +1,26 @@
-import {existsSync, readFileSync as readFileSync_, writeFileSync as writeFileSync_, mkdirSync, copyFileSync, renameSync} from 'node:fs';
+import {
+  readFileSync as readFileSync_,
+  writeFileSync as writeFileSync_,
+  existsSync,
+  mkdirSync,
+  copyFileSync,
+  renameSync,
+  open,
+  close,
+} from 'node:fs';
 import {copyFile, mkdir, readFile as readFile_, rename, writeFile as writeFile_, unlink} from 'node:fs/promises';
 import {dirname} from 'node:path';
 
 import {flatString} from '@alwatr/flat-string';
 import {definePackage} from '@alwatr/logger';
 
-import type {} from '@alwatr/nano-build'
+import type {} from '@alwatr/nano-build';
 import type {MaybePromise} from '@alwatr/type-helper';
 
 export {resolve} from 'node:path';
 export {unlink, existsSync};
 
-const logger = definePackage('@alwatr/node-fs', __package_version__)
+const logger = definePackage('@alwatr/node-fs', __package_version__);
 
 /**
  * Parse json string.
@@ -427,4 +436,26 @@ export function writeJsonFile(path: string, data: unknown, mode: WriteFileMode, 
 export function writeJsonFile(path: string, data: unknown, mode: WriteFileMode, sync = false): MaybePromise<void> {
   logger.logMethodArgs?.('writeJsonFile', {path: path.slice(-32), mode, sync});
   return writeFile(path, flatString(jsonStringify(data)), mode, sync);
+}
+
+/**
+ * Make empty file.
+ *
+ * @param path - file path
+ *
+ * @example
+ * ```ts
+ * await makeFile('./file.txt');
+ * ```
+ */
+export async function makeFile(path: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    open(path, 'w', (err, fileDescriptor) => {
+      if (err != null) return reject(err);
+      close(fileDescriptor, (err) => {
+        if (err != null) return reject(err);
+        resolve();
+      });
+    });
+  });
 }
