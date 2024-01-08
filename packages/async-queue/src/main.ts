@@ -53,11 +53,13 @@ export class AsyncQueue {
     }
 
     setTimeout(() => {
-      task().then(flatomise.resolve, flatomise.reject).then(() => {
-        if (this.queue__[taskId] === flatomise.promise) {
-          delete this.queue__[taskId];
-        }
-      });
+      task()
+        .then(flatomise.resolve, flatomise.reject)
+        .then(() => {
+          if (this.queue__[taskId] === flatomise.promise) {
+            delete this.queue__[taskId];
+          }
+        });
     }, 0);
 
     return flatomise.promise;
@@ -68,8 +70,28 @@ export class AsyncQueue {
    *
    * @param taskId task id
    * @returns true if the task is running, otherwise false.
+   * @example
+   * ```typescript
+   * if (queue.isRunning('longTaskId')) {
+   *  // ...
+   * }
+   * ```
    */
   isRunning(taskId: string): boolean {
     return this.queue__[taskId] !== undefined;
+  }
+
+  /**
+   * Wait for the all tasks in the queue to finish.
+   *
+   * @param taskId task id
+   * @returns A promise that resolves when all tasks are done.
+   * @example
+   * ```typescript
+   * await queue.waitForFinish('longTaskId');
+   * ```
+   */
+  waitForFinish(taskId: string): Promise<unknown> {
+    return this.queue__[taskId] ?? Promise.resolve();
   }
 }
