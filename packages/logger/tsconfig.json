@@ -7,5 +7,5 @@
     "composite": true,
   },
   "include": ["src/**/*.ts"],
-  "references": [{"path": "../platform-info"}]
+  "references": [{"path": "../platform-info"}, {"path": "../dedupe"}]
 }
