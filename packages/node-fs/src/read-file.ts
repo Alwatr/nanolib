@@ -3,7 +3,7 @@ import {readFile as readFile_} from 'node:fs/promises';
 
 import {flatString} from '@alwatr/flat-string';
 
-import {logger} from './common';
+import {asyncQueue, logger} from './common';
 
 /**
  * Enhanced read File (Synchronous).
@@ -30,6 +30,8 @@ export function readFileSync(path: string): string {
 /**
  * Enhanced read File (Asynchronous).
  *
+ * - If writing queue is running for target path, it will wait for it to finish.
+ *
  * @param path - file path
  * @returns file content
  * @example
@@ -37,14 +39,16 @@ export function readFileSync(path: string): string {
  * const fileContent = await readFile('./file.txt', sync);
  * ```
  */
-export async function readFile(path: string): Promise<string> {
+export function readFile(path: string): Promise<string> {
   logger.logMethodArgs?.('readFile', '...' + path.slice(-32));
   // if (!existsSync(path)) throw new Error('file_not_found');
-  try {
-    return flatString(await readFile_(path, {encoding: 'utf-8', flag: 'r'}));
-  }
-  catch (err) {
-    logger.error('readFile', 'read_file_failed', {path}, err);
-    throw new Error('read_file_failed', {cause: (err as Error).cause});
-  }
+  return asyncQueue.push(path, async () => {
+    try {
+      return flatString(await readFile_(path, {encoding: 'utf-8', flag: 'r'}));
+    }
+    catch (err) {
+      logger.error('readFile', 'read_file_failed', {path}, err);
+      throw new Error('read_file_failed', {cause: (err as Error).cause});
+    }
+  });
 }

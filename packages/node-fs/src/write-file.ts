@@ -54,7 +54,7 @@ export function writeFileSync(path: string, content: string): void {
  * @param content - file content
  * @example
  * ```typescript
- * writeFile('./file.txt', 'Hello World!');
+ * await writeFile('./file.txt', 'Hello World!');
  * ```
  */
 export function writeFile(path: string, content: string): Promise<void> {
