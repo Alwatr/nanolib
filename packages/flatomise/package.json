@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/flatomise",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A utility for creating promises that can be externally resolved or rejected.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
