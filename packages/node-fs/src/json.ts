@@ -1,5 +1,7 @@
 import {logger} from './common';
 
+import type { Dictionary } from '@alwatr/type-helper';
+
 /**
  * Parse json string.
  *
@@ -11,7 +13,7 @@ import {logger} from './common';
  * console.log(json.a); // 1
  * ```
  */
-export function parseJson(content: string) {
+export function parseJson<T extends Dictionary>(content: string): T {
   try {
     return JSON.parse(content);
   }
@@ -32,7 +34,7 @@ export function parseJson(content: string) {
  * console.log(json); // '{"a":1,"b":2}'
  * ```
  */
-export function jsonStringify(data: unknown): string {
+export function jsonStringify<T extends Dictionary>(data: T): string {
   try {
     return JSON.stringify(data);
   }
