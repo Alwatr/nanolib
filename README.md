@@ -19,4 +19,4 @@ Here is a brief overview of the included libraries:
 13. [`async-queue`](./packages/async-queue/README.md): A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.
 14. [`node-fs`](./packages/node-fs/README.md): Enhanced file system operations in Node.js, including reading, writing, and handling JSON files, with both synchronous and asynchronous options.
 
-For more detailed information and guidelines on how to use each package, please refer to to each package's README.
+For more detailed information and guidelines on how to use each package, please refer to each package's README.
