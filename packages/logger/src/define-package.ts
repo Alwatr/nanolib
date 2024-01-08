@@ -17,8 +17,8 @@ import type {AlwatrLogger} from './type.js';
  * logger.logMethodArgs?.('myMethod', {a, b});
  * ```
  */
-export function definePackage(packageName: string, version = 'v?'): AlwatrLogger {
-  const logger = createLogger(`{${packageName}}`);
+export function definePackage(packageName: string, version = 'v?', debugMode?: boolean): AlwatrLogger {
+  const logger = createLogger(`{${packageName}}`, debugMode);
   logger.logMethodArgs?.('define-package', {packageName, version});
   definePackage_(packageName, version);
   return logger;
