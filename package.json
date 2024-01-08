@@ -16,6 +16,7 @@
   "prettier": "@alwatr/prettier-config",
   "scripts": {
     "b": "yarn run build",
+    "w": "yarn run watch",
     "c": "yarn run clean",
     "cb": "yarn run clean && yarn run build",
     "l": "yarn run lint",
@@ -24,6 +25,7 @@
     "upd": "yarn set version latest; yarn up '*'; yarn up '*' -R; yarn dlx @yarnpkg/sdks vscode; yarn dedupe",
     "lint": "eslint . --config .eslintrc.json --ext .ts",
     "build": "lerna run build",
+    "watch": "lerna run --parallel watch",
     "format": "yarn run format:prettier && yarn run format:eslint",
     "format:eslint": "yarn run lint --fix",
     "format:prettier": "prettier . --ignore-path .gitignore --write",
