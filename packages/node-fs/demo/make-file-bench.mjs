@@ -10,7 +10,7 @@ import {mkdir, rm} from 'node:fs/promises';
   console.log('start bench');
 
   console.time('bench');
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 10_000; i++) {
     await makeEmptyFile(`${temp}/file-${i}.asn`);
   }
   console.timeEnd('bench');
