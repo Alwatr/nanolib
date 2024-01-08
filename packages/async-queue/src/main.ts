@@ -20,7 +20,7 @@ export class AsyncQueue {
   /**
    * A record of task IDs and their corresponding last queued task promises.
    */
-  private queue__: Dictionary<Promise<void>> = {};
+  private queue__: Dictionary<Promise<unknown>> = {};
 
   /**
    * Push a async task to the queue.
@@ -39,8 +39,8 @@ export class AsyncQueue {
    * });
    * ```
    */
-  async push(taskId: string, task: () => Promise<void>): Promise<void> {
-    const flatomise = newFlatomise();
+  async push<T>(taskId: string, task: () => Promise<T>): Promise<T> {
+    const flatomise = newFlatomise<T>();
 
     const previousTaskPromise = this.queue__[taskId];
     this.queue__[taskId] = flatomise.promise;
