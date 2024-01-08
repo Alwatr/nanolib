@@ -2,7 +2,7 @@ import {writeFileSync as writeFileSync_, existsSync, mkdirSync, renameSync} from
 import {mkdir, rename, writeFile as writeFile_} from 'node:fs/promises';
 import {dirname} from 'node:path';
 
-import {logger} from './logger';
+import {asyncQueue, logger} from './common';
 
 /**
  * Enhanced write file (Synchronous).
@@ -57,26 +57,28 @@ export function writeFileSync(path: string, content: string): void {
  * writeFile('./file.txt', 'Hello World!');
  * ```
  */
-export async function writeFile(path: string, content: string): Promise<void> {
+export function writeFile(path: string, content: string): Promise<void> {
   logger.logMethodArgs?.('writeFile', '...' + path.slice(-32));
-  try {
-    logger.logOther?.('writeFile start', '...' + path.slice(-32));
-    const pathExists = existsSync(path);
-    if (!pathExists) {
-      const dir = dirname(path);
-      if (!existsSync(dir)) {
-        await mkdir(dir, {recursive: true});
+  return asyncQueue.push(path, async () => {
+    try {
+      logger.logOther?.('writeFile start', '...' + path.slice(-32));
+      const pathExists = existsSync(path);
+      if (!pathExists) {
+        const dir = dirname(path);
+        if (!existsSync(dir)) {
+          await mkdir(dir, {recursive: true});
+        }
       }
+      await writeFile_(path + '.tmp', content, {encoding: 'utf-8', flag: 'w'});
+      if (pathExists) {
+        await rename(path, path + '.bak');
+      }
+      await rename(path + '.tmp', path);
+      logger.logOther?.('writeFile success', '...' + path.slice(-32));
     }
-    await writeFile_(path + '.tmp', content, {encoding: 'utf-8', flag: 'w'});
-    if (pathExists) {
-      await rename(path, path + '.bak');
+    catch (err) {
+      logger.error('writeFile', 'write_file_failed', {path}, err);
+      throw new Error('write_file_failed', {cause: (err as Error).cause});
     }
-    await rename(path + '.tmp', path);
-    logger.logOther?.('writeFile success', '...' + path.slice(-32));
-  }
-  catch (err) {
-    logger.error('writeFile', 'write_file_failed', {path}, err);
-    throw new Error('write_file_failed', {cause: (err as Error).cause});
-  }
+  });
 }

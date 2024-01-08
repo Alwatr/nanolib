@@ -3,8 +3,8 @@ import {readFile as readFile_} from 'node:fs/promises';
 
 import {flatString} from '@alwatr/flat-string';
 
+import {logger} from './common';
 import {parseJson} from './json';
-import {logger} from './logger';
 
 import type {MaybePromise} from '@alwatr/type-helper';
 
