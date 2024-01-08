@@ -1,7 +1,7 @@
 import {definePackage} from '@alwatr/dedupe';
 import {platformInfo} from '@alwatr/platform-info';
 
-import type {AlwatrLogger} from './type.js';
+import type {AlwatrLogger} from './type';
 
 definePackage('@alwatr/logger', __package_version__);
 
