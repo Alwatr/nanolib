@@ -1,5 +1,6 @@
 export * from './read-file';
 export * from './write-file';
+export * from './read-json';
 export * from './write-json';
 export * from './make-file';
 
