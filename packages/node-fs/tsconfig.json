@@ -7,5 +7,9 @@
     "composite": true,
   },
   "include": ["src/**/*.ts"],
-  "references": []
+  "references": [
+    {"path": "../async-queue"},
+    {"path": "../flat-string"},
+    {"path": "../logger"},
+  ]
 }
