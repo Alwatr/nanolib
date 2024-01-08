@@ -1,6 +1,6 @@
 export * from './read-file';
 export * from './write-file';
-export * from './make-file.js';
+export * from './make-file';
 
 export {resolve} from 'node:path';
 export {existsSync} from 'node:fs';
