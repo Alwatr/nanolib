@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/logger",
-  "version": "3.0.1",
+  "version": "3.2.1",
   "description": "Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -73,7 +73,7 @@
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.10.8",
     "typescript": "^5.3.3"
   }
 }

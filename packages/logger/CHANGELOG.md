@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.0...@alwatr/logger@3.2.1) (2024-01-08)
+
+**Note:** Version bump only for package @alwatr/logger
+
+# [3.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.1.0...@alwatr/logger@3.2.0) (2024-01-08)
+
+### Bug Fixes
+
+* **logger:** defaultDebugMode ([bab9f7c](https://github.com/Alwatr/nanolib/commit/bab9f7c7b26fc2f50476ebc74d484a4b39c9dbda)) by @AliMD
+
+### Features
+
+* **logger:** debugMode in definePackage ([9799320](https://github.com/Alwatr/nanolib/commit/97993203d76db57e55b31bef485ea77cfd32a64c)) by @njfamirm
+
+# [3.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.0.1...@alwatr/logger@3.1.0) (2024-01-06)
+
+### Features
+
+* **logger:** definePackage ([dfd090e](https://github.com/Alwatr/nanolib/commit/dfd090ebd691c9a589370094d49f950524f71369)) by @AliMD
+
 ## [3.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.0.0...@alwatr/logger@3.0.1) (2024-01-03)
 
 **Note:** Version bump only for package @alwatr/logger

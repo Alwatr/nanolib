@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.0.2...@alwatr/flatomise@1.1.0) (2024-01-08)
+
+### Features
+
+* **flatomise:** generic type ([3193b43](https://github.com/Alwatr/nanolib/commit/3193b4378681ec7c840d6d7806dad041a1db7573)) by @AliMD
+
+## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.0.1...@alwatr/flatomise@1.0.2) (2024-01-08)
+
+**Note:** Version bump only for package @alwatr/flatomise
+
 ## [1.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.0.0...@alwatr/flatomise@1.0.1) (2024-01-03)
 
 **Note:** Version bump only for package @alwatr/flatomise

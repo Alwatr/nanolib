@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/async-queue",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A queue that executes async tasks in order like mutex and semaphore methodology for javascript and typescript.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -79,7 +79,7 @@
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "@alwatr/type-helper": "workspace:^",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.10.8",
     "typescript": "^5.3.3"
   }
 }

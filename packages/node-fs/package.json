@@ -1,12 +1,20 @@
 {
-  "name": "@alwatr/flatomise",
-  "version": "1.1.0",
-  "description": "A utility for creating promises that can be externally resolved or rejected.",
+  "name": "@alwatr/node-fs",
+  "version": "1.0.0-beta.0",
+  "description": "Enhanced file system operations in Node.js with asynchronous queue to prevent parallel writes.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "flatomise",
-    "flat-promise",
-    "promise",
+    "node-fs",
+    "fs",
+    "file",
+    "filesystem",
+    "readFile",
+    "writeFile",
+    "readJson",
+    "writeJson",
+    "JSON",
+    "async",
+    "queue",
     "cross-platform",
     "ECMAScript",
     "typescript",
@@ -43,9 +51,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/flatomise"
+    "directory": "packages/node-fs"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/flatomise#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/node-fs#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
@@ -64,10 +72,16 @@
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
+  "dependencies": {
+    "@alwatr/async-queue": "workspace:^",
+    "@alwatr/flat-string": "workspace:^",
+    "@alwatr/logger": "workspace:^"
+  },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
+    "@alwatr/type-helper": "workspace:^",
     "@types/node": "^20.10.8",
     "typescript": "^5.3.3"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/exit-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A utility for registering exit handlers in Node.js.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -68,7 +68,7 @@
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
-    "@types/node": "^20.10.6",
+    "@types/node": "^20.10.8",
     "typescript": "^5.3.3"
   }
 }

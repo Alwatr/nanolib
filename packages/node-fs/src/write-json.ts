@@ -1,0 +1,59 @@
+import {flatString} from '@alwatr/flat-string';
+
+import {logger} from './common';
+import {jsonStringify} from './json';
+import {writeFile, writeFileSync} from './write-file';
+
+import type {Dictionary, MaybePromise} from '@alwatr/type-helper';
+
+/**
+ * Enhanced write json file (Asynchronous).
+ *
+ * @param path - file path
+ * @param data - json object
+ * @example
+ * ```typescript
+ * await writeJsonFile('./file.json', { a:1, b:2, c:3 });
+ * ```
+ */
+export function writeJson<T extends Dictionary>(path: string, data: T, sync?: false): Promise<void>;
+/**
+ * Enhanced write json file (Synchronous).
+ *
+ * @param path - file path
+ * @param data - json object
+ * @param sync - sync mode
+ * @example
+ * ```typescript
+ * writeJsonFile('./file.json', { a:1, b:2, c:3 }, true);
+ * ```
+ */
+export function writeJson<T extends Dictionary>(path: string, data: T, sync: true): void;
+/**
+ * Enhanced write json file.
+ *
+ * @param path - file path
+ * @param data - json object
+ * @param sync - sync mode
+ * @example
+ * ```typescript
+ * await writeJsonFile('./file.json', { a:1, b:2, c:3 }, sync);
+ * ```
+ */
+export function writeJson<T extends Dictionary>(path: string, data: T, sync: boolean): MaybePromise<void>;
+/**
+ * Enhanced write json file.
+ *
+ * @param path - file path
+ * @param data - json object
+ * @param sync - sync mode
+ * @example
+ * ```typescript
+ * await writeJsonFile('./file.json', { a:1, b:2, c:3 });
+ * ```
+ */
+export function writeJson<T extends Dictionary>(path: string, data: T, sync = false): MaybePromise<void> {
+  logger.logMethodArgs?.('writeJson', '...' + path.slice(-32));
+  const content = flatString(jsonStringify(data));
+  return sync === true ? writeFileSync(path, content) : writeFile(path, content);
+}
