@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/parse-duration",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "A simple utility to parse a duration string into milliseconds number.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
@@ -65,6 +65,9 @@
     "watch:es": "yarn run build:es --watch",
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@alwatr/is-number": "workspace:^"
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",

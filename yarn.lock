@@ -119,7 +119,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/is-number@workspace:packages/is-number":
+"@alwatr/is-number@workspace:^, @alwatr/is-number@workspace:packages/is-number":
   version: 0.0.0-use.local
   resolution: "@alwatr/is-number@workspace:packages/is-number"
   dependencies:
@@ -169,6 +169,19 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
+    "@types/node": "npm:^20.10.8"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/parse-duration@workspace:packages/parse-duration":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/parse-duration@workspace:packages/parse-duration"
+  dependencies:
+    "@alwatr/is-number": "workspace:^"
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
     "@types/node": "npm:^20.10.8"
     typescript: "npm:^5.3.3"
   languageName: unknown
