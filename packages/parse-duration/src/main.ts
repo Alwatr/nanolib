@@ -1,9 +1,5 @@
 import {isNumber} from '@alwatr/is-number';
 
-import type {DurationString, DurationUnit} from './type';
-
-export * from './type';
-
 /**
  * Unit conversion table
  */
@@ -18,29 +14,46 @@ const unitConversion_ = {
 } as const;
 
 /**
- * Parse duration string to milliseconds
+ * Duration unit: `s` for seconds, `m` for minutes, `h` for hours, `d` for days, `w` for weeks, `M` for months, `y` for years.
+ */
+export type DurationUnit = keyof typeof unitConversion_;
+
+/**
+ * Duration string format: `number + unit`, for example `10m` means 10 minutes.
+ */
+export type DurationString = `${number}${DurationUnit}`;
+
+/**
+ * Parse duration string to milliseconds number.
  *
  * @param duration - duration string, for example `10m` means 10 minutes.
  * @param toUnit - convert to unit, default is `ms` for milliseconds.
- *
  * @return duration in milliseconds.
- *
  * @example
  * ```ts
  * parseDuration('10m'); // 600000
  * parseDuration('10m', 's'); // 600
  * ```
  */
-export const parseDuration = (duration: DurationString, toUnit: DurationUnit | 'ms' = 'ms'): number => {
-  duration = duration.trim() as DurationString;
-  const durationNumberStr = duration.substring(0, duration.length - 1).trimEnd(); // trimEnd for `10 m`
+export const parseDuration = (duration: DurationString, toUnit?: DurationUnit): number => {
+  const durationNumberStr = duration.slice(0, duration.length - 1);
   if (!isNumber(durationNumberStr)) {
     throw new Error(`not_a_number`);
   }
   const durationNumber = +durationNumberStr;
-  const durationUnit = duration.substring(duration.length - 1) as DurationUnit;
-  if (unitConversion_[durationUnit] == null) {
-    throw new Error(`invalid_init`);
+  const durationUnit = duration.slice(-1) as DurationUnit;
+  const factor = unitConversion_[durationUnit];
+  if (factor === undefined) {
+    throw new Error(`invalid_unit`, {cause: {duration}});
   }
-  return (durationNumber * unitConversion_[durationUnit]) / (toUnit === 'ms' ? 1 : unitConversion_[toUnit]);
+  const ms = durationNumber * factor;
+  if (toUnit === undefined) {
+    return ms;
+  }
+  // else
+  const toFactor = unitConversion_[toUnit];
+  if (toFactor === undefined) {
+    throw new Error(`invalid_unit`, {cause: {toUnit}});
+  }
+  return ms / toFactor;
 };

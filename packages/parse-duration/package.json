@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/parse-duration",
   "version": "0.0.0",
-  "description": "A simple utility to parse a duration string into milliseconds.",
+  "description": "A simple utility to parse a duration string into milliseconds number.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "parse",
@@ -14,9 +14,6 @@
     "javascript",
     "node",
     "nodejs",
-    "deno",
-    "web-worker",
-    "nwjs",
     "browser",
     "esm",
     "module",
@@ -75,8 +72,5 @@
     "@alwatr/tsconfig-base": "workspace:^",
     "@types/node": "^20.10.8",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@alwatr/is-number": "workspace:^"
   }
 }

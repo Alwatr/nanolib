@@ -1,6 +1,6 @@
 # Parse-duration
 
-A simple utility to parse a duration string into milliseconds.
+A simple utility to parse a duration string into milliseconds number.
 
 ## Installation
 
@@ -23,14 +23,14 @@ parseDuration('10y'); // 315,360,000,000
 parseDuration('10d', 'h'); // 240
 ```
 
-### Abbreviation Table
+### Unit Table
 
-| Abbreviation | Description |
-|--------------|-------------|
-|     `s`      |  Second     |
-|     `m`      |  Minute     |
-|     `h`      |  Hour       |
-|     `d`      |  Day        |
-|     `w`      |  Week       |
-|     `M`      |  Month      |
-|     `y`      |  Year       |
+| Unit | Description |
+|------|--------|
+| `s`  | Second |
+| `m`  | Minute |
+| `h`  | Hour   |
+| `d`  | Day    |
+| `w`  | Week   |
+| `M`  | Month  |
+| `y`  | Year   |
