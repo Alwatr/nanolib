@@ -68,6 +68,20 @@ export type OptionalKeys<T> = {
 }[keyof T];
 
 /**
+ * Represents a type that makes all properties of an object mutable (remove readonly).
+ */
+export type Mutable<T> = {
+  -readonly [P in keyof T]: T[P];
+};
+
+/**
+ * Represents a type that makes all properties of an object immutable (readonly).
+ */
+export type Immutable<T> = {
+  readonly [P in keyof T]: T[P];
+}
+
+/**
  * Represents a type that makes all properties of an object and its nested objects readonly.
  * @template T - The type to make readonly.
  * @returns The readonly version of the input type.
