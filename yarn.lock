@@ -119,6 +119,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/is-number@workspace:packages/is-number":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/is-number@workspace:packages/is-number"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@types/node": "npm:^20.10.8"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/logger@workspace:^, @alwatr/logger@workspace:packages/logger":
   version: 0.0.0-use.local
   resolution: "@alwatr/logger@workspace:packages/logger"
