@@ -2,7 +2,7 @@ import {logger} from './common';
 import {parseJson} from './json';
 import {readFile, readFileSync} from './read-file';
 
-import type {Dictionary, MaybePromise} from '@alwatr/type-helper';
+import type {JsonValue, MaybePromise} from '@alwatr/type-helper';
 
 /**
  * Enhanced read json file (async).
@@ -14,7 +14,7 @@ import type {Dictionary, MaybePromise} from '@alwatr/type-helper';
  * const fileContent = await readJson('./file.json');
  * ```
  */
-export function readJson<T extends Dictionary>(path: string): Promise<T>;
+export function readJson<T extends JsonValue>(path: string): Promise<T>;
 /**
  * Enhanced read json file (sync).
  *
@@ -26,7 +26,7 @@ export function readJson<T extends Dictionary>(path: string): Promise<T>;
  * const fileContent = readJson('./file.json', true);
  * ```
  */
-export function readJson<T extends Dictionary>(path: string, sync: true): T;
+export function readJson<T extends JsonValue>(path: string, sync: true): T;
 /**
  * Enhanced read json file.
  *
@@ -38,7 +38,7 @@ export function readJson<T extends Dictionary>(path: string, sync: true): T;
  * const fileContent = await readJson('./file.json', sync);
  * ```
  */
-export function readJson<T extends Dictionary>(path: string, sync: boolean): MaybePromise<T>;
+export function readJson<T extends JsonValue>(path: string, sync: boolean): MaybePromise<T>;
 /**
  * Enhanced read json file.
  *
@@ -50,7 +50,7 @@ export function readJson<T extends Dictionary>(path: string, sync: boolean): May
  * const fileContent = await readJson('./file.json');
  * ```
  */
-export function readJson<T extends Dictionary>(path: string, sync = false): MaybePromise<T> {
+export function readJson<T extends JsonValue>(path: string, sync = false): MaybePromise<T> {
   logger.logMethodArgs?.('readJson', {path: path.slice(-32), sync});
   if (sync === true) {
     return parseJson<T>(readFileSync(path));
