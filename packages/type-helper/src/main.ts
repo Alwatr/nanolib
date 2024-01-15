@@ -168,28 +168,30 @@ export type Merge<M, N> = Omit<M, keyof N> & N;
 /**
  * Represents a dictionary object with string keys and values of type T.
  */
-export interface Dictionary<T = unknown> {
+export interface Dictionary<T = any> {
   [key: string | number]: T;
 }
 
 /**
- * Strigifyable JSON value
+ * Strigifyable JSON value that can be of type `string`, `number`, `boolean`, `null`, `undefined`,
+ * `JSONArray`, or `JSONObject`.
  */
-/**
- * Represents a JSON value that can be of type string, number, boolean, null, undefined,
- * JSONArray, or JSONObject.
- */
-export type JSONValue = string | number | boolean | null | undefined | JSONArray | JSONObject;
+export type JsonValue = string | number | boolean | null | undefined | JsonArray | JsonObject;
 
 /**
- * Represents an array of JSONValues.
+ * Represents `Array<JSONValues>`.
  */
-type JSONArray = JSONValue[];
+export type JsonArray = JsonValue[];
 
 /**
- * Represents an object of Record<string, JSONValues>
+ * Represents an `Dictionary` of `JSONValue` (Record<string, JSONValues>)
  */
-type JSONObject = Dictionary<JSONValue>;
+export type JsonObject = Dictionary<JsonValue>;
+
+/**
+ * Represents a Json response content that can be of type `JSONArray` or `JSONObject`.
+ */
+export type Json = JsonArray | JsonObject;
 
 /**
  * Represents an object that has the ability to add event listeners.
