@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/is-number",
   "version": "0.0.0",
-  "description": "A simple utility to check if a value is a number.",
+  "description": "A simple utility to Check the value is number or can convert to a number, for example string ' 123 ' can be converted to 123.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "number",
