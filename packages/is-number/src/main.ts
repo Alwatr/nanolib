@@ -1,11 +1,4 @@
 /**
- * Number.isFinite simple polyfill
- */
-if (typeof Number.isFinite !== 'function') {
-  Number.isFinite = isFinite;
-}
-
-/**
  * Check the value is number or can convert to a number, for example string ' 123 ' can be converted to 123
  *
  * @param value - the value must check numeric.
@@ -28,7 +21,7 @@ export function isNumber(value: unknown): boolean {
     return value - value === 0;
   }
   if (typeof value === 'string' && value.trim() !== '') {
-    return Number.isFinite(+value);
+    return Number.isFinite ? Number.isFinite(+value) : isFinite(+value);
   }
   return false;
 }
