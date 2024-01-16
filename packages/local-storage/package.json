@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/local-storage",
   "version": "0.0.0",
-  "description": "A utility object for working with local storage and JSON data.",
+  "description": "`localJsonStorage` is a utility object in our TypeScript package that provides methods for interacting with the local storage in a structured and versioned manner.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "local-storage",
