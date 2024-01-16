@@ -72,8 +72,5 @@
     "@alwatr/tsconfig-base": "workspace:^",
     "@alwatr/type-helper": "workspace:^",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "@alwatr/node-fs": "workspace:^"
   }
 }
