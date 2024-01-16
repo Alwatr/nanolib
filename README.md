@@ -21,5 +21,6 @@ Here is a brief overview of the included libraries:
 15. [`is-number`](./packages/is-number#readme): A simple utility to check if a value is a number.
 16. [`parse-duration`](./packages/parse-duration#readme): A simple utility to parse a duration string into milliseconds number.
 17. [`local-storage`](./packages/local-storage#readme): `localJsonStorage` is a utility object in our TypeScript package that provides methods for interacting with the local storage in a structured and versioned manner.
+18. [`polyfill-has-own`](./packages/polyfill-has-own#readme): A polyfill for `Object.hasOwn`.
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.
