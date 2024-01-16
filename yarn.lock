@@ -132,6 +132,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/local-storage@workspace:packages/local-storage":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/local-storage@workspace:packages/local-storage"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/node-fs": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/logger@workspace:^, @alwatr/logger@workspace:packages/logger":
   version: 0.0.0-use.local
   resolution: "@alwatr/logger@workspace:packages/logger"
@@ -159,7 +172,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/node-fs@workspace:packages/node-fs":
+"@alwatr/node-fs@workspace:^, @alwatr/node-fs@workspace:packages/node-fs":
   version: 0.0.0-use.local
   resolution: "@alwatr/node-fs@workspace:packages/node-fs"
   dependencies:
