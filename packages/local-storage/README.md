@@ -13,5 +13,7 @@ yarn add @alwatr/local-storage
 ```typescript
 import {getLocalStorageItem} from '@alwatr/local-storage';
 
-const value = getLocalStorageItem('my-item', 1, {a: 1, b: 2});
+const value = localJsonStorage.getItem('myItem', {a: 1, b: 2});
+localJsonStorage.setItem('myItem', {a: 1, b: 2});
+localJsonStorage.removeItem('myItem');
 ```
