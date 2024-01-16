@@ -10,7 +10,7 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     // "allowJs": true,
-    // "checkJs": true,
+    "checkJs": true,
     // "jsx": "preserve",
     "declaration": true,
     // "outFile": "./",
