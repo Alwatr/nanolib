@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/async-queue@1.1.1...@alwatr/async-queue@1.2.0) (2024-01-16)
+
+### Features
+
+* **async-queue:** Add waitForAllFinish method to AsyncQueue class ([3fdef04](https://github.com/Alwatr/nanolib/commit/3fdef04244c515b727c9ccabfd21d7667b561a83)) by @AliMD
+
 ## [1.1.1](https://github.com/Alwatr/nanolib/compare/@alwatr/async-queue@1.1.0...@alwatr/async-queue@1.1.1) (2024-01-16)
 
 **Note:** Version bump only for package @alwatr/async-queue
