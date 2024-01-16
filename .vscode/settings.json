@@ -3,6 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
+  "js/ts.implicitProjectConfig.checkJs": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
