@@ -22,6 +22,7 @@ __metadata:
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
     "@types/node": "npm:^20.11.3"
+    jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
