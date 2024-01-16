@@ -25,14 +25,17 @@ describe('@alwatr/parse-duration', () => {
   });
 
   it('should throw error for invalid duration', () => {
+    // @ts-expect-error testing invalid input
     expect(() => parseDuration('1x')).toThrow('invalid_unit');
   });
 
   it('should throw error for invalid conversion unit', () => {
+    // @ts-expect-error testing invalid input
     expect(() => parseDuration('1h', 'x')).toThrow('invalid_unit');
   });
 
   it('should throw error for non-numeric duration', () => {
+    // @ts-expect-error testing invalid input
     expect(() => parseDuration('xh')).toThrow('not_a_number');
   });
 });
