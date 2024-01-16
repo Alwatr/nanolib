@@ -1,73 +1,92 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import {parseJson} from '@alwatr/node-fs';
-
-import type {Dictionary} from '@alwatr/type-helper';
+import type {Json, JsonValue} from '@alwatr/type-helper';
 
 /**
- * Generate local storage key.
+ * Parse json string without throwing error.
  *
- * @param name name of the item
- * @param version version of the item
- *
+ * @param content - json string
+ * @returns json object or null if json is invalid
  * @example
  * ```typescript
- * generateLocalStorageKey_('my-item', 1); // my-item.v1
+ * const json = parseJson('{"a":1,"b":2}');
+ * console.log(json.a); // 1
  * ```
  */
-export function generateLocalStorageKey_(name: string, version: number): string {
-  return `${name}.v${version}`;
-}
-
-/**
- * Get local storage item and parse it as JSON.
- * If item is not found, return default value.
- *
- * @param name name of the item
- * @param version version of the item
- * @param defaultValue default value of the item
- *
- * @example
- * ```typescript
- * const value = getLocalStorageItem('my-item', 1, {a: 1, b: 2});
- * ```
- */
-export function getLocalStorageItem<T extends Dictionary<any>>(name: string, version: number, defaultValue: T): T {
-  const localStorageKey = generateLocalStorageKey_(name, version);
-  const value = localStorage.getItem(localStorageKey);
-  if (value === 'null' || value === 'undefined') return defaultValue;
-  return value == null ? defaultValue : parseJson(value) ?? defaultValue;
-}
-
-/**
- * Set local storage item as JSON.
- * If value is null, remove the item.
- *
- * @param name name of the item
- * @param version version of the item
- * @param value value of the item
- *
- * @example
- * ```typescript
- * setLocalStorageItem('my-item', 1, {a: 1, b: 2});
- * ```
- */
-export function setLocalStorageItem<T extends Dictionary<any>>(name: string, version: number, value: T): void {
-  const localStorageKey = generateLocalStorageKey_(name, version);
-  if (value == null) {
-    localStorage.removeItem(localStorageKey);
+function parseJson<T extends JsonValue>(content: string): T | null {
+  try {
+    return JSON.parse(content);
   }
-  localStorage.setItem(localStorageKey, JSON.stringify(value));
+  catch (err) {
+    console.error('parseJson', 'invalid_json', err);
+    return null;
+  }
 }
 
-/**
- * Clear all items from local storage.
- *
- * @example
- * ```typescript
- * clearLocalStorage();
- * ```
- */
-export function clearLocalStorage(): void {
-  localStorage.clear();
-}
+// @TODO: localStorage polyfill (memory fallback)
+
+export const localJsonStorage = {
+  /**
+   * Generate local storage key.
+   *
+   * @param name name of the item
+   * @param version version of the item (default: 1)
+   * @example
+   * ```typescript
+   * localJsonStorage.key_('myItem', 1); // myItem.v1
+   * ```
+   */
+  key_(name: string, version = 1): string {
+    return `${name}.v${version}`;
+  },
+
+  /**
+   * Get local storage item and parse it as JSON.
+   * If item is not found, return default value.
+   *
+   * @param name name of the item
+   * @param defaultValue default value of the item
+   * @param version Data structure version of the item (default: 1)
+   * @example
+   * ```typescript
+   * const value = localJsonStorage.getItem('myItem', {a: 1, b: 2});
+   * ```
+   */
+  getItem<T extends Json>(name: string, defaultValue: T, version = 1): T {
+    const key = this.key_(name, version);
+    const value = localStorage.getItem(key);
+    if (value === null) return defaultValue;
+    const json = parseJson<T>(value);
+    if (json === null || typeof json !== 'object') return defaultValue;
+    return json;
+  },
+
+  /**
+   * Set local storage item as JSON.
+   *
+   * @param name name of the item
+   * @param value value of the item
+   * @param version version of the item
+   * @example
+   * ```typescript
+   * localJsonStorage.setItem('myItem', {a: 1, b: 2});
+   * ```
+   */
+  setItem<T extends Json>(name: string, value: T, version = 1): void {
+    const key = this.key_(name, version);
+    localStorage.setItem(key, JSON.stringify(value));
+  },
+
+  /**
+   * Removes an item from the local storage.
+   *
+   * @param name - The name of the item to remove.
+   * @param version - The version of the item to remove. Default is 1.
+   * @example
+   * ```typescript
+   * localJsonStorage.removeItem('myItem');
+   * ```
+   */
+  removeItem (name: string, version = 1): void {
+    const key = this.key_(name, version);
+    window.localStorage.removeItem(key);
+  },
+} as const;
