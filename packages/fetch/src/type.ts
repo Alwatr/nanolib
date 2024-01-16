@@ -1,19 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import type {Dictionary} from '@alwatr/type-helper';
+import type {Dictionary, Json} from '@alwatr/type-helper';
 
-export type QueryParameters = Record<string, string | number | boolean>;
+/**
+ * Represents the available HTTP methods.
+ */
 export type Methods = 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'CONNECT' | 'TRACE' | 'OPTIONS' | 'PATCH';
 
-export type CacheStrategy =
-  | 'network_only'
-  | 'network_first'
-  | 'cache_only'
-  | 'cache_first'
-  | 'update_cache'
-  | 'stale_while_revalidate';
+/**
+ * Represents a dictionary of query parameters.
+ * The keys are strings and the values can be strings, numbers, or booleans.
+ */
+export type QueryParameters = Dictionary<string | number | boolean>;
 
+/**
+ * Represents the cache strategy for fetching data.
+ *
+ * - 'network_only': Fetches data from the network only.
+ * - 'network_first': Tries to fetch data from the network first, and falls back to the cache if the network request fails.
+ * - 'cache_only': Fetches data from the cache only.
+ * - 'cache_first': Tries to fetch data from the cache first, and falls back to the network if the cache request fails.
+ * - 'update_cache': Fetches data from the network and updates the cache with the new data.
+ * - 'stale_while_revalidate': Returns the stale data from the cache while fetching updated data from the network.
+ */
+export type CacheStrategy = 'network_only' | 'network_first' | 'cache_only' | 'cache_first' | 'update_cache' | 'stale_while_revalidate';
+
+/**
+ * Represents the caching behavior for duplicate requests.
+ * - 'never': The response will not be cached.
+ * - 'always': The response will always be cached.
+ * - 'until_load': The response will be cached until the page is reloaded.
+ * - 'auto': The caching behavior will be determined automatically.
+ */
 export type CacheDuplicate = 'never' | 'always' | 'until_load' | 'auto';
 
+/**
+ * Options for the fetch request.
+ */
 export interface FetchOptions extends RequestInit {
   /**
    * Request URL.
@@ -21,48 +42,48 @@ export interface FetchOptions extends RequestInit {
   url: string;
 
   /**
-   * A string to set request's method.
+   * A string to set the request's method.
    *
    * @default 'GET'
    */
   method?: Methods;
 
   /**
-   * A Headers object to set request's headers.
+   * A Headers object to set the request's headers.
    */
-  headers?: Record<string, string>;
+  headers?: Dictionary<string>;
 
   /**
    * A timeout for the fetch request.
-   * Set `0` for disable it.
+   * Set `0` to disable it.
    *
-   * Use with cation, you will have memory leak issue in nodejs.
+   * Use with caution, as it may cause memory leaks in Node.js.
    *
    * @default 10_000 ms
    */
   timeout?: number;
 
   /**
-   * If fetch response not acceptable or timed out, it will retry the request.
+   * If the fetch response is not acceptable or timed out, it will retry the request.
    *
    * @default 3
    */
   retry?: number;
 
   /**
-   * Delay before each retries.
+   * Delay before each retry.
    *
    * @default 1_000 ms
    */
   retryDelay?: number;
 
   /**
-   * Simple memory caching for remove duplicate/parallel requests.
+   * Simple memory caching to remove duplicate/parallel requests.
    *
    * - `never`: Never use memory caching.
    * - `always`: Always use memory caching and remove all duplicate requests.
-   * - `until_load`: Cache parallel requests until request completed (it will be removed after the promise resolved).
-   * - `auto`: If CacheStorage was supported use `until_load` strategy else use `always`.
+   * - `until_load`: Cache parallel requests until the request is completed (it will be removed after the promise is resolved).
+   * - `auto`: If CacheStorage is supported, use `until_load` strategy; otherwise, use `always`.
    *
    * @default 'never'
    */
@@ -76,7 +97,7 @@ export interface FetchOptions extends RequestInit {
    * - `cache_only`: Cache only without any network request.
    * - `cache_first`: Cache first, falling back to network.
    * - `update_cache`: Like `network_only` but with update cache.
-   * - `stale_while_revalidate`: Fastest strategy, Use cached first but always request network to update the cache.
+   * - `stale_while_revalidate`: Fastest strategy, use cached first but always request network to update the cache.
    *
    * @default 'network_only'
    */
@@ -88,22 +109,22 @@ export interface FetchOptions extends RequestInit {
   revalidateCallback?: (response: Response) => void | Promise<void>;
 
   /**
-   * Cache storage custom name.
+   * Custom name for the cache storage.
    */
   cacheStorageName?: string;
 
   /**
-   * Body as JS Object.
+   * Body as a JavaScript object.
    */
-  bodyJson?: Dictionary<any>;
+  bodyJson?: Json;
 
   /**
-   * URL Query Parameters as JS Object.
+   * URL query parameters as a JavaScript object.
    */
   queryParameters?: QueryParameters;
 
   /**
-   * Add token to Authentication bearer header.
+   * Add token to the Authentication bearer header.
    */
   token?: string;
 }
