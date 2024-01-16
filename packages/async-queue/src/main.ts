@@ -94,4 +94,16 @@ export class AsyncQueue {
   waitForFinish(taskId: string): Promise<unknown> {
     return this.queue__[taskId] ?? Promise.resolve();
   }
+
+  /**
+   * Wait for the all tasks in the queue to finish.
+   * @returns A promise that resolves when all tasks are done.
+   * @example
+   * ```typescript
+   * await queue.waitForAllFinish();
+   * ```
+   */
+  waitForAllFinish(): Promise<unknown[]> {
+    return Promise.all(Object.values(this.queue__));
+  }
 }
