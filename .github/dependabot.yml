@@ -5,6 +5,9 @@ updates:
   - package-ecosystem: github-actions
     directory: /
     open-pull-requests-limit: 20
+    commit-message:
+      prefix: "deps"
+      include: scope
     reviewers:
       - AliMD
     schedule:
@@ -24,6 +27,9 @@ updates:
     directory: /
     versioning-strategy: increase
     open-pull-requests-limit: 20
+    commit-message:
+      prefix: "deps"
+      include: scope
     reviewers:
       - AliMD
     schedule:
