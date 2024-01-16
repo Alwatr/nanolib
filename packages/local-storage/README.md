@@ -1,6 +1,6 @@
 # Local Storage Helper
 
-A utility for managing local storage.
+A utility object for working with local storage and JSON data.
 
 ## Installation
 

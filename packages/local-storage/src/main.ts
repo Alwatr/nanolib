@@ -23,12 +23,17 @@ function parseJson<T extends JsonValue>(content: string): T | null {
 
 // @TODO: localStorage polyfill (memory fallback)
 
+
+/**
+ * A utility object for working with local storage and JSON data.
+ */
 export const localJsonStorage = {
   /**
    * Generate local storage key.
    *
-   * @param name name of the item
-   * @param version version of the item (default: 1)
+   * @param name - Name of the item.
+   * @param version - Version of the item (default: 1).
+   * @returns The generated local storage key.
    * @example
    * ```typescript
    * localJsonStorage.key_('myItem', 1); // myItem.v1
@@ -42,9 +47,10 @@ export const localJsonStorage = {
    * Get local storage item and parse it as JSON.
    * If item is not found, return default value.
    *
-   * @param name name of the item
-   * @param defaultValue default value of the item
-   * @param version Data structure version of the item (default: 1)
+   * @param name - Name of the item.
+   * @param defaultValue - Default value of the item.
+   * @param version - Data structure version of the item (default: 1).
+   * @returns The parsed JSON value or the default value if item is not found.
    * @example
    * ```typescript
    * const value = localJsonStorage.getItem('myItem', {a: 1, b: 2});
@@ -62,9 +68,9 @@ export const localJsonStorage = {
   /**
    * Set local storage item as JSON.
    *
-   * @param name name of the item
-   * @param value value of the item
-   * @param version version of the item
+   * @param name - Name of the item.
+   * @param value - Value of the item.
+   * @param version - Version of the item.
    * @example
    * ```typescript
    * localJsonStorage.setItem('myItem', {a: 1, b: 2});
@@ -85,7 +91,7 @@ export const localJsonStorage = {
    * localJsonStorage.removeItem('myItem');
    * ```
    */
-  removeItem (name: string, version = 1): void {
+  removeItem(name: string, version = 1): void {
     const key = this.key_(name, version);
     window.localStorage.removeItem(key);
   },
