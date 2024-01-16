@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/node-fs@1.0.0-beta.0...@alwatr/node-fs@1.0.0) (2024-01-16)
+
+### Features
+
+* **node-fs:** enhance type of JSON-related functions ([69751ed](https://github.com/Alwatr/nanolib/commit/69751ed658f76eb439a9834f861c01c06542352b)) by @AliMD
+
 # 1.0.0-beta.0 (2024-01-08)
 
 ### Bug Fixes
