@@ -22,7 +22,7 @@
     "cb": "yarn run clean && yarn run build",
     "l": "yarn run lint",
     "f": "yarn run format",
-    "rl": "yarn run pull && yarn run clean && yarn run build && yarn run release",
+    "rl": "yarn run pull && yarn run clean && yarn run build && yarn run lint && yarn run test && yarn run release",
     "upd": "yarn set version latest; yarn up '*'; yarn up '*' -R; yarn dlx @yarnpkg/sdks vscode; yarn dedupe",
     "lint": "eslint . --config .eslintrc.json --ext .ts",
     "build": "lerna run build",
