@@ -21,7 +21,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -35,7 +35,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -80,7 +80,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -103,7 +103,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -115,7 +115,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -127,7 +127,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -154,7 +154,7 @@ __metadata:
     "@alwatr/platform-info": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -183,7 +183,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -196,7 +196,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -209,7 +209,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -221,7 +221,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -261,7 +261,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.3"
+    "@types/node": "npm:^20.11.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -2024,12 +2024,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.3":
+"@types/node@npm:*":
   version: 20.11.4
   resolution: "@types/node@npm:20.11.4"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: af6e1ad4d8f210d06d6db6c85b9aba25b022b493a4f2289e5ac693b418de746db812ab1537096e10e7cb7b78f1d835a06e61f31d93ebe36ef116bfbbf8f04c97
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.11.5":
+  version: 20.11.5
+  resolution: "@types/node@npm:20.11.5"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
   languageName: node
   linkType: hard
 
@@ -2296,7 +2305,7 @@ __metadata:
     eslint-import-resolver-typescript: "npm:^3.6.1"
     eslint-plugin-import: "npm:^2.29.1"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.2.2"
+    prettier: "npm:^3.2.4"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -6691,12 +6700,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "prettier@npm:3.2.2"
+"prettier@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "prettier@npm:3.2.4"
   bin:
     prettier: bin/prettier.cjs
-  checksum: e84d0d2a4ce2b88ee1636904effbdf68b59da63d9f887128f2ed5382206454185432e7c0a9578bc4308bc25d099cfef47fd0b9c211066777854e23e65e34044d
+  checksum: 88dfeb78ac6096522c9a5b81f1413d875f568420d9bb6a5e5103527912519b993f2bcdcac311fcff5718d5869671d44e4f85827d3626f3a6ce32b9abc65d88e0
   languageName: node
   linkType: hard
 
