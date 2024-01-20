@@ -128,7 +128,13 @@ export interface FetchOptions extends RequestInit {
    */
   bearerToken?: string;
 
-  token?: string;
+  /**
+   * Alwatr token scheme
+   */
+  alwatrAuth?: {
+    userId: string,
+    userToken: string,
+  }
 }
 
 // export type StringifyableFetchOptions = Pick<

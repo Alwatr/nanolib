@@ -91,8 +91,8 @@ function processOptions_(options: FetchOptions): Required<FetchOptions> {
   if (options.bearerToken !== undefined) {
     options.headers.Authorization = `Bearer ${options.bearerToken}`;
   }
-  if (options.token != null) {
-    options.headers.Authorization = `Bearer ${options.token}`;
+  else if (options.alwatrAuth !== undefined) {
+    options.headers.Authorization = `Alwatr ${options.alwatrAuth.userId}:${options.alwatrAuth.userToken}`;
   }
 
   return options as Required<FetchOptions>;
