@@ -9,10 +9,10 @@ export type * from './type';
 
 const logger = definePackage('@alwatr/fetch', __package_version__);
 
-let CacheStorage: Cache;
-const cacheSupported = 'caches' in globalScope;
+let cacheStorage_: Cache;
+export const cacheSupported = Object.hasOwn(globalScope, 'caches');
 
-const duplicateRequestStorage: Record<string, Promise<Response>> = {};
+const duplicateRequestStorage_: Record<string, Promise<Response>> = {};
 
 /**
  * It's a wrapper around the browser's `fetch` function that adds retry pattern, timeout, cacheStrategy,
@@ -29,7 +29,7 @@ const duplicateRequestStorage: Record<string, Promise<Response>> = {};
  * const response = await fetch({
  *   url: '/api/products',
  *   queryParameters: {limit: 10},
- *   timeout: 10_000,
+ *   timeout: 8_000,
  *   retry: 3,
  *   cacheStrategy: 'stale_while_revalidate',
  *   cacheDuplicate: 'auto',
@@ -37,9 +37,9 @@ const duplicateRequestStorage: Record<string, Promise<Response>> = {};
  * ```
  */
 export function fetch(options: FetchOptions): Promise<Response> {
-  options = _processOptions(options);
+  options = processOptions_(options);
   logger.logMethodArgs?.('fetch', {options});
-  return _handleCacheStrategy(options as Required<FetchOptions>);
+  return handleCacheStrategy_(options as Required<FetchOptions>);
 }
 
 /**
@@ -49,11 +49,11 @@ export function fetch(options: FetchOptions): Promise<Response> {
  *
  * @returns Required fetch options.
  */
-function _processOptions(options: FetchOptions): Required<FetchOptions> {
+function processOptions_(options: FetchOptions): Required<FetchOptions> {
   options.method ??= 'GET';
   options.window ??= null;
 
-  options.timeout ??= 10_000;
+  options.timeout ??= 8_000;
   options.retry ??= 3;
   options.retryDelay ??= 1_000;
   options.cacheStrategy ??= 'network_only';
@@ -83,11 +83,14 @@ function _processOptions(options: FetchOptions): Required<FetchOptions> {
     }
   }
 
-  if (options.bodyJson != null) {
+  if (options.bodyJson !== undefined) {
     options.body = JSON.stringify(options.bodyJson);
     options.headers['Content-Type'] = 'application/json';
   }
 
+  if (options.bearerToken !== undefined) {
+    options.headers.Authorization = `Bearer ${options.bearerToken}`;
+  }
   if (options.token != null) {
     options.headers.Authorization = `Bearer ${options.token}`;
   }
@@ -96,20 +99,20 @@ function _processOptions(options: FetchOptions): Required<FetchOptions> {
 }
 
 /**
- * Handle Cache Strategy over `_handleRemoveDuplicate`.
+ * Handle Cache Strategy over `handleRemoveDuplicate_`.
  */
-async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Response> {
+async function handleCacheStrategy_(options: Required<FetchOptions>): Promise<Response> {
   if (options.cacheStrategy === 'network_only') {
-    return _handleRemoveDuplicate(options);
+    return handleRemoveDuplicate_(options);
   }
   // else handle cache strategies!
   logger.logMethod?.('_handleCacheStrategy');
 
-  if (CacheStorage == null && options.cacheStorageName == null) {
-    CacheStorage = await caches.open('fetch_cache');
+  if (cacheStorage_ == null && options.cacheStorageName == null) {
+    cacheStorage_ = await caches.open('fetch_cache');
   }
 
-  const cacheStorage = options.cacheStorageName != null ? await caches.open(options.cacheStorageName) : CacheStorage;
+  const cacheStorage = options.cacheStorageName != null ? await caches.open(options.cacheStorageName) : cacheStorage_;
 
   const request = new Request(options.url, options);
 
@@ -120,7 +123,7 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
         return cachedResponse;
       }
       // else
-      const response = await _handleRemoveDuplicate(options);
+      const response = await handleRemoveDuplicate_(options);
       if (response.ok) {
         cacheStorage.put(request, response.clone());
       }
@@ -139,7 +142,7 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
 
     case 'network_first': {
       try {
-        const networkResponse = await _handleRemoveDuplicate(options);
+        const networkResponse = await handleRemoveDuplicate_(options);
         if (networkResponse.ok) {
           cacheStorage.put(request, networkResponse.clone());
         }
@@ -156,7 +159,7 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
     }
 
     case 'update_cache': {
-      const networkResponse = await _handleRemoveDuplicate(options);
+      const networkResponse = await handleRemoveDuplicate_(options);
       if (networkResponse.ok) {
         cacheStorage.put(request, networkResponse.clone());
       }
@@ -165,7 +168,7 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
 
     case 'stale_while_revalidate': {
       const cachedResponse = await cacheStorage.match(request);
-      const fetchedResponsePromise = _handleRemoveDuplicate(options).then((networkResponse) => {
+      const fetchedResponsePromise = handleRemoveDuplicate_(options).then((networkResponse) => {
         if (networkResponse.ok) {
           cacheStorage.put(request, networkResponse.clone());
           if (typeof options.revalidateCallback === 'function') {
@@ -179,7 +182,7 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
     }
 
     default: {
-      return _handleRemoveDuplicate(options);
+      return handleRemoveDuplicate_(options);
     }
   }
 }
@@ -187,23 +190,23 @@ async function _handleCacheStrategy(options: Required<FetchOptions>): Promise<Re
 /**
  * Handle Remove Duplicates over `_handleRetryPattern`.
  */
-async function _handleRemoveDuplicate(options: Required<FetchOptions>): Promise<Response> {
-  if (options.removeDuplicate === 'never') return _handleRetryPattern(options);
+async function handleRemoveDuplicate_(options: Required<FetchOptions>): Promise<Response> {
+  if (options.removeDuplicate === 'never') return handleRetryPattern_(options);
 
-  logger.logMethod?.('_handleRemoveDuplicate');
+  logger.logMethod?.('handleRemoveDuplicate_');
 
   const cacheKey = options.method + ' ' + options.url;
 
   // We must cache fetch promise without await for handle other parallel requests.
-  duplicateRequestStorage[cacheKey] ??= _handleRetryPattern(options);
+  duplicateRequestStorage_[cacheKey] ??= handleRetryPattern_(options);
 
   try {
     // For all requests need to await for clone responses.
-    const response = await duplicateRequestStorage[cacheKey];
+    const response = await duplicateRequestStorage_[cacheKey];
 
-    if (duplicateRequestStorage[cacheKey] != null) {
+    if (duplicateRequestStorage_[cacheKey] != null) {
       if (response.ok !== true || options.removeDuplicate === 'until_load') {
-        delete duplicateRequestStorage[cacheKey];
+        delete duplicateRequestStorage_[cacheKey];
       }
     }
 
@@ -211,16 +214,16 @@ async function _handleRemoveDuplicate(options: Required<FetchOptions>): Promise<
   }
   catch (err) {
     // clean cache on any error.
-    delete duplicateRequestStorage[cacheKey];
+    delete duplicateRequestStorage_[cacheKey];
     throw err;
   }
 }
 
 /**
- * Handle retry pattern over `_handleTimeout`.
+ * Handle retry pattern over `handleTimeout_`.
  */
-async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Response> {
-  if (!(options.retry > 1)) return _handleTimeout(options);
+async function handleRetryPattern_(options: Required<FetchOptions>): Promise<Response> {
+  if (!(options.retry > 1)) return handleTimeout_(options);
 
   logger.logMethod?.('_handleRetryPattern');
   options.retry--;
@@ -228,7 +231,7 @@ async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Res
   const externalAbortSignal = options.signal;
 
   try {
-    const response = await _handleTimeout(options);
+    const response = await handleTimeout_(options);
 
     if (response.status < 500) {
       return response;
@@ -246,21 +249,21 @@ async function _handleRetryPattern(options: Required<FetchOptions>): Promise<Res
     await waitForTimeout(options.retryDelay);
 
     options.signal = externalAbortSignal;
-    return _handleRetryPattern(options);
+    return handleRetryPattern_(options);
   }
 }
 
 /**
  * It's a wrapper around the browser's `fetch` with timeout.
  */
-function _handleTimeout(options: FetchOptions): Promise<Response> {
+function handleTimeout_(options: FetchOptions): Promise<Response> {
   if (options.timeout === 0) {
     return globalScope.fetch(options.url, options);
   }
   // else
-  logger.logMethod?.('_handleTimeout');
+  logger.logMethod?.('handleTimeout_');
   return new Promise((resolved, reject) => {
-    const abortController = typeof globalScope.AbortController === 'function' ? new AbortController() : null;
+    const abortController = typeof AbortController === 'function' ? new AbortController() : null;
     const externalAbortSignal = options.signal;
     options.signal = abortController?.signal;
 

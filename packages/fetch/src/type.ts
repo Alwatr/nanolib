@@ -59,7 +59,7 @@ export interface FetchOptions extends RequestInit {
    *
    * Use with caution, as it may cause memory leaks in Node.js.
    *
-   * @default 10_000 ms
+   * @default 8_000 ms
    */
   timeout?: number;
 
@@ -126,6 +126,8 @@ export interface FetchOptions extends RequestInit {
   /**
    * Add token to the Authentication bearer header.
    */
+  bearerToken?: string;
+
   token?: string;
 }
 
