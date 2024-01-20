@@ -2,12 +2,12 @@ import {fetch} from '@alwatr/fetch';
 
 try {
   fetch({
-    url: 'http://httpbin.org/uuid',
+    url: 'https://httpbin.org/uuid',
     timeout: 3_000,
     removeDuplicate: 'auto',
   });
   const response = await fetch({
-    url: 'http://httpbin.org/uuid',
+    url: 'https://httpbin.org/uuid',
     timeout: 3_000,
     removeDuplicate: 'auto',
   });

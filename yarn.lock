@@ -97,6 +97,7 @@ __metadata:
     "@alwatr/type-helper": "workspace:^"
     "@alwatr/wait": "workspace:^"
     "@types/node": "npm:^20.10.8"
+    jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
