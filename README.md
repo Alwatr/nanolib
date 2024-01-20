@@ -22,5 +22,6 @@ Here is a brief overview of the included libraries:
 16. [`parse-duration`](./packages/parse-duration#readme): A simple utility to parse a duration string into milliseconds number.
 17. [`local-storage`](./packages/local-storage#readme): `localJsonStorage` is a utility object in our TypeScript package that provides methods for interacting with the local storage in a structured and versioned manner.
 18. [`polyfill-has-own`](./packages/polyfill-has-own#readme): A polyfill for `Object.hasOwn`.
+19. [`fetch`](./packages/fetch/README.md): Enhanced fetch API with cache strategy, retry pattern, timeout, helper methods and enhanced types.
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.

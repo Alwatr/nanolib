@@ -85,6 +85,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/fetch@workspace:packages/fetch":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/fetch@workspace:packages/fetch"
+  dependencies:
+    "@alwatr/global-scope": "workspace:^"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
+    "@alwatr/wait": "workspace:^"
+    "@types/node": "npm:^20.10.8"
+    jest: "npm:^29.7.0"
+    typescript: "npm:^5.3.3"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/flat-string@workspace:^, @alwatr/flat-string@workspace:packages/flat-string":
   version: 0.0.0-use.local
   resolution: "@alwatr/flat-string@workspace:packages/flat-string"
@@ -252,7 +269,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/wait@workspace:packages/wait":
+"@alwatr/wait@workspace:^, @alwatr/wait@workspace:packages/wait":
   version: 0.0.0-use.local
   resolution: "@alwatr/wait@workspace:packages/wait"
   dependencies:
@@ -2024,7 +2041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^20.10.8":
   version: 20.11.4
   resolution: "@types/node@npm:20.11.4"
   dependencies:
