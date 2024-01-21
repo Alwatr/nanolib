@@ -243,7 +243,8 @@ async function handleRetryPattern_(options: Required<FetchOptions>): Promise<Res
     logger.accident('fetch', 'fetch_failed_retry', err);
 
     if (globalScope.navigator?.onLine === false) {
-      throw new Error('offline');
+      logger.accident('handleRetryPattern_', 'offline', 'Skip retry because offline');
+      throw err;
     }
 
     await waitForTimeout(options.retryDelay);
