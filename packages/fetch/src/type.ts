@@ -1,4 +1,4 @@
-import type {Dictionary, Json} from '@alwatr/type-helper';
+import type {Dictionary, Json, JsonObject} from '@alwatr/type-helper';
 
 /**
  * Represents the available HTTP methods.
@@ -132,7 +132,21 @@ export interface FetchOptions extends RequestInit {
    * Alwatr token scheme
    */
   alwatrAuth?: {
-    userId: string,
-    userToken: string,
-  }
+    userId: string;
+    userToken: string;
+  };
+}
+
+export type ResponseSuccess<T extends JsonObject> = T & {
+  ok: true;
+  statusCode: number;
+};
+
+export type ResponseError = {
+  ok: false;
+  statusCode?: number;
+  statusText?: string;
+  errorCode: string;
+  responseText?: string;
+  meta?: JsonObject;
 }
