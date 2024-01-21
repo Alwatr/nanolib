@@ -82,6 +82,7 @@ module.exports = {
     '@typescript-eslint/prefer-string-starts-ends-with': 'off',
     '@typescript-eslint/no-dynamic-delete': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/consistent-type-definitions': 'off',
     'no-throw-literal': 'off',
     'require-jsdoc': 'off',
     'valid-jsdoc': 'off',
