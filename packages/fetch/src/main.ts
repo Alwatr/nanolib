@@ -1,7 +1,7 @@
 import {handleCacheStrategy_, logger_, processOptions_, cacheSupported} from './core';
 
 import type {FetchOptions, ResponseError, ResponseSuccess} from './type';
-import type {Json, JsonObject} from '@alwatr/type-helper';
+import type {JsonObject} from '@alwatr/type-helper';
 
 export {cacheSupported};
 export type * from './type';
