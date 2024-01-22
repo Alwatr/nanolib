@@ -1,4 +1,4 @@
-import {fetch} from '@alwatr/fetch';
+import {fetch, fetchJson} from '@alwatr/fetch'
 
 describe('fetch with search params', () => {
   it('should make a GET request to the specified URL', async () => {
@@ -20,5 +20,35 @@ describe('fetch with search params', () => {
 
     expect(response.status).toBe(200);
     expect(responseJson.args.a).toBe('2');
+  });
+});
+
+describe('fetch json', () => {
+  it('should make a GET request to the specified URL with json body and parse valid json', async () => {
+    const options = {
+      url: 'http://httpbin.org/post',
+      method: 'POST',
+      bodyJson: {
+        a: 2
+      },
+      cacheStrategy: 'network_only',
+    };
+
+    const responseJson = await fetchJson(options);
+
+    expect(responseJson.ok).toBe(true);
+    expect(responseJson.json.a).toBe(2);
+  })
+
+  it('should make a GET request to the specified URL and parse json and handle 404 status code', async () => {
+    const options = {
+      url: 'https://httpbin.org/status/404',
+      cacheStrategy: 'network_only',
+    };
+
+    const responseJson = await fetchJson(options);
+
+    expect(responseJson.ok).toBe(false);
+    expect(responseJson.statusCode).toBe(404);
   });
 });
