@@ -79,7 +79,7 @@ export type Mutable<T> = {
  */
 export type Immutable<T> = {
   readonly [P in keyof T]: T[P];
-}
+};
 
 /**
  * Represents a type that makes all properties of an object and its nested objects readonly.
@@ -180,36 +180,80 @@ export type ArrayItems<T> = T extends (infer K)[] ? K : T;
 export type Merge<M, N> = Omit<M, keyof N> & N;
 
 /**
- * Represents a dictionary object with string keys and values of type T.
- */
-export interface Dictionary<T = any> {
-  [key: string | number]: T;
-}
-
-/**
- * Strigifyable JSON value that can be of type `string`, `number`, `boolean`, `null`, `undefined`,
- * `JSONArray`, or `JSONObject`.
- */
-export type JsonValue = string | number | boolean | null | undefined | JsonArray | JsonObject;
-
-/**
- * Represents `Array<JSONValues>`.
- */
-export type JsonArray = JsonValue[];
-
-/**
- * Represents an `Dictionary` of `JSONValue` (Record<string, JSONValues>)
- */
-export type JsonObject = Dictionary<JsonValue>;
-
-/**
- * Represents a Json response content that can be of type `JSONArray` or `JSONObject`.
- */
-export type Json = JsonArray | JsonObject;
-
-/**
  * Represents an object that has the ability to add event listeners.
  */
 export interface HasAddEventListener {
   addEventListener: (type: string, listener: EventListenerOrEventListenerObject, options?: AddEventListenerOptions) => void;
 }
+
+/**
+ * Represents a dictionary object with string keys and values of type T.
+ */
+export interface Dictionary<T = any> {
+  [key: string]: T;
+}
+
+/**
+ * Matches any valid JSON primitive value.
+ */
+export type JsonPrimitive = string | number | boolean | null;
+
+/**
+ * Strigifyable JSON value that can be of type `string`, `number`, `boolean`, `null`, `undefined`,
+ * `JSONArray`, or `JSONObject`.
+ */
+export type JsonValue = JsonPrimitive | JsonArray | JsonObject | JsonifiableObject;
+
+/**
+ * Represents `Array<JSONValues>`.
+ */
+export type JsonArray = JsonValue[] | readonly JsonValue[];
+
+/**
+ * Represents an `Dictionary` of `JSONValue` (Record<string, JSONValues>)
+ */
+export type JsonObject = {[Key in string]: JsonValue} & {[Key in string]?: JsonValue | undefined};
+
+/**
+ * Represents an object that can be converted to JSON value (JsonObject or an object with toJSON method).
+ */
+export type JsonifiableObject = JsonObject | {toJSON: () => JsonValue};
+
+/**
+ * Represents a Json response content that can be of type `JSONArray` or `JSONObject`.
+ */
+export type Json = JsonArray | JsonObject | JsonifiableObject;
+
+/**
+ * Represents a type that cannot be converted to JSON.
+ * This includes functions, undefined, and symbols.
+ */
+export type NotJsonifiable = ((...arguments_: any[]) => any) | undefined | symbol;
+
+/**
+ * Filters out the keys from an object type that have values that are not JSONifiable.
+ * @template T - The object type to filter.
+ * @returns The keys from the object type that have values that are JSONifiable.
+ */
+export type FilterJsonifiableKeys<T extends object> = {
+  [Key in keyof T]: T[Key] extends NotJsonifiable ? never : Key;
+}[keyof T];
+
+/**
+ * Converts an object type to a JSONifiable object type.
+ * @template T - The object type to be converted.
+ * @returns The JSONifiable object.
+ */
+export type JsonifyObject<T extends object> = {
+  [Key in keyof Pick<T, FilterJsonifiableKeys<T>>]: T[Key];
+};
+
+/**
+ * Convert simple type (بکش از ما بیرون).
+ * Useful to flatten the type output to improve type hints shown in editors.
+ * And also to transform an interface into a type to aide with assignability.
+ *
+ * @template T - The type to be simplified.
+ * @returns The simplified type.
+ */
+export type Simplify<T> = {[KeyType in keyof T]: T[KeyType]} & {};
