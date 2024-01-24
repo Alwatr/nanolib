@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/type-helper",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Collection of useful typescript type helpers.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

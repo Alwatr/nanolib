@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.1.3...@alwatr/platform-info@1.1.4) (2024-01-24)
+
+**Note:** Version bump only for package @alwatr/platform-info
+
 ## [1.1.3](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.1.2...@alwatr/platform-info@1.1.3) (2024-01-20)
 
 **Note:** Version bump only for package @alwatr/platform-info

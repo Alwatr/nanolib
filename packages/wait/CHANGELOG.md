@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/Alwatr/nanolib/compare/@alwatr/wait@1.1.6...@alwatr/wait@1.1.7) (2024-01-24)
+
+**Note:** Version bump only for package @alwatr/wait
+
 ## [1.1.6](https://github.com/Alwatr/nanolib/compare/@alwatr/wait@1.1.5...@alwatr/wait@1.1.6) (2024-01-20)
 
 **Note:** Version bump only for package @alwatr/wait

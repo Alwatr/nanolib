@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.0.3...@alwatr/type-helper@1.2.0) (2024-01-24)
+
+### Features
+
+* **ty-helper:** Update type definitions and add new interfaces for JSON serialization ([7df0b07](https://github.com/Alwatr/nanolib/commit/7df0b07aea8c2e5906bffb18ec334176fb0d76c9)) by @AliMD
+* **type-helper:** Add Mutable and Immutable types ([bd57df7](https://github.com/Alwatr/nanolib/commit/bd57df79fdb184382bb07820698e378b47b73230)) by @
+* **type-helper:** Update type definitions for Dictionary and Json ([0e3d56f](https://github.com/Alwatr/nanolib/commit/0e3d56f78cc30cc3e7d8cbef447000d01ba092ec)) by @
+
 # [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.0.3...@alwatr/type-helper@1.1.0) (2024-01-16)
 
 ### Features

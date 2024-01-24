@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.3...@alwatr/dedupe@1.0.4) (2024-01-24)
+
+**Note:** Version bump only for package @alwatr/dedupe
+
 ## [1.0.3](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.2...@alwatr/dedupe@1.0.3) (2024-01-20)
 
 **Note:** Version bump only for package @alwatr/dedupe

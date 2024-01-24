@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.0.9...@alwatr/eslint-config@1.1.0) (2024-01-24)
+
+### Features
+
+* **eslint-config:** disable consistent-type-definitions ([8b88c81](https://github.com/Alwatr/nanolib/commit/8b88c814a6a6079273b81e4f644f099469127513)) by @njfamirm
+
 ## [1.0.9](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.0.8...@alwatr/eslint-config@1.0.9) (2024-01-16)
 
 **Note:** Version bump only for package @alwatr/eslint-config
