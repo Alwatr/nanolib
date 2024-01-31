@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/Alwatr/nanolib/compare/@alwatr/async-queue@1.2.2...@alwatr/async-queue@1.2.3) (2024-01-31)
+
+### Miscellaneous Chores
+
+* **deps:** update ([1a45030](https://github.com/Alwatr/nanolib/commit/1a450305440b710a300787d4ca24b1ed8c6a39d7)) by @AliMD
+
 ## [1.2.2](https://github.com/Alwatr/nanolib/compare/@alwatr/async-queue@1.2.1...@alwatr/async-queue@1.2.2) (2024-01-24)
 
 **Note:** Version bump only for package @alwatr/async-queue

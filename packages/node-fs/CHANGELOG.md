@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/node-fs@1.0.3...@alwatr/node-fs@1.0.4) (2024-01-31)
+
+### Bug Fixes
+
+* exported types by add .js extensions to all imports ([fc3d83e](https://github.com/Alwatr/nanolib/commit/fc3d83e8f375da97ba276314b2e6966aa82c9b3f)) by @AliMD
+
+### Miscellaneous Chores
+
+* **deps:** update ([1a45030](https://github.com/Alwatr/nanolib/commit/1a450305440b710a300787d4ca24b1ed8c6a39d7)) by @AliMD
+
 ## [1.0.3](https://github.com/Alwatr/nanolib/compare/@alwatr/node-fs@1.0.2...@alwatr/node-fs@1.0.3) (2024-01-24)
 
 **Note:** Version bump only for package @alwatr/node-fs

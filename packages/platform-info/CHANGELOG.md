@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.1.4...@alwatr/platform-info@1.1.5) (2024-01-31)
+
+### Miscellaneous Chores
+
+* **deps:** update ([1a45030](https://github.com/Alwatr/nanolib/commit/1a450305440b710a300787d4ca24b1ed8c6a39d7)) by @AliMD
+
 ## [1.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.1.3...@alwatr/platform-info@1.1.4) (2024-01-24)
 
 **Note:** Version bump only for package @alwatr/platform-info

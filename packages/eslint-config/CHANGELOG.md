@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.1.0...@alwatr/eslint-config@1.2.0) (2024-01-31)
+
+### Features
+
+* **eslint-config:** extra import extensions support ([0e0652b](https://github.com/Alwatr/nanolib/commit/0e0652b564ef11467b3e6315a76ab6ff7b583c77)) by @AliMD
+* **eslint-config:** require-extensions ([53f6f50](https://github.com/Alwatr/nanolib/commit/53f6f50c69c26efdac53a6eed58b5ab76256c136)) by @njfamirm
+
+### Miscellaneous Chores
+
+* **deps:** update ([1a45030](https://github.com/Alwatr/nanolib/commit/1a450305440b710a300787d4ca24b1ed8c6a39d7)) by @AliMD
+* **eslint-config:** add `eslint-plugin-require-extensions` to peerDependencies ([77d0468](https://github.com/Alwatr/nanolib/commit/77d0468ff7ba41b1c278271bcf5fb200c6026f51)) by @AliMD
+
 ## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.0.9...@alwatr/eslint-config@1.1.0) (2024-01-24)
 
 ### Features
