@@ -33,6 +33,7 @@ module.exports = {
       },
       node: true,
     },
+    'import/extensions': ['.js', '.mjs', '.ts', '.d.ts'],
   },
   rules: {
     'max-len': ['error', {code: 140}],
