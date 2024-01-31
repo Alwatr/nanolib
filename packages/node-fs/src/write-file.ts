@@ -2,7 +2,7 @@ import {writeFileSync as writeFileSync_, existsSync, mkdirSync, renameSync} from
 import {mkdir, rename, writeFile as writeFile_} from 'node:fs/promises';
 import {dirname} from 'node:path';
 
-import {asyncQueue, logger} from './common';
+import {asyncQueue, logger} from './common.js';
 
 /**
  * Enhanced write file (Synchronous).

@@ -1,8 +1,8 @@
 import {definePackage as definePackage_} from '@alwatr/dedupe';
 
-import {createLogger} from './logger';
+import {createLogger} from './logger.js';
 
-import type {AlwatrLogger} from './type';
+import type {AlwatrLogger} from './type.js';
 
 /**
  * Global define package for managing package versions to prevent version conflicts and return package level logger.

@@ -1,4 +1,4 @@
-import {logger} from './common';
+import {logger} from './common.js';
 
 import type {JsonValue} from '@alwatr/type-helper';
 

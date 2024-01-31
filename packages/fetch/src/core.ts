@@ -2,7 +2,7 @@ import {globalScope} from '@alwatr/global-scope';
 import {definePackage} from '@alwatr/logger';
 import {waitForTimeout} from '@alwatr/wait';
 
-import type {FetchOptions} from './type';
+import type {FetchOptions} from './type.js';
 import type {} from '@alwatr/nano-build';
 
 export const logger_ = definePackage('@alwatr/fetch', __package_version__);

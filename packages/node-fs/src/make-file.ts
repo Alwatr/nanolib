@@ -1,6 +1,6 @@
 import {open} from 'node:fs/promises';
 
-import {logger} from './common';
+import {logger} from './common.js';
 
 /**
  * Make empty file.

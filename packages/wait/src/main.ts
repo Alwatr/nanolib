@@ -1,4 +1,4 @@
-import {requestAnimationFrame, requestIdleCallback} from './polyfill';
+import {requestAnimationFrame, requestIdleCallback} from './polyfill.js';
 
 import type {HasAddEventListener} from '@alwatr/type-helper';
 

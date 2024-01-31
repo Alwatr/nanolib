@@ -1,8 +1,8 @@
 import {flatString} from '@alwatr/flat-string';
 
-import {logger} from './common';
-import {jsonStringify} from './json';
-import {writeFile, writeFileSync} from './write-file';
+import {logger} from './common.js';
+import {jsonStringify} from './json.js';
+import {writeFile, writeFileSync} from './write-file.js';
 
 import type {JsonValue, MaybePromise} from '@alwatr/type-helper';
 

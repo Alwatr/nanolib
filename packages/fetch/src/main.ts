@@ -1,10 +1,10 @@
-import {handleCacheStrategy_, logger_, processOptions_, cacheSupported} from './core';
+import {handleCacheStrategy_, logger_, processOptions_, cacheSupported} from './core.js';
 
-import type {FetchOptions, ResponseError, ResponseSuccess} from './type';
+import type {FetchOptions, ResponseError, ResponseSuccess} from './type.js';
 import type {JsonObject} from '@alwatr/type-helper';
 
 export {cacheSupported};
-export type * from './type';
+export type * from './type.js';
 
 /**
  * It's a wrapper around the browser's `fetch` function that adds retry pattern, timeout, cacheStrategy,

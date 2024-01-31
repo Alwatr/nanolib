@@ -3,7 +3,7 @@ import {readFile as readFile_} from 'node:fs/promises';
 
 import {flatString} from '@alwatr/flat-string';
 
-import {asyncQueue, logger} from './common';
+import {asyncQueue, logger} from './common.js';
 
 /**
  * Enhanced read File (Synchronous).

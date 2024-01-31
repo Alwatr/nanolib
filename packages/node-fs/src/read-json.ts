@@ -1,6 +1,6 @@
-import {logger} from './common';
-import {parseJson} from './json';
-import {readFile, readFileSync} from './read-file';
+import {logger} from './common.js';
+import {parseJson} from './json.js';
+import {readFile, readFileSync} from './read-file.js';
 
 import type {JsonValue, MaybePromise} from '@alwatr/type-helper';
 
