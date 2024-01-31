@@ -10,6 +10,7 @@ module.exports = {
     // "plugin:@typescript-eslint/stylistic-type-checked",
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:require-extensions/recommended',
   ],
   env: {
     'shared-node-browser': true,
@@ -21,7 +22,7 @@ module.exports = {
     ecmaVersion: 2023,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'import'],
+  plugins: ['@typescript-eslint', 'import', 'require-extensions'],
   settings: {
     'import/resolver': {
       typescript: {
