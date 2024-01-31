@@ -91,7 +91,7 @@ else if (typeof process === 'object') {
 // other platforms
 // @ts-expect-error - Cannot find name 'Deno'
 if (typeof Deno !== 'undefined') {
-  platformInfo.isCli = true
+  platformInfo.isCli = true;
   platformInfo.isDeno = true;
 }
 

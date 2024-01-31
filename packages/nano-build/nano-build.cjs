@@ -56,13 +56,7 @@ const presetRecord = {
     treeShaking: true,
     sourcemap: false,
     sourcesContent: false,
-    target: [
-      'es2018',
-      'chrome62',
-      'edge79',
-      'firefox78',
-      'safari11',
-    ],
+    target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
   },
   pmpa: {
     entryPoints: ['site/_ts/*.ts'],
@@ -73,13 +67,7 @@ const presetRecord = {
     treeShaking: true,
     sourcemap: false,
     sourcesContent: false,
-    target: [
-      'es2018',
-      'chrome62',
-      'edge79',
-      'firefox78',
-      'safari11',
-    ],
+    target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
   },
   microservice: {
     platform: 'node',

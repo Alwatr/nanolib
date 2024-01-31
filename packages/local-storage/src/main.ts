@@ -23,7 +23,6 @@ function parseJson<T extends JsonValue>(content: string): T | null {
 
 // @TODO: localStorage polyfill (memory fallback)
 
-
 /**
  * A utility object for working with local storage and JSON data.
  */

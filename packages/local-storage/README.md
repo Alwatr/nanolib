@@ -21,13 +21,13 @@ yarn add @alwatr/local-storage
 First, you need to import `localJsonStorage` from the package:
 
 ```typescript
-import { localJsonStorage } from '@alwatr/local-storage';
+import {localJsonStorage} from '@alwatr/local-storage';
 ```
 
 Or for CommonJS:
 
 ```javascript
-const { localJsonStorage } = require('@alwatr/local-storage');
+const {localJsonStorage} = require('@alwatr/local-storage');
 ```
 
 ### Getting an Item
@@ -35,7 +35,7 @@ const { localJsonStorage } = require('@alwatr/local-storage');
 You can get an item from local storage and parse it as JSON using the `getItem` method. If the item is not found, it will return a default value:
 
 ```typescript
-const defaultValue = { a: 1, b: 2 };
+const defaultValue = {a: 1, b: 2};
 const value = localJsonStorage.getItem('item-name', defaultValue);
 ```
 
@@ -44,7 +44,7 @@ const value = localJsonStorage.getItem('item-name', defaultValue);
 You can set an item in local storage as JSON using the `setItem` method:
 
 ```typescript
-const value = { a: 1, b: 2 };
+const value = {a: 1, b: 2};
 localJsonStorage.setItem('item-name', value);
 ```
 

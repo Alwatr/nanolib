@@ -6,7 +6,7 @@ updates:
     directory: /
     open-pull-requests-limit: 20
     commit-message:
-      prefix: "deps"
+      prefix: 'deps'
     reviewers:
       - AliMD
     schedule:
@@ -27,7 +27,7 @@ updates:
     versioning-strategy: increase
     open-pull-requests-limit: 20
     commit-message:
-      prefix: "deps"
+      prefix: 'deps'
     reviewers:
       - AliMD
     schedule:

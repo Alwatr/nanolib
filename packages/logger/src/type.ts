@@ -3,7 +3,6 @@
  * The AlwatrLogger provides methods for logging various types of information.
  */
 export interface AlwatrLogger {
-
   /**
    * Debug state for current scope base on localStorage `ALWATR_LOG` pattern.
    */

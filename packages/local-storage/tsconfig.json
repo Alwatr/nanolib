@@ -4,8 +4,8 @@
     "rootDir": "src",
     "outDir": "dist",
     "emitDeclarationOnly": true,
-    "composite": true
+    "composite": true,
   },
   "include": ["src/**/*.ts"],
-  "references": [{"path": "../type-helper"}]
+  "references": [{"path": "../type-helper"}],
 }

@@ -3,7 +3,7 @@
 Alwatr's [shareable configurations](https://prettier.io/docs/en/configuration.html#sharing-configurations) for [Prettier](https://prettier.io/).
 
 ## Installation
-  
+
 ```bash
 yarn add -D @alwatr/prettier-config
 ```

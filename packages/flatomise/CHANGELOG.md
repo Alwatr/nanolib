@@ -19,7 +19,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **flatomise:** generic type ([3193b43](https://github.com/Alwatr/nanolib/commit/3193b4378681ec7c840d6d7806dad041a1db7573)) by @AliMD
+- **flatomise:** generic type ([3193b43](https://github.com/Alwatr/nanolib/commit/3193b4378681ec7c840d6d7806dad041a1db7573)) by @AliMD
 
 ## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.0.1...@alwatr/flatomise@1.0.2) (2024-01-08)
 
@@ -33,4 +33,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **flatomise:** A utility for creating promises that can be externally resolved or rejected. ([1bc4478](https://github.com/Alwatr/nanolib/commit/1bc4478327f156b5e45650590aea013590443723)) by @AliMD
+- **flatomise:** A utility for creating promises that can be externally resolved or rejected. ([1bc4478](https://github.com/Alwatr/nanolib/commit/1bc4478327f156b5e45650590aea013590443723)) by @AliMD

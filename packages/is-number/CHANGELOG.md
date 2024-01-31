@@ -15,9 +15,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **is-number:** Remove Number.isFinite polyfill ([aa149f3](https://github.com/Alwatr/nanolib/commit/aa149f302f96d961b058fc3a9d70399c1023cbe3)) by @AliMD
+- **is-number:** Remove Number.isFinite polyfill ([aa149f3](https://github.com/Alwatr/nanolib/commit/aa149f302f96d961b058fc3a9d70399c1023cbe3)) by @AliMD
 
 ### Features
 
-* **is-number:** extract from @alwatr/util ([1c8a676](https://github.com/Alwatr/nanolib/commit/1c8a676ccefcad12436f41b96eeb39c60cc09040)) by @njfamirm
-* **is-number:** Update is-number package description and add Number.isFinite polyfill ([a7c8e38](https://github.com/Alwatr/nanolib/commit/a7c8e38eb3e939199cf5637feaf08ac0ed98e2e6)) by @AliMD
+- **is-number:** extract from @alwatr/util ([1c8a676](https://github.com/Alwatr/nanolib/commit/1c8a676ccefcad12436f41b96eeb39c60cc09040)) by @njfamirm
+- **is-number:** Update is-number package description and add Number.isFinite polyfill ([a7c8e38](https://github.com/Alwatr/nanolib/commit/a7c8e38eb3e939199cf5637feaf08ac0ed98e2e6)) by @AliMD

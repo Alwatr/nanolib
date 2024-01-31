@@ -7,5 +7,5 @@
     "composite": true,
   },
   "include": ["src/**/*.ts"],
-  "references": [{"path": "../flatomise"}, {"path": "../type-helper"}]
+  "references": [{"path": "../flatomise"}, {"path": "../type-helper"}],
 }

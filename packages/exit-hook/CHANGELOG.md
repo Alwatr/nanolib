@@ -27,10 +27,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **exit-hook:** typo function name ([e8df52a](https://github.com/Alwatr/nanolib/commit/e8df52a8f527e653025abe6a8bc54719498db83e)) by @njfamirm
+- **exit-hook:** typo function name ([e8df52a](https://github.com/Alwatr/nanolib/commit/e8df52a8f527e653025abe6a8bc54719498db83e)) by @njfamirm
 
 # 1.0.0 (2024-01-03)
 
 ### Features
 
-* **exit-hook:** new package ([a41b3a0](https://github.com/Alwatr/nanolib/commit/a41b3a01a4e6af595521e506326678eb96491a11)) by @njfamirm
+- **exit-hook:** new package ([a41b3a0](https://github.com/Alwatr/nanolib/commit/a41b3a01a4e6af595521e506326678eb96491a11)) by @njfamirm

@@ -16,7 +16,7 @@ Add the following scripts to your `package.json`:
 {
   "scripts": {
     "build": "nano-build --preset=module",
-    "watch": "yarn run build --watch",
+    "watch": "yarn run build --watch"
   }
 }
 ```

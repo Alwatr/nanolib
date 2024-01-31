@@ -21,6 +21,6 @@ yarn add @alwatr/polyfill-has-own
 ```ts
 import '@alwatr/polyfill-has-own';
 
-const obj = { foo: 'bar' };
+const obj = {foo: 'bar'};
 obj.hasOwn('foo'); // true
 ```

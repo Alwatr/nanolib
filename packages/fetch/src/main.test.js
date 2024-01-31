@@ -1,14 +1,14 @@
-import {fetch} from '@alwatr/fetch'
+import {fetch} from '@alwatr/fetch';
 
 describe('fetch with search params', () => {
   it('should make a GET request to the specified URL', async () => {
     const options = {
       url: 'http://httpbin.org/get',
       queryParameters: {
-        a: 2
+        a: 2,
       },
       cacheStrategy: 'network_only',
-      removeDuplicate: 'auto'
+      removeDuplicate: 'auto',
     };
 
     fetch(options);

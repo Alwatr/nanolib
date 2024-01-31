@@ -149,4 +149,4 @@ export type ResponseError = {
   errorCode: string;
   responseText?: string;
   meta?: JsonObject;
-}
+};

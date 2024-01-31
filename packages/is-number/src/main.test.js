@@ -1,4 +1,4 @@
-import { isNumber } from '@alwatr/is-number';
+import {isNumber} from '@alwatr/is-number';
 
 describe('isNumber', () => {
   it('should return true for numbers', () => {

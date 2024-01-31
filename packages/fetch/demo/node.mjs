@@ -13,7 +13,6 @@ try {
   });
   console.log('ok: %s', response.ok);
   console.log('text: %s', await response.text());
-}
-catch (err) {
+} catch (err) {
   console.error(err);
 }

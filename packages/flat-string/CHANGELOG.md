@@ -31,7 +31,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* tsBuildInfoFile path in tsconfig.json files ([9c4ba01](https://github.com/Alwatr/nanolib/commit/9c4ba01afdd6657de4e5feef09bb6ee03d9ce053)) by @
+- tsBuildInfoFile path in tsconfig.json files ([9c4ba01](https://github.com/Alwatr/nanolib/commit/9c4ba01afdd6657de4e5feef09bb6ee03d9ce053)) by @
 
 ## [1.0.7](https://github.com/Alwatr/nanolib/compare/@alwatr/flat-string@1.0.6...@alwatr/flat-string@1.0.7) (2023-12-23)
 
@@ -45,7 +45,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* update to latest nano-build with preset ([a4d3c35](https://github.com/Alwatr/nanolib/commit/a4d3c35f9d86521312bd16dd9853519f4ed2e0b4)) by @
+- update to latest nano-build with preset ([a4d3c35](https://github.com/Alwatr/nanolib/commit/a4d3c35f9d86521312bd16dd9853519f4ed2e0b4)) by @
 
 ## [1.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/flat-string@1.0.3...@alwatr/flat-string@1.0.4) (2023-12-22)
 
@@ -55,19 +55,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* package.json include files ([ec8c807](https://github.com/Alwatr/nanolib/commit/ec8c8075ea88d669a84037077b01f92f6ea078f1)) by @
+- package.json include files ([ec8c807](https://github.com/Alwatr/nanolib/commit/ec8c8075ea88d669a84037077b01f92f6ea078f1)) by @
 
 ## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/flat-string@1.0.1...@alwatr/flat-string@1.0.2) (2023-12-22)
 
 ### Bug Fixes
 
-* package.json include files ([053fc10](https://github.com/Alwatr/nanolib/commit/053fc10b518038647136db9ada2433e27ecb2e63)) by @AliMD
+- package.json include files ([053fc10](https://github.com/Alwatr/nanolib/commit/053fc10b518038647136db9ada2433e27ecb2e63)) by @AliMD
 
 ## [1.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/flat-string@1.0.0...@alwatr/flat-string@1.0.1) (2023-12-21)
 
 ### Features
 
-* **prettier-config:** new package for prettier share configs ([a6fdee3](https://github.com/Alwatr/nanolib/commit/a6fdee34591abb1d19e7ea7e431bd6624e2ea6d4)) by @AliMD
+- **prettier-config:** new package for prettier share configs ([a6fdee3](https://github.com/Alwatr/nanolib/commit/a6fdee34591abb1d19e7ea7e431bd6624e2ea6d4)) by @AliMD
 
 # 1.0.0 (2023-12-20)
 

@@ -16,5 +16,4 @@ import {mkdir, rm} from 'node:fs/promises';
   console.timeEnd('bench');
 
   await rm(temp, {recursive: true, force: true});
-
 })();

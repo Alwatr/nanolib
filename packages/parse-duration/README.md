@@ -26,11 +26,11 @@ parseDuration('10d', 'h'); // 240
 ### Unit Table
 
 | Unit | Description |
-|------|--------|
-| `s`  | Second |
-| `m`  | Minute |
-| `h`  | Hour   |
-| `d`  | Day    |
-| `w`  | Week   |
-| `M`  | Month  |
-| `y`  | Year   |
+| ---- | ----------- |
+| `s`  | Second      |
+| `m`  | Minute      |
+| `h`  | Hour        |
+| `d`  | Day         |
+| `w`  | Week        |
+| `M`  | Month       |
+| `y`  | Year        |

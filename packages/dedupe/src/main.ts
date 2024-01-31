@@ -1,4 +1,4 @@
-import type {Dictionary} from '@alwatr/type-helper'
+import type {Dictionary} from '@alwatr/type-helper';
 
 declare global {
   // eslint-disable-next-line no-var
@@ -24,7 +24,7 @@ export const definedPackageList: Dictionary<string> = {};
  * definePackage('@scope/package-name', __package_version__);
  * ```
  */
-export function definePackage (packageName: string, version = 'v?'): void {
+export function definePackage(packageName: string, version = 'v?'): void {
   if (packageName in definedPackageList) {
     throw new Error('duplicate_package', {
       cause: packageName,

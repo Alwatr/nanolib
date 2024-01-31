@@ -2,7 +2,7 @@ import {deepClone} from '@alwatr/deep-clone';
 
 const obj1 = {};
 for (let i = 0; i < 100; i++) {
-  obj1[i] = { a: 1, b: { c: 2 } };
+  obj1[i] = {a: 1, b: {c: 2}};
 }
 
 console.log('start');

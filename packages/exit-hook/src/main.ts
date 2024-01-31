@@ -1,5 +1,5 @@
 /**
-  * Array of callback functions to be called when the process is exiting.
+ * Array of callback functions to be called when the process is exiting.
  */
 const callbacks: (() => void)[] = [];
 
