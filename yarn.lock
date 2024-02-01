@@ -21,7 +21,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -35,7 +35,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -82,7 +82,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -98,7 +98,7 @@ __metadata:
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
     "@alwatr/wait": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -122,7 +122,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -134,7 +134,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -146,7 +146,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -173,7 +173,7 @@ __metadata:
     "@alwatr/platform-info": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -202,7 +202,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -215,7 +215,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     jest: "npm:^29.7.0"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -228,7 +228,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -240,7 +240,7 @@ __metadata:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -280,7 +280,7 @@ __metadata:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^20.11.13"
+    "@types/node": "npm:^20.11.14"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -2043,12 +2043,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.11.13":
+"@types/node@npm:*":
   version: 20.11.13
   resolution: "@types/node@npm:20.11.13"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/8ff8526fa0dbabcf4e9c538c6a7220675f750c39d0794e34998daa0656d7e0dfdf3e47403d2ab8beb756422a517e1f2646b4494afa59ef330495d65fc58fa4d8
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.11.14":
+  version: 20.11.14
+  resolution: "@types/node@npm:20.11.14"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/81a55ddf68811439e58bdc2e4b8e501c6c6ea3d5351aa6362a36f5829055f58195bc201b0992ffda306fcd848c84b1eca327befb71f12f24e0d356e997e17add
   languageName: node
   linkType: hard
 
