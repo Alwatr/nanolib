@@ -45,7 +45,7 @@
   },
   "prettier": "@alwatr/prettier-config",
   "dependencies": {
-    "esbuild": "^0.20.0"
+    "esbuild": "^0.20.1"
   },
   "devDependencies": {
     "@alwatr/prettier-config": "workspace:^",
