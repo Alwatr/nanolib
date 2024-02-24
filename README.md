@@ -23,5 +23,6 @@ Here is a brief overview of the included libraries:
 17. [`local-storage`](./packages/local-storage#readme): `localJsonStorage` is a utility object in our TypeScript package that provides methods for interacting with the local storage in a structured and versioned manner.
 18. [`polyfill-has-own`](./packages/polyfill-has-own#readme): A polyfill for `Object.hasOwn`.
 19. [`fetch`](./packages/fetch/README.md): Enhanced fetch API with cache strategy, retry pattern, timeout, helper methods and enhanced types.
+20. [`icon-loader](./packages/icon-loader#readme): A utility provides a convenient way to retrieve the content of SVG icon files as strings. It's particularly useful in Static Site Generators (SSGs) such as 11ty, where it can streamline the process of embedding SVGs directly into your HTML. This can enhance performance by reducing HTTP requests and providing immediate rendering of icons.
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.

@@ -139,6 +139,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/icon-loader@workspace:packages/icon-loader":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/icon-loader@workspace:packages/icon-loader"
+  dependencies:
+    "@alwatr/prettier-config": "workspace:^"
+  peerDependencies:
+    "@alwatr/icon-set-extra": ^0.4.0
+    "@alwatr/icon-set-ionic": ^0.4.1
+    "@alwatr/icon-set-material": ^2.0.1
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/is-number@workspace:^, @alwatr/is-number@workspace:packages/is-number":
   version: 0.0.0-use.local
   resolution: "@alwatr/is-number@workspace:packages/is-number"
