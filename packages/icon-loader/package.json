@@ -43,8 +43,12 @@
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
   "prettier": "@alwatr/prettier-config",
+  "dependencies": {
+    "@alwatr/logger": "workspace:^"
+  },
   "devDependencies": {
-    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^",
+    "@types/node": "^20.11.13"
   },
   "peerDependencies": {
     "@alwatr/icon-set-extra": "^0.4.0",

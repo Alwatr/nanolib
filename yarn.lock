@@ -143,7 +143,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/icon-loader@workspace:packages/icon-loader"
   dependencies:
+    "@alwatr/logger": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
+    "@types/node": "npm:^20.11.13"
   peerDependencies:
     "@alwatr/icon-set-extra": ^0.4.0
     "@alwatr/icon-set-ionic": ^0.4.1

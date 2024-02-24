@@ -1,10 +1,19 @@
 const {readFile} = require('fs/promises');
+const {definePackage} = require('@alwatr/logger');
 
-// const resolve = createRequire(import.meta.resolve).resolve;
+const logger = definePackage('@alwatr/icon-loader', '1.0.0');
 
-const cache = {};
+const iconContentCache = {};
 
-async function alwatrIcon(icon, customClass = '') {
+/**
+ * Load an icon from the icon set and return it's svg as a string.
+ *
+ * @param {string} icon icon name
+ * @param {string} customClass custom class added to svg span container
+ * @returns {Promise<string>} svg content inside of a span
+ */
+async function iconLoader(icon, customClass = '') {
+  logger.logMethodArgs?.('iconLoader', {icon, customClass});
   if (icon.indexOf('/') === -1) {
     icon = 'material/' + icon;
   }
@@ -13,32 +22,24 @@ async function alwatrIcon(icon, customClass = '') {
     icon = icon + ':main';
   }
 
-  // @ts-expect-error es2020
-  if (Object.hasOwn(cache, icon)) return cache[icon];
+  if (iconContentCache.hasOwnProperty(icon) === false) {
+    const [iconPack, iconExtra] = icon.split('/');
+    const [iconName, iconType] = iconExtra.replace(/\_/, '-').split(':');
 
-  // icon = material/home:main
-  const [iconPack, iconExtra] = icon.split('/');
-  const [iconName, iconType] = iconExtra.replaceAll('_', '-').split(':');
+    try {
+      const path = require.resolve(`@alwatr/icon-set-${iconPack}/svg/${iconType}/${iconName}.svg`);
+      iconContentCache[icon] = await readFile(path, 'utf8');
+    } catch {
+      if (process.env.NODE_ENV === 'production') {
+        throw new Error(`@alwatr/icon-loader: icon ${icon} not found`);
+      }
 
-  let iconContext;
-
-  try {
-    const path = require.resolve(`@alwatr/icon-set-${iconPack}/svg/${iconType}/${iconName}.svg`);
-    iconContext = await readFile(path, 'utf8');
-  } catch {
-    const err = new Error(`alwatrIcon: icon ${icon} not found`);
-
-    if (process.env.NODE_ENV === 'production') {
-      throw err;
+      logger.error('iconLoader', 'icon_not_found', icon);
+      iconContentCache[icon] = 'N!';
     }
-
-    console.error(err);
-    iconContext = 'N!';
   }
 
-  cache[icon] = `<span class="alwatr-icon ${customClass}">${iconContext}</span>`;
-
-  return cache[icon];
+  return `<span class="alwatr-icon ${customClass}">${iconContentCache[icon]}</span>`;
 }
 
-module.exports = {alwatrIcon};
+module.exports = {iconLoader};
