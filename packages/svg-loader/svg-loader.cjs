@@ -3,7 +3,7 @@ const {definePackage} = require('@alwatr/logger');
 
 const logger = definePackage('@alwatr/svg-loader', '1.0.0');
 
-const iconContentCache = {};
+const cache = {};
 
 /**
  * Load an icon from the icon set and return it's svg as a string.
@@ -22,24 +22,24 @@ async function iconLoader(icon, customClass = '') {
     icon = icon + ':main';
   }
 
-  if (iconContentCache.hasOwnProperty(icon) === false) {
+  if (cache.hasOwnProperty(icon) === false) {
     const [iconPack, iconExtra] = icon.split('/');
     const [iconName, iconType] = iconExtra.replace(/\_/, '-').split(':');
 
     try {
       const path = require.resolve(`@alwatr/icon-set-${iconPack}/svg/${iconType}/${iconName}.svg`);
-      iconContentCache[icon] = await readFile(path, 'utf8');
+      cache[icon] = await readFile(path, 'utf8');
     } catch {
       if (process.env.NODE_ENV === 'production') {
         throw new Error(`@alwatr/svg-loader: icon ${icon} not found`);
       }
 
       logger.error('iconLoader', 'icon_not_found', icon);
-      iconContentCache[icon] = 'N!';
+      cache[icon] = 'N!';
     }
   }
 
-  return `<span class="alwatr-icon ${customClass}">${iconContentCache[icon]}</span>`;
+  return `<span class="alwatr-icon ${customClass}">${cache[icon]}</span>`;
 }
 
 module.exports = {iconLoader};
