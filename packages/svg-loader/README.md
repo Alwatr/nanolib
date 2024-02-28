@@ -1,6 +1,6 @@
 # Icon Loader
 
-A utility provides a convenient way to retrieve the content of SVG icon files as strings. It's particularly useful in Static Site Generators (SSGs) such as 11ty, where it can streamline the process of embedding SVGs directly into your HTML. This can enhance performance by reducing HTTP requests and providing immediate rendering of icons.
+A utility provides a convenient way to retrieve the content of SVG icon files as strings. You can use in any html/site builder, for example in 11ty, where it can streamline the process of embedding SVGs directly into your HTML. This can enhance performance by reducing HTTP requests and providing immediate rendering of icons.
 
 ## Installation
 
