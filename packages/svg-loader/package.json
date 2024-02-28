@@ -49,10 +49,5 @@
   "devDependencies": {
     "@alwatr/prettier-config": "workspace:^",
     "@types/node": "^20.11.13"
-  },
-  "peerDependencies": {
-    "@alwatr/icon-set-extra": "^0.4.0",
-    "@alwatr/icon-set-ionic": "^0.4.1",
-    "@alwatr/icon-set-material": "^2.0.1"
   }
 }
