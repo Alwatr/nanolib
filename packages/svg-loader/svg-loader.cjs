@@ -1,7 +1,7 @@
 const {readFile} = require('fs/promises');
 const {definePackage} = require('@alwatr/logger');
 
-const logger = definePackage('@alwatr/icon-loader', '1.0.0');
+const logger = definePackage('@alwatr/svg-loader', '1.0.0');
 
 const iconContentCache = {};
 
@@ -31,7 +31,7 @@ async function iconLoader(icon, customClass = '') {
       iconContentCache[icon] = await readFile(path, 'utf8');
     } catch {
       if (process.env.NODE_ENV === 'production') {
-        throw new Error(`@alwatr/icon-loader: icon ${icon} not found`);
+        throw new Error(`@alwatr/svg-loader: icon ${icon} not found`);
       }
 
       logger.error('iconLoader', 'icon_not_found', icon);

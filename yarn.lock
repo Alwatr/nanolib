@@ -139,20 +139,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/icon-loader@workspace:packages/icon-loader":
-  version: 0.0.0-use.local
-  resolution: "@alwatr/icon-loader@workspace:packages/icon-loader"
-  dependencies:
-    "@alwatr/logger": "workspace:^"
-    "@alwatr/prettier-config": "workspace:^"
-    "@types/node": "npm:^20.11.13"
-  peerDependencies:
-    "@alwatr/icon-set-extra": ^0.4.0
-    "@alwatr/icon-set-ionic": ^0.4.1
-    "@alwatr/icon-set-material": ^2.0.1
-  languageName: unknown
-  linkType: soft
-
 "@alwatr/is-number@workspace:^, @alwatr/is-number@workspace:packages/is-number":
   version: 0.0.0-use.local
   resolution: "@alwatr/is-number@workspace:packages/is-number"
@@ -264,6 +250,20 @@ __metadata:
   resolution: "@alwatr/prettier-config@workspace:packages/prettier-config"
   dependencies:
     "@alwatr/prettier-config": "workspace:^"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/svg-loader@workspace:packages/svg-loader":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/svg-loader@workspace:packages/svg-loader"
+  dependencies:
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@types/node": "npm:^20.11.13"
+  peerDependencies:
+    "@alwatr/icon-set-extra": ^0.4.0
+    "@alwatr/icon-set-ionic": ^0.4.1
+    "@alwatr/icon-set-material": ^2.0.1
   languageName: unknown
   linkType: soft
 

@@ -5,7 +5,7 @@ A utility provides a convenient way to retrieve the content of SVG icon files as
 ## Installation
 
 ```bash
-yarn add -D @alwatr/icon-loader \
+yarn add -D @alwatr/svg-loader \
   @alwatr/icon-set-extra \
   @alwatr/icon-set-ionic \
   @alwatr/icon-set-material
@@ -16,7 +16,7 @@ yarn add -D @alwatr/icon-loader \
 ```js
 // .eleventy.config.js
 
-const {iconLoader} = require('@alwatr/icon-loader');
+const {iconLoader} = require('@alwatr/svg-loader');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addAsyncShortcode('icon', iconLoader);
