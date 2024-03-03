@@ -1,0 +1,53 @@
+{
+  "name": "@alwatr/svg-loader",
+  "version": "0.0.0",
+  "description": "A utility provides a convenient way to retrieve the content of SVG icon files as strings. You can use in any html/site builder, for example in 11ty, where it can streamline the process of embedding SVGs directly into your HTML. This can enhance performance by reducing HTTP requests and providing immediate rendering of icons.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "keywords": [
+    "svg-loader",
+    "icon",
+    "11ty",
+    "ssg",
+    "cross-platform",
+    "ECMAScript",
+    "typescript",
+    "javascript",
+    "node",
+    "nodejs",
+    "browser",
+    "esm",
+    "module",
+    "utility",
+    "util",
+    "utils",
+    "nanolib",
+    "alwatr"
+  ],
+  "type": "commonjs",
+  "main": "./svg-loader.cjs",
+  "license": "MIT",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/svg-loader"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/svg-loader#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "prettier": "@alwatr/prettier-config",
+  "dependencies": {
+    "@alwatr/logger": "workspace:^"
+  },
+  "devDependencies": {
+    "@alwatr/prettier-config": "workspace:^",
+    "@types/node": "^20.11.13"
+  }
+}
