@@ -7,6 +7,8 @@ for (let i = 0; i < 100; i++) {
 
 console.log('start');
 
+// console.log('method: %s', typeof structuredClone === 'function' ? 'structuredClone' : 'json');
+
 const startTime = performance.now();
 
 for (let i = 1; i <= 100_000; i++) {

@@ -26,5 +26,10 @@ export function deepClone<T>(obj: T | null | undefined): T | null;
 
 export function deepClone<T>(obj: T | null | undefined): T | null {
   if (obj == null) return null;
+  // I don`t know why structuredClone is slower than stringify! but I think its changes in the future.
+  // if (typeof structuredClone === 'function') {
+  //   return structuredClone(obj);
+  // }
+  // else
   return JSON.parse(JSON.stringify(obj));
 }
