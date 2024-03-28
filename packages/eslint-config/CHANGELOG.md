@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.0...@alwatr/eslint-config@1.2.1) (2024-03-28)
+
+**Note:** Version bump only for package @alwatr/eslint-config
+
 ## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.1.0...@alwatr/eslint-config@1.2.0) (2024-01-31)
 
 ### Features

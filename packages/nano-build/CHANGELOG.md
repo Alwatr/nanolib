@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.4](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.3...@alwatr/nano-build@1.3.4) (2024-03-28)
+
+**Note:** Version bump only for package @alwatr/nano-build
+
 ## [1.3.3](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.2...@alwatr/nano-build@1.3.3) (2024-01-31)
 
 ### Miscellaneous Chores

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/Alwatr/nanolib/compare/@alwatr/local-storage@1.0.2...@alwatr/local-storage@1.0.3) (2024-03-28)
+
+**Note:** Version bump only for package @alwatr/local-storage
+
 ## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/local-storage@1.0.1...@alwatr/local-storage@1.0.2) (2024-01-31)
 
 **Note:** Version bump only for package @alwatr/local-storage
