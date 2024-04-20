@@ -41,6 +41,8 @@ function onExit_() {
       console.error('Error in exit hook callback:', error);
     }
   }
+
+  process.exit();
 }
 
 /**
