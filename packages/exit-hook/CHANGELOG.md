@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.8...@alwatr/exit-hook@1.0.9) (2024-04-25)
+
+### Bug Fixes
+
+* **exit-hook:** disable beforeExit event and get exit signal from process.exitCode ([2dbed18](https://github.com/Alwatr/nanolib/commit/2dbed18455ab252f686c7af58b9c5bf39f818f0d)) by @njfamirm
+* **exit-hook:** exit after listener called ([70c9f62](https://github.com/Alwatr/nanolib/commit/70c9f624899f87bb417f189792144aa05fca99ba)) by @njfamirm
+
 ## [1.0.8](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.7...@alwatr/exit-hook@1.0.8) (2024-03-28)
 
 **Note:** Version bump only for package @alwatr/exit-hook
