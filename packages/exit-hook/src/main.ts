@@ -29,7 +29,9 @@ export function exitHook(callback: () => void): void {
 /**
  * A once callback to be called on process exit event.
  */
-function onExit_() {
+function onExit_(signal: number) {
+  console.log('onExit({signal: %s})', signal);
+
   if (exiting === true) return;
   exiting = true;
 
@@ -42,17 +44,17 @@ function onExit_() {
     }
   }
 
-  process.exit();
+  process.exit(process.exitCode);
 }
 
 /**
  * This event emitted when Node.js empties its event loop and has no additional work to schedule.
  * Normally, the Node.js process will exit when there is no work scheduled,
- * but a listener registered on the 'beforeExit' event can make asynchronous calls, and thereby cause the Node.js process to continue.
+ * but a listener registered on the 'beforeExit' event can make **asynchronous calls**, and thereby cause the Node.js process to continue.
  *
  * @see https://nodejs.org/api/process.html#event-beforeexit
  */
-process.once('beforeExit', onExit_);
+// process.once('beforeExit', onExit_);
 
 /**
  * This event is emitted when the Node.js process is about to exit as a result of either:
