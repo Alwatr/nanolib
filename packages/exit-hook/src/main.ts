@@ -29,8 +29,8 @@ export function exitHook(callback: () => void): void {
 /**
  * A once callback to be called on process exit event.
  */
-function onExit_(signal: number) {
-  console.log('onExit({signal: %s})', signal);
+function onExit_(signal: number | 'SIGINT' | 'SIGTERM') {
+  console.log('onExit({signal: %s, %s})', signal);
 
   if (exiting === true) return;
   exiting = true;
@@ -44,7 +44,11 @@ function onExit_(signal: number) {
     }
   }
 
-  process.exit(process.exitCode);
+  if (signal === 'SIGINT' || signal === 'SIGTERM') {
+    setTimeout(() => {
+      process.exit(0);
+    });
+  }
 }
 
 /**
@@ -75,6 +79,6 @@ process.once('SIGTERM', onExit_);
 /**
  * This event is emitted when `Ctrl+C` is pressed.
  *
- * @see https://nodejs.org/api/process.html#signal-events
+ * @see https://nodejs.org/api/process.htm  l#signal-events
  */
 process.once('SIGINT', onExit_);
