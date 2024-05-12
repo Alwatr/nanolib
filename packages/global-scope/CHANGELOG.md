@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.16](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.15...@alwatr/global-scope@1.1.16) (2024-05-12)
+
+### Dependencies update
+
+* upgrade ([6dbd300](https://github.com/Alwatr/nanolib/commit/6dbd300642c9bcc9e7d0b281e244bf1b06eb1c38)) by @AliMD
+
 ## [1.1.15](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.14...@alwatr/global-scope@1.1.15) (2024-04-25)
 
 **Note:** Version bump only for package @alwatr/global-scope

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.5...@alwatr/nano-build@1.3.6) (2024-05-12)
+
+### Dependencies update
+
+* bump esbuild in the production-dependencies group ([1dffb4f](https://github.com/Alwatr/nanolib/commit/1dffb4f3f6f4a49cc75acc1dea777ee8c8b901ee)) by @dependabot[bot]
+
 ## [1.3.5](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.4...@alwatr/nano-build@1.3.5) (2024-04-25)
 
 **Note:** Version bump only for package @alwatr/nano-build

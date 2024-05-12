@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.9...@alwatr/exit-hook@1.0.10) (2024-05-12)
+
+### Bug Fixes
+
+* **exit-hook:** show error properly and safe exit on SIGTERM ([b0a27b8](https://github.com/Alwatr/nanolib/commit/b0a27b8c89945069c98637269f976b5e9f3618c0)) by @AliMD
+
+### Dependencies update
+
+* upgrade ([6dbd300](https://github.com/Alwatr/nanolib/commit/6dbd300642c9bcc9e7d0b281e244bf1b06eb1c38)) by @AliMD
+
 ## [1.0.9](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.8...@alwatr/exit-hook@1.0.9) (2024-04-25)
 
 ### Bug Fixes
