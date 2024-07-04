@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.5](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@3.1.4...@alwatr/fetch@3.1.5) (2024-07-04)
+
+### Dependencies update
+
+* update all dependencies ([0e908b4](https://github.com/Alwatr/nanolib/commit/0e908b476a6b976ec2447f864c8cafcbb8a0f099)) by @
+
 ## [3.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@3.1.3...@alwatr/fetch@3.1.4) (2024-05-12)
 
 ### Dependencies update

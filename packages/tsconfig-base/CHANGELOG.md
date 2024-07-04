@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@1.1.2...@alwatr/tsconfig-base@1.2.0) (2024-07-04)
+
+### Features
+
+* **tsconfig-base:** update "useDefineForClassFields" to false in tsconfig.json ([288c0ae](https://github.com/Alwatr/nanolib/commit/288c0aef4b7729afd8aba09cf56f02dea31bfd99)) by @
+
 ## [1.1.2](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@1.1.1...@alwatr/tsconfig-base@1.1.2) (2024-01-31)
 
 **Note:** Version bump only for package @alwatr/tsconfig-base

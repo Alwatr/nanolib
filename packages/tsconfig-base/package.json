@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/tsconfig-base",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "This is a base TypeScript configuration for Alwatr projects.",
   "keywords": [
     "typescript",

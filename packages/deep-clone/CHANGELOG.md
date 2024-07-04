@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/Alwatr/nanolib/compare/@alwatr/deep-clone@1.0.19...@alwatr/deep-clone@1.0.20) (2024-07-04)
+
+### Dependencies update
+
+* update all dependencies ([0e908b4](https://github.com/Alwatr/nanolib/commit/0e908b476a6b976ec2447f864c8cafcbb8a0f099)) by @
+
 ## [1.0.19](https://github.com/Alwatr/nanolib/compare/@alwatr/deep-clone@1.0.18...@alwatr/deep-clone@1.0.19) (2024-05-12)
 
 **Note:** Version bump only for package @alwatr/deep-clone
