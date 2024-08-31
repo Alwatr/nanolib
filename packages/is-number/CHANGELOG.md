@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/Alwatr/nanolib/compare/@alwatr/is-number@1.0.8...@alwatr/is-number@1.0.9) (2024-08-31)
+
+### Miscellaneous Chores
+
+* Update package.json exports for [@alwatr](https://github.com/alwatr) packages ([dacb362](https://github.com/Alwatr/nanolib/commit/dacb362b145e3c51b4aba00ff643687a3fac11d2)) by @
+
 ## [1.0.8](https://github.com/Alwatr/nanolib/compare/@alwatr/is-number@1.0.7...@alwatr/is-number@1.0.8) (2024-08-31)
 
 ### Dependencies update

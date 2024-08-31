@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.8](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@3.1.7...@alwatr/fetch@3.1.8) (2024-08-31)
+
+### Miscellaneous Chores
+
+* Update package.json exports for [@alwatr](https://github.com/alwatr) packages ([dacb362](https://github.com/Alwatr/nanolib/commit/dacb362b145e3c51b4aba00ff643687a3fac11d2)) by @
+
 ## [3.1.7](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@3.1.6...@alwatr/fetch@3.1.7) (2024-08-31)
 
 **Note:** Version bump only for package @alwatr/fetch

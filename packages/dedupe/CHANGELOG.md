@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.11...@alwatr/dedupe@1.0.12) (2024-08-31)
+
+### Miscellaneous Chores
+
+* Update package.json exports for [@alwatr](https://github.com/alwatr) packages ([dacb362](https://github.com/Alwatr/nanolib/commit/dacb362b145e3c51b4aba00ff643687a3fac11d2)) by @
+
 ## [1.0.11](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.10...@alwatr/dedupe@1.0.11) (2024-08-31)
 
 ### Bug Fixes

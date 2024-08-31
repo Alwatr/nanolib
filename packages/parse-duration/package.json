@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/parse-duration",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A simple utility to parse a duration string into milliseconds number.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.1.9...@alwatr/flatomise@1.1.10) (2024-08-31)
+
+### Miscellaneous Chores
+
+* Update package.json exports for [@alwatr](https://github.com/alwatr) packages ([dacb362](https://github.com/Alwatr/nanolib/commit/dacb362b145e3c51b4aba00ff643687a3fac11d2)) by @
+
 ## [1.1.9](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.1.8...@alwatr/flatomise@1.1.9) (2024-08-31)
 
 ### Dependencies update

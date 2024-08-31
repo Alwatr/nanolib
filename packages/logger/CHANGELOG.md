@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.12](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.11...@alwatr/logger@3.2.12) (2024-08-31)
+
+### Miscellaneous Chores
+
+* Update package.json exports for [@alwatr](https://github.com/alwatr) packages ([dacb362](https://github.com/Alwatr/nanolib/commit/dacb362b145e3c51b4aba00ff643687a3fac11d2)) by @
+
 ## [3.2.11](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.10...@alwatr/logger@3.2.11) (2024-08-31)
 
 **Note:** Version bump only for package @alwatr/logger
