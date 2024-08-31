@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.7...@alwatr/nano-build@1.3.8) (2024-08-31)
+
+### Dependencies update
+
+* update all dependencies ([1e0c30e](https://github.com/Alwatr/nanolib/commit/1e0c30e6a3a8e19deb5185814e24ab6c08dca573)) by @AliMD
+
 ## [1.3.7](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.6...@alwatr/nano-build@1.3.7) (2024-07-04)
 
 ### Dependencies update

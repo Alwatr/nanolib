@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.11...@alwatr/exit-hook@1.0.12) (2024-08-31)
+
+### Dependencies update
+
+* update all dependencies ([1e0c30e](https://github.com/Alwatr/nanolib/commit/1e0c30e6a3a8e19deb5185814e24ab6c08dca573)) by @AliMD
+
 ## [1.0.11](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.10...@alwatr/exit-hook@1.0.11) (2024-07-04)
 
 ### Dependencies update

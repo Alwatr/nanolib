@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.10](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.9...@alwatr/logger@3.2.10) (2024-08-31)
+
+### Dependencies update
+
+* update all dependencies ([1e0c30e](https://github.com/Alwatr/nanolib/commit/1e0c30e6a3a8e19deb5185814e24ab6c08dca573)) by @AliMD
+
 ## [3.2.9](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.8...@alwatr/logger@3.2.9) (2024-07-04)
 
 ### Dependencies update
