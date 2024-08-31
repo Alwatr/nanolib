@@ -70,5 +70,8 @@
     "@alwatr/tsconfig-base": "workspace:^",
     "@types/node": "^22.5.1",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@alwatr/dedupe": "workspace:^"
   }
 }

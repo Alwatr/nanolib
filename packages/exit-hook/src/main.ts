@@ -1,3 +1,7 @@
+import {definePackage} from '@alwatr/dedupe';
+
+definePackage('@alwatr/exit-hook', __package_version__);
+
 /**
  * Array of callback functions to be called when the process is exiting.
  */
@@ -30,7 +34,7 @@ export function exitHook(callback: () => void): void {
  * A once callback to be called on process exit event.
  */
 function onExit_(signal: number | 'SIGINT' | 'SIGTERM') {
-  console.log('onExit({signal: %s, %s})', signal);
+  console.log('onExit({signal: %s})', signal);
 
   if (exiting === true) return;
   exiting = true;
