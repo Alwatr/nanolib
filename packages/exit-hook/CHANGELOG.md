@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.12...@alwatr/exit-hook@1.0.13) (2024-08-31)
+
+### Bug Fixes
+
+* **exit-hook:** define package using @alwatr/dedupe to prevent duplicates ([e16638c](https://github.com/Alwatr/nanolib/commit/e16638cb69639f1c7c1316d72db8032fef617d00)) by @AliMD
+
 ## [1.0.12](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.0.11...@alwatr/exit-hook@1.0.12) (2024-08-31)
 
 ### Dependencies update

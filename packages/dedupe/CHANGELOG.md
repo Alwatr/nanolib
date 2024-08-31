@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.10...@alwatr/dedupe@1.0.11) (2024-08-31)
+
+### Bug Fixes
+
+* **dedupe:** duplicate_dedupe not work issue ([bdf6f52](https://github.com/Alwatr/nanolib/commit/bdf6f52bbb3730e6d791f5f1cba9a4ebe2510e34)) by @AliMD
+
+### Code Refactoring
+
+* **dedupe:** prevent throw error on duplicate package and just log it ([9d2b657](https://github.com/Alwatr/nanolib/commit/9d2b6570616c63604b138f2df2e2166afe16c482)) by @AliMD
+
 ## [1.0.10](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.9...@alwatr/dedupe@1.0.10) (2024-08-31)
 
 ### Dependencies update
