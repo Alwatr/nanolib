@@ -2,14 +2,23 @@ import type {Dictionary} from '@alwatr/type-helper';
 
 declare global {
   // eslint-disable-next-line no-var
-  var __dedupe__: true;
+  var __alwatr_dedupe__: true;
 
   // eslint-disable-next-line no-var
   var __package_version__: string;
 }
 
-if (typeof __dedupe__ !== 'undefined') {
-  throw new Error('duplicate_dedupe');
+const globalScope: typeof globalThis =
+  (typeof globalThis === 'object' && globalThis) ||
+  (typeof window === 'object' && window) ||
+  (typeof global === 'object' && global) ||
+  self;
+
+if (typeof globalScope.__alwatr_dedupe__ === 'undefined') {
+  globalScope.__alwatr_dedupe__ = true;
+}
+else {
+  console.error('duplicate_alwatr_dedupe', {version: __package_version__});
 }
 
 export const definedPackageList: Dictionary<string> = {};
