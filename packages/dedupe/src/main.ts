@@ -25,10 +25,16 @@ export const definedPackageList: Dictionary<string> = {};
  * ```
  */
 export function definePackage(packageName: string, version = 'v?'): void {
-  if (packageName in definedPackageList) {
-    throw new Error('duplicate_package', {
-      cause: packageName,
-    });
+  if (Object.prototype.hasOwnProperty.call(definedPackageList, packageName)) {
+    console.error(
+      new Error('duplicate_package', {
+        cause: {
+          packageName,
+          newVersion: version,
+          oldVersion: definedPackageList[packageName],
+        },
+      }),
+    );
   }
 
   definedPackageList[packageName] = version;
