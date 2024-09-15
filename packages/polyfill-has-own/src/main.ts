@@ -8,7 +8,7 @@
  * import '@alwatr/polyfill-has-own';
  *
  * const obj = { foo: 'bar' };
- * Object.hasOwn('foo'); // true
+ * Object.hasOwn(obj, 'foo'); // true
  * ```
  */
 if (Object.hasOwnProperty('hasOwn') === false) {
