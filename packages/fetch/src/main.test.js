@@ -7,7 +7,7 @@ describe('fetch with search params', () => {
      */
     const options = {
       url: 'http://httpbin.org/get',
-      queryParameters: {
+      queryParams: {
         a: 2,
       },
       cacheStrategy: 'network_only',

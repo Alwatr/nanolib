@@ -41,12 +41,12 @@ export function processOptions_(options: FetchOptions): Required<FetchOptions> {
     options.removeDuplicate = cacheSupported ? 'until_load' : 'always';
   }
 
-  if (options.url.lastIndexOf('?') === -1 && options.queryParameters != null) {
-    const queryParameters = options.queryParameters;
+  if (options.url.lastIndexOf('?') === -1 && options.queryParams != null) {
+    const queryParams = options.queryParams;
     // prettier-ignore
     const queryArray = Object
-      .keys(queryParameters)
-      .map((key) => `${key}=${String(queryParameters[key])}`);
+      .keys(queryParams)
+      .map((key) => `${key}=${String(queryParams[key])}`);
 
     if (queryArray.length > 0) {
       options.url += '?' + queryArray.join('&');

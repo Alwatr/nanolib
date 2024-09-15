@@ -3,13 +3,13 @@ import type {Dictionary, Json, JsonObject} from '@alwatr/type-helper';
 /**
  * Represents the available HTTP methods.
  */
-export type Methods = 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'CONNECT' | 'TRACE' | 'OPTIONS' | 'PATCH';
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
 
 /**
  * Represents a dictionary of query parameters.
  * The keys are strings and the values can be strings, numbers, or booleans.
  */
-export type QueryParameters = Dictionary<string | number | boolean>;
+export type QueryParams = Dictionary<string | number | boolean>;
 
 /**
  * Represents the cache strategy for fetching data.
@@ -46,7 +46,7 @@ export interface FetchOptions extends RequestInit {
    *
    * @default 'GET'
    */
-  method?: Methods;
+  method?: HttpMethod;
 
   /**
    * A Headers object to set the request's headers.
@@ -121,7 +121,7 @@ export interface FetchOptions extends RequestInit {
   /**
    * URL query parameters as a JavaScript object.
    */
-  queryParameters?: QueryParameters;
+  queryParams?: QueryParams;
 
   /**
    * Add token to the Authentication bearer header.
