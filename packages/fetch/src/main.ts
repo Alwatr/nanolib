@@ -34,6 +34,7 @@ export async function fetchJson<T extends JsonObject>(options: FetchOptions): Pr
   let response;
   let responseText;
   let responseJson;
+
   try {
     response = await fetch(options);
     responseText = await response.text();
@@ -45,14 +46,14 @@ export async function fetchJson<T extends JsonObject>(options: FetchOptions): Pr
   catch (error) {
     const responseError: ResponseError = {
       ok: false,
-      statusCode: response?.status,
-      statusText: response?.statusText,
+      statusCode: response?.status ?? 500,
       errorCode: (responseJson?.errorCode as string) ?? (error as Error).message,
+      errorMessage: (responseJson?.errorMessage as string) ?? (error as Error).message,
       responseText,
       meta: responseJson?.meta as JsonObject,
     };
 
-    logger_.accident('fetchJson', 'fetch_failed', {responseError, error});
+    logger_.accident('fetchJson', 'fetch_json_failed', {responseError, error});
     return responseError;
   }
 }

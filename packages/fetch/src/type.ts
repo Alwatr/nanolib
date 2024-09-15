@@ -144,9 +144,9 @@ export type ResponseSuccess<T extends JsonObject> = T & {
 
 export type ResponseError = {
   ok: false;
-  statusCode?: number;
-  statusText?: string;
+  statusCode: number;
   errorCode: string;
+  errorMessage: string;
   responseText?: string;
-  meta?: JsonObject;
+  meta?: Json;
 };
