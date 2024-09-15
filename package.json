@@ -46,7 +46,7 @@
     "@lerna-lite/publish": "^3.9.1",
     "@lerna-lite/run": "^3.9.1",
     "@lerna-lite/version": "^3.9.1",
-    "@types/jest": "^29.5.12",
+    "@types/jest": "^29.5.13",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
     "conventional-changelog-conventionalcommits": "^7.0.2",
@@ -58,5 +58,5 @@
     "prettier": "^3.3.3",
     "typescript": "^5.6.2"
   },
-  "packageManager": "yarn@4.4.1"
+  "packageManager": "yarn@4.5.0"
 }
