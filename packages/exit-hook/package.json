@@ -68,8 +68,8 @@
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
-    "@types/node": "^22.5.1",
-    "typescript": "^5.5.4"
+    "@types/node": "^22.5.4",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "@alwatr/dedupe": "workspace:^"
