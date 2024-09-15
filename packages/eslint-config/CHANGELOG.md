@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.6](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.5...@alwatr/eslint-config@1.2.6) (2024-09-15)
+
+### Dependencies update
+
+* bump the development-dependencies group across 1 directory with 10 updates ([9ed98ff](https://github.com/Alwatr/nanolib/commit/9ed98ffd0668d5a36e255c82edab3af53bffda8f)) by @dependabot[bot]
+
 ## [1.2.5](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.4...@alwatr/eslint-config@1.2.5) (2024-08-31)
 
 ### Dependencies update

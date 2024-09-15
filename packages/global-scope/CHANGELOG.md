@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.20](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.19...@alwatr/global-scope@1.1.20) (2024-09-15)
+
+### Dependencies update
+
+* bump the development-dependencies group across 1 directory with 10 updates ([9ed98ff](https://github.com/Alwatr/nanolib/commit/9ed98ffd0668d5a36e255c82edab3af53bffda8f)) by @dependabot[bot]
+* update ([c36ed50](https://github.com/Alwatr/nanolib/commit/c36ed50f68da2f5608ccd96119963a16cfacb4ce)) by @AliMD
+
 ## [1.1.19](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.18...@alwatr/global-scope@1.1.19) (2024-08-31)
 
 ### Miscellaneous Chores

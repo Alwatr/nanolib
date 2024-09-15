@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@3.1.8...@alwatr/fetch@4.0.0) (2024-09-15)
+
+### ⚠ BREAKING CHANGES
+
+* **fetch:** queryParametters renamed to queryParams
+
+### Code Refactoring
+
+* **fetch:** handle fetchJson error responses properly ([ae8fe24](https://github.com/Alwatr/nanolib/commit/ae8fe244aca17f235c4347ff1fd10070a410340c)) by @AliMD
+* **fetch:** update query parameters handling ([939b3d5](https://github.com/Alwatr/nanolib/commit/939b3d52998ec7b3f5c32ff5438b649148109ede)) by @AliMD
+
+### Dependencies update
+
+* bump the development-dependencies group across 1 directory with 10 updates ([9ed98ff](https://github.com/Alwatr/nanolib/commit/9ed98ffd0668d5a36e255c82edab3af53bffda8f)) by @dependabot[bot]
+* update ([c36ed50](https://github.com/Alwatr/nanolib/commit/c36ed50f68da2f5608ccd96119963a16cfacb4ce)) by @AliMD
+
 ## [3.1.8](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@3.1.7...@alwatr/fetch@3.1.8) (2024-08-31)
 
 ### Miscellaneous Chores
