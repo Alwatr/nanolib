@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.10](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.9...@alwatr/nano-build@1.3.10) (2024-09-21)
+
+### Bug Fixes
+
+* **nano-build:** remove `mangleProps` temporary ([65d95cc](https://github.com/Alwatr/nanolib/commit/65d95cc1cd3b314f506cb3dfb1a273319175616c)) by @mohammadhonarvar
+
 ## [1.3.9](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.8...@alwatr/nano-build@1.3.9) (2024-09-15)
 
 ### Dependencies update
