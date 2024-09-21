@@ -46,7 +46,7 @@ const presetRecord = {
     platform: 'node',
     format: 'esm',
     cjs: true,
-    mangleProps: '__$',
+    // mangleProps: '__$',
     packages: 'external',
   },
   pwa: {
