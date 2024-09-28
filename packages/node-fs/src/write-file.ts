@@ -19,7 +19,7 @@ import {asyncQueue, logger} from './common.js';
  * writeFileSync('./file.txt', 'Hello World!');
  * ```
  */
-export function writeFileSync(path: string, content: string): void {
+export function writeFileSync(path: string, content: Buffer | string): void {
   logger.logMethodArgs?.('writeFileSync', '...' + path.slice(-32));
   try {
     const pathExists = existsSync(path);
@@ -57,7 +57,7 @@ export function writeFileSync(path: string, content: string): void {
  * await writeFile('./file.txt', 'Hello World!');
  * ```
  */
-export function writeFile(path: string, content: string): Promise<void> {
+export function writeFile(path: string, content: Buffer | string): Promise<void> {
   logger.logMethodArgs?.('writeFile', '...' + path.slice(-32));
   return asyncQueue.push(path, async () => {
     try {
