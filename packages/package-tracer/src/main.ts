@@ -5,7 +5,7 @@ const logger = createLogger(__package_name__);
 import type {Dictionary} from '@alwatr/type-helper';
 
 export const packageTracer =  {
-  list: {} as Readonly<Dictionary<string[]>>,
+  list: {} as Readonly<Dictionary<readonly string[]>>,
 
   add(packageName: string, version: string): void {
     logger.logMethodArgs?.('add', {packageName, version});
@@ -24,4 +24,3 @@ export const packageTracer =  {
     return this.list[packageName];
   },
 } as const;
-
