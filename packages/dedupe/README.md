@@ -5,13 +5,13 @@ A package manager helper tool for debug list of defined (imported) packages in y
 ## Example usage
 
 ```ts
-import {definePackage} from '@alwatr/dedupe';
+import {deduplicate} from '@alwatr/dedupe';
 
-definePackage('@alwatr/logger', '2.0.0');
+deduplicate({name: '@alwatr/dedupe'});
 ```
 
-You can use `__package_version__` to automatically obtain the version of the package if you are using @alwatr/nano-build to build your package.
+You can use `__package_name__` to obtain automatically the version of the package if you are using @alwatr/nano-build to build your package.
 
 ```ts
-definePackage('@alwatr/logger', __package_version__);
+definePackage({name: __package_name__});
 ```
