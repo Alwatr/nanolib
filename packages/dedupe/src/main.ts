@@ -1,52 +1,59 @@
+import {globalScope} from '@alwatr/global-scope';
+
+import type {} from '@alwatr/nano-build';
 import type {Dictionary} from '@alwatr/type-helper';
 
 declare global {
   // eslint-disable-next-line no-var
-  var __alwatr_dedupe__: true;
-
-  // eslint-disable-next-line no-var
-  var __package_version__: string;
+  var __alwatr_dedupe__: string | true;
 }
-
-const globalScope: typeof globalThis =
-  (typeof globalThis === 'object' && globalThis) ||
-  (typeof window === 'object' && window) ||
-  (typeof global === 'object' && global) ||
-  self;
 
 if (typeof globalScope.__alwatr_dedupe__ === 'undefined') {
-  globalScope.__alwatr_dedupe__ = true;
+  globalScope.__alwatr_dedupe__ = __package_version__;
 }
 else {
-  console.error('duplicate_alwatr_dedupe', {version: __package_version__});
+  if (globalScope.__alwatr_dedupe__ === true) {
+    globalScope.__alwatr_dedupe__ = '1.0.x';
+  }
+
+  console.error(new Error('duplication_detected', {
+    cause: {
+      name: '@alwatr/dedupe',
+      oldVersion: globalScope.__alwatr_dedupe__,
+      newVersion: __package_version__
+    },
+  }));
 }
 
-export const definedPackageList: Dictionary<string> = {};
+const list: Dictionary<true> = {};
 
 /**
- * Global define package for managing package versions to prevent version conflicts.
- * @param packageName package name including scope. e.g. `@scope/package-name`
+ * Prevent duplication in any entities like loading node packages.
+ * @param name package name including scope. e.g. `@scope/package-name`
  * @param version package version (optional)
  *
  * @example
  * ```typescript
- * definePackage('@scope/package-name', __package_version__);
+ * deduplicate({name: __package_name__, strict: true});
  * ```
  */
-export function definePackage(packageName: string, version = 'v?'): void {
-  if (Object.prototype.hasOwnProperty.call(definedPackageList, packageName)) {
-    console.error(
-      new Error('duplicate_package', {
-        cause: {
-          packageName,
-          newVersion: version,
-          oldVersion: definedPackageList[packageName],
-        },
-      }),
-    );
+export function deduplicate(args: {name: string, strict?: true}): void {
+  if (Object.hasOwn(list, args.name)) {
+    const error = new Error('duplication_detected', {
+      cause: {
+        name: args.name,
+      },
+    });
+
+    if (args.strict) {
+      throw error;
+    }
+    else {
+      console.error(error);
+    }
   }
 
-  definedPackageList[packageName] = version;
+  list[args.name] = true;
 }
 
-definePackage('@alwatr/dedupe', __package_version__);
+deduplicate({name: __package_name__});

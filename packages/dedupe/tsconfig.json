@@ -7,5 +7,5 @@
     "composite": true,
   },
   "include": ["src/**/*.ts"],
-  "references": [{"path": "../type-helper"}],
+  "references": [{"path": "../type-helper"}, { "path": "../global-scope" }, {"path": "../polyfill-has-own"}],
 }
