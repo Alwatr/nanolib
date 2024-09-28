@@ -1,6 +1,9 @@
 import {newFlatomise} from '@alwatr/flatomise';
+import {packageTracer} from '@alwatr/package-tracer';
 
 import type {Dictionary} from '@alwatr/type-helper';
+
+packageTracer.add(__package_name__, __package_version__);
 
 /**
  * A queue that executes async tasks in order like mutex and semaphore methodology

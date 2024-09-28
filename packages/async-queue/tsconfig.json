@@ -5,7 +5,8 @@
     "outDir": "dist",
     "emitDeclarationOnly": true,
     "composite": true,
+    "types": ["@alwatr/nano-build"]
   },
   "include": ["src/**/*.ts"],
-  "references": [{"path": "../flatomise"}, {"path": "../type-helper"}],
+  "references": [{"path": "../flatomise"}, {"path": "../type-helper"}, {"path": "../package-tracer"}],
 }
