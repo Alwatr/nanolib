@@ -20,15 +20,15 @@ export interface AlwatrLogger {
   logProperty?(property: string, value: unknown): void;
 
   /**
-   * `console.debug` module name.
+   * `console.debug` module file name.
    *
    * Example:
    *
    * ```ts
-   * logger.logModule?.('app');
+   * logger.logFileModule?.('app');
    * ```
    */
-  logModule?(name: string): void;
+  logFileModule?(fileName: string): void;
 
   /**
    * `console.debug` function or method calls.

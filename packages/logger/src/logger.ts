@@ -109,7 +109,7 @@ export const createLogger = (domain: string, debugMode = defaultDebugMode): Alwa
 
     logMethod: console.debug.bind(console, _keySection + '.%s();', styleScope, domain, _style.reset),
 
-    logModule: console.debug.bind(console, _keySection + '/%s.js;', styleScope, domain, _style.reset),
+    logFileModule: console.debug.bind(console, _keySection + '/%s.js;', styleScope, domain, _style.reset),
 
     logMethodArgs: console.debug.bind(console, _keySection + '.%s(%o);', styleScope, domain, _style.reset),
 
