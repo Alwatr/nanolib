@@ -26,7 +26,7 @@
   ],
   "type": "commonjs",
   "main": "./eslint-config.cjs",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md}",
     "!demo/**/*"
