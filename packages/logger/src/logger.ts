@@ -1,9 +1,6 @@
-import {definePackage} from '@alwatr/dedupe';
 import {platformInfo} from '@alwatr/platform-info';
 
 import type {AlwatrLogger} from './type.js';
-
-definePackage('@alwatr/logger', __package_version__);
 
 const defaultDebugMode =
   platformInfo.development ||
@@ -112,11 +109,13 @@ export const createLogger = (domain: string, debugMode = defaultDebugMode): Alwa
 
     logMethod: console.debug.bind(console, _keySection + '.%s();', styleScope, domain, _style.reset),
 
-    logModule: console.debug.bind(console, _keySection + '/%s.js;', styleScope, domain, _style.reset),
+    logFileModule: console.debug.bind(console, _keySection + '/%s.js;', styleScope, domain, _style.reset),
 
     logMethodArgs: console.debug.bind(console, _keySection + '.%s(%o);', styleScope, domain, _style.reset),
 
     logMethodFull: console.debug.bind(console, _keySection + '.%s(%o) => %o', styleScope, domain, _style.reset),
+
+    logStep: console.debug.bind(console, _keySection + '.%s() -> %s', styleScope, domain, _style.reset),
 
     logOther: console.debug.bind(console, _keySection, styleScope, domain, _style.reset),
 

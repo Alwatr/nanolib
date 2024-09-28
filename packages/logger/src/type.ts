@@ -1,66 +1,103 @@
 /**
- * Represents the AlwatrLogger interface.
- * The AlwatrLogger provides methods for logging various types of information.
+ * Represents the AlwatrLogger interface for logging various types of information at different levels of detail.
+ * This interface allows for structured logging of events, method calls, errors, and more,
+ * aiding in debugging and understanding application behavior.
  */
 export interface AlwatrLogger {
   /**
-   * Debug state for current scope base on localStorage `ALWATR_LOG` pattern.
+   * Indicates whether debug mode is enabled for the current scope.
+   * This state is typically determined based on the `debug` pattern in localStorage.
    */
   debugMode: boolean;
 
   /**
-   * `console.debug` property change.
+   * Logs a property change with its new value using `console.debug`. Useful for tracking changes in application state.
    *
-   * Example:
+   * @param propertyName The name of the property that has changed.
+   * @param value The new value of the property.
    *
+   * @example
    * ```ts
    * logger.logProperty?.('name', 'ali');
    * ```
    */
-  logProperty?(property: string, value: unknown): void;
+  logProperty?(propertyName: string, value: unknown): void;
 
   /**
-   * `console.debug` module name.
+   * Logs the file name of the current module using `console.debug`.
+   * Helpful for identifying the source of log messages.
    *
-   * Example:
+   * @param fileName The name of the file representing the module.
    *
+   * @example
    * ```ts
-   * logger.logModule?.('app');
+   * logger.logFileModule?.('app');
    * ```
    */
-  logModule?(name: string): void;
+  logFileModule?(fileName: string): void;
 
   /**
-   * `console.debug` function or method calls.
+   * Logs the entry into a function or method using `console.debug`.
+   * Provides a basic trace of program execution.
    *
-   * Example:
+   * @param methodName The name of the function or method being called.
    *
+   * @example
    * ```ts
    * function myMethod () {
    *   logger.logMethod?.('myMethod');
    * }
    * ```
    */
-  logMethod?(method: string): void;
+  logMethod?(methodName: string): void;
 
   /**
-   * `console.debug` function or method calls with arguments.
+   * Logs the entry into a function or method along with its arguments using `console.debug`.
+   * Aids in understanding the context of method calls.
    *
-   * Example:
+   * @param methodName The name of the function or method being called.
+   * @param args An object containing the arguments passed to the method.
    *
+   * @example
    * ```ts
    * function myMethod (a: number, b: number) {
    *   logger.logMethodArgs?.('myMethod', {a, b});
    * }
    * ```
    */
-  logMethodArgs?(method: string, args: unknown): void;
+  logMethodArgs?(methodName: string, args: unknown): void;
 
   /**
-   * `console.debug` function or method calls with arguments.
+   * Logs specific steps or milestones within a method using `console.debug`.
+   * Facilitates tracking progress within complex functions.
    *
-   * Example:
+   * @param methodName The name of the method where the step occurs.
+   * @param stepName The name or identifier of the specific step.
+   * @param props (Optional) Additional properties or data related to the step.
    *
+   * @example
+   * ```ts
+   * function myMethod () {
+   *   logger.logMethod?.('myMethod');
+   *   ...
+   *   logger.logStep?.('myMethod', 'step1');
+   *   ...
+   *   logger.logStep?.('myMethod', 'step2');
+   *   ...
+   * }
+   * ```
+   */
+  logStep?(methodName: string, stepName: string, props?: unknown): void;
+
+  /**
+   * Logs a complete method call, including its arguments and result, using `console.debug`.
+   * Useful for debugging and understanding the output of functions.
+   *
+   * @param methodName The name of the function or method being called.
+   * @param args An object containing the arguments passed to the method.
+   * @param result The result returned by the method.
+   *
+   * @example
    * ```ts
    * function add (a: number, b: number): number {
    *   const result = a + b;
@@ -69,36 +106,45 @@ export interface AlwatrLogger {
    * }
    * ```
    */
-  logMethodFull?(method: string, args: unknown, result: unknown): void;
+  logMethodFull?(methodName: string, args: unknown, result: unknown): void;
 
   /**
-   * `console.log` an event or expected accident.
-   * not warn or error just important information.
+   * Logs an event or expected incident using `console.log`. Intended for noteworthy information that doesn't represent an error or warning.
    *
-   * Example:
+   * @param methodName The name or context of the event or incident.
+   * @param warningCode A code or identifier for the specific type of event or incident.
+   * @param args Additional details or context related to the event or incident.
    *
+   * @example
    * ```ts
    * logger.incident?.('fetch', 'abort_signal', {url: '/test.json'});
    * ```
    */
-  incident?(method: string, code: string, ...args: unknown[]): void;
+  incident?(methodName: string, warningCode: string, ...args: unknown[]): void;
 
   /**
-   * `console.warn` an unexpected accident or error that you handled like warning.
+   * Logs an unexpected incident or handled error as a warning using `console.warn`.
+   * Indicates a potential issue that has been addressed but warrants attention.
    *
-   * Example:
+   * @param methodName The name or context of the incident or error.
+   * @param warningCode A code or identifier for the specific type of incident or error.
+   * @param args Additional details or context related to the incident or error.
    *
+   * @example
    * ```ts
    * logger.accident('fetch', 'file_not_found', {url: '/test.json'});
    * ```
    */
-  accident(method: string, code: string, ...args: unknown[]): void;
+  accident(methodName: string, warningCode: string, ...args: unknown[]): void;
 
   /**
-   * `console.error` an unexpected error.
+   * Logs an unexpected error using `console.error`. Highlights critical issues that need to be addressed.
    *
-   * Example:
+   * @param methodName The name or context where the error occurred.
+   * @param errorCode A code or identifier for the specific type of error.
+   * @param args Additional details or context related to the error, including the error object itself.
    *
+   * @example
    * ```ts
    * try {
    *   ...
@@ -108,13 +154,14 @@ export interface AlwatrLogger {
    * }
    * ```
    */
-  error(method: string, code: string, ...args: unknown[]): void;
+  error(methodName: string, errorCode: string, ...args: unknown[]): void;
 
   /**
-   * Simple `console.debug` with styled scope.
+   * Performs a simple `console.debug` log with styled scope for general debugging purposes.
    *
-   * Example:
+   * @param args Any number of arguments to be logged.
    *
+   * @example
    * ```ts
    * logger.logOther?.('foo:', 'bar', {a: 1});
    * ```
@@ -122,10 +169,11 @@ export interface AlwatrLogger {
   logOther?(...args: unknown[]): void;
 
   /**
-   * Simple `console.time` with scope.
+   * Starts a timer with a specified label using `console.time`. Useful for measuring performance.
    *
-   * Example:
+   * @param label The label for the timer.
    *
+   * @example
    * ```ts
    * logger.time?.('foo');
    * ```
@@ -133,10 +181,11 @@ export interface AlwatrLogger {
   time?(label: string): void;
 
   /**
-   * Simple `console.timeEnd` with scope.
+   * Ends a timer with a specified label and logs the elapsed time using `console.timeEnd`.
    *
-   * Example:
+   * @param label The label for the timer.
    *
+   * @example
    * ```ts
    * logger.timeEnd?.('foo');
    * ```
@@ -144,10 +193,11 @@ export interface AlwatrLogger {
   timeEnd?(label: string): void;
 
   /**
-   * log big banner
+   * Logs a prominent banner message, typically used for displaying important announcements or version information.
    *
-   * Example:
+   * @param message The message to be displayed in the banner.
    *
+   * @example
    * ```ts
    * logger.banner('Alwatr PWA v2');
    * ```

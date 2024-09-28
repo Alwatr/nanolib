@@ -1,11 +1,11 @@
 import {globalScope} from '@alwatr/global-scope';
-import {definePackage} from '@alwatr/logger';
+import {createLogger} from '@alwatr/logger';
 import {waitForTimeout} from '@alwatr/wait';
 
 import type {FetchOptions} from './type.js';
 import type {} from '@alwatr/nano-build';
 
-export const logger_ = definePackage('@alwatr/fetch', __package_version__);
+export const logger_ = createLogger('@alwatr/fetch');
 
 let cacheStorage_: Cache;
 export const cacheSupported = Object.hasOwn(globalScope, 'caches');
