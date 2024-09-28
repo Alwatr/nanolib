@@ -3,7 +3,6 @@ import {createLogger} from '@alwatr/logger';
 import {waitForTimeout} from '@alwatr/wait';
 
 import type {FetchOptions} from './type.js';
-import type {} from '@alwatr/nano-build';
 
 export const logger_ = createLogger('@alwatr/fetch');
 

@@ -24,11 +24,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/dedupe@workspace:packages/dedupe"
   dependencies:
+    "@alwatr/global-scope": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
+    "@alwatr/polyfill-has-own": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
-    "@types/node": "npm:^22.7.4"
+    "@types/node": "npm:^22.5.5"
     typescript: "npm:^5.6.2"
   languageName: unknown
   linkType: soft
@@ -226,7 +228,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/polyfill-has-own@workspace:packages/polyfill-has-own":
+"@alwatr/polyfill-has-own@workspace:^, @alwatr/polyfill-has-own@workspace:packages/polyfill-has-own":
   version: 0.0.0-use.local
   resolution: "@alwatr/polyfill-has-own@workspace:packages/polyfill-has-own"
   dependencies:
@@ -2192,7 +2194,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.5.2, @types/node@npm:^22.7.4":
+"@types/node@npm:*, @types/node@npm:^22.5.2, @types/node@npm:^22.5.5, @types/node@npm:^22.7.4":
   version: 22.7.4
   resolution: "@types/node@npm:22.7.4"
   dependencies:
