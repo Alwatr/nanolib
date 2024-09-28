@@ -1,6 +1,5 @@
 import {globalScope} from '@alwatr/global-scope';
 
-import type {} from '@alwatr/nano-build';
 import type {Dictionary} from '@alwatr/type-helper';
 
 declare global {

@@ -5,6 +5,7 @@
     "outDir": "dist",
     "emitDeclarationOnly": true,
     "composite": true,
+    "types": ["@alwatr/nano-build"],
   },
   "include": ["src/**/*.ts"],
   "references": [{"path": "../type-helper"}, { "path": "../global-scope" }, {"path": "../polyfill-has-own"}],
