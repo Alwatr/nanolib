@@ -1,35 +1,79 @@
-# Logger
+## Logger
 
-Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.
+A lightweight, flexible, and colorful console logging library for TypeScript and ES modules.
 
-## Example usage
+### Features
 
-```ts
-import {createLogger} from '@alwatr/logger';
+* **Customizable Scopes:** Organize log messages using scopes for easy filtering and debugging.
+* **Colorful Output:** Visually distinguish different log levels and scopes with vibrant colors.
+* **Debug/Development Mode:** Control log verbosity to optimize performance in production environments.
+* **Tiny Footprint:** Minimal overhead, keeping your project lean and efficient.
 
-const logger = createLogger('demo');
+### Installation
 
-function sayHello(name: string) {
-  logger.logMethodArgs?.('sayHello', {name});
-}
+```bash
+npm install @alwatr/logger
 ```
 
-### Debug/Develope Mode (DEBUG_MODE)
+### Usage
 
-Many of the methods in the logger are no-ops when the debug mode is off. This is to prevent unnecessary performance impact in production.
+```typescript
+import { createLogger } from '@alwatr/logger';
+
+const logger = createLogger('my-module'); // Create a logger with a specific scope
+
+function greet(name: string) {
+  logger.logMethodArgs?.('greet', { name }); // Log the method call with its arguments
+  console.log(`Hello, ${name}!`); 
+}
+
+greet('Ali'); 
+```
+
+### Log Levels and Methods
+
+* **`logProperty(propertyName, value)`:** Logs a property change (useful for tracking state).
+* **`logFileModule(fileName)`:** Logs the module's file name for easy identification.
+* **`logMethod(methodName)`:** Logs the entry into a function or method.
+* **`logMethodArgs(methodName, args)`:** Logs a method call with its arguments.
+* **`logStep(methodName, stepName, props?)`:** Logs specific steps within a method.
+* **`logMethodFull(methodName, args, result)`:** Logs a method call with arguments and result.
+* **`incident(methodName, code, ...args)`:** Logs an event or expected incident (informational).
+* **`accident(methodName, code, ...args)`:** Logs an unexpected incident or handled error (warning).
+* **`error(methodName, code, ...args)`:** Logs an unexpected error (critical).
+* **`logOther(...args)`:** General-purpose logging with styled scope.
+* **`time(label)`:** Starts a timer.
+* **`timeEnd(label)`:** Ends a timer and logs the elapsed time.
+* **`banner(message)`:** Logs a large, prominent banner message.
+
+### Enabling Debug Mode
 
 #### Browser
 
-```ts
-window.localStorage?.setItem('debug', '1');
+1. Open your browser's developer tools.
+2. Go to the "Application" or "Storage" tab.
+3. Find "Local Storage" and locate your application's domain.
+4. Add a new key-value pair: `debug` with the value `1`.
+5. Reload the page.
 
-// Please remember to **reload** the window after changing the debug mode.
+Or use the following code snippet in the browser console:
+
+```javascript
+window.localStorage?.setItem('debug', '1');
 ```
 
-> Make sure the [log level](https://developer.chrome.com/docs/devtools/console/log/#browser) in set correctly.
+> **Note:** Ensure the browser console's log level is set to include "Verbose" or "All" to see debug messages.
 
-#### CLI
+#### Node.js
 
-```sh
+```bash
 DEBUG=1 node index.js
 ```
+
+### Contributing
+
+Contributions are welcome! Please read our [contribution guidelines](CONTRIBUTING.md) before submitting a pull request.
+
+### License
+
+This project is licensed under the MIT License.
