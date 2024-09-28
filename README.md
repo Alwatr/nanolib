@@ -25,3 +25,17 @@ Here is a brief overview of the included libraries:
 19. [`fetch`](./packages/fetch/README.md): Enhanced fetch API with cache strategy, retry pattern, timeout, helper methods and enhanced types.
 
 For more detailed information and guidelines on how to use each package, please refer to each package's README.
+
+## Sponsors
+
+The following companies, organizations, and individuals support Nitrobase ongoing maintenance and development. Become a Sponsor to get your logo on our README and website.
+
+[![Exir Studio](https://avatars.githubusercontent.com/u/181194967?s=200&v=4)](https://exirstudio.com)
+
+### Contributing
+
+Contributions are welcome! Please read our [contribution guidelines](https://github.com/Alwatr/.github/blob/next/CONTRIBUTING.md) before submitting a pull request.
+
+### License
+
+This project is licensed under the [AGPL-3.0 License](LICENSE).
