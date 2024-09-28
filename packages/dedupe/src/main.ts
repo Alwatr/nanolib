@@ -57,3 +57,13 @@ export function deduplicate(args: {name: string, strict?: true}): void {
 }
 
 deduplicate({name: __package_name__});
+
+/**
+ * Old `definePackage` for backward compatibility.
+ * @deprecated Use `deduplicate` instead.
+*/
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function definePackage(packageName: string, _?:string): void {
+  console.warn('`definePackage` in `@alwatr/dedupe` is deprecated. Use `deduplicate` instead.');
+  deduplicate({name: packageName});
+}
