@@ -115,6 +115,8 @@ export const createLogger = (domain: string, debugMode = defaultDebugMode): Alwa
 
     logMethodFull: console.debug.bind(console, _keySection + '.%s(%o) => %o', styleScope, domain, _style.reset),
 
+    logStep: console.debug.bind(console, _keySection + '.%s() -> %s', styleScope, domain, _style.reset),
+
     logOther: console.debug.bind(console, _keySection, styleScope, domain, _style.reset),
 
     incident: platformInfo.isCli

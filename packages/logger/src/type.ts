@@ -54,7 +54,24 @@ export interface AlwatrLogger {
    * }
    * ```
    */
-  logMethodArgs?(method: string, args: unknown): void;
+
+  /**
+   * `console.debug` steps in a method.
+   *
+   * Example:
+   *
+   * ```ts
+   * function myMethod () {
+   *   logger.logMethod?.('myMethod');
+   *   ...
+   *   logger.logStep?.('myMethod', 'step1');
+   *   ...
+   *   logger.logStep?.('myMethod', 'step2');
+   *   ...
+   * }
+   * ```
+   */
+  logStep?(methodName: string, stepName: string, props?: unknown): void;
 
   /**
    * `console.debug` function or method calls with arguments.
