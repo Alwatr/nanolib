@@ -50,6 +50,7 @@
   "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "cSpell.words": [
     "Alwatr",
+    "conventionalcommits",
     "Deno",
     "flatomise",
     "Jsonifiable",
