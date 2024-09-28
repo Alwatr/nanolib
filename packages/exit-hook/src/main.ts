@@ -1,6 +1,6 @@
-import {definePackage} from '@alwatr/dedupe';
+import {deduplicate} from '@alwatr/dedupe';
 
-definePackage('@alwatr/exit-hook', __package_version__);
+deduplicate({name: __package_name__});
 
 /**
  * Array of callback functions to be called when the process is exiting.
