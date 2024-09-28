@@ -57,7 +57,7 @@
     "c": "yarn run clean",
     "cb": "yarn run clean && yarn run build",
     "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
-    "build": "yarn run build:ts & yarn run build:es",
+    "build": "yarn run build:ts && yarn run build:es",
     "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
     "watch": "yarn run watch:ts & yarn run watch:es",
