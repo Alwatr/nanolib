@@ -12,7 +12,7 @@
     "alwatr"
   ],
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
-  "license": "MIT",
+  "license": "AGPL-3.0-only",
   "main": "tsconfig.json",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md}",
