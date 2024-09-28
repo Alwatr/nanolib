@@ -189,9 +189,7 @@ export interface HasAddEventListener {
 /**
  * Represents a dictionary object with string keys and values of type T.
  */
-export interface Dictionary<T = any> {
-  [key: string]: T;
-}
+export type Dictionary<T = any> = {[key in string]?: T};
 
 /**
  * Matches any valid JSON primitive value.
