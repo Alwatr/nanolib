@@ -24,7 +24,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/dedupe@workspace:packages/dedupe"
   dependencies:
+    "@alwatr/global-scope": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
+    "@alwatr/polyfill-has-own": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
@@ -226,7 +228,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/polyfill-has-own@workspace:packages/polyfill-has-own":
+"@alwatr/polyfill-has-own@workspace:^, @alwatr/polyfill-has-own@workspace:packages/polyfill-has-own":
   version: 0.0.0-use.local
   resolution: "@alwatr/polyfill-has-own@workspace:packages/polyfill-has-own"
   dependencies:

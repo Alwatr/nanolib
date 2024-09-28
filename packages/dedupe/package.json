@@ -69,10 +69,10 @@
   "devDependencies": {
     "@alwatr/global-scope": "workspace:^",
     "@alwatr/nano-build": "workspace:^",
+    "@alwatr/polyfill-has-own": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "@alwatr/type-helper": "workspace:^",
-    "@alwatr/polyfill-has-own": "workspace:^",
     "@types/node": "^22.5.5",
     "typescript": "^5.6.2"
   }
