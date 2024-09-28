@@ -11,7 +11,7 @@
  * Object.hasOwn(obj, 'foo'); // true
  * ```
  */
-if (Object.hasOwnProperty('hasOwn') === false) {
+if (Object.prototype.hasOwnProperty.call(Object, 'hasOwn') === false) {
   // @ts-expect-error - TS doesn't know about this polyfill
-  Object.hasOwn = Object.call.bind(Object.hasOwnProperty);
+  Object.hasOwn = Object.prototype.call.bind(Object.prototype.hasOwnProperty);
 }
