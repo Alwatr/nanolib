@@ -194,9 +194,18 @@ export interface HasAddEventListener {
 }
 
 /**
- * Represents a dictionary object with string keys and values of type T.
+ * Represents a dictionary where values can be optional (undefined).
+ *
+ * @template T The type of values stored in the dictionary. Defaults to `any`.
  */
-export type Dictionary<T = any> = {[key in string]?: T};
+export type DictionaryOpt<T = any> = { [key in string]?: T };
+
+/**
+ * Represents a dictionary where all values are required (non-optional).
+ *
+ * @template T The type of values stored in the dictionary. Defaults to `any`.
+ */
+export type DictionaryReq<T = any> = { [key in string]: T };
 
 /**
  * Matches any valid JSON primitive value.
