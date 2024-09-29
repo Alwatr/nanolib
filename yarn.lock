@@ -296,6 +296,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/svg-loader@workspace:packages/svg-loader":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/svg-loader@workspace:packages/svg-loader"
+  dependencies:
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@types/node": "npm:^20.11.13"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/tsconfig-base@workspace:^, @alwatr/tsconfig-base@workspace:packages/tsconfig-base":
   version: 0.0.0-use.local
   resolution: "@alwatr/tsconfig-base@workspace:packages/tsconfig-base"
