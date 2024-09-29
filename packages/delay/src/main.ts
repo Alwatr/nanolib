@@ -5,8 +5,6 @@ packageTracer.add(__package_name__, __package_version__);
 
 import {requestAnimationFrame, requestIdleCallback} from './polyfill.js';
 
-import type {HasAddEventListener} from '@alwatr/type-helper';
-
 /**
  * A utility module to help manage asynchronous operations and waiting for events or timeouts.
  */

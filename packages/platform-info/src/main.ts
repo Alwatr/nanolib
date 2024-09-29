@@ -1,7 +1,5 @@
 import {packageTracer} from '@alwatr/package-tracer';
 
-import type {Mutable} from '@alwatr/type-helper';
-
 packageTracer.add(__package_name__, __package_version__);
 
 /**

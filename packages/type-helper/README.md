@@ -1,25 +1,44 @@
-# Typescript Type Helpers
+# TypeScript Type Helpers
 
-Collection of useful typescript type helpers.
+A collection of useful TypeScript type helpers.
 
 ## Installation
 
 ```bash
-yarn add @alwatr/type-helper
+yarn add -D @alwatr/type-helper
 ```
 
-## Usage
+## Import in Your File
 
 ```typescript
-import type {JSONObject} from '@alwatr/type-helper';
+import type { JSONObject } from '@alwatr/type-helper/types';
+```
 
+## Add to Global Types
+
+To add the type helpers to your global types, update your `tsconfig.json`:
+
+```json
+{
+  "extends": "@alwatr/tsconfig-base/tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "@alwatr/nano-build", "@alwatr/type-helper"]
+  },
+  "include": ["src/**/*.ts"],
+  "references": [{ "path": "../package-tracer" }]
+}
+```
+
+## Usage Example
+
+```typescript
 const obj: JSONObject = {
   foo: 'bar',
   baz: {
     qux: 1,
-    arr: [1, 2, 3],
+    arr: [1, 2, 3]
   },
-  qux: true,
+  qux: true
 };
 ```
 

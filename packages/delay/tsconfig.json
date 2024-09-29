@@ -5,12 +5,11 @@
     "outDir": "dist",
     "emitDeclarationOnly": true,
     "composite": true,
-    "types": ["node", "@alwatr/nano-build"]
+    "types": ["node", "@alwatr/nano-build", "@alwatr/type-helper"]
   },
   "include": ["src/**/*.ts"],
   "references": [
     {"path": "../global-scope"},
-    {"path": "../type-helper"},
     {"path": "../package-tracer"},
     {"path": "../parse-duration"}
   ]

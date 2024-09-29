@@ -4,8 +4,6 @@ import {logger} from './common.js';
 import {jsonStringify} from './json.js';
 import {writeFile, writeFileSync} from './write-file.js';
 
-import type {JsonValue, MaybePromise} from '@alwatr/type-helper';
-
 /**
  * Enhanced write json file (Asynchronous).
  *

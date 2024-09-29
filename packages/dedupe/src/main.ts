@@ -1,8 +1,6 @@
 import {globalScope} from '@alwatr/global-scope';
 import '@alwatr/polyfill-has-own';
 
-import type {DictionaryOpt} from '@alwatr/type-helper';
-
 declare global {
   // eslint-disable-next-line no-var
   var __alwatr_dedupe__: string | true;

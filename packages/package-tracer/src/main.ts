@@ -1,5 +1,3 @@
-import type {DictionaryOpt} from '@alwatr/type-helper';
-
 /**
  * A module for tracking package information.
  * This module is useful for keeping track of loaded packages and their versions.
