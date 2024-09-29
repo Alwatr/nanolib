@@ -1,5 +1,5 @@
 {
-  "name": "@alwatr/wait",
+  "name": "@alwatr/delay",
   "version": "1.1.16",
   "description": "Comprehensive toolkit for managing asynchronous operations.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
@@ -66,7 +66,9 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@alwatr/global-scope": "workspace:^"
+    "@alwatr/global-scope": "workspace:^",
+    "@alwatr/package-tracer": "workspace:^",
+    "@alwatr/parse-duration": "workspace:^"
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",

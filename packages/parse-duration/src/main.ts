@@ -1,4 +1,7 @@
 import {isNumber} from '@alwatr/is-number';
+import {packageTracer} from '@alwatr/package-tracer';
+
+packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Unit conversion table
@@ -21,35 +24,45 @@ export type DurationUnit = keyof typeof unitConversion_;
 /**
  * Duration string format: `number + unit`, for example `10m` means 10 minutes.
  */
-export type DurationString = `${number}${DurationUnit}`;
+export type Duration = `${number}${DurationUnit}` | number;
 
 /**
  * Parse duration string to milliseconds number.
  *
- * @param duration - duration string, for example `10m` means 10 minutes.
+ * @param duration - duration string or number, for example `10m` means 10 minutes.
  * @param toUnit - convert to unit, default is `ms` for milliseconds.
  * @return duration in milliseconds.
  * @example
  * ```ts
  * parseDuration('10m'); // 600000
  * parseDuration('10m', 's'); // 600
+ * parseDuration(120_000, 'm'); // 2
  * ```
  */
-export const parseDuration = (duration: DurationString, toUnit?: DurationUnit): number => {
-  const durationNumberStr = duration.slice(0, duration.length - 1);
-  if (!isNumber(durationNumberStr)) {
-    throw new Error(`not_a_number`);
+export const parseDuration = (duration: Duration, toUnit?: DurationUnit): number => {
+  let ms: number;
+
+  if (typeof duration === 'number') {
+    ms = duration
   }
-  const durationNumber = +durationNumberStr;
-  const durationUnit = duration.slice(-1) as DurationUnit;
-  const factor = unitConversion_[durationUnit];
-  if (factor === undefined) {
-    throw new Error(`invalid_unit`, {cause: {duration}});
+  else {
+    const durationNumberStr = duration.slice(0, duration.length - 1);
+    if (!isNumber(durationNumberStr)) {
+      throw new Error(`not_a_number`);
+    }
+    const durationNumber = +durationNumberStr;
+    const durationUnit = duration.slice(-1) as DurationUnit;
+    const unitConversionFactor = unitConversion_[durationUnit];
+    if (unitConversionFactor === undefined) {
+      throw new Error(`invalid_unit`, {cause: {duration}});
+    }
+    ms = durationNumber * unitConversionFactor;
   }
-  const ms = durationNumber * factor;
+
   if (toUnit === undefined) {
     return ms;
   }
+
   // else
   const toFactor = unitConversion_[toUnit];
   if (toFactor === undefined) {

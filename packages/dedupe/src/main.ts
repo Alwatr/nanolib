@@ -1,6 +1,7 @@
 import {globalScope} from '@alwatr/global-scope';
+import '@alwatr/polyfill-has-own';
 
-import type {Dictionary} from '@alwatr/type-helper';
+import type {DictionaryOpt} from '@alwatr/type-helper';
 
 declare global {
   // eslint-disable-next-line no-var
@@ -17,14 +18,14 @@ else {
 
   console.error(new Error('duplication_detected', {
     cause: {
-      name: '@alwatr/dedupe',
+      name: __package_name__,
       oldVersion: globalScope.__alwatr_dedupe__,
       newVersion: __package_version__
     },
   }));
 }
 
-const list: Dictionary<true> = {};
+const list: DictionaryOpt<true> = {};
 
 /**
  * Prevent duplication in any entities like loading node packages.

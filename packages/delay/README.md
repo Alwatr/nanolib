@@ -1,27 +1,27 @@
-# @alwatr/wait
+# @alwatr/delay
 
-`@alwatr/wait` offers a collection of utility functions to handle asynchronous execution flow effectively. It allows you to pause your code until specific conditions are met or certain events occur. This functionality aids in managing complex asynchronous scenarios and crafting intricate flows with ease. The functions can be used independently or combined for robust control over asynchronous operations.
+`@alwatr/delay` offers a collection of utility functions to handle asynchronous execution flow effectively. It allows you to pause your code until specific conditions are met or certain events occur. This functionality aids in managing complex asynchronous scenarios and crafting intricate flows with ease. The functions can be used independently or combined for robust control over asynchronous operations.
 
 ## Installation
 
 ```bash
-npm install @alwatr/wait
+npm install @alwatr/delay
 ```
 
 ```bash
-yarn add @alwatr/wait
+yarn add @alwatr/delay
 ```
 
 ## Usage
 
-Each function within `@alwatr/wait` returns a Promise that resolves when the specified waiting condition is met. Here's a breakdown of the available functions:
+Each function within `@alwatr/delay` returns a Promise that resolves when the specified waiting condition is met. Here's a breakdown of the available functions:
 
 * **waitForTimeout(duration: number): Promise<void>**
   * Waits for a specified duration (in milliseconds) before resolving.
   * Example:
 
     ```typescript
-    import { waitForTimeout } from '@alwatr/wait';
+    import { waitForTimeout } from '@alwatr/delay';
 
     await waitForTimeout(1000); // Waits for 1 second
     ```
@@ -32,7 +32,7 @@ Each function within `@alwatr/wait` returns a Promise that resolves when the spe
   * Example:
 
     ```typescript
-    import { waitForAnimationFrame } from '@alwatr/wait';
+    import { waitForAnimationFrame } from '@alwatr/delay';
 
     await waitForAnimationFrame(); // Waits for next animation frame
     ```
@@ -44,7 +44,7 @@ Each function within `@alwatr/wait` returns a Promise that resolves when the spe
   * Example:
 
     ```typescript
-    import { waitForIdle } from '@alwatr/wait';
+    import { waitForIdle } from '@alwatr/delay';
 
     await waitForIdle(); // Waits for next idle period
     ```
@@ -54,7 +54,7 @@ Each function within `@alwatr/wait` returns a Promise that resolves when the spe
   * Example:
 
     ```typescript
-    import { waitForDomEvent } from '@alwatr/wait';
+    import { waitForDomEvent } from '@alwatr/delay';
 
     const button = document.getElementById('myButton');
     await waitForDomEvent(button, 'click'); // Waits for click event on button
@@ -65,7 +65,7 @@ Each function within `@alwatr/wait` returns a Promise that resolves when the spe
   * Example:
 
     ```typescript
-    import { waitForEvent } from '@alwatr/wait';
+    import { waitForEvent } from '@alwatr/delay';
 
     const server = http.createServer();
     await waitForEvent(server, 'request'); // Waits for request event on server
@@ -76,7 +76,7 @@ Each function within `@alwatr/wait` returns a Promise that resolves when the spe
   * Example:
 
     ```typescript
-    import { waitForImmediate } from '@alwatr/wait';
+    import { waitForImmediate } from '@alwatr/delay';
 
     await waitForImmediate(); // Executes next microtask
     ```
@@ -86,7 +86,7 @@ Each function within `@alwatr/wait` returns a Promise that resolves when the spe
   * Example:
 
     ```typescript
-    import { waitForMicrotask } from '@alwatr/wait';
+    import { waitForMicrotask } from '@alwatr/delay';
 
     await waitForMicrotask(); // Waits for next microtask queue
     ```

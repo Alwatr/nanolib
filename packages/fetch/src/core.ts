@@ -1,8 +1,12 @@
+import {delay} from '@alwatr/delay';
 import {globalScope} from '@alwatr/global-scope';
 import {createLogger} from '@alwatr/logger';
-import {waitForTimeout} from '@alwatr/wait';
+import {packageTracer} from '@alwatr/package-tracer';
+import {parseDuration} from '@alwatr/parse-duration';
 
 import type {FetchOptions} from './type.js';
+
+packageTracer.add(__package_name__, __package_version__);
 
 export const logger_ = createLogger('@alwatr/fetch');
 
@@ -216,7 +220,7 @@ export async function handleRetryPattern_(options: Required<FetchOptions>): Prom
       throw err;
     }
 
-    await waitForTimeout(options.retryDelay);
+    await delay.by(options.retryDelay);
 
     options.signal = externalAbortSignal;
     return handleRetryPattern_(options);
@@ -245,7 +249,7 @@ export function handleTimeout_(options: FetchOptions): Promise<Response> {
     const timeoutId = setTimeout(() => {
       reject(new Error('fetch_timeout'));
       abortController?.abort('fetch_timeout');
-    }, options.timeout);
+    }, parseDuration(options.timeout!));
 
     // abortController.signal.addEventListener('abort', () => {
     //   logger.incident('fetch', 'fetch_abort_signal', {

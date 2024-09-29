@@ -1,22 +1,19 @@
 {
-  "name": "@alwatr/global-scope",
-  "version": "1.1.21",
-  "description": "This TypeScript module provides a cross-platform alternative to `globalThis` named `globalScope`. This object works across different environments, including browsers (`window`), Node.js (`global`), and Web Workers (`self`).",
+  "name": "@alwatr/package-tracer",
+  "version": "3.2.14",
+  "description": "Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "global",
-    "globalThis",
-    "global-polyfill",
-    "global-shim",
-    "globalThis-polyfill",
-    "globalThis-shim",
+    "logger",
+    "log",
+    "console",
+    "debug",
     "cross-platform",
     "ECMAScript",
     "typescript",
     "javascript",
     "node",
     "nodejs",
-    "browser",
     "esm",
     "module",
     "utility",
@@ -47,9 +44,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/global-scope"
+    "directory": "packages/package-tracer"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/global-scope#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/package-tracer#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
@@ -60,7 +57,7 @@
     "c": "yarn run clean",
     "cb": "yarn run clean && yarn run build",
     "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
-    "build": "yarn run build:ts && yarn run build:es",
+    "build": "yarn run build:ts & yarn run build:es",
     "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
     "watch": "yarn run watch:ts & yarn run watch:es",
@@ -68,14 +65,11 @@
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
-  "dependencies": {
-    "@alwatr/package-tracer": "workspace:^"
-  },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
-    "@types/node": "^22.7.4",
+    "@alwatr/type-helper": "workspace:^",
     "typescript": "^5.6.2"
   }
 }

@@ -1,3 +1,7 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
+packageTracer.add(__package_name__, __package_version__);
+
 /**
  * Clone deeply nested objects and arrays.
  *

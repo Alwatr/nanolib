@@ -12,7 +12,7 @@ yarn add @alwatr/async-queue
 
 ```typescript
 import {AsyncQueue} from '@alwatr/async-queue';
-import {waitForTimeout} from '@alwatr/wait';
+import {waitForTimeout} from '@alwatr/delay';
 
 const queue = new AsyncQueue();
 

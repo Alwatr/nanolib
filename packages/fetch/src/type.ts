@@ -1,4 +1,5 @@
-import type {Dictionary, Json, JsonObject} from '@alwatr/type-helper';
+import type {Duration} from '@alwatr/parse-duration';
+import type {DictionaryOpt, DictionaryReq, Json, JsonObject} from '@alwatr/type-helper';
 
 /**
  * Represents the available HTTP methods.
@@ -9,7 +10,7 @@ export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS'
  * Represents a dictionary of query parameters.
  * The keys are strings and the values can be strings, numbers, or booleans.
  */
-export type QueryParams = Dictionary<string | number | boolean>;
+export type QueryParams = DictionaryOpt<string | number | boolean>;
 
 /**
  * Represents the cache strategy for fetching data.
@@ -51,7 +52,7 @@ export interface FetchOptions extends RequestInit {
   /**
    * A Headers object to set the request's headers.
    */
-  headers?: Dictionary<string>;
+  headers?: DictionaryReq<string>;
 
   /**
    * A timeout for the fetch request.
@@ -59,9 +60,9 @@ export interface FetchOptions extends RequestInit {
    *
    * Use with caution, as it may cause memory leaks in Node.js.
    *
-   * @default 8_000 ms
+   * @default '8s'
    */
-  timeout?: number;
+  timeout?: Duration;
 
   /**
    * If the fetch response is not acceptable or timed out, it will retry the request.
@@ -73,9 +74,9 @@ export interface FetchOptions extends RequestInit {
   /**
    * Delay before each retry.
    *
-   * @default 1_000 ms
+   * @default '1s'
    */
-  retryDelay?: number;
+  retryDelay?: Duration;
 
   /**
    * Simple memory caching to remove duplicate/parallel requests.
