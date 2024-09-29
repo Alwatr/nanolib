@@ -1,3 +1,5 @@
+import type {Mutable} from '@alwatr/type-helper';
+
 /**
  * Represents information about the current platform.
  */
@@ -5,53 +7,53 @@ interface PlatformInfo {
   /**
    * Whether the NODE_ENV environment variable is not `production` or in browser location.hostname is `localhost`.
    */
-  development: boolean;
+  readonly development: boolean;
 
   /**
    * Whether the current platform is node.js.
    */
-  isNode: boolean;
+  readonly isNode: boolean;
 
   /**
    * Whether the current platform is a browser.
    */
-  isBrowser: boolean;
+  readonly isBrowser: boolean;
 
   /**
    * Whether the current platform is a not a browser.
    */
-  isCli: boolean;
+  readonly isCli: boolean;
 
   /**
    * Whether the current platform is a web worker.
    */
-  isWebWorker: boolean;
+  readonly isWebWorker: boolean;
 
   /**
    * Whether the current platform is deno.
    */
-  isDeno: boolean;
+  readonly isDeno: boolean;
 
   /**
    * Whether the current platform is bun.
    */
-  isBun: boolean;
+  readonly isBun: boolean;
 
   /**
    * Whether the current platform is nw.js.
    */
-  isNw: boolean;
+  readonly isNw: boolean;
 
   /**
    * Whether the current platform is electron.
    */
-  isElectron: boolean;
+  readonly isElectron: boolean;
 }
 
 /**
  * Represents information about the current platform.
  */
-export const platformInfo: PlatformInfo = {
+const platformInfo_: Mutable<PlatformInfo> = {
   development: false,
   isNode: false,
   isBrowser: false,
@@ -64,41 +66,43 @@ export const platformInfo: PlatformInfo = {
 };
 
 if (typeof window === 'object' && typeof document === 'object' && document.nodeType === Node.DOCUMENT_NODE) {
-  platformInfo.isBrowser = true;
+  platformInfo_.isBrowser = true;
   // @ts-expect-error - Cannot find name 'WorkerGlobalScope'
-  platformInfo.isWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+  platformInfo_.isWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
 }
 else if (typeof process === 'object') {
-  platformInfo.isCli = true;
+  platformInfo_.isCli = true;
 
   if (process.versions?.node != null) {
-    platformInfo.isNode = true;
+    platformInfo_.isNode = true;
   }
 
   // @ts-expect-error - Cannot find name 'Bun'
   if (typeof Bun !== 'undefined') {
-    platformInfo.isBun = true;
+    platformInfo_.isBun = true;
   }
   else if (process.versions?.electron != null) {
-    platformInfo.isElectron = true;
+    platformInfo_.isElectron = true;
   }
   // @ts-expect-error - Cannot find name 'nw'
   else if (typeof nw !== 'undefined') {
-    platformInfo.isNw = true;
+    platformInfo_.isNw = true;
   }
 }
 
 // other platforms
 // @ts-expect-error - Cannot find name 'Deno'
 if (typeof Deno !== 'undefined') {
-  platformInfo.isCli = true;
-  platformInfo.isDeno = true;
+  platformInfo_.isCli = true;
+  platformInfo_.isDeno = true;
 }
 
 // development
-if (platformInfo.isBrowser === true) {
-  platformInfo.development = location.hostname === 'localhost' || location.hostname.indexOf('127.') === 0;
+if (platformInfo_.isBrowser === true) {
+  platformInfo_.development = location.hostname === 'localhost' || location.hostname.indexOf('127.') === 0;
 }
-else if (platformInfo.isCli === true) {
-  platformInfo.development = process.env.NODE_ENV !== 'production';
+else if (platformInfo_.isCli === true) {
+  platformInfo_.development = process.env.NODE_ENV !== 'production';
 }
+
+export const platformInfo: PlatformInfo = platformInfo_;
