@@ -109,6 +109,7 @@ __metadata:
     "@alwatr/logger": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/parse-duration": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
