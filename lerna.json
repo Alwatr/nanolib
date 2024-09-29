@@ -36,7 +36,8 @@
       "signGitTag": true,
       "signGitCommit": true,
       "push": true,
-      "createRelease": "github"
+      "createRelease": "github",
+      "conventionalGraduate": true
     },
     "run": {
       "stream": true

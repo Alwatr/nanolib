@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/render-state",
-  "version": "1.0.24",
+  "version": "1.0.0-0",
   "description": "Clone deeply nested objects and arrays in JavaScript.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
