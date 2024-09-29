@@ -65,10 +65,6 @@
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
-  "dependencies": {
-    "@alwatr/logger": "workspace:^",
-    "@alwatr/polyfill-has-own": "workspace:^"
-  },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
     "@alwatr/prettier-config": "workspace:^",
