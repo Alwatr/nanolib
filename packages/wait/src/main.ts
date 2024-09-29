@@ -1,123 +1,137 @@
-import {requestAnimationFrame, requestIdleCallback} from './polyfill.js';
+import { requestAnimationFrame, requestIdleCallback } from './polyfill.js';
 
-import type {HasAddEventListener} from '@alwatr/type-helper';
-
-/**
- * Wait for a given duration.
- * Use `zero` for deferring the execution of a function until the call stack is clear.
- *
- * @param duration The duration to wait for.
- * @example
- * ```ts
- * await waitForTimeout(1000);
- * ```
- * TODO: parse string duration using @alwatr/parse-duration.
- */
-export function waitForTimeout(duration: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, duration));
-}
+import type { HasAddEventListener } from '@alwatr/type-helper';
 
 /**
- * Wait for the next animation frame.
- * Animation frames are tasks that are executed before the next frame is rendered.
- *
- * @returns A promise that resolves with the current time.
- * @example
- * ```ts
- * await waitForAnimationFrame();
- * ```
+ * A utility module to help manage asynchronous operations and waiting for events.
  */
-export function waitForAnimationFrame(): Promise<DOMHighResTimeStamp> {
-  return new Promise((resolve) => requestAnimationFrame(resolve));
-}
+export const wait = {
+  /**
+   * Wait for a specified duration (in milliseconds).
+   *
+   * @param duration - The duration to wait (in milliseconds). Use `0` to yield control to the event loop.
+   * @returns A Promise that resolves after the specified duration.
+   *
+   * @example
+   * ```typescript
+   * await wait.timeout(1000); // Wait for 1 second
+   * await wait.timeout(0); // Yield control to the event loop
+   * ```
+   */
+  timeout: (duration: number): Promise<void> =>
+    new Promise((resolve) => setTimeout(resolve, duration)),
 
-/**
- * Wait for the next idle callback.
- * Idle callbacks are tasks that are executed when the browser is idle.
- *
- * @param timeout The maximum time to wait for.
- * @returns A promise that resolves with the current time.
- * @example
- * ```ts
- * await waitForIdle();
- * ```
- */
-export function waitForIdle(timeout?: number): Promise<IdleDeadline> {
-  return new Promise((resolve) => requestIdleCallback(resolve, {timeout}));
-}
+  /**
+   * Wait for the next animation frame.
+   *
+   * @returns A Promise that resolves with the current timestamp when the next animation frame is fired.
+   *
+   * @example
+   * ```typescript
+   * const timestamp = await wait.animationFrame();
+   * ```
+   */
+  animationFrame: (): Promise<DOMHighResTimeStamp> =>
+    new Promise((resolve) => requestAnimationFrame(resolve)),
 
-/**
- * Wait for a DOM event to be dispatched.
- *
- * @param element The element to listen on.
- * @param eventName The event name to listen for.
- * @template T The event map type.
- * @returns A promise that resolves with the event.
- * @example
- * ```ts
- * await waitForDomEvent(document.body, 'click');
- * ```
- */
-export function waitForDomEvent<T extends keyof HTMLElementEventMap>(element: HTMLElement, eventName: T): Promise<HTMLElementEventMap[T]> {
-  return new Promise((resolve) => element.addEventListener(eventName, resolve, {once: true, passive: true}));
-}
+  /**
+   * Wait for the browser's idle period.
+   *
+   * @param timeout - Optional timeout (in milliseconds) for the idle callback.
+   * @returns A Promise that resolves with the IdleDeadline object when the browser is idle.
+   *
+   * @example
+   * ```typescript
+   * const deadline = await wait.idle();
+   * ```
+   */
+  idle: (timeout?: number): Promise<IdleDeadline> =>
+    new Promise((resolve) => requestIdleCallback(resolve, { timeout })),
 
-/**
- * Wait for a event to be dispatched.
- *
- * @param target The target to listen on.
- * @param eventName The event name to listen for.
- * @returns A promise that resolves with the event.
- * @example
- * ```ts
- * const sever = http.createServer();
- * await waitForEvent(sever, 'request');
- * ```
- */
-export function waitForEvent(target: HasAddEventListener, eventName: string): Promise<Event> {
-  return new Promise((resolve) => {
-    target.addEventListener(eventName, resolve, {once: true, passive: true});
-  });
-}
+  /**
+   * Wait for a specific DOM event on an HTMLElement.
+   *
+   * @param element - The HTMLElement to listen for the event on.
+   * @param eventName - The name of the DOM event to wait for.
+   * @template T The event map type.
+   * @returns A Promise that resolves with the event object when the specified event occurs.
+   *
+   * @example
+   * ```typescript
+   * const clickEvent = await wait.domEvent(document.body, 'click');
+   * ```
+   */
+  domEvent: <T extends keyof HTMLElementEventMap>(
+    element: HTMLElement,
+    eventName: T
+  ): Promise<HTMLElementEventMap[T]> =>
+    new Promise((resolve) =>
+      element.addEventListener(eventName, resolve, { once: true, passive: true })
+    ),
 
-/**
- * Wait immediate.
- * If `setImmediate` is not available, use `queueMicrotask` and if that is not available, use `setTimeout`.
- *
- * @example
- * ```ts
- * await waitForImmediate();
- * ```
- */
-export function waitForImmediate(): Promise<void> {
-  if (typeof setImmediate !== 'function') {
-    if (typeof queueMicrotask === 'function') {
-      return waitForMicrotask();
+  /**
+   * Wait for a specific event on an object with an `addEventListener` method.
+   *
+   * @param target - The target object to listen for the event on.
+   * @param eventName - The name of the event to wait for.
+   * @returns A Promise that resolves with the event object when the specified event occurs.
+   *
+   * @example
+   * ```typescript
+   * const server = http.createServer();
+   * const requestEvent = await wait.event(server, 'request');
+   * ```
+   */
+  event: (target: HasAddEventListener, eventName: string): Promise<Event> =>
+    new Promise((resolve) =>
+      target.addEventListener(eventName, resolve, { once: true, passive: true })
+    ),
+
+
+  /**
+   * Yield control to the event loop immediately.
+   *
+   * Uses `setImmediate` if available, falls back to `queueMicrotask`, and then to `setTimeout(0)`.
+   *
+   * @returns A Promise that resolves immediately after yielding control to the event loop.
+   *
+   * @example
+   * ```typescript
+   * await wait.immediate();
+   * ```
+   */
+  immediate: (): Promise<void> => {
+    if (typeof setImmediate !== 'function') {
+      if (typeof queueMicrotask === 'function') {
+        return wait.microtask();
+      }
+
+      // else
+      return wait.timeout(0);
     }
+    return new Promise((resolve) => setImmediate(resolve));
+  },
 
-    // else
-    return waitForTimeout(0);
-  }
-  return new Promise((resolve) => setImmediate(resolve));
-}
+  /**
+   * Wait for the next microtask to complete.
+   *
+   * @returns A Promise that resolves when the next microtask queue is empty.
+   *
+   * @example
+   * ```typescript
+   * await wait.microtask();
+   * ```
+   */
+  microtask: (): Promise<void> => {
+    if (typeof queueMicrotask !== 'function') {
+      if (typeof setImmediate === 'function') {
+        return wait.immediate();
+      }
 
-/**
- * Wait for the next microtask queue.
- * Microtasks are tasks that are executed after the current task and before the next task.
- *
- * @example
- * ```ts
- * await waitForMicrotask();
- * ```
- */
-export function waitForMicrotask(): Promise<void> {
-  if (typeof queueMicrotask !== 'function') {
-    if (typeof setImmediate === 'function') {
-      return waitForImmediate();
+      // else
+      return wait.timeout(0);
     }
+    return new Promise((resolve) => queueMicrotask(resolve));
+  },
 
-    // else
-    return waitForTimeout(0);
-  }
-  return new Promise((resolve) => queueMicrotask(resolve));
-}
+} as const;
