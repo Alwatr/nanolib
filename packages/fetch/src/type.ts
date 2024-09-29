@@ -1,5 +1,5 @@
 import type {Duration} from '@alwatr/parse-duration';
-import type {Dictionary, Json, JsonObject} from '@alwatr/type-helper';
+import type {DictionaryReq, Json, JsonObject} from '@alwatr/type-helper';
 
 /**
  * Represents the available HTTP methods.
@@ -52,7 +52,7 @@ export interface FetchOptions extends RequestInit {
   /**
    * A Headers object to set the request's headers.
    */
-  headers?: Dictionary<string>;
+  headers?: DictionaryReq<string>;
 
   /**
    * A timeout for the fetch request.
