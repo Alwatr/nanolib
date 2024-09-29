@@ -180,6 +180,13 @@ export type ArrayItems<T> = T extends (infer K)[] ? K : T;
 export type Merge<M, N> = Omit<M, keyof N> & N;
 
 /**
+ * Make all properties in T required and exclude undefined and null from the property type.
+ */
+export type StrictlyRequired<T> = {
+  [P in keyof T]-?: NonNullable<T[P]>;
+};
+
+/**
  * Represents an object that has the ability to add event listeners.
  */
 export interface HasAddEventListener {
