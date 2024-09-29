@@ -180,6 +180,13 @@ export type ArrayItems<T> = T extends (infer K)[] ? K : T;
 export type Merge<M, N> = Omit<M, keyof N> & N;
 
 /**
+ * Make all properties in T required and exclude undefined and null from the property type.
+ */
+export type StrictlyRequired<T> = {
+  [P in keyof T]-?: NonNullable<T[P]>;
+};
+
+/**
  * Represents an object that has the ability to add event listeners.
  */
 export interface HasAddEventListener {
@@ -187,11 +194,18 @@ export interface HasAddEventListener {
 }
 
 /**
- * Represents a dictionary object with string keys and values of type T.
+ * Represents a dictionary where values can be optional (undefined).
+ *
+ * @template T The type of values stored in the dictionary. Defaults to `any`.
  */
-export interface Dictionary<T = any> {
-  [key: string]: T;
-}
+export type DictionaryOpt<T = any> = { [key in string]?: T };
+
+/**
+ * Represents a dictionary where all values are required (non-optional).
+ *
+ * @template T The type of values stored in the dictionary. Defaults to `any`.
+ */
+export type DictionaryReq<T = any> = { [key in string]: T };
 
 /**
  * Matches any valid JSON primitive value.
