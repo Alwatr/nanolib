@@ -1,0 +1,74 @@
+{
+  "name": "@alwatr/render-state",
+  "version": "1.0.24",
+  "description": "Clone deeply nested objects and arrays in JavaScript.",
+  "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
+  "keywords": [
+    "render-state",
+    "object",
+    "ECMAScript",
+    "typescript",
+    "javascript",
+    "browser",
+    "esm",
+    "module",
+    "utility",
+    "util",
+    "utils",
+    "nanolib",
+    "alwatr"
+  ],
+  "type": "module",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.mjs",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.cjs"
+    }
+  },
+  "license": "AGPL-3.0-only",
+  "files": [
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "!demo/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alwatr/nanolib",
+    "directory": "packages/render-state"
+  },
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/render-state#readme",
+  "bugs": {
+    "url": "https://github.com/Alwatr/nanolib/issues"
+  },
+  "prettier": "@alwatr/prettier-config",
+  "scripts": {
+    "b": "yarn run build",
+    "w": "yarn run watch",
+    "c": "yarn run clean",
+    "cb": "yarn run clean && yarn run build",
+    "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
+    "build": "yarn run build:ts && yarn run build:es",
+    "build:es": "nano-build --preset=module",
+    "build:ts": "tsc --build",
+    "watch": "yarn run watch:ts & yarn run watch:es",
+    "watch:es": "yarn run build:es --watch",
+    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
+    "clean": "rm -rfv dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@alwatr/logger": "workspace:^",
+    "@alwatr/package-tracer": "workspace:^"
+  },
+  "devDependencies": {
+    "@alwatr/nano-build": "workspace:^",
+    "@alwatr/prettier-config": "workspace:^",
+    "@alwatr/tsconfig-base": "workspace:^",
+    "typescript": "^5.6.2"
+  }
+}

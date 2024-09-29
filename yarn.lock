@@ -283,6 +283,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@alwatr/render-state@workspace:packages/redner-state":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/render-state@workspace:packages/redner-state"
+  dependencies:
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    typescript: "npm:^5.6.2"
+  languageName: unknown
+  linkType: soft
+
 "@alwatr/tsconfig-base@workspace:^, @alwatr/tsconfig-base@workspace:packages/tsconfig-base":
   version: 0.0.0-use.local
   resolution: "@alwatr/tsconfig-base@workspace:packages/tsconfig-base"
