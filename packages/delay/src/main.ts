@@ -1,5 +1,5 @@
 import {packageTracer} from '@alwatr/package-tracer';
-import {parseDuration, type DurationString} from '@alwatr/parse-duration';
+import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
 packageTracer.add(__package_name__, __package_version__);
 
@@ -22,7 +22,7 @@ export const delay = {
    * await delay.by('1m'); // Wait for 1 minute
    * ```
    */
-  by: (duration: DurationString): Promise<void> =>
+  by: (duration: Duration): Promise<void> =>
     new Promise((resolve) => setTimeout(resolve, parseDuration(duration))),
 
   /**
