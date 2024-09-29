@@ -1,3 +1,4 @@
+import type {Duration} from '@alwatr/parse-duration';
 import type {Dictionary, Json, JsonObject} from '@alwatr/type-helper';
 
 /**
@@ -59,9 +60,9 @@ export interface FetchOptions extends RequestInit {
    *
    * Use with caution, as it may cause memory leaks in Node.js.
    *
-   * @default 8_000 ms
+   * @default '8s'
    */
-  timeout?: number;
+  timeout?: Duration;
 
   /**
    * If the fetch response is not acceptable or timed out, it will retry the request.
@@ -73,9 +74,9 @@ export interface FetchOptions extends RequestInit {
   /**
    * Delay before each retry.
    *
-   * @default 1_000 ms
+   * @default '1s'
    */
-  retryDelay?: number;
+  retryDelay?: Duration;
 
   /**
    * Simple memory caching to remove duplicate/parallel requests.

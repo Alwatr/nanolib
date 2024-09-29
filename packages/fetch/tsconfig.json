@@ -13,6 +13,7 @@
     {"path": "../logger"},
     {"path": "../global-scope"},
     {"path": "../delay"},
+    {"path": "../parse-duration"},
     {"path": "../type-helper"}
   ]
 }

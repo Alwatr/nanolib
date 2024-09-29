@@ -1,7 +1,8 @@
+import {delay} from '@alwatr/delay';
 import {globalScope} from '@alwatr/global-scope';
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
-import {delay} from '@alwatr/delay';
+import {parseDuration} from '@alwatr/parse-duration';
 
 import type {FetchOptions} from './type.js';
 
@@ -248,7 +249,7 @@ export function handleTimeout_(options: FetchOptions): Promise<Response> {
     const timeoutId = setTimeout(() => {
       reject(new Error('fetch_timeout'));
       abortController?.abort('fetch_timeout');
-    }, options.timeout);
+    }, parseDuration(options.timeout!));
 
     // abortController.signal.addEventListener('abort', () => {
     //   logger.incident('fetch', 'fetch_abort_signal', {
