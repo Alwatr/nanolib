@@ -37,10 +37,20 @@ export const sharedScope_: Record<string, unknown> = {};
 
 declare global {
   // eslint-disable-next-line no-var
-  var __shared_scope_defined__: boolean;
+  var __shared_scope_defined__: string | boolean;
 }
 
 if (globalScope.__shared_scope_defined__ !== undefined) {
+  if (globalScope.__shared_scope_defined__ === true) {
+    globalScope.__shared_scope_defined__ = '1.1.x';
+  }
+  console.error(new Error('duplication_detected', {
+    cause: {
+      name: __package_name__,
+      oldVersion: globalScope.__shared_scope_defined__,
+      newVersion: __package_version__
+    },
+  }));
   throw new Error('global_scope_module_duplicated');
 }
-globalScope.__shared_scope_defined__ = true;
+globalScope.__shared_scope_defined__ = __package_version__;
