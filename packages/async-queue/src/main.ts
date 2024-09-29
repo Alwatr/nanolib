@@ -1,7 +1,7 @@
 import {newFlatomise} from '@alwatr/flatomise';
 import {packageTracer} from '@alwatr/package-tracer';
 
-import type {Dictionary} from '@alwatr/type-helper';
+import type {DictionaryOpt} from '@alwatr/type-helper';
 
 packageTracer.add(__package_name__, __package_version__);
 
@@ -23,7 +23,7 @@ export class AsyncQueue {
   /**
    * A record of task IDs and their corresponding last queued task promises.
    */
-  private queue__: Dictionary<Promise<unknown>> = {};
+  private queue__: DictionaryOpt<Promise<unknown>> = {};
 
   /**
    * Push a async task to the queue.

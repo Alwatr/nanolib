@@ -1,4 +1,4 @@
-import type {Dictionary} from '@alwatr/type-helper';
+import type {DictionaryOpt} from '@alwatr/type-helper';
 
 /**
  * A module for tracking package information.
@@ -23,7 +23,7 @@ export const packageTracer = {
   /**
    * A dictionary storing package names and their corresponding versions.
    */
-  list: {} as Readonly<Dictionary<readonly string[]>>,
+  list: {} as Readonly<DictionaryOpt<readonly string[]>>,
 
   /**
    * Adds a package and its version to the tracker.

@@ -1,5 +1,5 @@
 import type {Duration} from '@alwatr/parse-duration';
-import type {DictionaryReq, Json, JsonObject} from '@alwatr/type-helper';
+import type {DictionaryOpt, DictionaryReq, Json, JsonObject} from '@alwatr/type-helper';
 
 /**
  * Represents the available HTTP methods.
@@ -10,7 +10,7 @@ export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS'
  * Represents a dictionary of query parameters.
  * The keys are strings and the values can be strings, numbers, or booleans.
  */
-export type QueryParams = Dictionary<string | number | boolean>;
+export type QueryParams = DictionaryOpt<string | number | boolean>;
 
 /**
  * Represents the cache strategy for fetching data.
