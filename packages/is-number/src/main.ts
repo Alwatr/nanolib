@@ -1,3 +1,7 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
+packageTracer.add(__package_name__, __package_version__);
+
 /**
  * Check the value is number or can convert to a number, for example string ' 123 ' can be converted to 123
  *

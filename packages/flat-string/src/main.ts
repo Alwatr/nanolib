@@ -1,3 +1,7 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
+packageTracer.add(__package_name__, __package_version__);
+
 /**
  * This function simplifies the complex C structures that are part of a combined JavaScript string.
  *

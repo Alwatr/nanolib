@@ -1,4 +1,8 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
 import type {Json, JsonValue} from '@alwatr/type-helper';
+
+packageTracer.add(__package_name__, __package_version__);
 
 /**
  * Parse json string without throwing error.
