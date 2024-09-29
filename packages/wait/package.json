@@ -67,7 +67,8 @@
   },
   "dependencies": {
     "@alwatr/global-scope": "workspace:^",
-    "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^",
+    "@alwatr/parse-duration": "workspace:^"
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",

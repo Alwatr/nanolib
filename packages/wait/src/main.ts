@@ -1,3 +1,5 @@
+import { parseDuration, type DurationString } from '@alwatr/parse-duration';
+
 import { requestAnimationFrame, requestIdleCallback } from './polyfill.js';
 
 import type { HasAddEventListener } from '@alwatr/type-helper';
@@ -14,12 +16,11 @@ export const delay = {
    *
    * @example
    * ```typescript
-   * await delay.by(1000); // Wait for 1 second
-   * await delay.by(0); // Yield control to the event loop
+   * await delay.by('1m'); // Wait for 1 minute
    * ```
    */
-  by: (duration: number): Promise<void> =>
-    new Promise((resolve) => setTimeout(resolve, duration)),
+  by: (duration: DurationString): Promise<void> =>
+    new Promise((resolve) => setTimeout(resolve, parseDuration(duration))),
 
   /**
    * Delays execution until the next animation frame.
@@ -45,8 +46,10 @@ export const delay = {
    * const deadline = await delay.untilIdle();
    * ```
    */
-  untilIdle: (timeout?: number): Promise<IdleDeadline> =>
-    new Promise((resolve) => requestIdleCallback(resolve, { timeout })),
+  untilIdle: (timeout?: DurationString): Promise<IdleDeadline> =>
+    new Promise((resolve) => requestIdleCallback(resolve, timeout === undefined ? undefined : {
+      timeout: parseDuration(timeout)
+    })),
 
   /**
    * Delays execution until a specific DOM event occurs on an HTMLElement.

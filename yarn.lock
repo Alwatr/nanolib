@@ -220,7 +220,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/parse-duration@workspace:packages/parse-duration":
+"@alwatr/parse-duration@workspace:^, @alwatr/parse-duration@workspace:packages/parse-duration":
   version: 0.0.0-use.local
   resolution: "@alwatr/parse-duration@workspace:packages/parse-duration"
   dependencies:
@@ -289,6 +289,7 @@ __metadata:
     "@alwatr/global-scope": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/parse-duration": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
