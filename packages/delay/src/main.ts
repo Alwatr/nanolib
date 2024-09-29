@@ -49,7 +49,7 @@ export const delay = {
    * const deadline = await delay.untilIdle();
    * ```
    */
-  untilIdle: (timeout?: DurationString): Promise<IdleDeadline> =>
+  untilIdle: (timeout?: Duration): Promise<IdleDeadline> =>
     new Promise((resolve) => requestIdleCallback(resolve, timeout === undefined ? undefined : {
       timeout: parseDuration(timeout)
     })),
