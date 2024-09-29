@@ -1,4 +1,5 @@
 import {globalScope} from '@alwatr/global-scope';
+import '@alwatr/polyfill-has-own';
 
 import type {Dictionary} from '@alwatr/type-helper';
 
@@ -17,7 +18,7 @@ else {
 
   console.error(new Error('duplication_detected', {
     cause: {
-      name: '@alwatr/dedupe',
+      name: __package_name__,
       oldVersion: globalScope.__alwatr_dedupe__,
       newVersion: __package_version__
     },
