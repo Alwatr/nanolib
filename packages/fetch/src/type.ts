@@ -1,5 +1,4 @@
 import type {Duration} from '@alwatr/parse-duration';
-import type {DictionaryOpt, DictionaryReq, Json, JsonObject} from '@alwatr/type-helper';
 
 /**
  * Represents the available HTTP methods.

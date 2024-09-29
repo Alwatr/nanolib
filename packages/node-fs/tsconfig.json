@@ -5,14 +5,13 @@
     "outDir": "dist",
     "emitDeclarationOnly": true,
     "composite": true,
-    "types": ["node", "@alwatr/nano-build"],
+    "types": ["node", "@alwatr/nano-build", "@alwatr/type-helper"],
   },
   "include": ["src/**/*.ts"],
   "references": [
     {"path": "../async-queue"},
     {"path": "../flat-string"},
     {"path": "../logger"},
-    {"path": "../package-tracer"},
-    {"path": "../type-helper"}
+    {"path": "../package-tracer"}
 ],
 }

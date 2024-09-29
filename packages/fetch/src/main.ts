@@ -1,7 +1,6 @@
 import {handleCacheStrategy_, logger_, processOptions_, cacheSupported} from './core.js';
 
 import type {FetchOptions, ResponseError, ResponseSuccess} from './type.js';
-import type {JsonObject} from '@alwatr/type-helper';
 
 export {cacheSupported};
 export type * from './type.js';

@@ -1,7 +1,5 @@
 import {globalScope} from '@alwatr/global-scope';
 
-import type {DictionaryOpt} from '@alwatr/type-helper';
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const win = globalScope as DictionaryOpt<any>;
 
