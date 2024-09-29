@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/deep-clone@1.0.24...@alwatr/deep-clone@1.1.0) (2024-09-29)
+
+### Features
+
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* **deep-clone:** change the license to AGPL-3.0 ([062b9c5](https://github.com/Alwatr/nanolib/commit/062b9c5f0e6fc78fa39101d538f3ba8720ab073a)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
 ## [1.0.24](https://github.com/Alwatr/nanolib/compare/@alwatr/deep-clone@1.0.23...@alwatr/deep-clone@1.0.24) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/deep-clone

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@1.2.0...@alwatr/tsconfig-base@1.3.0) (2024-09-29)
+
+### Features
+
+* **tsconfig-base:** use ESNext instead of ES2023 for the "lib" option ([47673e4](https://github.com/Alwatr/nanolib/commit/47673e481a1fc4dfd4ba2576d5dd5590da93adac)) by @AliMD
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* **tsconfig-base:** change the license to AGPL-3.0 ([2236725](https://github.com/Alwatr/nanolib/commit/223672599c3cf1bf976a1c8beb0b0236cef2efca)) by @ArmanAsadian
+
 ## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@1.1.2...@alwatr/tsconfig-base@1.2.0) (2024-07-04)
 
 ### Features

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.22](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.21...@alwatr/global-scope@1.1.22) (2024-09-29)
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* **global-scope:** Improve shared scope definition ([4704a02](https://github.com/Alwatr/nanolib/commit/4704a02497848a18ace8ae27830834d6322d6624)), closes [#123](https://github.com/Alwatr/nanolib/issues/123) by @AliMD
+
+### Miscellaneous Chores
+
+* **global-scop:** change the license to AGPL-3.0 ([ad7c262](https://github.com/Alwatr/nanolib/commit/ad7c2629743115af18b9298c6a9ccb5172c27333)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [1.1.21](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.20...@alwatr/global-scope@1.1.21) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/global-scope

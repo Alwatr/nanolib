@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.2.6...@alwatr/type-helper@2.0.0) (2024-09-29)
+
+### ⚠ BREAKING CHANGES
+
+* **type-helper:** Update the type definitions for the Dictionary type in the type-helper package.
+Introduce two new types: DictionaryOpt and DictionaryReq, representing dictionaries
+with optional and required values respectively. This change improves the clarity
+and flexibility of the type system.
+* **type-helper:** make values as `optional`
+
+### Features
+
+* **type-helper:** add StrictlyRequired type ([6d2831e](https://github.com/Alwatr/nanolib/commit/6d2831e18c984ee6e272cde4c7fe64712113d969)) by @AliMD
+* **type-helper:** make types available globally! ([69bcb97](https://github.com/Alwatr/nanolib/commit/69bcb97b1a8d3cf53a3efff516ad151fca9a5234)) by @AliMD
+* **type-helper:** update type-helper to declare global types ([f7b6f95](https://github.com/Alwatr/nanolib/commit/f7b6f95a525895aee36f37b83fc9a1aeeefaec00)) by @AliMD
+
+### Bug Fixes
+
+* **type-helper:** convert `interface` to `type` ([c9e6970](https://github.com/Alwatr/nanolib/commit/c9e69700b038fb32fc43fb9a8e7a1140aff98d0c)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* **type-helper:** update Dictionary type definitions ([fa4c56d](https://github.com/Alwatr/nanolib/commit/fa4c56d8c55f54dd11918fadf4b5eb342bc47742)) by @AliMD
+
+### Miscellaneous Chores
+
+* **type-helper:** change the license to AGPL-3.0 ([5f1264d](https://github.com/Alwatr/nanolib/commit/5f1264dfcc217289ed8b87a6ede6a62cfbe824f3)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
 ## [1.2.6](https://github.com/Alwatr/nanolib/compare/@alwatr/type-helper@1.2.5...@alwatr/type-helper@1.2.6) (2024-09-15)
 
 ### Dependencies update

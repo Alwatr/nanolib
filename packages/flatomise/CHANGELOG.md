@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.1.12...@alwatr/flatomise@1.2.0) (2024-09-29)
+
+### Features
+
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* **flatomise:** change the license to AGPL-3.0 ([bc9d81b](https://github.com/Alwatr/nanolib/commit/bc9d81b7a3f62113559be6dbd002cf4f2e301583)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [1.1.12](https://github.com/Alwatr/nanolib/compare/@alwatr/flatomise@1.1.11...@alwatr/flatomise@1.1.12) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/flatomise

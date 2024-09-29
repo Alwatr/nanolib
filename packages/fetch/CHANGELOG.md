@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@4.0.1...@alwatr/fetch@4.1.0) (2024-09-29)
+
+### Features
+
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+* **fetch:** remove unused import from fetch core module ([28ec726](https://github.com/Alwatr/nanolib/commit/28ec7269322f90dba02fbb33e4e622db42169368)) by @AliMD
+
+### Code Refactoring
+
+* **fetch:** update fetch package to use @alwatr/parse-duration for timeout and retryDelay durations ([1108c54](https://github.com/Alwatr/nanolib/commit/1108c547e43f2c65f46d65b58dd19cee9abd2fd7)) by @AliMD
+* **fetch:** Update logger import and initialization ([1f0451c](https://github.com/Alwatr/nanolib/commit/1f0451c9fec81b875736135778cdd4150556ba97)) by @AliMD
+* **fetch:** use new DictionaryReq type ([a8149cf](https://github.com/Alwatr/nanolib/commit/a8149cff114da7c7ce9a335c837ae794904fa3ca)) by @AliMD
+* update Dictionary type definitions ([c94cbc4](https://github.com/Alwatr/nanolib/commit/c94cbc4523864e2cc47828ccf5508b68945ac2b8)) by @AliMD
+* use new type-helper global types and remove all import types ([08b5d08](https://github.com/Alwatr/nanolib/commit/08b5d08c03c7c315382337239de0426462f384b8)) by @AliMD
+* **wait:** rename package to delay ([cf8c45c](https://github.com/Alwatr/nanolib/commit/cf8c45cf3f5b61fdd4b1b1c7f744c4eb3e230016)) by @AliMD
+
+### Miscellaneous Chores
+
+* **fetch:** change the license to AGPL-3.0 ([edf9069](https://github.com/Alwatr/nanolib/commit/edf9069608bd276b85c9ac937e33ad225c5921a9)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [4.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@4.0.0...@alwatr/fetch@4.0.1) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/fetch

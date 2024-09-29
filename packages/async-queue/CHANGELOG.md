@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/Alwatr/nanolib/compare/@alwatr/async-queue@1.2.11...@alwatr/async-queue@1.3.0) (2024-09-29)
+
+### Features
+
+* **async-queue:** use `package-tracer` ([f570030](https://github.com/Alwatr/nanolib/commit/f570030140c97164b3a9184de739c59dd805055b)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* update Dictionary type definitions ([c94cbc4](https://github.com/Alwatr/nanolib/commit/c94cbc4523864e2cc47828ccf5508b68945ac2b8)) by @AliMD
+* use new type-helper global types and remove all import types ([08b5d08](https://github.com/Alwatr/nanolib/commit/08b5d08c03c7c315382337239de0426462f384b8)) by @AliMD
+* **wait:** rename package to delay ([cf8c45c](https://github.com/Alwatr/nanolib/commit/cf8c45cf3f5b61fdd4b1b1c7f744c4eb3e230016)) by @AliMD
+
+### Miscellaneous Chores
+
+* **async-queue:** change the license to AGPL-3.0 ([e253149](https://github.com/Alwatr/nanolib/commit/e253149c3d1d51522406aa44db02a038aaf0d920)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [1.2.11](https://github.com/Alwatr/nanolib/compare/@alwatr/async-queue@1.2.10...@alwatr/async-queue@1.2.11) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/async-queue

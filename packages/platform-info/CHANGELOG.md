@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.1.13...@alwatr/platform-info@1.2.0) (2024-09-29)
+
+### Features
+
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* **platform-info:** enhance type to prevent modification ([e62c0eb](https://github.com/Alwatr/nanolib/commit/e62c0eb14f6102efde4206f7ba72ecc5dc146ce2)) by @AliMD
+* use new type-helper global types and remove all import types ([08b5d08](https://github.com/Alwatr/nanolib/commit/08b5d08c03c7c315382337239de0426462f384b8)) by @AliMD
+
+### Miscellaneous Chores
+
+* **platform-info:** change the license to AGPL-3.0 ([0ca6ad1](https://github.com/Alwatr/nanolib/commit/0ca6ad19a486e9bcfd3ddcaa5741fd5b2e0e4005)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [1.1.13](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.1.12...@alwatr/platform-info@1.1.13) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/platform-info

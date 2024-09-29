@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.14...@alwatr/logger@4.0.0) (2024-09-29)
+
+### ⚠ BREAKING CHANGES
+
+* **logger:** logModule renamed to logFileModule
+* **logger:** definePackage and dedupt remove!
+
+### Features
+
+* **logger:** add logStep method to logger ([860aeed](https://github.com/Alwatr/nanolib/commit/860aeedb2da390ee3d47c037b22a37f73e6dbbbc)) by @AliMD
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* **logger:** remove definePackage from logger ([c8a9d0c](https://github.com/Alwatr/nanolib/commit/c8a9d0cdcc3e45e7a33731ec6ee6a496451e9eb1)) by @mohammadhonarvar
+* **logger:** rename logModule to logFileModule ([1f6bd71](https://github.com/Alwatr/nanolib/commit/1f6bd71272007f5bbc90258ffa13b7d851e0918c)) by @AliMD
+
+### Miscellaneous Chores
+
+* **logger:** change the license to AGPL-3.0 ([4bb4673](https://github.com/Alwatr/nanolib/commit/4bb4673972069a307e799cad9a5078b0288a9340)) by @AliMD
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [3.2.14](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.13...@alwatr/logger@3.2.14) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/logger

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.10...@alwatr/nano-build@1.4.0) (2024-09-29)
+
+### Features
+
+* **nano-build:** define `__package_name__` ([d071d0b](https://github.com/Alwatr/nanolib/commit/d071d0b406b9e099e9430ad6187cd277ee3e2ca0)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* **nano-build:** change the license to AGPL-3.0 ([57e1d8f](https://github.com/Alwatr/nanolib/commit/57e1d8f2d49ef68e1a098c44facda2a2d4330bf5)) by @ArmanAsadian
+
+### Dependencies update
+
+* bump esbuild in the production-dependencies group ([d829afb](https://github.com/Alwatr/nanolib/commit/d829afbcefcb4053b7c3f6965d0a0e9e5ba33a11)) by @dependabot[bot]
+
 ## [1.3.10](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.9...@alwatr/nano-build@1.3.10) (2024-09-21)
 
 ### Bug Fixes

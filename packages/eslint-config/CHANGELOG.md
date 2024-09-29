@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.8](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.7...@alwatr/eslint-config@1.2.8) (2024-09-29)
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* **eslint-config:** change the license to AGPL-3.0 ([6ff5fbd](https://github.com/Alwatr/nanolib/commit/6ff5fbd96f7adfcde0e8f5fd9f78a3052f58ad20)) by @ArmanAsadian
+
+### Dependencies update
+
+* bump esbuild in the production-dependencies group ([d829afb](https://github.com/Alwatr/nanolib/commit/d829afbcefcb4053b7c3f6965d0a0e9e5ba33a11)) by @dependabot[bot]
+
 ## [1.2.7](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.6...@alwatr/eslint-config@1.2.7) (2024-09-21)
 
 ### Dependencies update

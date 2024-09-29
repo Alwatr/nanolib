@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/parse-duration@1.0.11...@alwatr/parse-duration@1.1.0) (2024-09-29)
+
+### Features
+
+* **parse-duration:** update parseDuration function to accept duration as number or string ([af413f5](https://github.com/Alwatr/nanolib/commit/af413f5399b7bb8c01d4e14ae1f9238e44368184)) by @AliMD
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* **parse-duration:** change the license to AGPL-3.0 ([896df6f](https://github.com/Alwatr/nanolib/commit/896df6f64bb1df5954d6c46694e18bfb3e944f22)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [1.0.11](https://github.com/Alwatr/nanolib/compare/@alwatr/parse-duration@1.0.10...@alwatr/parse-duration@1.0.11) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/parse-duration

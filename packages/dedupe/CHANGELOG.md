@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.14...@alwatr/dedupe@1.1.0) (2024-09-29)
+
+### Features
+
+* **dedupe:** add `definePackage` to use `deduplicate` for backward compatibility ([990b994](https://github.com/Alwatr/nanolib/commit/990b994ff7a633f6f337a5b96cdd82dc9638c0d6)) by @AliMD
+* **dedupe:** refactor & new api ([393d873](https://github.com/Alwatr/nanolib/commit/393d8730456749e88fc01b7680c025889de53f36)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+* **dedupe:** add a missing `import` & use `__package_name__` ([1ebbe92](https://github.com/Alwatr/nanolib/commit/1ebbe926549ce11111a791f8d72c9d296597c803)) by @mohammadhonarvar
+* **dedupe:** update `demo` based on new API ([650f159](https://github.com/Alwatr/nanolib/commit/650f1591c754231ca7d0c36a9cf98384af30aa44)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* update Dictionary type definitions ([c94cbc4](https://github.com/Alwatr/nanolib/commit/c94cbc4523864e2cc47828ccf5508b68945ac2b8)) by @AliMD
+* use new type-helper global types and remove all import types ([08b5d08](https://github.com/Alwatr/nanolib/commit/08b5d08c03c7c315382337239de0426462f384b8)) by @AliMD
+
+### Miscellaneous Chores
+
+* **dedupe:** change the license to AGPL-3.0 ([f48165c](https://github.com/Alwatr/nanolib/commit/f48165c4cc9aa0bfc5cf433500fd3de3d45fc8ab)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+* **dedupe:** update ([ce988ec](https://github.com/Alwatr/nanolib/commit/ce988ec4cf0f4be8fa0fb026eae65c31acc7055e)) by @mohammadhonarvar
+
 ## [1.0.14](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.0.13...@alwatr/dedupe@1.0.14) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/dedupe

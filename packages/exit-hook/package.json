@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/exit-hook",
-  "version": "1.0.16",
+  "version": "1.1.0",
   "description": "A utility for registering exit handlers in Node.js.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/node-fs@1.0.13...@alwatr/node-fs@1.1.0) (2024-09-29)
+
+### Features
+
+* **node-fs/write-file:** support buffer as content ([3cce9e9](https://github.com/Alwatr/nanolib/commit/3cce9e937209bfb39aee1b981370ca4a76114e62)) by @njfamirm
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* **node-fs:** remove unused import from common module ([496a338](https://github.com/Alwatr/nanolib/commit/496a338a6366aa12dc32bbed07a3e14bd5315bd2)) by @AliMD
+* **node-fs:** Update logger import and initialization ([0f89c0f](https://github.com/Alwatr/nanolib/commit/0f89c0f7bc24e79c20d3d5d3fc3f906f12cf7161)) by @AliMD
+* use new type-helper global types and remove all import types ([08b5d08](https://github.com/Alwatr/nanolib/commit/08b5d08c03c7c315382337239de0426462f384b8)) by @AliMD
+
+### Miscellaneous Chores
+
+* **node-fs:** change the license to AGPL-3.0 ([9728276](https://github.com/Alwatr/nanolib/commit/97282764bfdb15ef1de25704012f1628a5d0c112)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
+### Dependencies update
+
+* bump @types/node ([3d80fed](https://github.com/Alwatr/nanolib/commit/3d80fedaf720af792feb060c2f81c737ebb84e11)) by @dependabot[bot]
+
 ## [1.0.13](https://github.com/Alwatr/nanolib/compare/@alwatr/node-fs@1.0.12...@alwatr/node-fs@1.0.13) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/node-fs

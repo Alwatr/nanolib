@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/local-storage@1.0.10...@alwatr/local-storage@1.1.0) (2024-09-29)
+
+### Features
+
+* **local-storage:** If the version is greater than 1, remove the previous version. ([1fdff96](https://github.com/Alwatr/nanolib/commit/1fdff9696a9cf7f1ced0a4c905ea62eb4c422f7a)) by @AliMD
+* use `package-tracer` ([cc3c5f9](https://github.com/Alwatr/nanolib/commit/cc3c5f9c1a3d03f0d81b46835665f16a0426fd0d)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* all dependeny topology ([1c17f34](https://github.com/Alwatr/nanolib/commit/1c17f349adf3e98e2a80ab2da4f0f81028dc9c5f)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* use new type-helper global types and remove all import types ([08b5d08](https://github.com/Alwatr/nanolib/commit/08b5d08c03c7c315382337239de0426462f384b8)) by @AliMD
+
+### Miscellaneous Chores
+
+* **local-storage:** change the license to AGPL-3.0 ([ef7ea07](https://github.com/Alwatr/nanolib/commit/ef7ea075094c88d90d2ddc6fb9612ae18d792225)) by @ArmanAsadian
+* Update build and lint scripts ([392d0b7](https://github.com/Alwatr/nanolib/commit/392d0b71f446bce336b0256119a80f07aff794ba)) by @AliMD
+
 ## [1.0.10](https://github.com/Alwatr/nanolib/compare/@alwatr/local-storage@1.0.9...@alwatr/local-storage@1.0.10) (2024-09-21)
 
 **Note:** Version bump only for package @alwatr/local-storage
