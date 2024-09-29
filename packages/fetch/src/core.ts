@@ -1,6 +1,6 @@
 import {globalScope} from '@alwatr/global-scope';
 import {createLogger} from '@alwatr/logger';
-import {waitForTimeout} from '@alwatr/wait';
+import {waitForTimeout} from '@alwatr/delay';
 
 import type {FetchOptions} from './type.js';
 

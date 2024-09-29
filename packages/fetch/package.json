@@ -71,10 +71,10 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
+    "@alwatr/delay": "workspace:^",
     "@alwatr/global-scope": "workspace:^",
     "@alwatr/logger": "workspace:^",
-    "@alwatr/package-tracer": "workspace:^",
-    "@alwatr/wait": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^"
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",

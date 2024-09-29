@@ -12,7 +12,7 @@
     {"path": "../package-tracer"},
     {"path": "../logger"},
     {"path": "../global-scope"},
-    {"path": "../wait"},
+    {"path": "../delay"},
     {"path": "../type-helper"}
   ]
 }

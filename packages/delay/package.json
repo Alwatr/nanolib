@@ -1,5 +1,5 @@
 {
-  "name": "@alwatr/wait",
+  "name": "@alwatr/delay",
   "version": "1.1.16",
   "description": "Comprehensive toolkit for managing asynchronous operations.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
