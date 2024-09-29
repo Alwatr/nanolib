@@ -43,19 +43,24 @@ export const localJsonStorage = {
   },
 
   /**
-   * Get local storage item and parse it as JSON.
-   * If item is not found, return default value.
+   * Get the local storage item and parse it as JSON.
+   * If the item is not found, return the default value.
+   * If the version is greater than 1, remove the previous version.
+   * If the item is not a valid JSON object, return the default value.
    *
-   * @param name - Name of the item.
-   * @param defaultValue - Default value of the item.
-   * @param version - Data structure version of the item (default: 1).
-   * @returns The parsed JSON value or the default value if item is not found.
+   * @param name - The name of the item.
+   * @param defaultValue - The default value of the item.
+   * @param version - The data structure version of the item (default: 1).
+   * @returns The parsed JSON value or the default value if the item is not found.
    * @example
    * ```typescript
    * const value = localJsonStorage.getItem('myItem', {a: 1, b: 2});
    * ```
    */
   getItem<T extends Json>(name: string, defaultValue: T, version = 1): T {
+    if (version > 1) {
+      this.removeItem(name, version - 1);
+    }
     const key = this.key_(name, version);
     const value = localStorage.getItem(key);
     if (value === null) return defaultValue;
