@@ -5,7 +5,8 @@
     "outDir": "dist",
     "emitDeclarationOnly": true,
     "composite": true,
+    "types": ["node", "@alwatr/nano-build"],
   },
   "include": ["src/**/*.ts"],
-  "references": [{"path": "../global-scope"}, {"path": "../type-helper"}],
+  "references": [{"path": "../global-scope"}, {"path": "../type-helper"}, {"path": "../package-tracer"}],
 }

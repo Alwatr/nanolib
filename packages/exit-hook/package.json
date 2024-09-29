@@ -65,7 +65,8 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@alwatr/dedupe": "workspace:^"
+    "@alwatr/dedupe": "workspace:^",
+    "@alwatr/package-tracer": "workspace:^"
   },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",

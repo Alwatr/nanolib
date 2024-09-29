@@ -66,6 +66,7 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
+    "@alwatr/package-tracer": "workspace:^",
     "@alwatr/platform-info": "workspace:^"
   },
   "devDependencies": {
