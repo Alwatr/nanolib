@@ -35,7 +35,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/deep-clone@workspace:packages/deep-clone":
+"@alwatr/deep-clone@workspace:^, @alwatr/deep-clone@workspace:packages/deep-clone":
   version: 0.0.0-use.local
   resolution: "@alwatr/deep-clone@workspace:packages/deep-clone"
   dependencies:
@@ -86,7 +86,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/exit-hook@workspace:packages/exit-hook":
+"@alwatr/exit-hook@workspace:^, @alwatr/exit-hook@workspace:packages/exit-hook":
   version: 0.0.0-use.local
   resolution: "@alwatr/exit-hook@workspace:packages/exit-hook"
   dependencies:
@@ -100,7 +100,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/fetch@workspace:packages/fetch":
+"@alwatr/fetch@workspace:^, @alwatr/fetch@workspace:packages/fetch":
   version: 0.0.0-use.local
   resolution: "@alwatr/fetch@workspace:packages/fetch"
   dependencies:
@@ -168,7 +168,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/local-storage@workspace:packages/local-storage":
+"@alwatr/local-storage@workspace:^, @alwatr/local-storage@workspace:packages/local-storage":
   version: 0.0.0-use.local
   resolution: "@alwatr/local-storage@workspace:packages/local-storage"
   dependencies:
@@ -208,7 +208,35 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/node-fs@workspace:packages/node-fs":
+"@alwatr/nanolib@workspace:packages/nanolib":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/nanolib@workspace:packages/nanolib"
+  dependencies:
+    "@alwatr/async-queue": "workspace:^"
+    "@alwatr/dedupe": "workspace:^"
+    "@alwatr/deep-clone": "workspace:^"
+    "@alwatr/delay": "workspace:^"
+    "@alwatr/exit-hook": "workspace:^"
+    "@alwatr/fetch": "workspace:^"
+    "@alwatr/flat-string": "workspace:^"
+    "@alwatr/flatomise": "workspace:^"
+    "@alwatr/is-number": "workspace:^"
+    "@alwatr/local-storage": "workspace:^"
+    "@alwatr/logger": "workspace:^"
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/node-fs": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/parse-duration": "workspace:^"
+    "@alwatr/platform-info": "workspace:^"
+    "@alwatr/render-state": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
+    "@types/node": "npm:^22.7.4"
+    typescript: "npm:^5.6.2"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/node-fs@workspace:^, @alwatr/node-fs@workspace:packages/node-fs":
   version: 0.0.0-use.local
   resolution: "@alwatr/node-fs@workspace:packages/node-fs"
   dependencies:
@@ -283,7 +311,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/render-state@workspace:packages/redner-state":
+"@alwatr/render-state@workspace:^, @alwatr/render-state@workspace:packages/redner-state":
   version: 0.0.0-use.local
   resolution: "@alwatr/render-state@workspace:packages/redner-state"
   dependencies:
