@@ -81,12 +81,12 @@ Add the following scripts to your `package.json`:
 }
 ```
 
-### `--preset=pmpa`
+### `--preset=weaver`
 
 ```js
 {
   ...defaultPreset,
-  entryPoints: ['site/_ts/*.ts'],
+  entryPoints: ['src/ts/*.ts'],
   outdir: 'dist/es',
   platform: 'browser',
   format: 'iife',
@@ -116,6 +116,29 @@ Add the following scripts to your `package.json`:
   sourcemap: false,
   sourcesContent: false,
   target: 'node20',
+}
+```
+
+### `--preset=pmpa`
+
+```js
+{
+  ...defaultPreset,
+  entryPoints: ['site/_ts/*.ts'],
+  outdir: 'dist/es',
+  platform: 'browser',
+  format: 'iife',
+  mangleProps: '_$',
+  treeShaking: true,
+  sourcemap: false,
+  sourcesContent: false,
+  target: [
+    'es2018',
+    'chrome62',
+    'edge79',
+    'firefox78',
+    'safari11',
+  ],
 }
 ```
 

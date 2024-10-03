@@ -70,6 +70,17 @@ const presetRecord = {
     sourcesContent: false,
     target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
   },
+  weaver: {
+    entryPoints: ['src/ts/*.ts'],
+    outdir: 'dist/es',
+    platform: 'browser',
+    format: 'iife',
+    mangleProps: '_$',
+    treeShaking: true,
+    sourcemap: false,
+    sourcesContent: false,
+    target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+  },
   microservice: {
     platform: 'node',
     format: 'esm',
