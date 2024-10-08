@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.23](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.22...@alwatr/global-scope@1.1.23) (2024-10-08)
+
+**Note:** Version bump only for package @alwatr/global-scope
+
 ## [1.1.22](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.21...@alwatr/global-scope@1.1.22) (2024-09-29)
 
 ### Bug Fixes

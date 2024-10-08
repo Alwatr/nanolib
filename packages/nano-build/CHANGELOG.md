@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.4.0...@alwatr/nano-build@1.5.0) (2024-10-08)
+
+### Features
+
+* **nano-build:** add `weaver` configs(`--preset=weaver`) ([1bae458](https://github.com/Alwatr/nanolib/commit/1bae4583ae837c606f4862cdebb385e6fe7ac1db)) by @mohammadhonarvar
+
 ## [1.4.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.3.10...@alwatr/nano-build@1.4.0) (2024-09-29)
 
 ### Features

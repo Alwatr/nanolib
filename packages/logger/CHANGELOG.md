@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@4.0.0...@alwatr/logger@4.0.1) (2024-10-08)
+
+**Note:** Version bump only for package @alwatr/logger
+
 ## [4.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@3.2.14...@alwatr/logger@4.0.0) (2024-09-29)
 
 ### ⚠ BREAKING CHANGES
