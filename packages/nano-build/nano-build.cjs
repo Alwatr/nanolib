@@ -12,9 +12,15 @@ const packageJson = require(packageJsonPath);
 console.log('🚀 nano-build');
 console.log('📦 %s\n', packageJson.name);
 
-const watchMode = process.argv.includes('--watch');
-
 const devMode = process.env.NODE_ENV !== 'production';
+
+if (devMode) {
+  console.log('🔧 Development mode');
+} else {
+  console.log('🔧 Production mode');
+}
+
+const watchMode = process.argv.includes('--watch');
 
 /**
  * @type {import('esbuild').BuildOptions}
