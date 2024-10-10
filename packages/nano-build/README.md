@@ -10,7 +10,28 @@ First, install `@alwatr/nano-build` as a development dependency:
 yarn add -D @alwatr/nano-build
 ```
 
+## Usage
+
+Add the following scripts to your `package.json` to use `@alwatr/nano-build`:
+
+```json
+{
+  "scripts": {
+    "build": "nano-build --preset=module",
+    "watch": "yarn run build --watch"
+  }
+}
+```
+
+Then run the following command to build your project:
+
+```bash
+yarn run build
+```
+
 ## Configuration
+
+### TypeScript
 
 To use `@alwatr/nano-build` in your TypeScript project, you need to configure your `tsconfig.json` file.
 Below is an example configuration:
@@ -31,19 +52,22 @@ Below is an example configuration:
 
 This configuration ensures that your TypeScript project is set up to use `@alwatr/nano-build` effectively, providing a streamlined build process with best practices.
 
-## Usage
+### Overwriting configuration
 
-Add the following scripts to your
-
-package.json
-
- to use `@alwatr/nano-build`:
+Add 'nano-build' field to your `package.json` for overwriting configuration:
 
 ```json
 {
-  "scripts": {
-    "build": "nano-build --preset=module",
-    "watch": "yarn run build --watch"
+  "nano-build": {
+    "bundle": true
+  },
+  "nano-build-development": {
+    "minify": false,
+    "sourcemap": true
+  },
+  "nano-build-production": {
+    "minify": true,
+    "sourcemap": false
   }
 }
 ```
@@ -173,7 +197,7 @@ package.json
 
 ### Development overwrite
 
-this preset is used when `NODE_ENV` is set to `development` and overwrites the all preset.
+This preset is used when `NODE_ENV` is not set to `production`. It overwrites all other presets.
 
 ```js
 {
@@ -184,26 +208,6 @@ this preset is used when `NODE_ENV` is set to `development` and overwrites the a
 ```
 
 you can also add `nano-build-development` field to your `package.json` for overwriting configuration.
-
-## Configuration
-
-Add 'nano-build' field to your `package.json` for overwriting configuration:
-
-```json
-{
-  "nano-build": {
-    "bundle": true
-  },
-  "nano-build-development": {
-    "minify": false,
-    "sourcemap": true
-  },
-  "nano-build-production": {
-    "minify": true,
-    "sourcemap": false
-  }
-}
-```
 
 ## Sponsors
 
