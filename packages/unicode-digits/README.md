@@ -9,6 +9,10 @@ yarn add @alwatr/unicode-digits
 ## Usage
 
 ```ts
+import {UnicodeDigits} from '@alwatr/unicode-digits';
+
+const unicodeDigits = new UnicodeDigits('en');
+unicodeDigits.translate('۱۲۳'); // 123
 ```
 
 ## Sponsors
