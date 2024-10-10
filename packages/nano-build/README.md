@@ -4,13 +4,40 @@ Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's ea
 
 ## Installation
 
+First, install `@alwatr/nano-build` as a development dependency:
+
 ```bash
 yarn add -D @alwatr/nano-build
 ```
 
+## Configuration
+
+To use `@alwatr/nano-build` in your TypeScript project, you need to configure your `tsconfig.json` file.
+Below is an example configuration:
+
+```jsonc
+{
+  "extends": "@alwatr/tsconfig-base/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "composite": true,
+    "types": ["@alwatr/nano-build"],
+  },
+  "include": ["src/**/*.ts"],
+}
+```
+
+This configuration ensures that your TypeScript project is set up to use `@alwatr/nano-build` effectively, providing a streamlined build process with best practices.
+
 ## Usage
 
-Add the following scripts to your `package.json`:
+Add the following scripts to your
+
+package.json
+
+ to use `@alwatr/nano-build`:
 
 ```json
 {
@@ -39,11 +66,13 @@ Add the following scripts to your `package.json`:
   splitting: false,
   charset: 'utf8',
   legalComments: 'none',
-  banner: {
-    js: "/* @package_name v@package_version */"
-  },
   define: {
-    __package_version__: `'@package_version'`,
+    __package_name__: packageJson.name,
+    __package_version__: packageJson.version,
+    __dev_mode__: process.env.NODE_ENV !== 'production',
+  },
+  banner: {
+    js: "/* __package_name__ v__package_version__ */"
   },
 }
 ```
@@ -141,6 +170,20 @@ Add the following scripts to your `package.json`:
   ],
 }
 ```
+
+### Development overwrite
+
+this preset is used when `NODE_ENV` is set to `development` and overwrites the all preset.
+
+```js
+{
+  sourcemap: true,
+  sourcesContent: true,
+  dropLabels: ['__dev_mode__'],
+}
+```
+
+you can also add `nano-build-development` field to your `package.json` for overwriting configuration.
 
 ## Configuration
 
