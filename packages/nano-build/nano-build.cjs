@@ -38,9 +38,22 @@ const defaultOptions = {
   define: {
     __package_name__: `'${packageJson.name}'`,
     __package_version__: `'${packageJson.version}'`,
+    __dev_mode__: devMode.toString(),
   },
 };
 
+/**
+ * @type {import('esbuild').BuildOptions}
+ */
+const developmentOptions = {
+  sourcemap: true,
+  sourcesContent: true,
+  dropLabels: ['__dev_mode__'],
+}
+
+/**
+ * @type {DictionaryOpt<import('esbuild').BuildOptions & {cjs?: true}>}
+ */
 const presetRecord = {
   default: {},
   module: {
@@ -95,18 +108,32 @@ const presetRecord = {
 function getOptions() {
   let presetName = process.argv.find((arg) => arg.startsWith('--preset='))?.split('=')[1] ?? 'default';
   console.log('🔧 preset: %s', presetName);
-  const presetOptions = presetRecord[presetName];
-  if (!presetOptions) {
+  if (!Object.hasOwn(presetRecord, presetName)) {
     console.error('❌ preset not found', {preset: presetName});
     process.exit(1);
   }
 
-  const options = {
+  const presetOptions = presetRecord[presetName];
+
+  let options = {
     ...defaultOptions,
     ...presetOptions,
     ...packageJson['nano-build'],
-    ...packageJson['nano-build-' + (devMode ? 'development' : 'production')],
+
   };
+
+  if (devMode) {
+    options = {
+      ...options,
+      ...developmentOptions,
+      ...packageJson['nano-build-development'],
+    }
+  } else {
+    options = {
+      ...options,
+      ...packageJson['nano-build-production'],
+    }
+  }
 
   // Remove null fields from esbuildOptions
   Object.keys(options).forEach((key) => {
