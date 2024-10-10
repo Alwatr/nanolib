@@ -83,6 +83,6 @@
     "@alwatr/tsconfig-base": "workspace:^",
     "@alwatr/type-helper": "workspace:^",
     "jest": "^29.7.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
