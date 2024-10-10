@@ -47,6 +47,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": false,
     "noEmitOnError": true,
+    "allowUnusedLabels": true,
     // "noUncheckedIndexedAccess": true,
 
     /* Module Resolution Options */
