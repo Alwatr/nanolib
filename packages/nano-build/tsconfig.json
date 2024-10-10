@@ -1,0 +1,12 @@
+{
+  "extends": "@alwatr/tsconfig-base/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "moduleResolution": "Node",
+    "module": "commonjs",
+    "types": ["node", "@alwatr/type-helper"]
+  },
+  "include": ["*.cjs"]
+}
