@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.9](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.8...@alwatr/eslint-config@1.2.9) (2024-10-10)
+
+### Code Refactoring
+
+* disable unused labels linting rule ([043cca0](https://github.com/Alwatr/nanolib/commit/043cca023790260417a7717d9fdf28e8b6a691e7)) by @AliMD
+
+### Dependencies update
+
+* bump the development-dependencies group with 10 updates ([fa4aaf0](https://github.com/Alwatr/nanolib/commit/fa4aaf04c907ecae06aa14000ce35216170c15ad)) by @dependabot[bot]
+
 ## [1.2.8](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.7...@alwatr/eslint-config@1.2.8) (2024-09-29)
 
 ### Bug Fixes

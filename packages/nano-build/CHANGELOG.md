@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.5.0...@alwatr/nano-build@1.6.0) (2024-10-10)
+
+### Features
+
+* **nano-build:** Add __dev_mode__ global variable ([a8f7e63](https://github.com/Alwatr/nanolib/commit/a8f7e63c66c8166145e9e81994263d36ea6751ae)) by @AliMD
+* Update nano-build options and presets ([293598e](https://github.com/Alwatr/nanolib/commit/293598ed7ef85763f2ab72128cdad85a4d0310ae)) by @AliMD
+
+### Miscellaneous Chores
+
+* Add tsconfig.json for nano-build package ([8b47c2d](https://github.com/Alwatr/nanolib/commit/8b47c2d940a55ac0e13e54209f18d5274877bcfe)) by @AliMD
+* Update devDependencies in nano-build package.json ([c900c09](https://github.com/Alwatr/nanolib/commit/c900c0942c10a663c8bffdc2f9f6583c9a69dece)) by @AliMD
+* Update nano-build options and presets ([8b2bc3a](https://github.com/Alwatr/nanolib/commit/8b2bc3af60e136c952951d468b0c184e4e14a46b)) by @AliMD
+* Update nano-build README.md ([f641961](https://github.com/Alwatr/nanolib/commit/f6419615da9b8e7755f231b37a10341531efa99c)) by @AliMD
+* Update nano-build script to display mode information ([7a76f2a](https://github.com/Alwatr/nanolib/commit/7a76f2a9d88854ddcc79fb8c7f865555d2cbd5da)) by @AliMD
+
+### Dependencies update
+
+* bump the development-dependencies group with 10 updates ([fa4aaf0](https://github.com/Alwatr/nanolib/commit/fa4aaf04c907ecae06aa14000ce35216170c15ad)) by @dependabot[bot]
+
 ## [1.5.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.4.0...@alwatr/nano-build@1.5.0) (2024-10-08)
 
 ### Features

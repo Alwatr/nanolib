@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/package-tracer@1.0.1...@alwatr/package-tracer@1.0.2) (2024-10-10)
+
+### Dependencies update
+
+* bump the development-dependencies group with 10 updates ([fa4aaf0](https://github.com/Alwatr/nanolib/commit/fa4aaf04c907ecae06aa14000ce35216170c15ad)) by @dependabot[bot]
+
 ## [1.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/package-tracer@1.0.0...@alwatr/package-tracer@1.0.1) (2024-10-08)
 
 **Note:** Version bump only for package @alwatr/package-tracer
