@@ -1,4 +1,4 @@
-import {globalScope} from '@alwatr/global-scope';
+import {globalScope} from '@alwatr/global-this';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const win = globalScope as DictionaryOpt<any>;

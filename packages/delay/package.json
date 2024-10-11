@@ -67,7 +67,7 @@
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@alwatr/global-scope": "workspace:^",
+    "@alwatr/global-this": "workspace:^",
     "@alwatr/package-tracer": "workspace:^",
     "@alwatr/parse-duration": "workspace:^"
   },

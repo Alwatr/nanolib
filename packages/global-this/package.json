@@ -48,9 +48,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/global-scope"
+    "directory": "packages/global-this"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/global-scope#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/global-this#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },

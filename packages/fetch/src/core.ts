@@ -1,5 +1,5 @@
 import {delay} from '@alwatr/delay';
-import {globalScope} from '@alwatr/global-scope';
+import {globalScope} from '@alwatr/global-this';
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
 import {parseDuration} from '@alwatr/parse-duration';

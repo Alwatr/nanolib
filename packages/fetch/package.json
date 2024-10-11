@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@alwatr/delay": "workspace:^",
-    "@alwatr/global-scope": "workspace:^",
+    "@alwatr/global-this": "workspace:^",
     "@alwatr/logger": "workspace:^",
     "@alwatr/package-tracer": "workspace:^",
     "@alwatr/parse-duration": "workspace:^"

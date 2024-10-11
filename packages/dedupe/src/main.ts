@@ -1,4 +1,4 @@
-import {globalScope} from '@alwatr/global-scope';
+import {globalScope} from '@alwatr/global-this';
 import '@alwatr/polyfill-has-own';
 
 declare global {

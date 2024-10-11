@@ -11,7 +11,7 @@
   "references": [
     {"path": "../package-tracer"},
     {"path": "../logger"},
-    {"path": "../global-scope"},
+    {"path": "../global-this"},
     {"path": "../delay"},
     {"path": "../parse-duration"}
   ]
