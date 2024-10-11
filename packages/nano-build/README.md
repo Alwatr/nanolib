@@ -103,9 +103,44 @@ Add 'nano-build' field to your `package.json` for overwriting configuration:
 
 ### `--preset=module`
 
+Builds and bundle a single entry point.
+
 ```js
 {
   ...defaultPreset,
+  entryPoints: ['src/main.ts'],
+  bundle: true,
+  platform: 'node',
+  format: 'esm',
+  cjs: true,
+  packages: 'external',
+}
+```
+
+### `--preset=module2`
+
+Builds and bundles multiple entry points in root of `src` directory.
+
+```js
+{
+  ...defaultPreset,
+  entryPoints: ['src/*.ts'],
+  bundle: true,
+  platform: 'node',
+  format: 'esm',
+  cjs: true,
+  packages: 'external',
+}
+```
+
+### `--preset=module3`
+
+Builds multiple entry points in `src` directory without bundling.
+
+```js
+{
+  entryPoints: ['src/**/*.ts'],
+  bundle: false,
   platform: 'node',
   format: 'esm',
   cjs: true,
