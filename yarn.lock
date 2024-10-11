@@ -150,6 +150,7 @@ __metadata:
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
     "@types/node": "npm:^22.7.5"
     typescript: "npm:^5.6.3"
   languageName: unknown
