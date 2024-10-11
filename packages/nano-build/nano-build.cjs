@@ -63,10 +63,27 @@ const developmentOptions = {
 const presetRecord = {
   default: {},
   module: {
+    entryPoints: ['src/main.ts'],
+    bundle: true,
     platform: 'node',
     format: 'esm',
     cjs: true,
-    // mangleProps: '__$',
+    packages: 'external',
+  },
+  module2: {
+    entryPoints: ['src/*.ts'],
+    bundle: true,
+    platform: 'node',
+    format: 'esm',
+    cjs: true,
+    packages: 'external',
+  },
+  module3: {
+    entryPoints: ['src/**/*.ts'],
+    bundle: false,
+    platform: 'node',
+    format: 'esm',
+    cjs: true,
     packages: 'external',
   },
   pwa: {
