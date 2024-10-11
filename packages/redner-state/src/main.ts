@@ -1,9 +1,9 @@
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
 
-const logger = createLogger(__package_name__);
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
-packageTracer.add(__package_name__, __package_version__);
+const logger = /* #__PURE__ */ createLogger(__package_name__);
 
 export const renderState = <R, T extends string>(
   state: T,
