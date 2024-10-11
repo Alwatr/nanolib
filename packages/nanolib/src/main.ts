@@ -1,5 +1,4 @@
 export * from '@alwatr/async-queue';
-export * from '@alwatr/dedupe';
 export * from '@alwatr/deep-clone';
 export * from '@alwatr/delay';
 export * from '@alwatr/fetch';

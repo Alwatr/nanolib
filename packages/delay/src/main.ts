@@ -1,7 +1,7 @@
 import {packageTracer} from '@alwatr/package-tracer';
 import {parseDuration, type Duration} from '@alwatr/parse-duration';
 
-packageTracer.add(__package_name__, __package_version__);
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
 import {requestAnimationFrame, requestIdleCallback} from './polyfill.js';
 

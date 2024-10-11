@@ -10,7 +10,7 @@
   "include": ["src/**/*.ts"],
   "references": [
 
-    { "path": "../global-scope" },
+    { "path": "../global-this" },
     {"path": "../polyfill-has-own"},
     {"path": "../package-tracer"}
   ],

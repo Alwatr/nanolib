@@ -1,17 +1,19 @@
 import {delay} from '@alwatr/delay';
-import {globalScope} from '@alwatr/global-scope';
+import {getGlobalThis} from '@alwatr/global-this';
 import {createLogger} from '@alwatr/logger';
 import {packageTracer} from '@alwatr/package-tracer';
 import {parseDuration} from '@alwatr/parse-duration';
 
 import type {FetchOptions} from './type.js';
 
-packageTracer.add(__package_name__, __package_version__);
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
-export const logger_ = createLogger('@alwatr/fetch');
+export const logger_ = /* #__PURE__ */ createLogger('@alwatr/fetch');
+
+const globalThis_ = /* #__PURE__ */ getGlobalThis();
 
 let cacheStorage_: Cache;
-export const cacheSupported = Object.hasOwn(globalScope, 'caches');
+export const cacheSupported = /* #__PURE__ */ Object.hasOwn(globalThis_, 'caches');
 
 const duplicateRequestStorage_: Record<string, Promise<Response>> = {};
 
@@ -215,7 +217,7 @@ export async function handleRetryPattern_(options: Required<FetchOptions>): Prom
   catch (err) {
     logger_.accident('fetch', 'fetch_failed_retry', err);
 
-    if (globalScope.navigator?.onLine === false) {
+    if (globalThis_.navigator?.onLine === false) {
       logger_.accident('handleRetryPattern_', 'offline', 'Skip retry because offline');
       throw err;
     }
@@ -232,7 +234,7 @@ export async function handleRetryPattern_(options: Required<FetchOptions>): Prom
  */
 export function handleTimeout_(options: FetchOptions): Promise<Response> {
   if (options.timeout === 0) {
-    return globalScope.fetch(options.url, options);
+    return globalThis_.fetch(options.url, options);
   }
   // else
   logger_.logMethod?.('handleTimeout_');
@@ -257,7 +259,7 @@ export function handleTimeout_(options: FetchOptions): Promise<Response> {
     //   });
     // });
 
-    globalScope
+    globalThis_
       .fetch(options.url, options)
       .then((response) => resolved(response))
       .catch((reason) => reject(reason))

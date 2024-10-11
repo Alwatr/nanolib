@@ -47,6 +47,11 @@
       "types": "./dist/node-fs.d.ts",
       "import": "./dist/node-fs.mjs",
       "require": "./dist/node-fs.cjs"
+    },
+    "./dedupe": {
+      "types": "./dist/dedupe.d.ts",
+      "import": "./dist/dedupe.mjs",
+      "require": "./dist/dedupe.cjs"
     }
   },
   "license": "AGPL-3.0-only",

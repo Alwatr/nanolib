@@ -1,23 +1,23 @@
-import {globalScope} from '@alwatr/global-scope';
+import {getGlobalThis} from '@alwatr/global-this';
+import {packageTracer} from '@alwatr/package-tracer';
 import '@alwatr/polyfill-has-own';
 
-declare global {
-  // eslint-disable-next-line no-var
-  var __alwatr_dedupe__: string | true;
-}
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
-if (typeof globalScope.__alwatr_dedupe__ === 'undefined') {
-  globalScope.__alwatr_dedupe__ = __package_version__;
+const globalThis_ = getGlobalThis<{__alwatr_dedupe__: string | true}>();
+
+if (typeof globalThis_.__alwatr_dedupe__ === 'undefined') {
+  globalThis_.__alwatr_dedupe__ = __package_version__;
 }
 else {
-  if (globalScope.__alwatr_dedupe__ === true) {
-    globalScope.__alwatr_dedupe__ = '1.0.x';
+  if (globalThis_.__alwatr_dedupe__ === true) {
+    globalThis_.__alwatr_dedupe__ = '1.0.x';
   }
 
   console.error(new Error('duplication_detected', {
     cause: {
       name: __package_name__,
-      oldVersion: globalScope.__alwatr_dedupe__,
+      oldVersion: globalThis_.__alwatr_dedupe__,
       newVersion: __package_version__
     },
   }));

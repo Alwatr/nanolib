@@ -6,7 +6,7 @@ Here is a brief overview of the included libraries:
 
 1. [`tsconfig-base`](./packages/tsconfig-base#readme): This is a foundational TypeScript configuration used for Alwatr projects.
 2. [`flat-string`](./packages/flat-string#readme): The `flat-string` function flattens the underlying C structures of a concatenated JavaScript string.
-3. [`global-scope`](./packages/global-scope#readme): This TypeScript module provides a cross-platform alternative to `globalThis` named `globalScope`. This object works across different environments, including browsers (`window`), Node.js (`global`), and Web Workers (`self`).
+3. [`global-this`](./packages/global-this#readme): This TypeScript module provides a cross-platform alternative to `globalThis` named `globalScope`. This object works across different environments, including browsers (`window`), Node.js (`global`), and Web Workers (`self`).
 4. [`platform-info`](./packages/platform-info#readme): This module offers a method to identify the current platform where the script is being executed. It defines a `platformInfo` constant that contains details about the current platform.
 5. [`prettier-config`](./packages/prettier-config#readme): These are Alwatr's shared configurations for Prettier.
 6. [`eslint-config`](./packages/eslint-config#readme): This is Alwatr's ECMAScript Style Guide presented as shareable ESLint configurations.
