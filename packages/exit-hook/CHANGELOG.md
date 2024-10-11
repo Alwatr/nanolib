@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.1.2...@alwatr/exit-hook@1.1.3) (2024-10-11)
+
+### Bug Fixes
+
+* **exit-hook:** Refactor exitHook function to prevent automatically register process exit events ([32d7e29](https://github.com/Alwatr/nanolib/commit/32d7e29dcd89dd4b7dc1a57da391ba8e70f5021d)) by @AliMD
+
 ## [1.1.2](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.1.1...@alwatr/exit-hook@1.1.2) (2024-10-10)
 
 ### Dependencies update

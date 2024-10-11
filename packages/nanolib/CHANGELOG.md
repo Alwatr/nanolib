@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.0.2...@alwatr/nanolib@1.0.3) (2024-10-11)
+
+### Bug Fixes
+
+* **nanolib:** export `unicode-digits` & update its deps ([28a6a65](https://github.com/Alwatr/nanolib/commit/28a6a65b2cf213ebb2db53722e28421e9a8bf752)) by @mohammadhonarvar
+
 ## [1.0.2](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.0.1...@alwatr/nanolib@1.0.2) (2024-10-10)
 
 ### Dependencies update

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.6.0...@alwatr/nano-build@2.0.0) (2024-10-11)
+
+### ⚠ BREAKING CHANGES
+
+* **nano-build:** heads up all presets options changed, please double check the readme and your build output.
+
+### Features
+
+* **nano-build:** Add presets for module bundling ([158dfec](https://github.com/Alwatr/nanolib/commit/158dfecc4afdac18bcfa5a9288f04ebb1feed6d1)) by @AliMD
+
+### Code Refactoring
+
+* **nano-build:** Update all presets options ([91bdf90](https://github.com/Alwatr/nanolib/commit/91bdf9033aad8e0c71a5aab882e8b6c2af0a99ac)) by @AliMD
+
 ## [1.6.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.5.0...@alwatr/nano-build@1.6.0) (2024-10-10)
 
 ### Features
