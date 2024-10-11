@@ -24,7 +24,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/dedupe@workspace:packages/dedupe"
   dependencies:
-    "@alwatr/global-scope": "workspace:^"
+    "@alwatr/global-this": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/polyfill-has-own": "workspace:^"
@@ -51,7 +51,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/delay@workspace:packages/delay"
   dependencies:
-    "@alwatr/global-scope": "workspace:^"
+    "@alwatr/global-this": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/parse-duration": "workspace:^"
@@ -77,9 +77,9 @@ __metadata:
     eslint-plugin-require-extensions: "npm:^0.1.3"
     typescript: "npm:^5.6.3"
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ">7.0.0"
-    "@typescript-eslint/parser": ">7.0.0"
-    eslint: ">8.0.0"
+    "@typescript-eslint/eslint-plugin": ">7.0.0 <8.0.0"
+    "@typescript-eslint/parser": ">7.0.0 <8.0.0"
+    eslint: ">8.0.0 <9.0.0"
     eslint-import-resolver-typescript: ">3.0.0"
     eslint-plugin-import: ">2.0.0"
     eslint-plugin-require-extensions: ">0.1.0"
@@ -105,7 +105,7 @@ __metadata:
   resolution: "@alwatr/fetch@workspace:packages/fetch"
   dependencies:
     "@alwatr/delay": "workspace:^"
-    "@alwatr/global-scope": "workspace:^"
+    "@alwatr/global-this": "workspace:^"
     "@alwatr/logger": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
@@ -142,9 +142,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/global-scope@workspace:^, @alwatr/global-scope@workspace:packages/global-scope":
+"@alwatr/global-this@workspace:^, @alwatr/global-this@workspace:packages/global-this":
   version: 0.0.0-use.local
-  resolution: "@alwatr/global-scope@workspace:packages/global-scope"
+  resolution: "@alwatr/global-this@workspace:packages/global-this"
   dependencies:
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
@@ -347,6 +347,7 @@ __metadata:
   resolution: "@alwatr/unicode-digits@workspace:packages/unicode-digits"
   dependencies:
     "@alwatr/nano-build": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/type-helper": "workspace:^"
