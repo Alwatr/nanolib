@@ -1,8 +1,8 @@
 import {createLogger} from '@alwatr/nanolib';
-import {exitHook} from '@alwatr/nanolib/node';
+// import {exitHook} from '@alwatr/nanolib/node';
 
 createLogger('playground');
 
-exitHook(() => {
-  console.log('Exiting...');
-});
+// exitHook(() => {
+//   console.log('Exiting...');
+// });
