@@ -12,7 +12,9 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.d.ts.map, ${capture}.js.LEGAL.txt",
+    "*.mjs": "${capture}.mjs.map, ${capture}.min.mjs, ${capture}.d.ts, ${capture}.d.ts.map, ${capture}.mjs.LEGAL.txt, ${capture}.cjs",
+    "*.cjs": "${capture}.cjs.map, ${capture}.min.cjs, ${capture}.d.ts, ${capture}.d.ts.map, ${capture}.cjs.LEGAL.txt",
     "*.ts": "${capture}.js, ${capture}.js.map, ${capture}.d.ts, ${capture}.d.ts.map",
     "tsconfig.json": "tsconfig.*.json, *.tsbuildinfo"
   },
