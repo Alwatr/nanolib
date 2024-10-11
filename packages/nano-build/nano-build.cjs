@@ -9,16 +9,11 @@ if (existsSync(packageJsonPath) === false) {
 }
 const packageJson = require(packageJsonPath);
 
-console.log('🚀 nano-build');
-console.log('📦 %s\n', packageJson.name);
+console.log('\n🚀 nano-build 📦 %s\n', packageJson.nam);
 
 const devMode = process.env.NODE_ENV !== 'production';
 
-if (devMode) {
-  console.log('🔧 Development mode');
-} else {
-  console.log('🔧 Production mode');
-}
+console.log(`🔧 ${devMode ? 'Development' : 'Production'} mode`);
 
 const watchMode = process.argv.includes('--watch');
 
@@ -26,18 +21,17 @@ const watchMode = process.argv.includes('--watch');
  * @type {import('esbuild').BuildOptions}
  */
 const defaultOptions = {
-  entryPoints: ['src/main.ts'],
+  entryPoints: ['src/*.ts'],
   outdir: 'dist',
   logLevel: 'info',
   target: 'es2020',
-  minify: true,
-  treeShaking: false,
-  sourcemap: true,
-  sourcesContent: true,
   bundle: true,
-  splitting: false,
+  minify: true,
+  treeShaking: true,
+  sourcemap: false,
+  sourcesContent: false,
   charset: 'utf8',
-  legalComments: 'none',
+  legalComments: 'linked',
   banner: {
     js: '/* ' + packageJson.name + ' v' + packageJson.version + ' */',
   },
@@ -54,11 +48,17 @@ const defaultOptions = {
 const developmentOptions = {
   sourcemap: true,
   sourcesContent: true,
-  dropLabels: ['__dev_mode__'],
-}
+};
 
 /**
- * @type {DictionaryOpt<import('esbuild').BuildOptions & {cjs?: true}>}
+ * @type {import('esbuild').BuildOptions}
+ */
+const productionOptions = {
+  dropLabels: ['__dev_mode__'],
+};
+
+/**
+ * @type {DictionaryOpt<import('esbuild').BuildOptions & {cjs?: boolean}>}
  */
 const presetRecord = {
   default: {},
@@ -67,33 +67,41 @@ const presetRecord = {
     bundle: true,
     platform: 'node',
     format: 'esm',
+    minify: false,
     cjs: true,
     packages: 'external',
+    sourcemap: true,
+    sourcesContent: true,
   },
   module2: {
     entryPoints: ['src/*.ts'],
     bundle: true,
     platform: 'node',
     format: 'esm',
+    minify: false,
     cjs: true,
     packages: 'external',
+    sourcemap: true,
+    sourcesContent: true,
   },
   module3: {
     entryPoints: ['src/**/*.ts'],
     bundle: false,
     platform: 'node',
     format: 'esm',
+    minify: false,
     cjs: true,
     packages: 'external',
+    sourcemap: true,
+    sourcesContent: true,
   },
   pwa: {
+    entryPoints: ['src/*.ts'],
     platform: 'browser',
     format: 'iife',
     mangleProps: '_$',
-    treeShaking: true,
-    sourcemap: false,
-    sourcesContent: false,
     target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+    ...(devMode ? developmentOptions : productionOptions),
   },
   pmpa: {
     entryPoints: ['site/_ts/*.ts'],
@@ -101,10 +109,8 @@ const presetRecord = {
     platform: 'browser',
     format: 'iife',
     mangleProps: '_$',
-    treeShaking: true,
-    sourcemap: false,
-    sourcesContent: false,
     target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+    ...(devMode ? developmentOptions : productionOptions),
   },
   weaver: {
     entryPoints: ['src/ts/*.ts'],
@@ -112,19 +118,16 @@ const presetRecord = {
     platform: 'browser',
     format: 'iife',
     mangleProps: '_$',
-    treeShaking: true,
-    sourcemap: false,
-    sourcesContent: false,
     target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+    ...(devMode ? developmentOptions : productionOptions),
   },
   microservice: {
+    entryPoints: ['src/ts/main.ts'],
     platform: 'node',
     format: 'esm',
-    treeShaking: true,
     mangleProps: '_$',
-    sourcemap: false,
-    sourcesContent: false,
     target: 'node20',
+    ...(devMode ? developmentOptions : productionOptions),
   },
 };
 
@@ -142,21 +145,8 @@ function getOptions() {
     ...defaultOptions,
     ...presetOptions,
     ...packageJson['nano-build'],
-
+    ...(devMode ? packageJson['nano-build-development'] : packageJson['nano-build-production']),
   };
-
-  if (devMode) {
-    options = {
-      ...options,
-      ...developmentOptions,
-      ...packageJson['nano-build-development'],
-    }
-  } else {
-    options = {
-      ...options,
-      ...packageJson['nano-build-production'],
-    }
-  }
 
   // Remove null fields from esbuildOptions
   Object.keys(options).forEach((key) => {

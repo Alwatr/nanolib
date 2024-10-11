@@ -74,22 +74,27 @@ Add 'nano-build' field to your `package.json` for overwriting configuration:
 
 ## Presets
 
+Presets are predefined configurations that can be used to build your project. You can use the `--preset` flag to specify a preset.
+
+```bash
+yarn run build --preset=module
+```
+
 ### default
 
 ```js
 {
-  entryPoints: ['src/main.ts'],
+  entryPoints: ['src/*.ts'],
   outdir: 'dist',
   logLevel: 'info',
   target: 'es2020',
   minify: true,
-  treeShaking: false,
-  sourcemap: true,
-  sourcesContent: true,
+  treeShaking: true,
+  sourcemap: false,
+  sourcesContent: false,
   bundle: true,
-  splitting: false,
   charset: 'utf8',
-  legalComments: 'none',
+  legalComments: 'linked',
   define: {
     __package_name__: packageJson.name,
     __package_version__: packageJson.version,
@@ -103,7 +108,7 @@ Add 'nano-build' field to your `package.json` for overwriting configuration:
 
 ### `--preset=module`
 
-Builds and bundle a single entry point.
+Builds and bundle for single export module.
 
 ```js
 {
@@ -112,14 +117,19 @@ Builds and bundle a single entry point.
   bundle: true,
   platform: 'node',
   format: 'esm',
+  minify: false,
   cjs: true,
   packages: 'external',
+  sourcemap: true,
+  sourcesContent: true
 }
 ```
 
+Note: default production overwrite options not applied.
+
 ### `--preset=module2`
 
-Builds and bundles multiple entry points in root of `src` directory.
+Builds and bundles multiple entry points in root of `src` directory for multiple exports module.
 
 ```js
 {
@@ -128,37 +138,47 @@ Builds and bundles multiple entry points in root of `src` directory.
   bundle: true,
   platform: 'node',
   format: 'esm',
+  minify: false,
   cjs: true,
   packages: 'external',
+  sourcemap: true,
+  sourcesContent: true
 }
 ```
 
+Note: default production overwrite options not applied.
+
 ### `--preset=module3`
 
-Builds multiple entry points in `src` directory without bundling.
+Builds multiple entry points in `src` directory for multiple exports module without bundling.
 
 ```js
 {
+  ...defaultPreset,
   entryPoints: ['src/**/*.ts'],
   bundle: false,
   platform: 'node',
   format: 'esm',
+  minify: false,
   cjs: true,
   packages: 'external',
+  sourcemap: true,
+  sourcesContent: true
 }
 ```
+
+Note: default production overwrite options not applied.
 
 ### `--preset=pwa`
 
 ```js
 {
   ...defaultPreset,
+  entryPoints: ['site/_ts/*.ts'],
+  outdir: 'dist/es',
   platform: 'browser',
   format: 'iife',
   mangleProps: '_$',
-  treeShaking: true,
-  sourcemap: false,
-  sourcesContent: false,
   target: [
     'es2018',
     'chrome62',
@@ -166,6 +186,7 @@ Builds multiple entry points in `src` directory without bundling.
     'firefox78',
     'safari11',
   ],
+  ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
 
@@ -179,9 +200,6 @@ Builds multiple entry points in `src` directory without bundling.
   platform: 'browser',
   format: 'iife',
   mangleProps: '_$',
-  treeShaking: true,
-  sourcemap: false,
-  sourcesContent: false,
   target: [
     'es2018',
     'chrome62',
@@ -189,6 +207,7 @@ Builds multiple entry points in `src` directory without bundling.
     'firefox78',
     'safari11',
   ],
+  ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
 
@@ -197,13 +216,12 @@ Builds multiple entry points in `src` directory without bundling.
 ```js
 {
   ...defaultPreset,
+  entryPoints: ['src/ts/main.ts'],
   platform: 'node',
   format: 'esm',
-  treeShaking: true,
   mangleProps: '_$',
-  sourcemap: false,
-  sourcesContent: false,
   target: 'node20',
+  ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
 
@@ -217,9 +235,6 @@ Builds multiple entry points in `src` directory without bundling.
   platform: 'browser',
   format: 'iife',
   mangleProps: '_$',
-  treeShaking: true,
-  sourcemap: false,
-  sourcesContent: false,
   target: [
     'es2018',
     'chrome62',
@@ -227,6 +242,7 @@ Builds multiple entry points in `src` directory without bundling.
     'firefox78',
     'safari11',
   ],
+  ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
 
@@ -238,11 +254,22 @@ This preset is used when `NODE_ENV` is not set to `production`. It overwrites al
 {
   sourcemap: true,
   sourcesContent: true,
-  dropLabels: ['__dev_mode__'],
 }
 ```
 
 you can also add `nano-build-development` field to your `package.json` for overwriting configuration.
+
+### Production overwrite
+
+This preset is used when `NODE_ENV` is set to `production`. It overwrites all other presets.
+
+```js
+{
+  dropLabels: ['__dev_mode__'];
+}
+```
+
+you can also add `nano-build-production` field to your `package.json` for overwriting configuration.
 
 ## Sponsors
 
