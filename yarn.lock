@@ -86,7 +86,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/exit-hook@workspace:packages/exit-hook":
+"@alwatr/exit-hook@workspace:^, @alwatr/exit-hook@workspace:packages/exit-hook":
   version: 0.0.0-use.local
   resolution: "@alwatr/exit-hook@workspace:packages/exit-hook"
   dependencies:
@@ -218,6 +218,7 @@ __metadata:
     "@alwatr/dedupe": "workspace:^"
     "@alwatr/deep-clone": "workspace:^"
     "@alwatr/delay": "workspace:^"
+    "@alwatr/exit-hook": "workspace:^"
     "@alwatr/fetch": "workspace:^"
     "@alwatr/flat-string": "workspace:^"
     "@alwatr/flatomise": "workspace:^"
@@ -225,6 +226,7 @@ __metadata:
     "@alwatr/local-storage": "workspace:^"
     "@alwatr/logger": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
+    "@alwatr/node-fs": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/parse-duration": "workspace:^"
     "@alwatr/platform-info": "workspace:^"
@@ -235,7 +237,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/node-fs@workspace:packages/node-fs":
+"@alwatr/node-fs@workspace:^, @alwatr/node-fs@workspace:packages/node-fs":
   version: 0.0.0-use.local
   resolution: "@alwatr/node-fs@workspace:packages/node-fs"
   dependencies:
