@@ -37,6 +37,16 @@
       "types": "./dist/main.d.ts",
       "import": "./dist/main.mjs",
       "require": "./dist/main.cjs"
+    },
+    "./exit-hook": {
+      "types": "./dist/exit-hook.d.ts",
+      "import": "./dist/exit-hook.mjs",
+      "require": "./dist/exit-hook.cjs"
+    },
+    "./node-fs": {
+      "types": "./dist/node-fs.d.ts",
+      "import": "./dist/node-fs.mjs",
+      "require": "./dist/node-fs.cjs"
     }
   },
   "license": "AGPL-3.0-only",
@@ -64,7 +74,7 @@
     "cb": "yarn run clean && yarn run build",
     "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
     "build": "yarn run build:ts && yarn run build:es",
-    "build:es": "nano-build --preset=module",
+    "build:es": "nano-build --preset=module3",
     "build:ts": "tsc --build",
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",
@@ -76,12 +86,14 @@
     "@alwatr/dedupe": "workspace:^",
     "@alwatr/deep-clone": "workspace:^",
     "@alwatr/delay": "workspace:^",
+    "@alwatr/exit-hook": "workspace:^",
     "@alwatr/fetch": "workspace:^",
     "@alwatr/flat-string": "workspace:^",
     "@alwatr/flatomise": "workspace:^",
     "@alwatr/is-number": "workspace:^",
     "@alwatr/local-storage": "workspace:^",
     "@alwatr/logger": "workspace:^",
+    "@alwatr/node-fs": "workspace:^",
     "@alwatr/package-tracer": "workspace:^",
     "@alwatr/parse-duration": "workspace:^",
     "@alwatr/platform-info": "workspace:^",
