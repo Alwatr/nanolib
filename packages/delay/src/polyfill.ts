@@ -1,7 +1,6 @@
-import {globalScope} from '@alwatr/global-this';
+import {getGlobalThis, type GlobalThis} from '@alwatr/global-this';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const win = globalScope as DictionaryOpt<any>;
+export const win = /* #__PURE__ */ getGlobalThis();
 
 // prettier-ignore
 const requestAnimationFrameFallback =
@@ -9,7 +8,7 @@ const requestAnimationFrameFallback =
     setTimeout(() => callback(Date.now()), 1000 / 60);
 
 // prettier-ignore
-export const requestAnimationFrame: typeof globalScope.requestAnimationFrame =
+export const requestAnimationFrame: GlobalThis['requestAnimationFrame'] =
   win.requestAnimationFrame ||
   win.webkitRequestAnimationFrame ||
   win.mozRequestAnimationFrame ||
@@ -21,7 +20,7 @@ const requestIdleCallbackFallback =
     setTimeout(callback, options?.timeout ?? 2000);
 
 // prettier-ignore
-export const requestIdleCallback: typeof globalScope.requestIdleCallback =
+export const requestIdleCallback: GlobalThis['requestIdleCallback'] =
   win.requestIdleCallback ||
   win.webkitRequestIdleCallback ||
   win.mozRequestIdleCallback ||
