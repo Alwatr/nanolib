@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.1.0...@alwatr/nanolib@1.2.0) (2024-10-11)
+
+### Features
+
+* **nanolib:** separate export from `dedupe` package ([10c5ffc](https://github.com/Alwatr/nanolib/commit/10c5ffcb5fc208796410c9a99a6e41ad1992bc46)) by @mohammadhonarvar
+
 ## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.0.3...@alwatr/nanolib@1.1.0) (2024-10-11)
 
 ### Features

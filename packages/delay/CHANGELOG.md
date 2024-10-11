@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/Alwatr/nanolib/compare/@alwatr/delay@1.0.4...@alwatr/delay@1.0.5) (2024-10-11)
+
+### Bug Fixes
+
+* use new `global-this` package & remove global type & prevent sidee-ffects ([092d448](https://github.com/Alwatr/nanolib/commit/092d44885738ed58215698917ae97c13958f7c7d)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* **delay:** prevent side-effects ([f92eeed](https://github.com/Alwatr/nanolib/commit/f92eeed7d917f6eb3ca9a407fab0b1ea77adc1d4)) by @mohammadhonarvar
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+* use new `global-this` package ([42510b9](https://github.com/Alwatr/nanolib/commit/42510b9ae0e385206a902db093d188949f1cb84e)) by @mohammadhonarvar
+
 ## [1.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/delay@1.0.3...@alwatr/delay@1.0.4) (2024-10-11)
 
 ### Miscellaneous Chores

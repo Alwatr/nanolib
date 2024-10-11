@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/unicode-digits@1.0.1...@alwatr/unicode-digits@1.1.0) (2024-10-11)
+
+### Features
+
+* **unicode-digits:** use `packageTracer` ([425e3f9](https://github.com/Alwatr/nanolib/commit/425e3f920b5d82dad8a4db283201dfefd370e4de)) by @mohammadhonarvar
+
 ## [1.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/unicode-digits@1.0.0...@alwatr/unicode-digits@1.0.1) (2024-10-11)
 
 ### Miscellaneous Chores

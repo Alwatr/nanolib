@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.1.4...@alwatr/dedupe@1.1.5) (2024-10-11)
+
+### Bug Fixes
+
+* use new `global-this` package & remove global type ([63f5a3b](https://github.com/Alwatr/nanolib/commit/63f5a3b07f6d73d0c213cd893a382d5bfe1c4c34)) by @mohammadhonarvar
+
+### Code Refactoring
+
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+* use new `global-this` package ([42510b9](https://github.com/Alwatr/nanolib/commit/42510b9ae0e385206a902db093d188949f1cb84e)) by @mohammadhonarvar
+
 ## [1.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/dedupe@1.1.3...@alwatr/dedupe@1.1.4) (2024-10-11)
 
 ### Miscellaneous Chores

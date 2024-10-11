@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.2.4...@alwatr/platform-info@1.2.5) (2024-10-11)
+
+### Bug Fixes
+
+* **platform-info:** Update platformInfo logic and remove redundant code for prevent side-effects ([db46c48](https://github.com/Alwatr/nanolib/commit/db46c4844db360735271f0d4c0d6417207589aaf)) by @AliMD
+
+### Code Refactoring
+
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+
 ## [1.2.4](https://github.com/Alwatr/nanolib/compare/@alwatr/platform-info@1.2.3...@alwatr/platform-info@1.2.4) (2024-10-11)
 
 ### Miscellaneous Chores

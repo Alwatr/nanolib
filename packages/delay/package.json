@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/delay",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Comprehensive toolkit for managing asynchronous operations.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

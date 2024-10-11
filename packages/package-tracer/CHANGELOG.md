@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/Alwatr/nanolib/compare/@alwatr/package-tracer@1.0.4...@alwatr/package-tracer@1.0.5) (2024-10-11)
+
+### Code Refactoring
+
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+
 ## [1.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/package-tracer@1.0.3...@alwatr/package-tracer@1.0.4) (2024-10-11)
 
 ### Miscellaneous Chores

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.0 (2024-10-11)
+
+### ⚠ BREAKING CHANGES
+
+* **global-scope:** The global-scope module has been deprecated and should no longer be used. Please update your code to use the global-this module instead.
+
+### Code Refactoring
+
+* **global-scope:** Remove global-scope module and replace with global-this ([b194b27](https://github.com/Alwatr/nanolib/commit/b194b2772628fec30cd41d677232e7393fcded61)) by @AliMD
+* use new `global-this` package ([42510b9](https://github.com/Alwatr/nanolib/commit/42510b9ae0e385206a902db093d188949f1cb84e)) by @mohammadhonarvar
+
 ## [1.1.26](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.25...@alwatr/global-scope@1.1.26) (2024-10-11)
 
 ### Bug Fixes

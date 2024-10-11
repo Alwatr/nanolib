@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.5](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@4.1.4...@alwatr/fetch@4.1.5) (2024-10-11)
+
+### Code Refactoring
+
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+* use new `global-this` package ([42510b9](https://github.com/Alwatr/nanolib/commit/42510b9ae0e385206a902db093d188949f1cb84e)) by @mohammadhonarvar
+
 ## [4.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/fetch@4.1.3...@alwatr/fetch@4.1.4) (2024-10-11)
 
 ### Miscellaneous Chores

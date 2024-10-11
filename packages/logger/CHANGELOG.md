@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.5](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@4.0.4...@alwatr/logger@4.0.5) (2024-10-11)
+
+### Bug Fixes
+
+* **logger:** Update default debug mode logic for prevent side-effects ([42101d6](https://github.com/Alwatr/nanolib/commit/42101d6471bd0d4e88e47dc8321dddc1cd63cec8)) by @AliMD
+
+### Code Refactoring
+
+* **logger:** prevent side-effects ([e084894](https://github.com/Alwatr/nanolib/commit/e084894cdc4b46d52d99be872f5f789fe83c3cc0)) by @mohammadhonarvar
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+
 ## [4.0.4](https://github.com/Alwatr/nanolib/compare/@alwatr/logger@4.0.3...@alwatr/logger@4.0.4) (2024-10-11)
 
 ### Miscellaneous Chores

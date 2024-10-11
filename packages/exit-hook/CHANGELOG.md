@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.5](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.1.4...@alwatr/exit-hook@1.1.5) (2024-10-11)
+
+### Code Refactoring
+
+* **exit-hook:** dosen't use `dedupe` anymore ([e6c3ce9](https://github.com/Alwatr/nanolib/commit/e6c3ce91be0a42d5d1f857eca824a200eacc911c)) by @mohammadhonarvar
+* prevent side-effects ([01e00e1](https://github.com/Alwatr/nanolib/commit/01e00e191385cc92b28677df0c01a085916ae677)) by @mohammadhonarvar
+
 ## [1.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/exit-hook@1.1.3...@alwatr/exit-hook@1.1.4) (2024-10-11)
 
 ### Miscellaneous Chores

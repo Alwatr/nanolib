@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.10...@alwatr/eslint-config@1.2.11) (2024-10-11)
+
+### Miscellaneous Chores
+
+* **eslint-config:** Update peer dependencies in package.json ([690a7db](https://github.com/Alwatr/nanolib/commit/690a7db48eadd6e110c2e9760a882e4bc5f12fa0)) by @AliMD
+
 ## [1.2.10](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.9...@alwatr/eslint-config@1.2.10) (2024-10-11)
 
 ### Miscellaneous Chores
