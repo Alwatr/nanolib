@@ -51,6 +51,6 @@ if (globalScope.__shared_scope_defined__ !== undefined) {
       newVersion: __package_version__
     },
   }));
-  throw new Error('global_scope_module_duplicated');
+  // throw new Error('global_scope_module_duplicated');
 }
 globalScope.__shared_scope_defined__ = __package_version__;
