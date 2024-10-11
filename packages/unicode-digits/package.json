@@ -1,25 +1,17 @@
 {
-  "name": "@alwatr/nanolib",
-  "version": "1.0.2",
-  "description": "Necessary library for all ECMAScript (JavaScript/TypeScript) projects.",
+  "name": "@alwatr/unicode-digits",
+  "version": "1.0.0-0",
+  "description": "Convert the String of number of the source language to the destination language.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
-    "fs",
-    "file",
-    "filesystem",
-    "readFile",
-    "writeFile",
-    "readJson",
-    "writeJson",
-    "JSON",
-    "async",
-    "queue",
+    "unicode-digits",
+    "unicode",
+    "digits",
     "cross-platform",
     "ECMAScript",
     "typescript",
     "javascript",
-    "node",
-    "nodejs",
+    "browser",
     "esm",
     "module",
     "utility",
@@ -41,8 +33,7 @@
   },
   "license": "AGPL-3.0-only",
   "files": [
-    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
-    "!demo/**/*"
+    "**/*.{js,mjs,cjs,map,d.ts,html,md}"
   ],
   "publishConfig": {
     "access": "public"
@@ -50,15 +41,16 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Alwatr/nanolib",
-    "directory": "packages/nanolib"
+    "directory": "packages/unicode-digits"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/nanolib#readme",
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/unicode-digits#readme",
   "bugs": {
     "url": "https://github.com/Alwatr/nanolib/issues"
   },
   "prettier": "@alwatr/prettier-config",
   "scripts": {
     "b": "yarn run build",
+    "t": "yarn run test",
     "w": "yarn run watch",
     "c": "yarn run clean",
     "cb": "yarn run clean && yarn run build",
@@ -66,31 +58,17 @@
     "build": "yarn run build:ts && yarn run build:es",
     "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" jest",
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",
     "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
     "clean": "rm -rfv dist *.tsbuildinfo"
   },
-  "dependencies": {
-    "@alwatr/async-queue": "workspace:^",
-    "@alwatr/dedupe": "workspace:^",
-    "@alwatr/deep-clone": "workspace:^",
-    "@alwatr/delay": "workspace:^",
-    "@alwatr/fetch": "workspace:^",
-    "@alwatr/flat-string": "workspace:^",
-    "@alwatr/flatomise": "workspace:^",
-    "@alwatr/is-number": "workspace:^",
-    "@alwatr/local-storage": "workspace:^",
-    "@alwatr/logger": "workspace:^",
-    "@alwatr/package-tracer": "workspace:^",
-    "@alwatr/parse-duration": "workspace:^",
-    "@alwatr/platform-info": "workspace:^",
-    "@alwatr/render-state": "workspace:^",
-    "@alwatr/unicode-digits": "workspace:^"
-  },
   "devDependencies": {
     "@alwatr/nano-build": "workspace:^",
+    "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
+    "@alwatr/type-helper": "workspace:^",
     "typescript": "^5.6.3"
   }
 }

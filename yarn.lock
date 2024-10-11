@@ -230,6 +230,7 @@ __metadata:
     "@alwatr/platform-info": "workspace:^"
     "@alwatr/render-state": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/unicode-digits": "workspace:^"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -334,6 +335,18 @@ __metadata:
   dependencies:
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/unicode-digits@workspace:^, @alwatr/unicode-digits@workspace:packages/unicode-digits":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/unicode-digits@workspace:packages/unicode-digits"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft

@@ -14,4 +14,5 @@ export * from '@alwatr/package-tracer';
 export * from '@alwatr/parse-duration';
 export * from '@alwatr/platform-info';
 export * from '@alwatr/render-state';
+export * from '@alwatr/unicode-digits';
 // export type * from '@alwatr/type-helper/types';
