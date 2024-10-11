@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/Alwatr/nanolib/compare/@alwatr/parse-duration@1.1.3...@alwatr/parse-duration@1.1.4) (2024-10-11)
+
+### Miscellaneous Chores
+
+* include LICENSE and LEGAL files to publish ([09f366f](https://github.com/Alwatr/nanolib/commit/09f366f680bfa9fb26acb2cd1ccbc68c5a9e9ad8)) by @AliMD
+
 ## [1.1.3](https://github.com/Alwatr/nanolib/compare/@alwatr/parse-duration@1.1.2...@alwatr/parse-duration@1.1.3) (2024-10-11)
 
 **Note:** Version bump only for package @alwatr/parse-duration

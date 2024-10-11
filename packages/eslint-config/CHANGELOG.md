@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.9...@alwatr/eslint-config@1.2.10) (2024-10-11)
+
+### Miscellaneous Chores
+
+* include LICENSE and LEGAL files to publish ([09f366f](https://github.com/Alwatr/nanolib/commit/09f366f680bfa9fb26acb2cd1ccbc68c5a9e9ad8)) by @AliMD
+
 ## [1.2.9](https://github.com/Alwatr/nanolib/compare/@alwatr/eslint-config@1.2.8...@alwatr/eslint-config@1.2.9) (2024-10-10)
 
 ### Code Refactoring

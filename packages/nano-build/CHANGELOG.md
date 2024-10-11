@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@2.0.0...@alwatr/nano-build@2.0.1) (2024-10-11)
+
+### Miscellaneous Chores
+
+* include LICENSE and LEGAL files to publish ([09f366f](https://github.com/Alwatr/nanolib/commit/09f366f680bfa9fb26acb2cd1ccbc68c5a9e9ad8)) by @AliMD
+
 ## [2.0.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nano-build@1.6.0...@alwatr/nano-build@2.0.0) (2024-10-11)
 
 ### ⚠ BREAKING CHANGES

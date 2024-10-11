@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.26](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.25...@alwatr/global-scope@1.1.26) (2024-10-11)
+
+### Bug Fixes
+
+* **global-scope:** prevent duplicate global scope module throw, just log error ([e67ffec](https://github.com/Alwatr/nanolib/commit/e67ffec77cbf5ae9de75d532be0062444486790b)) by @AliMD
+
+### Miscellaneous Chores
+
+* include LICENSE and LEGAL files to publish ([09f366f](https://github.com/Alwatr/nanolib/commit/09f366f680bfa9fb26acb2cd1ccbc68c5a9e9ad8)) by @AliMD
+
 ## [1.1.25](https://github.com/Alwatr/nanolib/compare/@alwatr/global-scope@1.1.24...@alwatr/global-scope@1.1.25) (2024-10-11)
 
 **Note:** Version bump only for package @alwatr/global-scope

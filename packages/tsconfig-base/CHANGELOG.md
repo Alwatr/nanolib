@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@1.3.1...@alwatr/tsconfig-base@1.3.2) (2024-10-11)
+
+### Miscellaneous Chores
+
+* include LICENSE and LEGAL files to publish ([09f366f](https://github.com/Alwatr/nanolib/commit/09f366f680bfa9fb26acb2cd1ccbc68c5a9e9ad8)) by @AliMD
+
 ## [1.3.1](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@1.3.0...@alwatr/tsconfig-base@1.3.1) (2024-10-10)
 
 ### Code Refactoring

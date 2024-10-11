@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.0.3...@alwatr/nanolib@1.1.0) (2024-10-11)
+
+### Features
+
+* **nanolib:** export `node` packages from their files ([e039a2f](https://github.com/Alwatr/nanolib/commit/e039a2f75e572943d5dfb1cedebe1d8fc4dfdcc6)) by @mohammadhonarvar
+
+### Bug Fixes
+
+* **nanolib:** set `preset` option of `nano-build` to `module3` ([2d49433](https://github.com/Alwatr/nanolib/commit/2d494338c98ae9ef152ac1823c4288d6cc486cf7)) by @mohammadhonarvar
+* **nanolib:** update `exports` key for new files ([0e9f4aa](https://github.com/Alwatr/nanolib/commit/0e9f4aa896c730afda713ea1e65e2c4ff70c4054)) by @mohammadhonarvar
+
+### Miscellaneous Chores
+
+* include LICENSE and LEGAL files to publish ([09f366f](https://github.com/Alwatr/nanolib/commit/09f366f680bfa9fb26acb2cd1ccbc68c5a9e9ad8)) by @AliMD
+
+### Dependencies update
+
+* update ([ec228ca](https://github.com/Alwatr/nanolib/commit/ec228ca8887a7210cd974b279318b61ec6b2c7f6)) by @mohammadhonarvar
+
 ## [1.0.3](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.0.2...@alwatr/nanolib@1.0.3) (2024-10-11)
 
 ### Bug Fixes

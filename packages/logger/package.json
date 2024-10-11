@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/logger",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "Fancy colorful console debugger with custom scope written in tiny TypeScript, ES module.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
