@@ -37,7 +37,8 @@
   },
   "license": "AGPL-3.0-only",
   "files": [
-    "**/*.{js,mjs,cjs,map,d.ts,html,md}",
+    "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
+    "LICENSE",
     "!demo/**/*"
   ],
   "publishConfig": {
