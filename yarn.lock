@@ -90,7 +90,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@alwatr/exit-hook@workspace:packages/exit-hook"
   dependencies:
-    "@alwatr/dedupe": "workspace:^"
     "@alwatr/nano-build": "workspace:^"
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"

@@ -40,7 +40,9 @@
     "bundle": true,
     "platform": "node",
     "format": "iife",
-    "dropLabels": ["__dev_mode__"]
+    "dropLabels": [
+      "__dev_mode__"
+    ]
   },
   "scripts": {
     "b": "yarn run build",
