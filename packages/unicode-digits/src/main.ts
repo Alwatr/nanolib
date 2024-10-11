@@ -1,3 +1,7 @@
+import {packageTracer} from '@alwatr/package-tracer';
+
+__dev_mode__: packageTracer.add(__package_name__, __package_version__);
+
 const supportedLanguageList = {
   'en': 0x0030,
   'ar': 0x0660,
