@@ -5,11 +5,12 @@ import type {AlwatrLogger} from './type.js';
 
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);
 
-const defaultDebugMode =
-  platformInfo.development ||
-  (platformInfo.isCli
-    ? process.env.DEBUG !== undefined && process.env.DEBUG !== ''
-    : typeof localStorage !== 'undefined' && localStorage.getItem('debug') === '1');
+const defaultDebugMode = /* #__PURE__ */ (() => {
+  return platformInfo.development ||
+    (platformInfo.isCli
+      ? Boolean(process.env.DEBUG)
+      : typeof localStorage !== 'undefined' && localStorage.getItem('ALWATR_DEBUG') === '1');
+})();
 
 /**
  * Color list storage for logger.
