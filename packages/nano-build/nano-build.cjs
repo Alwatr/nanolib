@@ -9,7 +9,7 @@ if (existsSync(packageJsonPath) === false) {
 }
 const packageJson = require(packageJsonPath);
 
-console.log('\n🚀 nano-build 📦 %s\n', packageJson.nam);
+console.log('\n🚀 nano-build 📦 %s\n', packageJson.name);
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -122,13 +122,13 @@ const presetRecord = {
     ...(devMode ? developmentOptions : productionOptions),
   },
   microservice: {
-    entryPoints: ['src/ts/main.ts'],
+    entryPoints: ['src/main.ts'],
     platform: 'node',
     format: 'esm',
     mangleProps: '_$',
     target: 'node20',
     ...(devMode ? developmentOptions : productionOptions),
-  },
+  }
 };
 
 function getOptions() {
