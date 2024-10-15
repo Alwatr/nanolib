@@ -231,6 +231,7 @@ __metadata:
     "@alwatr/parse-duration": "workspace:^"
     "@alwatr/platform-info": "workspace:^"
     "@alwatr/render-state": "workspace:^"
+    "@alwatr/resolve-url": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/unicode-digits": "workspace:^"
     typescript: "npm:^5.6.3"
@@ -321,6 +322,19 @@ __metadata:
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/resolve-url@workspace:^, @alwatr/resolve-url@workspace:packages/resolve-url":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/resolve-url@workspace:packages/resolve-url"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
