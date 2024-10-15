@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/nanolib",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Necessary library for all ECMAScript (JavaScript/TypeScript) projects.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

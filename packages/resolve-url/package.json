@@ -1,6 +1,6 @@
 {
   "name": "@alwatr/resolve-url",
-  "version": "1.0.0-0",
+  "version": "1.0.0",
   "description": "A tiny TypeScript library to resolve URLs.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [

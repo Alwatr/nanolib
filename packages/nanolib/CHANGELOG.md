@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.2.1...@alwatr/nanolib@1.3.0) (2024-10-15)
+
+### Features
+
+* **nanolib:** export `resolve-url` from `nanolib` package ([ea40407](https://github.com/Alwatr/nanolib/commit/ea404076aabbc05fdf87c5da1c94f3424fb91742)) by @mohammadhonarvar
+
+### Dependencies update
+
+* update ([ef384e7](https://github.com/Alwatr/nanolib/commit/ef384e71ca5465a52fa9531eebde7325464a54b0)) by @mohammadhonarvar
+
 ## [1.2.1](https://github.com/Alwatr/nanolib/compare/@alwatr/nanolib@1.2.0...@alwatr/nanolib@1.2.1) (2024-10-12)
 
 **Note:** Version bump only for package @alwatr/nanolib
