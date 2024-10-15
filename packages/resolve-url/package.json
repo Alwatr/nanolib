@@ -1,7 +1,7 @@
 {
   "name": "@alwatr/resolve-url",
   "version": "1.0.0-0",
-  "description": "Convert the String of number of the source language to the destination language.",
+  "description": "A tiny TypeScript library to resolve URLs.",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
   "keywords": [
     "resolve-url",
