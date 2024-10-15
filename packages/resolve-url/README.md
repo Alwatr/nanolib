@@ -11,9 +11,9 @@ yarn add @alwatr/resolve-url
 ```ts
 import {resolveUrl} from '@alwatr/resolve-url';
 
-console.log(resolveUrl('/', 'ali', 'v1')); // '/ali/v1'
-console.log(resolveUrl('/', '/ali/', '/v1')); // '/ali/v1'
-console.log(resolveUrl('https://domain.com', 'ali', 'v1')); // 'https://domain.com/ali/v1'
+console.log(resolveUrl('/', 'api', 'v1')); // '/api/v1'
+console.log(resolveUrl('/', '/api/', '/v1')); // '/api/v1'
+console.log(resolveUrl('https://domain.com', 'api', 'v1')); // 'https://domain.com/api/v1'
 ```
 
 ## Sponsors
