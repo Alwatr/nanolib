@@ -104,6 +104,7 @@
     "@alwatr/parse-duration": "workspace:^",
     "@alwatr/platform-info": "workspace:^",
     "@alwatr/render-state": "workspace:^",
+    "@alwatr/resolve-url": "workspace:^",
     "@alwatr/unicode-digits": "workspace:^"
   },
   "devDependencies": {

@@ -231,6 +231,7 @@ __metadata:
     "@alwatr/parse-duration": "workspace:^"
     "@alwatr/platform-info": "workspace:^"
     "@alwatr/render-state": "workspace:^"
+    "@alwatr/resolve-url": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
     "@alwatr/unicode-digits": "workspace:^"
     typescript: "npm:^5.6.3"
@@ -321,6 +322,19 @@ __metadata:
     "@alwatr/package-tracer": "workspace:^"
     "@alwatr/prettier-config": "workspace:^"
     "@alwatr/tsconfig-base": "workspace:^"
+    typescript: "npm:^5.6.3"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/resolve-url@workspace:^, @alwatr/resolve-url@workspace:packages/resolve-url":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/resolve-url@workspace:packages/resolve-url"
+  dependencies:
+    "@alwatr/nano-build": "workspace:^"
+    "@alwatr/package-tracer": "workspace:^"
+    "@alwatr/prettier-config": "workspace:^"
+    "@alwatr/tsconfig-base": "workspace:^"
+    "@alwatr/type-helper": "workspace:^"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -3493,9 +3507,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.28":
-  version: 1.5.36
-  resolution: "electron-to-chromium@npm:1.5.36"
-  checksum: 10c0/cd8d0de7801107f2b2744b5b18641c969a49b0503996cc1a586bb79d893020d0c4e916ac1935603eea65104b4fc1096bc339e0151531dca9e0f0ce0c1882e2d8
+  version: 1.5.38
+  resolution: "electron-to-chromium@npm:1.5.38"
+  checksum: 10c0/f44715632fce33ac2444e5f0ac54684640b95bbfcdde47153e727645c33f5d18110d5af5348120a8345707c6c219d6109573b6acba56d819ca607010b75931ef
   languageName: node
   linkType: hard
 
@@ -4326,9 +4340,9 @@ __metadata:
   linkType: hard
 
 "get-east-asian-width@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "get-east-asian-width@npm:1.2.0"
-  checksum: 10c0/914b1e217cf38436c24b4c60b4c45289e39a45bf9e65ef9fd343c2815a1a02b8a0215aeec8bf9c07c516089004b6e3826332481f40a09529fcadbf6e579f286b
+  version: 1.3.0
+  resolution: "get-east-asian-width@npm:1.3.0"
+  checksum: 10c0/1a049ba697e0f9a4d5514c4623781c5246982bdb61082da6b5ae6c33d838e52ce6726407df285cdbb27ec1908b333cf2820989bd3e986e37bb20979437fdf34b
   languageName: node
   linkType: hard
 
