@@ -74,7 +74,7 @@
     "@alwatr/prettier-config": "workspace:^",
     "@alwatr/tsconfig-base": "workspace:^",
     "@alwatr/type-helper": "workspace:^",
-    "jest": "^29.7.0",
+    "jest": "^30.0.1",
     "typescript": "^5.8.3"
   }
 }
