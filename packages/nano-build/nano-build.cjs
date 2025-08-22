@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const {context, build} = require('esbuild');
 const {resolve} = require('path');
 const {existsSync} = require('fs');
@@ -24,7 +26,7 @@ const defaultOptions = {
   entryPoints: ['src/*.ts'],
   outdir: 'dist',
   logLevel: 'info',
-  target: 'es2020',
+  target: 'es2022',
   bundle: true,
   minify: true,
   treeShaking: true,
@@ -100,7 +102,7 @@ const presetRecord = {
     platform: 'browser',
     format: 'iife',
     mangleProps: '_$',
-    target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+    target: ['chrome85', 'firefox115', 'ios15.8'],
     ...(devMode ? developmentOptions : productionOptions),
   },
   pmpa: {
@@ -109,7 +111,7 @@ const presetRecord = {
     platform: 'browser',
     format: 'iife',
     mangleProps: '_$',
-    target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+    target: ['chrome85', 'firefox115', 'ios15.8'],
     ...(devMode ? developmentOptions : productionOptions),
   },
   weaver: {
@@ -118,7 +120,7 @@ const presetRecord = {
     platform: 'browser',
     format: 'iife',
     mangleProps: '_$',
-    target: ['es2018', 'chrome62', 'edge79', 'firefox78', 'safari11'],
+    target: ['chrome85', 'firefox115', 'ios15.8'],
     ...(devMode ? developmentOptions : productionOptions),
   },
   microservice: {
@@ -126,7 +128,7 @@ const presetRecord = {
     platform: 'node',
     format: 'esm',
     mangleProps: '_$',
-    target: 'node20',
+    target: 'node22',
     ...(devMode ? developmentOptions : productionOptions),
   },
 };

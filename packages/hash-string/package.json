@@ -1,33 +1,19 @@
 {
   "name": "@alwatr/hash-string",
-  "version": "5.2.1",
   "description": "A simple utility to generate a hash string.",
+  "version": "5.2.1",
   "author": "S. Ali Mihandoost <ali.mihandoost@gmail.com>",
-  "keywords": [
-    "hash",
-    "string",
-    "hash-string",
-    "md5",
-    "utility",
-    "alwatr",
-    "nanolib",
-    "typescript",
-    "javascript",
-    "node",
-    "nodejs",
-    "browser",
-    "esm",
-    "module",
-    "utility",
-    "util",
-    "utils",
-    "nanolib",
-    "alwatr"
-  ],
-  "type": "module",
-  "main": "./dist/main.cjs",
-  "module": "./dist/main.mjs",
-  "types": "./dist/main.d.ts",
+  "bugs": "https://github.com/Alwatr/nanolib/issues",
+  "dependencies": {
+    "@alwatr/package-tracer": "workspace:*"
+  },
+  "devDependencies": {
+    "@alwatr/nano-build": "workspace:*",
+    "@alwatr/prettier-config": "workspace:*",
+    "@alwatr/tsconfig-base": "workspace:*",
+    "jest": "^30.0.5",
+    "typescript": "^5.9.2"
+  },
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
@@ -35,12 +21,34 @@
       "require": "./dist/main.cjs"
     }
   },
-  "license": "AGPL-3.0-only",
   "files": [
     "**/*.{js,mjs,cjs,map,d.ts,html,md,LEGAL.txt}",
     "LICENSE",
     "!demo/**/*"
   ],
+  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/hash-string#readme",
+  "keywords": [
+    "alwatr",
+    "browser",
+    "esm",
+    "hash",
+    "hash-string",
+    "javascript",
+    "md5",
+    "module",
+    "nanolib",
+    "node",
+    "nodejs",
+    "string",
+    "typescript",
+    "util",
+    "utility",
+    "utils"
+  ],
+  "license": "MPL-2.0",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.mjs",
+  "prettier": "@alwatr/prettier-config",
   "publishConfig": {
     "access": "public"
   },
@@ -49,35 +57,22 @@
     "url": "https://github.com/Alwatr/nanolib",
     "directory": "packages/hash-string"
   },
-  "homepage": "https://github.com/Alwatr/nanolib/tree/next/packages/hash-string#readme",
-  "bugs": {
-    "url": "https://github.com/Alwatr/nanolib/issues"
-  },
-  "prettier": "@alwatr/prettier-config",
   "scripts": {
     "b": "yarn run build",
-    "t": "yarn run test",
-    "w": "yarn run watch",
-    "c": "yarn run clean",
-    "cb": "yarn run clean && yarn run build",
-    "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
     "build": "yarn run build:ts && yarn run build:es",
     "build:es": "nano-build --preset=module",
     "build:ts": "tsc --build",
+    "c": "yarn run clean",
+    "cb": "yarn run clean && yarn run build",
+    "clean": "rm -rfv dist *.tsbuildinfo",
+    "d": "yarn run build:es && yarn node --enable-source-maps --trace-warnings",
+    "t": "yarn run test",
     "test": "NODE_OPTIONS=\"$NODE_OPTIONS --enable-source-maps --experimental-vm-modules\" jest",
+    "w": "yarn run watch",
     "watch": "yarn run watch:ts & yarn run watch:es",
     "watch:es": "yarn run build:es --watch",
-    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput",
-    "clean": "rm -rfv dist *.tsbuildinfo"
+    "watch:ts": "yarn run build:ts --watch --preserveWatchOutput"
   },
-  "dependencies": {
-    "@alwatr/package-tracer": "workspace:^"
-  },
-  "devDependencies": {
-    "@alwatr/nano-build": "workspace:^",
-    "@alwatr/prettier-config": "workspace:^",
-    "@alwatr/tsconfig-base": "workspace:^",
-    "jest": "^29.7.0",
-    "typescript": "^5.8.3"
-  }
+  "type": "module",
+  "types": "./dist/main.d.ts"
 }
