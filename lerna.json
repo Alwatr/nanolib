@@ -88,7 +88,7 @@
       "forceGitTag": true,
       "signGitTag": true,
       "signGitCommit": true,
-      "push": true,
+      "push": false,
       "createRelease": "github",
       "conventionalGraduate": true
     },
