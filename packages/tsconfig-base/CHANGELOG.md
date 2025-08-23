@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.1](https://github.com/Alwatr/nanolib/compare/@alwatr/tsconfig-base@5.0.0...@alwatr/tsconfig-base@5.0.1) (2025-08-23)
+
+### Miscellaneous Chores
+
+* edit README ([3860b3d](https://github.com/Alwatr/nanolib/commit/3860b3df48ab82dc479d5236c2e8579df614aabf)) by @
+* update username casing in changelog entries ([9722ac9](https://github.com/Alwatr/nanolib/commit/9722ac9a078438a4e8ebfa5826ea70e0e3a52ca6)) by @
+
 ## 5.0.0 (2024-11-02)
 
 ### ⚠ BREAKING CHANGES

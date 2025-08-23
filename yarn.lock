@@ -375,9 +375,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@alwatr/render-state@workspace:*, @alwatr/render-state@workspace:packages/redner-state":
+"@alwatr/render-state@workspace:*, @alwatr/render-state@workspace:packages/render-state":
   version: 0.0.0-use.local
-  resolution: "@alwatr/render-state@workspace:packages/redner-state"
+  resolution: "@alwatr/render-state@workspace:packages/render-state"
   dependencies:
     "@alwatr/logger": "workspace:*"
     "@alwatr/nano-build": "workspace:*"
@@ -428,6 +428,21 @@ __metadata:
     "@alwatr/tsconfig-base": "workspace:*"
     "@alwatr/type-helper": "workspace:*"
     typescript: "npm:^5.9.2"
+  languageName: unknown
+  linkType: soft
+
+"@alwatr/yarn-upgrade@workspace:^, @alwatr/yarn-upgrade@workspace:packages/yarn-upgrade":
+  version: 0.0.0-use.local
+  resolution: "@alwatr/yarn-upgrade@workspace:packages/yarn-upgrade"
+  dependencies:
+    "@alwatr/nano-build": "workspace:*"
+    "@alwatr/prettier-config": "workspace:*"
+    "@alwatr/tsconfig-base": "workspace:*"
+    "@alwatr/type-helper": "workspace:*"
+    "@types/node": "npm:^22.17.2"
+    typescript: "npm:^5.9.2"
+  bin:
+    upd: ./dist/main.mjs
   languageName: unknown
   linkType: soft
 
@@ -2786,6 +2801,7 @@ __metadata:
   dependencies:
     "@alwatr/eslint-config": "workspace:*"
     "@alwatr/prettier-config": "workspace:*"
+    "@alwatr/yarn-upgrade": "workspace:^"
     "@lerna-lite/changed": "npm:^4.7.2"
     "@lerna-lite/cli": "npm:^4.7.2"
     "@lerna-lite/diff": "npm:^4.7.2"
