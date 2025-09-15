@@ -3,31 +3,52 @@ import {createLogger} from '@alwatr/logger';
 import type {LocalStorageProviderConfig, StorageMeta} from './type.js';
 
 /**
- * A provider class for managing a specific, versioned item in localStorage.
- * It encapsulates the logic for key generation, serialization, and migration.
+ * A provider class for managing a specific, versioned item in `localStorage`.
+ * It handles key generation, serialization (JSON), and a simple migration strategy.
+ *
+ * @template T - The type of the data to be stored. Must be a `JsonValue`.
  *
  * @example
- * ```typescript
- * const userSettings = new LocalStorageProvider({
+ * ```ts
+ * const userSettingsProvider = new LocalStorageProvider({
  *   name: 'user-settings',
- *   version: 1,
+ *   version: 2,
  *   defaultValue: { theme: 'light', notifications: true }
  * });
  *
  * // Write new settings
- * userSettings.write({ theme: 'dark', notifications: false });
+ * userSettingsProvider.write({ theme: 'dark', notifications: false });
  *
  * // Read the current settings
- * const currentSettings = userSettings.read();
+ * const currentSettings = userSettingsProvider.read();
  * console.log(currentSettings); // { theme: 'dark', notifications: false }
+ *
+ * // This will remove 'user-settings.v1' from localStorage on initialization.
  * ```
  */
 export class LocalStorageProvider<T extends JsonValue> {
+  /**
+   * The version of the `@alwatr/local-storage` package itself.
+   */
   public static readonly version = __package_version__;
 
+  /**
+   * The unique, versioned key used for this provider instance in `localStorage`.
+   * @private
+   */
   private readonly key__: string;
+
+  /**
+   * The logger instance for this provider.
+   * @protected
+   */
   protected readonly logger_ = createLogger(`local-storage-provider: ${this.config_.name}, v: ${this.config_.version}`);
 
+  /**
+   * Constructs a new `LocalStorageProvider`.
+   *
+   * @param {LocalStorageProviderConfig<T>} config_ - The configuration for this provider instance.
+   */
   public constructor(protected readonly config_: LocalStorageProviderConfig<T>) {
     this.logger_.logMethodArgs?.('constructor', {config: this.config_});
     this.key__ = LocalStorageProvider.getKey(this.config_);
@@ -35,28 +56,27 @@ export class LocalStorageProvider<T extends JsonValue> {
   }
 
   /**
-   * Generates the versioned storage key.
-   * @param meta - An object containing the name and version.
-   * @returns The versioned key string.
+   * Generates a versioned storage key from storage metadata.
+   *
+   * @param {StorageMeta} meta - An object containing the name and version.
+   * @returns {string} The versioned key string (e.g., 'my-item.v1').
    */
   public static getKey(meta: StorageMeta): string {
     return `${meta.name}.v${meta.version}`;
   }
 
   /**
-   * Statically checks if a versioned item exists in localStorage.
-   * This method provides a high-performance way to check for data existence without the overhead of creating a full provider instance.
+   * Statically checks if a versioned item exists in `localStorage`.
+   * This is a high-performance method that avoids creating a full provider instance.
    *
-   * @param meta - An object containing the name and version of the item to check.
-   * @returns `true` if the item exists, otherwise `false`.
+   * @param {StorageMeta} meta - The metadata of the item to check.
+   * @returns {boolean} `true` if the item exists, otherwise `false`.
    *
    * @example
-   * ```typescript
-   * const formExists = LocalStorageProvider.has({ name: 'user-form', version: 1 });
-   * if (formExists) {
-   *   // Show the "Thank you" message
-   * } else {
-   *   // Show the form
+   * ```ts
+   * const hasOldData = LocalStorageProvider.has({ name: 'user-data', version: 1 });
+   * if (hasOldData) {
+   *   // Logic to handle migration or notify the user
    * }
    * ```
    */
@@ -66,7 +86,8 @@ export class LocalStorageProvider<T extends JsonValue> {
   }
 
   /**
-   * Writes the default value to localStorage and returns it.
+   * Writes the default value to `localStorage` and returns it.
+   * @private
    */
   private writeDefault__(): T {
     this.logger_.logMethodArgs?.('writeDefaultــ', this.config_.defaultValue);
@@ -75,9 +96,10 @@ export class LocalStorageProvider<T extends JsonValue> {
   }
 
   /**
-   * Reads and parses the value from localStorage.
-   * If the item doesn't exist, is invalid JSON, or doesn't match the expected type,
-   * it writes and returns the default value.
+   * Reads and parses the value from `localStorage`.
+   * If the item doesn't exist or is invalid JSON, it writes and returns the default value.
+   *
+   * @returns {T} The stored value or the default value.
    */
   public read(): T {
     try {
@@ -99,7 +121,9 @@ export class LocalStorageProvider<T extends JsonValue> {
   }
 
   /**
-   * Serializes and writes a value to localStorage.
+   * Serializes and writes a value to `localStorage`.
+   *
+   * @param {T} value - The value to write. It must be a `JsonValue`.
    */
   public write(value: T): void {
     this.logger_.logMethodArgs?.('write', {value});
@@ -112,14 +136,16 @@ export class LocalStorageProvider<T extends JsonValue> {
   }
 
   /**
-   * Removes the item from localStorage.
+   * Removes the item from `localStorage`.
    */
   public remove(): void {
     localStorage.removeItem(this.key__);
   }
 
   /**
-   * Manages data migration by removing all previous versions of the item.
+   * Manages data migration by removing all stored versions of the item
+   * that are older than the current version specified in the config.
+   * @private
    */
   private migrate__(): void {
     if (this.config_.version <= 1) return;

@@ -6,27 +6,32 @@ export * from './local-storage.provider.js';
 export type * from './type.js';
 
 /**
- * Factory function to create a new LocalStorageProvider.
+ * A factory function to create a new `LocalStorageProvider` instance.
  *
- * @param config - The configuration for the provider.
- * @returns An instance of LocalStorageProvider.
+ * This function simplifies the creation of a local storage provider.
+ *
+ * @template T - The type of the data to be stored. Must be a `JsonValue`.
+ * @param {LocalStorageProviderConfig<T>} config - The configuration for the provider.
+ * @returns {LocalStorageProvider<T>} An instance of `LocalStorageProvider`.
  *
  * @example
- * ```typescript
- * const userSettings = createLocalStorageProvider({
+ * ```ts
+ * const userSettingsProvider = createLocalStorageProvider({
  *   name: 'user-settings',
  *   version: 1,
  *   defaultValue: { theme: 'light', notifications: true }
  * });
  *
  * // Write new settings
- * userSettings.write({ theme: 'dark', notifications: false });
+ * userSettingsProvider.write({ theme: 'dark', notifications: false });
  *
  * // Read the current settings
- * const currentSettings = userSettings.read();
+ * const currentSettings = userSettingsProvider.read();
  * console.log(currentSettings); // { theme: 'dark', notifications: false }
  * ```
  */
-export function createLocalStorageProvider<T extends JsonValue>(config: LocalStorageProviderConfig<T>): LocalStorageProvider<T> {
+export function createLocalStorageProvider<T extends JsonValue>(
+  config: LocalStorageProviderConfig<T>,
+): LocalStorageProvider<T> {
   return new LocalStorageProvider<T>(config);
 }

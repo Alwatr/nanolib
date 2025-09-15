@@ -49,7 +49,8 @@ export const HttpMethods = /* #__PURE__ */ {
 } as const;
 
 /**
- * Object representing standard HTTP status codes.
+ * A comprehensive, frozen object representing standard HTTP status codes.
+ * The keys follow the format `Category_Code_StatusText`.
  */
 export const HttpStatusCodes = /* #__PURE__ */ {
   /**

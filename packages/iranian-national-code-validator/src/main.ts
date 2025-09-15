@@ -7,8 +7,8 @@
  * 3. A weighted sum of the first 9 digits is calculated.
  * 4. The remainder of the sum divided by 11 is compared with the check digit based on a specific rule.
  *
- * @param str The Iranian National Code to validate.
- * @returns `true` if the national code is valid, `false` otherwise.
+ * @param {string} str - The Iranian National Code to validate.
+ * @returns {boolean} `true` if the national code is valid, otherwise `false`.
  *
  * @example
  * ```ts

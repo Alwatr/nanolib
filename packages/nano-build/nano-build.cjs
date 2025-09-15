@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+/**
+ * @module @alwatr/nano-build
+ *
+ * A minimalist, zero-dependency build tool for TypeScript projects, powered by esbuild.
+ * It reads configuration from the project's `package.json` and provides presets for common build scenarios.
+ */
 
 const pc = require('picocolors');
 
@@ -11,12 +17,21 @@ const {context, build} = require('esbuild');
 const {resolve} = require('path');
 const {existsSync} = require('fs');
 
+/**
+ * A simple logger with color support for the build script.
+ * @private
+ */
 const logger = {
-  banner: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) => console.log(pc.cyan(pc.bold(`${message}`)), ...args),
-  info: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) => console.log(pc.bgCyan(`[i] ${message} `), ...args),
-  success: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) => console.log(pc.bgGreen(`[✓] ${message} `), ...args),
-  error: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) => console.error(pc.bgRed(`[x] ${message} `), ...args),
-  warn: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) => console.warn(pc.bgYellow(`[!] ${message} `), ...args),
+  banner: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) =>
+    console.log(pc.cyan(pc.bold(`${message}`)), ...args),
+  info: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) =>
+    console.log(pc.bgCyan(`[i] ${message} `), ...args),
+  success: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) =>
+    console.log(pc.bgGreen(`[✓] ${message} `), ...args),
+  error: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) =>
+    console.error(pc.bgRed(`[x] ${message} `), ...args),
+  warn: (/** @type {string} */ message, /** @type {unknown[]} */ ...args) =>
+    console.warn(pc.bgYellow(`[!] ${message} `), ...args),
   log: console.log,
 };
 
@@ -40,7 +55,9 @@ if (watchMode) {
 }
 
 /**
+ * Default esbuild options for all presets.
  * @type {BuildOptions}
+ * @private
  */
 const defaultOptions = {
   entryPoints: ['src/*.ts'],
@@ -55,7 +72,7 @@ const defaultOptions = {
   charset: 'utf8',
   legalComments: 'linked',
   banner: {
-    js: '/* ' + packageJson.name + ' v' + packageJson.version + ' */',
+    js: `/* ${packageJson.name} v${packageJson.version} */`,
   },
   define: {
     __package_name__: `'${packageJson.name}'`,
@@ -65,7 +82,9 @@ const defaultOptions = {
 };
 
 /**
+ * Esbuild options specific to development mode.
  * @type {BuildOptions}
+ * @private
  */
 const developmentOptions = {
   sourcemap: true,
@@ -73,14 +92,18 @@ const developmentOptions = {
 };
 
 /**
+ * Esbuild options specific to production mode.
  * @type {BuildOptions}
+ * @private
  */
 const productionOptions = {
   dropLabels: ['__dev_mode__'],
 };
 
 /**
+ * A record of predefined build presets.
  * @type {DictionaryOpt<BuildOptions>}
+ * @private
  */
 const presetRecord = {
   default: {},
@@ -153,6 +176,11 @@ const presetRecord = {
   },
 };
 
+/**
+ * Constructs the final esbuild options by merging defaults, presets, and package.json configurations.
+ * @returns {BuildOptions} The final esbuild options.
+ * @private
+ */
 function getOptions() {
   const presetName = process.argv.find((arg) => arg.startsWith('--preset='))?.split('=')[1] ?? 'default';
   logger.info('Preset: `%s`', presetName);
@@ -171,11 +199,11 @@ function getOptions() {
   };
 
   // Remove null fields from esbuildOptions
-  Object.keys(options).forEach((key) => {
+  for (const key of Object.keys(options)) {
     if (options[key] === null) {
       delete options[key];
     }
-  });
+  }
 
   logger.info('Options:', options);
 
@@ -187,8 +215,10 @@ function getOptions() {
 }
 
 /**
- * Nano build process.
- * @param {import('esbuild').BuildOptions} options
+ * The main build process function.
+ * It invokes esbuild with the constructed options, handling watch mode and CJS builds.
+ * @param {BuildOptions} options - The final esbuild options.
+ * @private
  */
 async function nanoBuild(options) {
   // @ts-ignore

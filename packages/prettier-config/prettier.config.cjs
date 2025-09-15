@@ -1,4 +1,8 @@
 /**
+ * @module @alwatr/prettier-config
+ *
+ * Alwatr's shareable Prettier configuration.
+ *
  * @type {import('prettier').Config}
  */
 module.exports = {

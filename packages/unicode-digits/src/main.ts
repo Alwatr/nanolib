@@ -1,3 +1,8 @@
+/**
+ * A mapping of language keys to the Unicode code point for their digit '0'.
+ * This is used to calculate the code points for other digits (1-9).
+ * @private
+ */
 const supportedLanguageList = {
   en: 0x0030,
   ar: 0x0660,
@@ -11,7 +16,6 @@ const supportedLanguageList = {
   ta: 0x0be6, // tamil
   te: 0x0c66, // telugu
   kn: 0x0ce6, // kannada
-
   mal: 0x0d66, // malayalam
   sinhala_lith: 0x0de6,
   thai: 0x0e50,
@@ -60,39 +64,59 @@ const supportedLanguageList = {
   fula: 0x1e950, // adlam script in fula lang
 } as const;
 
+/**
+ * A type representing the keys for supported languages with unique Unicode digit sets.
+ */
 export type UnicodeLangKeys = keyof typeof supportedLanguageList;
 
+/**
+ * A list of commonly used languages for digit conversion.
+ * @private
+ */
 const commonLangList: UnicodeLangKeys[] = ['en', 'fa', 'ar'];
 
+/**
+ * A class for converting strings of digits from one Unicode numeral system to another.
+ */
 export class UnicodeDigits {
-  protected _toLangZeroCode;
-  protected _searchRegExt;
+  /**
+   * The Unicode code point for the digit '0' in the target language.
+   * @protected
+   */
+  protected _toLangZeroCode: number;
 
+  /**
+   * A regular expression used to find and capture digits from the source languages.
+   * @protected
+   */
+  protected _searchRegExt: RegExp;
+
+  /**
+   * A replacer function used with `String.prototype.replace` to perform the digit conversion.
+   * @param _ - The matched substring (a single digit).
+   * @param args - Capture groups from the regex, where the index of the non-null value corresponds to the digit's value.
+   * @returns The translated digit character.
+   * @protected
+   */
   protected _replacer(_: string, ...args: number[]): string {
     return String.fromCharCode(this._toLangZeroCode + args.findIndex((v) => v != null));
   }
 
   /**
-   * Translate number.
+   * Constructs a new `UnicodeDigits` converter.
    *
-   * Example:
+   * @param {UnicodeLangKeys} toLanguage - The target language key to which digits will be converted.
+   * @param {UnicodeLangKeys[] | 'all'} [fromLanguages=['en', 'fa', 'ar']] - A list of source languages.
    *
+   * @example
    * ```ts
-   * const unicodeDigits = new UnicodeDigits('en');
+   * // Create a converter to translate Persian/Arabic digits to English digits.
+   * const toEnglish = new UnicodeDigits('en', ['fa', 'ar']);
+   * console.log(toEnglish.translate('۱۲۳۴۵')); // '12345'
    *
-   * const list = [
-   *   '0123456789',
-   *   '٠١٢٣٤٥٦٧٨٩',
-   *   '߀߁߂߃߄߅߆߇߈߉',
-   *   '०१२३४५६७८९',
-   *   '০১২৩৪৫৬৭৮৯',
-   *   '੦੧੨੩੪੫੬੭੮੯',
-   *   '૦૧૨૩૪૫૬૭૮૯',
-   *   '୦୧୨୩୪୫୬୭୮୯',
-   *   '௦௧௨௩௪௫௬௭௮௯',
-   * ].join('\n');
-   *
-   * console.log(unicodeDigits.translate(list));
+   * // Create a converter to translate English digits to Persian.
+   * const toPersian = new UnicodeDigits('fa', ['en']);
+   * console.log(toPersian.translate('Amount: 1,234.50')); // 'Amount: ۱,۲۳۴.۵۰'
    * ```
    */
   public constructor(toLanguage: UnicodeLangKeys, fromLanguages: UnicodeLangKeys[] | 'all' = [...commonLangList]) {
@@ -107,34 +131,26 @@ export class UnicodeDigits {
 
     const regParts: string[] = [];
     for (let n = 0; n < 10; n++) {
-      regParts.push('(' + fromLanguages.map((langKey) => String.fromCharCode(supportedLanguageList[langKey] + n)).join('|') + ')');
+      const part = fromLanguages.map((langKey) => String.fromCharCode(supportedLanguageList[langKey] + n)).join('|');
+      regParts.push(`(${part})`);
     }
+
     this._searchRegExt = new RegExp(regParts.join('|'), 'g');
     this._replacer = this._replacer.bind(this);
   }
 
   /**
-   * Convert the String of number of the source language to the destination language.
+   * Translates a string containing digits from the configured source languages to the target language.
    *
-   * @param {string} str - String of number of the source language.
-   * @returns String of number of the destination language.
+   * @param {string} str - The input string to translate.
+   * @returns {string} The translated string.
    *
-   * Example:
-   *
+   * @example
    * ```ts
-   * const list = [
-   *   '0123456789',
-   *   '٠١٢٣٤٥٦٧٨٩',
-   *   '߀߁߂߃߄߅߆߇߈߉',
-   *   '०१२३४५६७८९',
-   *   '০১২৩৪৫৬৭৮৯',
-   *   '੦੧੨੩੪੫੬੭੮੯',
-   *   '૦૧૨૩૪૫૬૭૮૯',
-   *   '୦୧୨୩୪୫୬୭୮୯',
-   *   '௦௧௨௩௪௫௬௭௮௯',
-   * ].join('\n');
-   *
-   * console.log(unicodeDigits.translate(list));
+   * const toEnglish = new UnicodeDigits('en', 'all');
+   * const mixedDigits = 'English: 123, Persian: ۱۲۳, Arabic: ١٢٣';
+   * console.log(toEnglish.translate(mixedDigits));
+   * // Output: English: 123, Persian: 123, Arabic: 123
    * ```
    */
   public translate(str: string): string {

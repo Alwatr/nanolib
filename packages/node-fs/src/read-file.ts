@@ -6,18 +6,25 @@ import {flatString} from '@alwatr/flat-string';
 import {asyncQueue, logger} from './common.js';
 
 /**
- * Enhanced read File (Synchronous).
+ * Reads a file synchronously and returns its content as a UTF-8 string.
+ * This is a wrapper around `node:fs.readFileSync` with error handling.
  *
- * @param path - file path
- * @returns file content
+ * @param {string} path - The path to the file.
+ * @returns {string} The content of the file.
+ * @throws {Error} Throws a 'read_file_failed' error if the file cannot be read.
+ *
  * @example
- * ```typescript
- * const fileContent = readFileSync('./file.txt', sync);
+ * ```ts
+ * try {
+ *   const content = readFileSync('./my-file.txt');
+ *   console.log(content);
+ * } catch(err) {
+ *   console.error('Failed to read file:', err);
+ * }
  * ```
  */
 export function readFileSync(path: string): string {
-  logger.logMethodArgs?.('readFileSync', '...' + path.slice(-32));
-  // if (!existsSync(path)) throw new Error('file_not_found');
+  logger.logMethodArgs?.('readFileSync', {path: '...' + path.slice(-32)});
   try {
     return flatString(readFileSync_(path, {encoding: 'utf-8', flag: 'r'}));
   }
@@ -28,20 +35,28 @@ export function readFileSync(path: string): string {
 }
 
 /**
- * Enhanced read File (Asynchronous).
+ * Reads a file asynchronously and returns its content as a UTF-8 string.
+ * It uses an async queue to prevent race conditions with write operations on the same path.
  *
- * - If writing queue is running for target path, it will wait for it to finish.
+ * @param {string} path - The path to the file.
+ * @returns {Promise<string>} A promise that resolves with the content of the file.
  *
- * @param path - file path
- * @returns file content
  * @example
- * ```typescript
- * const fileContent = await readFile('./file.txt', sync);
+ * ```ts
+ * async function logFileContent() {
+ *   try {
+ *     const content = await readFile('./my-file.txt');
+ *     console.log(content);
+ *   } catch(err) {
+ *     console.error('Failed to read file:', err);
+ *   }
+ * }
+ *
+ * logFileContent();
  * ```
  */
 export function readFile(path: string): Promise<string> {
-  logger.logMethodArgs?.('readFile', '...' + path.slice(-32));
-  // if (!existsSync(path)) throw new Error('file_not_found');
+  logger.logMethodArgs?.('readFile', {path: '...' + path.slice(-32)});
   return asyncQueue.push(path, async () => {
     try {
       return flatString(await readFile_(path, {encoding: 'utf-8', flag: 'r'}));

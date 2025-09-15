@@ -6,7 +6,10 @@ import type {AlwatrLogger} from './type.js';
 const console_ = getGlobalThis().console;
 
 /**
- * Default debug mode state, determined by environment variables or localStorage.
+ * The default debug mode state.
+ * It's determined by checking environment variables (`NODE_ENV`, `DEBUG`) in CLI environments,
+ * or by looking for `ALWATR_DEBUG` in `localStorage` in browser environments.
+ * @private
  */
 const defaultDebugMode = /* #__PURE__ */ (() => {
   return (
@@ -18,7 +21,8 @@ const defaultDebugMode = /* #__PURE__ */ (() => {
 })();
 
 /**
- * A list of aesthetically pleasing colors for console logging, adapted for CLI and browser environments.
+ * A list of aesthetically pleasing colors for console logging, adapted for both CLI and browser environments.
+ * @private
  */
 const colorList = /* #__PURE__ */ (() =>
   platformInfo.isCli
@@ -43,6 +47,7 @@ const colorList = /* #__PURE__ */ (() =>
 
 /**
  * Platform-specific styling templates for logger output.
+ * @private
  */
 const style_ = /* #__PURE__ */ (() => ({
   scope: platformInfo.isCli ? '\x1b[{{color}}m' : 'color: {{color}};',
@@ -51,6 +56,7 @@ const style_ = /* #__PURE__ */ (() => ({
 
 /**
  * Platform-specific format for displaying the logger's scope.
+ * @private
  */
 const keySection_ = /* #__PURE__ */ (() => (platformInfo.isCli ? '%s%s%s' : '%c%s%c'))();
 
@@ -59,6 +65,8 @@ const keySection_ = /* #__PURE__ */ (() => (platformInfo.isCli ? '%s%s%s' : '%c%
 let colorIndex_ = 0;
 /**
  * Cycles through the `colorList` to provide a new color for each logger instance.
+ * @returns {string} The next color in the sequence.
+ * @private
  */
 function getNextColor_(): string {
   const color = colorList[colorIndex_];
@@ -67,7 +75,10 @@ function getNextColor_(): string {
 }
 
 /**
- * Sanitizes and formats the logger domain string by wrapping it in brackets if not already.
+ * Sanitizes and formats the logger domain string by wrapping it in brackets if it's not already.
+ * @param {string} domain - The domain string to sanitize.
+ * @returns {string} The sanitized domain string.
+ * @private
  */
 function sanitizeDomain_(domain: string): string {
   domain = domain.trim();
@@ -80,17 +91,23 @@ function sanitizeDomain_(domain: string): string {
 // --- Core Factory ---
 
 /**
- * Create a logger function for fancy console debug with custom scope.
+ * Creates a new logger instance with a specific domain.
+ * The logger provides methods for logging at different levels (error, warn, log, debug)
+ * and can be enabled or disabled based on the debug mode.
  *
- * - `color` is optional and automatically selected from an internal list.
- * - `debug` is optional and automatically detected from `ALWATR_DEBUG` in localStorage or `process.env.DEBUG`.
+ * @param {string} domain - A string identifying the logger's scope (e.g., 'my-module').
+ * @param {boolean} [debugMode=defaultDebugMode] - Whether to enable debug-level logs.
+ * @returns {AlwatrLogger} A logger object with methods for logging.
  *
  * @example
  * ```ts
  * import {createLogger} from '@alwatr/logger';
- * const logger = createLogger('my-module');
  *
- * logger.logMethodArgs?.('myMethod', {a: 1}); // This line is ignored if debugMode is false.
+ * const logger = createLogger('my-app');
+ *
+ * logger.banner('Application starting...');
+ * logger.logMethodArgs?.('initialize', {config: {setting: 'value'}});
+ * logger.error('initialization_failed', 'Could not load config', {retry: false});
  * ```
  */
 export const createLogger = (domain: string, debugMode = defaultDebugMode): AlwatrLogger => {
@@ -100,6 +117,7 @@ export const createLogger = (domain: string, debugMode = defaultDebugMode): Alwa
 
   /**
    * Logger methods that are always available, regardless of debugMode.
+   * @private
    */
   const requiredItems: AlwatrLogger = {
     debugMode,
@@ -128,6 +146,7 @@ export const createLogger = (domain: string, debugMode = defaultDebugMode): Alwa
   /**
    * Logger methods available only when debugMode is true.
    * Using `console.debug` which is often filtered by default in browsers unless "Verbose" logs are enabled.
+   * @private
    */
   return {
     ...requiredItems,

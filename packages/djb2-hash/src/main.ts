@@ -10,12 +10,14 @@
  * - Employs bit shifting operations for faster computation
  * - Final right shift ensures unsigned 32-bit integer output
  *
- * @param {string} str - The input string to be hashed
- * @returns {number} A 32-bit unsigned integer hash value
+ * @param {string} str - The input string to be hashed.
+ * @returns {number} A 32-bit unsigned integer hash value.
  *
  * @example
- * // Returns a numeric hash value
+ * ```ts
  * const hashValue = djb2Hash("hello world");
+ * console.log(hashValue); // 2090066995
+ * ```
  */
 export function djb2Hash(str: string): number {
   // 5381 is a prime number used as initial value in the DJB2 algorithm

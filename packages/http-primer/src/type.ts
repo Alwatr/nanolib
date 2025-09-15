@@ -1,9 +1,18 @@
+/**
+ * A type representing the standard HTTP request methods.
+ */
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD' | 'CONNECT' | 'TRACE';
 
 /**
- * Represents the collection of HTTP response headers.
+ * A comprehensive type representing the standard HTTP response headers.
  *
- * For supporting custom headers, you can use intersection with a dictionary type, e.g., `HttpResponseHeaders & DictionaryReq<string>`.
+ * This type can be extended to support custom headers by using an intersection with a dictionary type.
+ * @example
+ * ```ts
+ * type MyCustomResponseHeaders = HttpResponseHeaders & {
+ *   'x-custom-header': string;
+ * };
+ * ```
  */
 export type HttpResponseHeaders = {
   /**

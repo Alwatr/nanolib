@@ -3,51 +3,53 @@ import {parseJson} from './json.js';
 import {readFile, readFileSync} from './read-file.js';
 
 /**
- * Enhanced read json file (async).
+ * Reads a JSON file and parses it into a JavaScript object.
+ * This function can operate in both synchronous and asynchronous modes.
  *
- * @param path - file path
- * @returns json object
+ * @template T - The expected type of the parsed JSON object.
+ *
+ * @param {string} path - The path to the JSON file.
+ * @returns {Promise<T>} A promise that resolves with the parsed JSON object.
+ *
  * @example
- * ```typescript
- * const fileContent = await readJson('./file.json');
+ * ```ts
+ * // Asynchronous usage
+ * const myData = await readJson<MyType>('./data.json');
+ * console.log(myData.property);
  * ```
  */
 export function readJson<T extends JsonValue>(path: string): Promise<T>;
 /**
- * Enhanced read json file (sync).
+ * Reads a JSON file synchronously and parses it into a JavaScript object.
  *
- * @param path - file path
- * @param sync - sync mode
- * @returns json object
+ * @template T - The expected type of the parsed JSON object.
+ *
+ * @param {string} path - The path to the JSON file.
+ * @param {true} sync - A literal `true` to indicate synchronous operation.
+ * @returns {T} The parsed JSON object.
+ *
  * @example
- * ```typescript
- * const fileContent = readJson('./file.json', true);
+ * ```ts
+ * // Synchronous usage
+ * try {
+ *   const myData = readJson<MyType>('./data.json', true);
+ *   console.log(myData.property);
+ * } catch(err) {
+ *   console.error('Failed to read JSON file:', err);
+ * }
  * ```
  */
 export function readJson<T extends JsonValue>(path: string, sync: true): T;
 /**
- * Enhanced read json file.
+ * Reads a JSON file and parses it into a JavaScript object.
  *
- * @param path - file path
- * @param sync - sync mode
- * @returns json object
- * @example
- * ```typescript
- * const fileContent = await readJson('./file.json', sync);
- * ```
+ * @template T - The expected type of the parsed JSON object.
+ *
+ * @param {string} path - The path to the JSON file.
+ * @param {boolean} sync - If `true`, the operation is synchronous.
+ * @returns {Awaitable<T>} The parsed JSON object, or a promise that resolves with it.
  */
 export function readJson<T extends JsonValue>(path: string, sync: boolean): Awaitable<T>;
-/**
- * Enhanced read json file.
- *
- * @param path - file path
- * @param sync - sync mode
- * @returns json object
- * @example
- * ```typescript
- * const fileContent = await readJson('./file.json');
- * ```
- */
 export function readJson<T extends JsonValue>(path: string, sync = false): Awaitable<T> {
   logger.logMethodArgs?.('readJson', {path: path.slice(-32), sync});
   if (sync === true) {

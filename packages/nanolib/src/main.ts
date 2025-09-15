@@ -1,3 +1,11 @@
+/**
+ * @module @alwatr/nanolib
+ *
+ * This module is an aggregator that re-exports functionality from most of the other
+ * utility packages in the Alwatr Nanolib repository.
+ *
+ * It provides a single entry point for accessing a wide range of utilities.
+ */
 export * from '@alwatr/async-queue';
 export * from '@alwatr/deep-clone';
 export * from '@alwatr/delay';

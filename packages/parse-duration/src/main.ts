@@ -1,48 +1,61 @@
 import {toNumber} from '@alwatr/is-number';
 
 /**
- * Unit conversion table (milliseconds)
+ * A frozen object containing conversion factors from various time units to milliseconds.
+ * @private
  */
 const unitConversion = /* #__PURE__ */ Object.freeze({
-  s: 1_000,
-  m: 60_000,
-  h: 3_600_000,
-  d: 86_400_000,
-  w: 604_800_000,
-  M: 2_592_000_000,
-  y: 31_536_000_000,
+  s: 1_000, // seconds
+  m: 60_000, // minutes
+  h: 3_600_000, // hours
+  d: 86_400_000, // days
+  w: 604_800_000, // weeks
+  M: 2_592_000_000, // months (30 days)
+  y: 31_536_000_000, // years (365 days)
 } as const);
 
 /**
- * Duration unit: `s` for seconds, `m` for minutes, `h` for hours, `d` for days, `w` for weeks, `M` for months, `y` for years.
+ * Represents a duration unit.
+ * `s`: seconds, `m`: minutes, `h`: hours, `d`: days, `w`: weeks, `M`: months, `y`: years.
  */
 export type DurationUnit = keyof typeof unitConversion;
 
 /**
- * Duration string format: `number + unit`, for example `10m` means 10 minutes.
+ * Represents a duration, which can be a number (in milliseconds) or a string in the format `${number}${DurationUnit}`.
+ * For example, `10m` for 10 minutes.
  */
 export type Duration = `${number}${DurationUnit}` | number;
 
 /**
- * Error types that can be thrown by parseDuration
+ * Defines the possible error types that can be thrown by `parseDuration`.
  */
 export type DurationError = 'not_a_number' | 'invalid_unit' | 'invalid_format';
 
 /**
- * Parse duration string to milliseconds number.
+ * Parses a duration string (e.g., '10m', '2.5h') or a number (in milliseconds) and converts it to a specified time unit.
  *
- * @param duration - Duration string or number, for example `10m` means 10 minutes.
- * @param toUnit - Convert to unit, default is `ms` for milliseconds.
- * @throws {Error} With message 'not_a_number' if duration string doesn't contain a valid number.
- * @throws {Error} With message 'invalid_unit' if the unit is not recognized.
- * @throws {Error} With message 'invalid_format' if the duration format is invalid.
- * @returns Duration in specified unit (or milliseconds by default).
+ * @param {Duration} duration - The duration to parse, either as a string or a number in milliseconds.
+ * @param {DurationUnit} [toUnit] - The unit to convert the duration to. If not provided, the result is in milliseconds.
+ * @returns {number} The duration in the specified unit.
+ * @throws {Error} Throws an error with a specific message (`not_a_number`, `invalid_unit`, `invalid_format`) if parsing fails.
  *
  * @example
  * ```ts
- * parseDuration('10m'); // 600000
- * parseDuration('10m', 's'); // 600
- * parseDuration(120_000, 'm'); // 2
+ * // Convert from string to milliseconds
+ * console.log(parseDuration('10m')); // 600000
+ *
+ * // Convert from string to a specific unit
+ * console.log(parseDuration('1.5h', 'm')); // 90
+ *
+ * // Convert from milliseconds to a specific unit
+ * console.log(parseDuration(120_000, 's')); // 120
+ *
+ * // Handle errors
+ * try {
+ *   parseDuration('10x'); // throws 'invalid_unit'
+ * } catch(err) {
+ *   console.error(err.message);
+ * }
  * ```
  */
 export const parseDuration = (duration: Duration, toUnit?: DurationUnit): number => {

@@ -1,4 +1,8 @@
 /**
+ * @module @alwatr/eslint-config
+ *
+ * Alwatr's shareable ESLint configuration for TypeScript projects.
+ *
  * @type {import('eslint').Linter.Config}
  */
 module.exports = {

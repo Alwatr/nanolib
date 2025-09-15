@@ -1,39 +1,42 @@
 /**
- * A module for tracking package information.
- * This module is useful for keeping track of loaded packages and their versions.
- * It does not prevent the same package from being added multiple times!
- * For that, you can use the `@alwatr/dedupe` package.
+ * A utility for tracking loaded packages and their versions at runtime.
+ *
+ * This is useful for debugging and ensuring that the correct versions of packages are loaded,
+ * especially in a monorepo or a complex dependency graph.
+ *
+ * Note: This utility does **not** prevent duplicate versions from being loaded.
+ * For deduplication, use the `@alwatr/dedupe` package.
  *
  * @example
- * ```typescript
- * import { packageTracer } from './package-tracer';
+ * ```ts
+ * import { packageTracer } from '@alwatr/package-tracer';
  *
- * packageTracer.add('express', '4.18.2');
- * packageTracer.add('lodash', '4.17.21');
+ * // Register a package
+ * packageTracer.add('my-package', '1.2.3');
  *
- * if (packageTracer.has('express')) {
- *   const versions = packageTracer.get('express');
- *   console.log('Express versions:', versions);
+ * // Check for a package
+ * if (packageTracer.has('my-package')) {
+ *   const versions = packageTracer.get('my-package');
+ *   console.log('my-package versions:', versions); // ['1.2.3']
  * }
  * ```
  */
 export const packageTracer = {
   /**
-   * A dictionary storing package names and their corresponding versions.
+   * A dictionary mapping package names to a readonly array of their loaded versions.
    */
   list: {} as Readonly<DictionaryOpt<readonly string[]>>,
 
   /**
-   * Adds a package and its version to the tracker.
-   * It does not prevent the same package from being added multiple times!
-   * For that, you can use the `@alwatr/dedupe` package.
+   * Adds a package name and its version to the tracker.
    *
-   * @param packageName - The name of the package.
-   * @param version - The version of the package.
+   * @param {string} packageName - The name of the package (e.g., '@alwatr/logger').
+   * @param {string} version - The version of the package (e.g., '1.2.3').
    *
    * @example
-   * ```typescript
-   * packageTracer.add(__package_name__, __package_version__);
+   * ```ts
+   * packageTracer.add('my-package', '1.0.0');
+   * packageTracer.add('my-package', '1.0.1'); // Tracks multiple versions
    * ```
    */
   add(packageName: string, version: string): void {
@@ -42,34 +45,33 @@ export const packageTracer = {
   },
 
   /**
-   * Checks if a package exists in the tracker.
+   * Checks if a package has been tracked.
    *
-   * @param packageName - The name of the package.
-   * @returns `true` if the package exists, `false` otherwise.
+   * @param {string} packageName - The name of the package to check.
+   * @returns {boolean} `true` if the package has at least one version tracked, otherwise `false`.
    *
    * @example
-   * ```typescript
-   * if (packageTracer.has('axios')) {
-   *   console.log('Axios is tracked!');
+   * ```ts
+   * if (packageTracer.has('my-package')) {
+   *   console.log('my-package is loaded.');
    * }
    * ```
    */
   has(packageName: string): boolean {
-    const exist = Object.prototype.hasOwnProperty.call(this.list, packageName);
-    return exist;
+    return Object.prototype.hasOwnProperty.call(this.list, packageName);
   },
 
   /**
-   * Retrieves the versions of a package.
+   * Retrieves all tracked versions for a given package.
    *
-   * @param packageName - The name of the package.
-   * @returns An array of versions or `undefined` if the package doesn't exist.
+   * @param {string} packageName - The name of the package.
+   * @returns {readonly string[] | undefined} A readonly array of version strings, or `undefined` if the package is not tracked.
    *
    * @example
-   * ```typescript
-   * const reactVersions = packageTracer.get('react');
-   * if (reactVersions) {
-   *   console.log('React versions:', reactVersions);
+   * ```ts
+   * const versions = packageTracer.get('my-package');
+   * if (versions) {
+   *   console.log(`Loaded versions of my-package: ${versions.join(', ')}`);
    * }
    * ```
    */
@@ -78,4 +80,5 @@ export const packageTracer = {
   },
 } as const;
 
+// Automatically track this package itself in development mode.
 __dev_mode__: packageTracer.add(__package_name__, __package_version__);

@@ -22,19 +22,22 @@ const globalThis_ = /* #__PURE__ */ getGlobalThis();
 
 /**
  * A boolean flag indicating whether the browser's Cache API is supported.
+ * This is determined by checking for the presence of `caches` in the global scope.
  */
 const cacheSupported = /* #__PURE__ */ Object.hasOwn(globalThis_, 'caches');
 
 /**
- * A simple in-memory storage for tracking and managing duplicate in-flight requests.
- * The key is a unique identifier for the request (e.g., method + URL + body),
+ * An in-memory storage for tracking and managing duplicate in-flight requests.
+ * The key is a unique identifier for a request (composed of method, URL, and body),
  * and the value is the promise of the ongoing fetch operation.
+ * @private
  */
 const duplicateRequestStorage_: Record<string, Promise<Response>> = {};
 
 /**
  * Default options for all fetch requests. These can be overridden by passing
  * a custom `options` object to the `fetch` function.
+ * @private
  */
 const defaultFetchOptions: AlwatrFetchOptions_ = {
   method: 'GET',
@@ -48,8 +51,9 @@ const defaultFetchOptions: AlwatrFetchOptions_ = {
 };
 
 /**
- * Internal-only fetch options type, which includes the URL and ensures all
- * optional properties from AlwatrFetchOptions_ are present.
+ * The internal, fully-resolved fetch options type.
+ * It includes the URL and ensures all optional properties from `AlwatrFetchOptions_` are present.
+ * @private
  */
 type FetchOptions__ = AlwatrFetchOptions_ & Omit<RequestInit, 'headers'> & {url: string};
 
@@ -58,26 +62,25 @@ type FetchOptions__ = AlwatrFetchOptions_ & Omit<RequestInit, 'headers'> & {url:
  *
  * This function extends the standard `fetch` with additional features such as:
  * - **Timeout**: Aborts the request if it takes too long.
- * - **Retry Pattern**: Automatically retries the request on failure (e.g., server errors or network issues).
+ * - **Retry Pattern**: Automatically retries the request on failure.
  * - **Duplicate Request Handling**: Prevents sending multiple identical requests in parallel.
  * - **Cache Strategies**: Provides various caching mechanisms using the browser's Cache API.
- * - **Simplified API**: Offers convenient options for adding query parameters, JSON bodies, and auth tokens.
- *
- * @see {@link FetchOptions} for a detailed list of available options.
+ * - **Simplified API**: Offers convenient options for query parameters, JSON bodies, and auth tokens.
  *
  * @param {string} url - The URL to fetch.
- * @param {FetchOptions} options - Optional configuration for the fetch request.
- * @returns {Promise<Response>} A promise that resolves to the `Response` object for the request.
+ * @param {FetchOptions} [options={}] - Optional configuration for the fetch request.
+ * @returns {Promise<Response>} A promise that resolves to the `Response` object.
+ * @see {@link FetchOptions} for a detailed list of available options.
  *
  * @example
- * ```typescript
+ * ```ts
  * async function fetchProducts() {
  *   try {
- *     const response = await fetch("/api/products", {
- *       queryParams: { limit: 10, category: "electronics" },
+ *     const response = await fetch('/api/products', {
+ *       queryParams: { limit: 10, category: 'electronics' },
  *       timeout: 5_000, // 5 seconds
- *       retry: 3,
- *       cacheStrategy: "stale_while_revalidate",
+ *       retry: 2,
+ *       cacheStrategy: 'stale_while_revalidate',
  *     });
  *
  *     if (!response.ok) {
@@ -85,16 +88,16 @@ type FetchOptions__ = AlwatrFetchOptions_ & Omit<RequestInit, 'headers'> & {url:
  *     }
  *
  *     const data = await response.json();
- *     console.log("Products:", data);
+ *     console.log('Products:', data);
  *   } catch (error) {
- *     console.error("Failed to fetch products:", error);
+ *     console.error('Failed to fetch products:', error);
  *   }
  * }
  *
  * fetchProducts();
  * ```
  */
-export function fetch(url: string, options: FetchOptions): Promise<Response> {
+export function fetch(url: string, options: FetchOptions = {}): Promise<Response> {
   logger_.logMethodArgs?.('fetch', {url, options});
 
   const options_: FetchOptions__ = {
@@ -109,13 +112,12 @@ export function fetch(url: string, options: FetchOptions): Promise<Response> {
     options_.removeDuplicate = cacheSupported ? 'until_load' : 'always';
   }
 
-  // Append query parameters to the URL if they are provided and the URL doesn't already have them.
+  // Append query parameters to the URL.
   if (options_.url.lastIndexOf('?') === -1 && options_.queryParams != null) {
     const queryParams = options_.queryParams;
     // prettier-ignore
-    const queryArray = Object
-      .keys(queryParams)
-      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(String(queryParams[key]))}`);
+    const queryArray = Object.keys(queryParams)
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(String(queryParams[key]))}`);
 
     if (queryArray.length > 0) {
       options_.url += '?' + queryArray.join('&');
@@ -143,19 +145,17 @@ export function fetch(url: string, options: FetchOptions): Promise<Response> {
 }
 
 /**
- * Manages caching strategies for the fetch request.
- * If the strategy is `network_only`, it bypasses caching and proceeds to the next step.
- * Otherwise, it interacts with the browser's Cache API based on the selected strategy.
+ * Manages the caching logic based on the specified `cacheStrategy`.
+ * This is the first step in the fetch pipeline after options are processed.
  *
  * @param {FetchOptions__} options - The fully configured fetch options.
- * @returns {Promise<Response>} A promise resolving to a `Response` object, either from the cache or the network.
+ * @returns {Promise<Response>} A promise resolving to a `Response` object, from either the cache or the network.
  * @private
  */
 async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> {
   if (options.cacheStrategy === 'network_only') {
     return handleRemoveDuplicate_(options);
   }
-  // else
 
   logger_.logMethod?.('handleCacheStrategy_');
 
@@ -167,10 +167,8 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
     options.cacheStrategy = 'network_only';
     return handleRemoveDuplicate_(options);
   }
-  // else
 
   const cacheStorage = await caches.open(options.cacheStorageName);
-
   const request = new Request(options.url, options);
 
   switch (options.cacheStrategy) {
@@ -179,11 +177,10 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
       if (cachedResponse != null) {
         return cachedResponse;
       }
-      // else
 
       const response = await handleRemoveDuplicate_(options);
       if (response.ok) {
-        cacheStorage.put(request, response.clone());
+        await cacheStorage.put(request, response.clone());
       }
       return response;
     }
@@ -194,8 +191,6 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
         logger_.accident('_handleCacheStrategy', 'fetch_cache_not_found', {url: request.url});
         throw new Error('fetch_cache_not_found');
       }
-      // else
-
       return cachedResponse;
     }
 
@@ -203,7 +198,7 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
       try {
         const networkResponse = await handleRemoveDuplicate_(options);
         if (networkResponse.ok) {
-          cacheStorage.put(request, networkResponse.clone());
+          await cacheStorage.put(request, networkResponse.clone());
         }
         return networkResponse;
       }
@@ -212,8 +207,6 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
         if (cachedResponse != null) {
           return cachedResponse;
         }
-        // else
-
         throw err;
       }
     }
@@ -221,16 +214,16 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
     case 'update_cache': {
       const networkResponse = await handleRemoveDuplicate_(options);
       if (networkResponse.ok) {
-        cacheStorage.put(request, networkResponse.clone());
+        await cacheStorage.put(request, networkResponse.clone());
       }
       return networkResponse;
     }
 
     case 'stale_while_revalidate': {
       const cachedResponse = await cacheStorage.match(request);
-      const fetchedResponsePromise = handleRemoveDuplicate_(options).then((networkResponse) => {
+      const fetchedResponsePromise = handleRemoveDuplicate_(options).then(async (networkResponse) => {
         if (networkResponse.ok) {
-          cacheStorage.put(request, networkResponse.clone());
+          await cacheStorage.put(request, networkResponse.clone());
           if (typeof options.revalidateCallback === 'function') {
             setTimeout(options.revalidateCallback, 0, networkResponse.clone());
           }
@@ -248,11 +241,10 @@ async function handleCacheStrategy_(options: FetchOptions__): Promise<Response> 
 }
 
 /**
- * Handles duplicate request elimination.
+ * Handles the elimination of duplicate in-flight requests.
  *
- * It creates a unique key based on the request method, URL, and body. If a request with the
- * same key is already in flight, it returns the promise of the existing request instead of
- * creating a new one. This prevents redundant network calls for identical parallel requests.
+ * It generates a unique key for each request. If a request with the same key is already
+ * in progress, it returns the existing promise instead of initiating a new fetch.
  *
  * @param {FetchOptions__} options - The fully configured fetch options.
  * @returns {Promise<Response>} A promise resolving to a cloned `Response` object.
@@ -262,23 +254,19 @@ async function handleRemoveDuplicate_(options: FetchOptions__): Promise<Response
   if (options.removeDuplicate === 'never') {
     return handleRetryPattern_(options);
   }
-  // else
 
   logger_.logMethod?.('handleRemoveDuplicate_');
 
-  // Create a unique key for the request. Including the body is crucial to differentiate
-  // between requests to the same URL but with different payloads (e.g., POST requests).
+  // Including the body is crucial to differentiate between requests to the same URL
+  // but with different payloads (e.g., POST vs. GET).
   const bodyString = typeof options.body === 'string' ? options.body : '';
   const cacheKey = `${options.method} ${options.url} ${bodyString}`;
 
-  // If a request with the same key doesn't exist, create it and store its promise.
   duplicateRequestStorage_[cacheKey] ??= handleRetryPattern_(options);
 
   try {
-    // Await the shared promise to get the response.
     const response = await duplicateRequestStorage_[cacheKey];
 
-    // Clean up the stored promise based on the removal strategy.
     if (duplicateRequestStorage_[cacheKey] != null) {
       if (response.ok !== true || options.removeDuplicate === 'until_load') {
         // Remove after completion for 'until_load' or if the request failed.
@@ -286,11 +274,11 @@ async function handleRemoveDuplicate_(options: FetchOptions__): Promise<Response
       }
     }
 
-    // Return a clone of the response, so each caller can consume the body independently.
+    // Return a clone so each caller can consume the body independently.
     return response.clone();
   }
   catch (err) {
-    // If the request fails, remove it from storage to allow for retries.
+    // If the request fails, remove it from storage to allow for retries on subsequent calls.
     delete duplicateRequestStorage_[cacheKey];
     throw err;
   }
@@ -298,8 +286,9 @@ async function handleRemoveDuplicate_(options: FetchOptions__): Promise<Response
 
 /**
  * Implements a retry mechanism for the fetch request.
- * If the request fails due to a server error (status >= 500) or a timeout,
- * it will be retried up to the specified number of times.
+ *
+ * If the request fails (due to a server error, timeout, or network issue),
+ * it will be retried up to the specified number of times with a delay between each attempt.
  *
  * @param {FetchOptions__} options - The fully configured fetch options.
  * @returns {Promise<Response>} A promise that resolves to the final `Response` after all retries.
@@ -309,7 +298,6 @@ async function handleRetryPattern_(options: FetchOptions__): Promise<Response> {
   if (!(options.retry > 1)) {
     return handleTimeout_(options);
   }
-  // else
 
   logger_.logMethod?.('handleRetryPattern_');
   options.retry--;
@@ -323,7 +311,6 @@ async function handleRetryPattern_(options: FetchOptions__): Promise<Response> {
     if (response.status < HttpStatusCodes.Error_Server_500_Internal_Server_Error) {
       return response;
     }
-    // else
 
     throw new Error('fetch_server_error');
   }

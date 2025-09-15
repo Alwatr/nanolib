@@ -2,35 +2,38 @@ import {delay} from '@alwatr/delay';
 import {createLogger} from '@alwatr/logger';
 
 /**
- * Base class for creating directives that attach behavior to DOM elements.
- * Extend this class to define custom directives.
+ * An abstract base class for creating directives.
+ * Directives are used to attach custom behavior to DOM elements.
  */
 export abstract class DirectiveBase {
   /**
-   * The CSS selector for the directive.
+   * The CSS selector that identifies this directive.
+   * @protected
    */
-  protected readonly selector_;
+  protected readonly selector_: string;
 
   /**
-   * Logger instance for the directive.
+   * A logger instance specific to this directive, tagged with its selector.
+   * @protected
    */
-  protected readonly logger_;
+  protected readonly logger_: ReturnType<typeof createLogger>;
 
   /**
-   * The target DOM element this directive is attached to.
+   * The DOM element to which this directive is attached.
+   * @protected
    */
   protected readonly element_: HTMLElement;
 
   /**
-   * Constructor to initialize the directive with the target element.
-   * @param element - The DOM element this directive is attached to.
-   * @param selector - The CSS selector for the directive.
+   * Initializes the directive, linking it to a DOM element.
+   *
+   * @param {HTMLElement} element - The DOM element this directive will control.
+   * @param {string} selector - The CSS selector used to identify this directive.
    */
   public constructor(element: HTMLElement, selector: string) {
+    this.selector_ = selector;
     this.logger_ = createLogger(`directive:${selector}`);
     this.logger_.logMethodArgs?.('new', {selector, element});
-
-    this.selector_ = selector;
     this.element_ = element;
 
     (async () => {
@@ -41,15 +44,24 @@ export abstract class DirectiveBase {
   }
 
   /**
-   * Called to update the directive's state or behavior.
-   * Must be implemented by subclasses.
+   * A lifecycle method called to update the directive's state or behavior.
+   * This method must be implemented by subclasses.
+   * @protected
    */
   protected abstract update_(): Awaitable<void>;
 
+  /**
+   * An initialization lifecycle method that runs once, after the directive is constructed.
+   * @protected
+   */
   protected init_(): Awaitable<void> {
     this.logger_.logMethod?.('init');
   }
 
+  /**
+   * A cleanup lifecycle method. It removes the element from the DOM and nullifies the reference.
+   * @protected
+   */
   protected destroy_(): Awaitable<void> {
     this.logger_.logMethod?.('destroy');
     this.element_.remove();
@@ -58,9 +70,11 @@ export abstract class DirectiveBase {
   }
 
   /**
-   * Dispatches a custom event from the target element.
-   * @param eventName - The name of the event.
-   * @param detail - Optional data to include in the event.
+   * Dispatches a custom event from the directive's host element.
+   *
+   * @param {string} eventName - The name of the custom event.
+   * @param {*} [detail] - Optional data to include in the event's `detail` property.
+   * @protected
    */
   protected dispatch_(eventName: string, detail?: unknown): void {
     this.logger_.logMethodArgs?.('dispatch_', {eventName, detail});

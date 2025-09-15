@@ -2,26 +2,23 @@ import {getGlobalThis} from '@alwatr/global-this';
 
 const globalThis = /* #__PURE__ */ getGlobalThis();
 
-// Use the native crypto module when available for better randomness
+// Use the native crypto module when available for better randomness.
 const hasCrypto = /* #__PURE__ */ (() => typeof globalThis.crypto !== 'undefined')();
 
 /**
- * Converts a Uint8Array or number array into a hexadecimal string representation.
- * Each byte is converted to a two-character hex string (padded with a leading zero if necessary)
- * and concatenated together to form a single string.
+ * Converts a `Uint8Array` or a number array into a hexadecimal string.
+ * Each byte is converted to a two-character hex string (e.g., `10` -> `'0a'`).
  *
- * @param bytes - The array of bytes to convert to hexadecimal
- * @returns A hexadecimal string representation of the input bytes
+ * @param {number[] | Uint8Array} bytes - The array of bytes to convert.
+ * @returns {string} The hexadecimal string representation of the bytes.
  *
  * @example
  * ```ts
- * // Using with Uint8Array
  * const bytes = new Uint8Array([10, 255, 0, 16]);
- * bytesToHex(bytes); // Returns "0aff0010"
+ * console.log(bytesToHex(bytes)); // '0aff0010'
  *
- * // Using with number array
  * const array = [171, 205, 3];
- * bytesToHex(array); // Returns "abcd03"
+ * console.log(bytesToHex(array)); // 'abcd03'
  * ```
  */
 export function bytesToHex(bytes: number[] | Uint8Array): string {
@@ -34,12 +31,13 @@ export function bytesToHex(bytes: number[] | Uint8Array): string {
 }
 
 /**
- * Returns a float random number between 0 and 1 (1 not included).
+ * Returns a random float number between 0 (inclusive) and 1 (exclusive).
  *
- * Example:
+ * @returns {number} A random float.
  *
- * ```js
- * console.log(randNumber()); // 0.7124123
+ * @example
+ * ```ts
+ * console.log(randNumber()); // e.g., 0.7124123
  * ```
  */
 export function randNumber(): number {
@@ -47,12 +45,15 @@ export function randNumber(): number {
 }
 
 /**
- * Generate a random float number between min and max (max not included).
+ * Generates a random float number within a specified range.
  *
- * Example:
+ * @param {number} min - The minimum value (inclusive).
+ * @param {number} max - The maximum value (exclusive).
+ * @returns {number} A random float within the range.
  *
- * ```js
- * console.log(randFloat(1, 10)); // somewhere between 1 and 10 (as float)
+ * @example
+ * ```ts
+ * console.log(randFloat(1, 10)); // e.g., 5.34
  * ```
  */
 export function randFloat(min: number, max: number): number {
@@ -60,31 +61,34 @@ export function randFloat(min: number, max: number): number {
 }
 
 /**
- * Generate a random integer number between min and max (max included).
+ * Generates a random integer within a specified range.
  *
- * Example:
+ * @param {number} min - The minimum value (inclusive).
+ * @param {number} max - The maximum value (inclusive).
+ * @returns {number} A random integer within the range.
  *
- * ```js
- * console.log(randInteger(1, 10)); // somewhere between 1 and 10
+ * @example
+ * ```ts
+ * console.log(randInteger(1, 10)); // e.g., 7
  * ```
  */
 export function randInteger(min: number, max: number): number {
-  // Use Math.floor and add 1 to max for better distribution
   return Math.floor(randFloat(min, max + 1));
 }
 
 /**
- * Generate a random string with specified length.
- * The string will contain only characters from the characters list.
- * The length of the string will be between min and max (max included).
- * If max not specified, the length will be set to min.
+ * Generates a random string of a specified length from a given set of characters.
  *
- * Example:
+ * @param {number} minLength - The minimum length of the string.
+ * @param {number} [maxLength=minLength] - The maximum length of the string.
+ * @param {string} [chars='...'] - The character set to use.
+ * @returns {string} The generated random string.
  *
- *```js
- * console.log(randString(6)); // something like 'Aab1V2'
- * console.log(randString(3, 6)); // random length between 3 and 6
- * console.log(randString(5, undefined, '01')); // binary string like '10101'
+ * @example
+ * ```ts
+ * console.log(randString(6)); // e.g., 'Aab1V2'
+ * console.log(randString(3, 6)); // A string with a random length between 3 and 6
+ * console.log(randString(5, 5, '01')); // e.g., '10101'
  * ```
  */
 export function randString(
@@ -97,16 +101,15 @@ export function randString(
 
   const charsLength = chars.length;
 
-  let result = '';
-
   // Small optimization for short strings
   if (length <= 10) {
+    let result = '';
     for (let i = 0; i < length; i++) {
       result += chars.charAt(Math.floor(Math.random() * charsLength));
     }
     return result;
   }
-  // else
+
   // For longer strings, use array join for better performance
   const resultArray = new Array(length);
   for (let i = 0; i < length; i++) {
@@ -116,31 +119,38 @@ export function randString(
 }
 
 /**
- * Generate a random integer between min and max with a step.
+ * Generates a random integer between a min and max value, with a specified step.
  *
- * Example:
+ * @param {number} min - The minimum value (inclusive).
+ * @param {number} max - The maximum value (inclusive).
+ * @param {number} step - The increment step.
+ * @returns {number} A random integer that conforms to the step.
  *
- * ```js
- * console.log(randStep(6, 10, 2)); // 6 or 8 or 10
+ * @example
+ * ```ts
+ * console.log(randStep(6, 10, 2)); // 6, 8, or 10
  * ```
  */
 export function randStep(min: number, max: number, step: number): number {
   if (step === 0) {
-    return min; // Return min when step is 0 to avoid division by zero
+    return min; // Avoid division by zero
   }
   const steps = Math.floor((max - min) / step);
   return min + randInteger(0, steps) * step;
 }
 
 /**
- * Shuffle an array in place using Fisher-Yates shuffle algorithm and return it.
+ * Shuffles an array in place using the Fisher-Yates shuffle algorithm.
  *
- * Example:
+ * @template T - The type of elements in the array.
+ * @param {T[]} array - The array to shuffle (modified in place).
+ * @returns {T[]} The same array, now shuffled.
  *
- * ```js
+ * @example
+ * ```ts
  * const array = [1, 2, 3, 4, 5];
  * randShuffle(array);
- * console.log(array); // [2, 4, 3, 1, 5] (randomized)
+ * console.log(array); // e.g., [2, 4, 3, 1, 5]
  * ```
  */
 export function randShuffle<T>(array: T[]): T[] {
@@ -152,43 +162,46 @@ export function randShuffle<T>(array: T[]): T[] {
 }
 
 /**
- * Choose a random item from an array.
- * Throws an error if the array is empty.
+ * Picks a random item from an array.
  *
- * Example:
+ * @template T - The type of elements in the array.
+ * @param {T[]} array - The array to pick from.
+ * @returns {T} A random item from the array.
+ * @throws {Error} If the array is empty.
  *
- * ```js
- * const array = [1, 2, 3, 4, 5];
- * console.log(randPick(array)); // one random element
+ * @example
+ * ```ts
+ * const array = ['a', 'b', 'c'];
+ * console.log(randPick(array)); // 'a', 'b', or 'c'
  * ```
  */
 export function randPick<T>(array: T[]): T {
-  if (array.length === 0) throw new Error('Cannot pick from empty array');
+  if (array.length === 0) throw new Error('Cannot pick from an empty array');
   return array[randInteger(0, array.length - 1)];
 }
 
 /**
- * Fills a typed array with random integer values within the specified range.
- * The array is modified in place and also returned for chaining.
+ * Fills a typed array or a number array with random integer values within a specified range.
+ * The array is modified in place.
  *
- * @param array - The array to fill with random values (modified in place)
- * @param min - Minimum value (inclusive), defaults to 0
- * @param max - Maximum value (inclusive), defaults to 255
- * @returns The same array that was passed in (for chaining)
+ * @template T - The type of the array.
+ * @param {T} array - The array to fill.
+ * @param {number} [min=0] - The minimum random value (inclusive).
+ * @param {number} [max=255] - The maximum random value (inclusive).
+ * @returns {T} The same array, now filled with random values.
  *
  * @example
  * ```ts
- * // Fill a Uint8Array with random values (0-255)
- * randArray(new Uint8Array(10));
- *
- * // Fill with custom range
- * randArray(new Uint16Array(5), 1000, 2000); // Values between 1000-2000
- *
- * // Also works with number arrays
- * randArray(new Array<number>(8), -100, 100); // Values between -100 and 100
+ * const arr = new Uint8Array(10);
+ * randArray(arr, 0, 100); // Fills with random numbers between 0 and 100
+ * console.log(arr);
  * ```
  */
-export function randArray<T extends number[] | Uint8Array | Uint16Array | Uint32Array>(array: T, min = 0, max = 255): T {
+export function randArray<T extends number[] | Uint8Array | Uint16Array | Uint32Array>(
+  array: T,
+  min = 0,
+  max = 255,
+): T {
   for (let i = array.length - 1; i >= 0; i--) {
     array[i] = randInteger(min, max);
   }
@@ -196,17 +209,19 @@ export function randArray<T extends number[] | Uint8Array | Uint16Array | Uint32
 }
 
 /**
- * Type alias for a UUID string.
+ * A type alias for a UUID (v4) string.
  */
 export type UUID = `${string}-${string}-${string}-${string}-${string}`;
 
 /**
- * Generate a random UUID (v4).
+ * Generates a random UUID (v4).
+ * It uses the native `crypto.randomUUID` if available, otherwise it falls back to a Math.random-based implementation.
  *
- * Example:
+ * @returns {UUID} A new UUID string.
  *
- * ```js
- * console.log(randUuid()); // "a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6"
+ * @example
+ * ```ts
+ * console.log(randUuid()); // e.g., 'a1b2c3d4-e5f6-47a8-b9c0-d1e2f3a4b5c6'
  * ```
  */
 export function randUuid(): UUID {
@@ -220,27 +235,21 @@ export function randUuid(): UUID {
   bytes[8] = (bytes[8] & 0xbf) | 0x80; // variant RFC4122
 
   // prettier-ignore
-  return `${
-    bytesToHex(bytes.subarray(0, 4))
-  }-${
-    bytesToHex(bytes.subarray(4, 6))
-  }-${
-    bytesToHex(bytes.subarray(6, 8))
-  }-${
-    bytesToHex(bytes.subarray(8, 10))
-  }-${
-    bytesToHex(bytes.subarray(10, 16))
-  }` as UUID;
+  return `${bytesToHex(bytes.subarray(0, 4))}-${bytesToHex(bytes.subarray(4, 6))}-${bytesToHex(
+      bytes.subarray(6, 8),
+  )}-${bytesToHex(bytes.subarray(8, 10))}-${bytesToHex(bytes.subarray(10, 16))}` as UUID;
 }
 
 /**
- * Generate a random boolean with specified probability of being true.
+ * Generates a random boolean with a specified probability of being `true`.
  *
- * Example:
+ * @param {number} [probability=0.5] - The probability of returning `true` (a value between 0 and 1).
+ * @returns {boolean} The random boolean value.
  *
- * ```js
- * console.log(randBoolean()); // 50% chance of true
- * console.log(randBoolean(0.8)); // 80% chance of true
+ * @example
+ * ```ts
+ * console.log(randBoolean()); // 50% chance of being true
+ * console.log(randBoolean(0.8)); // 80% chance of being true
  * ```
  */
 export function randBoolean(probability = 0.5): boolean {
@@ -248,12 +257,13 @@ export function randBoolean(probability = 0.5): boolean {
 }
 
 /**
- * Generate a random hex color string.
+ * Generates a random hex color string.
  *
- * Example:
+ * @returns {string} A random hex color (e.g., '#a1b2c3').
  *
- * ```js
- * console.log(randColor()); // "#a1b2c3"
+ * @example
+ * ```ts
+ * console.log(randColor()); // e.g., '#a1b2c3'
  * ```
  */
 export function randColor(): string {

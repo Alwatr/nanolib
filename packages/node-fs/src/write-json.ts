@@ -5,53 +5,50 @@ import {jsonStringify} from './json.js';
 import {writeFile, writeFileSync} from './write-file.js';
 
 /**
- * Enhanced write json file (Asynchronous).
+ * Stringifies a JavaScript object and writes it to a JSON file asynchronously.
+ * Uses an atomic-like write operation.
  *
- * @param path - file path
- * @param data - json object
+ * @template T - The type of the data to write.
+ *
+ * @param {string} path - The file path.
+ * @param {T} data - The JSON object to write.
+ * @returns {Promise<void>} A promise that resolves when the file is written.
+ *
  * @example
- * ```typescript
- * await writeJsonFile('./file.json', { a:1, b:2, c:3 });
+ * ```ts
+ * await writeJson('./data.json', { a: 1, b: 2 });
  * ```
  */
 export function writeJson<T extends JsonValue>(path: string, data: T, sync?: false): Promise<void>;
 /**
- * Enhanced write json file (Synchronous).
+ * Stringifies a JavaScript object and writes it to a JSON file synchronously.
+ * Uses an atomic-like write operation.
  *
- * @param path - file path
- * @param data - json object
- * @param sync - sync mode
+ * @template T - The type of the data to write.
+ *
+ * @param {string} path - The file path.
+ * @param {T} data - The JSON object to write.
+ * @param {true} sync - A literal `true` to indicate synchronous operation.
+ *
  * @example
- * ```typescript
- * writeJsonFile('./file.json', { a:1, b:2, c:3 }, true);
+ * ```ts
+ * writeJson('./data.json', { a: 1, b: 2 }, true);
  * ```
  */
 export function writeJson<T extends JsonValue>(path: string, data: T, sync: true): void;
 /**
- * Enhanced write json file.
+ * Stringifies a JavaScript object and writes it to a JSON file.
  *
- * @param path - file path
- * @param data - json object
- * @param sync - sync mode
- * @example
- * ```typescript
- * await writeJsonFile('./file.json', { a:1, b:2, c:3 }, sync);
- * ```
+ * @template T - The type of the data to write.
+ *
+ * @param {string} path - The file path.
+ * @param {T} data - The JSON object to write.
+ * @param {boolean} sync - If `true`, the operation is synchronous.
+ * @returns {Awaitable<void>} A promise that resolves when the file is written, or `void` in sync mode.
  */
 export function writeJson<T extends JsonValue>(path: string, data: T, sync: boolean): Awaitable<void>;
-/**
- * Enhanced write json file.
- *
- * @param path - file path
- * @param data - json object
- * @param sync - sync mode
- * @example
- * ```typescript
- * await writeJsonFile('./file.json', { a:1, b:2, c:3 });
- * ```
- */
 export function writeJson<T extends JsonValue>(path: string, data: T, sync = false): Awaitable<void> {
-  logger.logMethodArgs?.('writeJson', '...' + path.slice(-32));
+  logger.logMethodArgs?.('writeJson', {path: '...' + path.slice(-32), sync});
   const content = flatString(jsonStringify(data));
   return sync === true ? writeFileSync(path, content) : writeFile(path, content);
 }

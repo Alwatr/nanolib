@@ -1,72 +1,98 @@
 import type {DebouncerConfig} from './type.ts';
 
 /**
- * A powerful and type-safe Debouncer class.
+ * A powerful, type-safe, and feature-rich Debouncer class.
  *
- * It encapsulates the debouncing logic, state, and provides a rich control API.
- * Debouncing delays function execution until after a specified delay has passed since the last invocation.
- * Useful for optimizing performance in scenarios like search inputs, resize events, or API calls.
+ * This class encapsulates debouncing logic and state, providing a rich API for fine-grained control.
+ * Debouncing is a technique to limit the rate at which a function gets called. It's useful for
+ * performance optimization in scenarios like handling user input (e.g., search suggestions),
+ * window resizing, or preventing rapid API calls.
+ *
+ * @template F - The type of the function to be debounced.
  *
  * @example
- * ```typescript
- * const debouncer = new Debouncer({
- *   func: (text: string) => console.log('Searching:', text),
+ * ```ts
+ * // Basic trailing-edge debouncing
+ * const searchDebouncer = new Debouncer({
+ *   func: (query: string) => console.log(`Searching for: ${query}`),
  *   delay: 300,
- *   leading: false,
- *   trailing: true,
  * });
  *
- * // Debounce search input
- * debouncer.trigger('hello');
- * debouncer.trigger('hello world'); // Only 'hello world' will log after 300ms
+ * searchDebouncer.trigger('hello');
+ * searchDebouncer.trigger('hello world');
+ * // After 300ms of inactivity, it will log: "Searching for: hello world"
  *
- * // Advanced: With leading edge
- * const leadingDebouncer = new Debouncer({
- *   func: () => console.log('Immediate and delayed'),
+ * // Leading-edge debouncing
+ * const clickDebouncer = new Debouncer({
+ *   func: () => console.log('Button clicked!'),
  *   delay: 500,
  *   leading: true,
- *   trailing: true,
+ *   trailing: false, // Important: prevent double execution
  * });
- * leadingDebouncer.trigger(); // Logs immediately, then again after 500ms if not cancelled
+ *
+ * clickDebouncer.trigger(); // Logs "Button clicked!" immediately.
+ * // Further triggers within 500ms are ignored.
  * ```
  */
 export class Debouncer<F extends AnyFunction> {
+  /**
+   * The timer ID for the main debouncing delay.
+   * @private
+   */
   private timerId__?: number | NodeJS.Timeout;
+
+  /**
+   * The timer ID for the `maxWait` functionality.
+   * @private
+   */
   private maxWaitTimerId__?: number | NodeJS.Timeout;
+
+  /**
+   * The arguments from the last `trigger` call.
+   * @private
+   */
   private lastArgs__?: Parameters<F>;
 
+  /**
+   * Constructs a new Debouncer instance.
+   *
+   * @param {DebouncerConfig<F>} config__ - The configuration for the debouncer.
+   */
   public constructor(private readonly config__: DebouncerConfig<F>) {
     this.config__.trailing ??= true;
     this.flush = this.flush.bind(this);
   }
 
   /**
-   * Checks if there is a pending execution scheduled.
-   * Returns true if a timer is active, indicating a debounced call is waiting.
+   * Checks if there is a pending debounced execution scheduled.
+   *
+   * @returns {boolean} `true` if a timer is active, otherwise `false`.
    */
   public get isPending(): boolean {
     return this.timerId__ !== undefined;
   }
 
   /**
-   * Triggers the debounced function with the stored `thisContext`.
-   * @param args The arguments to pass to the `func`.
+   * Triggers the debounced function.
+   *
+   * When called, it will schedule the function to run after the specified `delay`.
+   * Each subsequent call within the delay period will reset the timer.
+   *
+   * @param {...Parameters<F>} args - The arguments to pass to the debounced function.
    *
    * @example
-   * ```typescript
+   * ```ts
    * const debouncer = new Debouncer({
-   *   func: (value: number) => console.log('Value:', value),
+   *   func: (a: number, b: string) => console.log(`Args: ${a}, ${b}`),
    *   delay: 500,
    * });
-   * debouncer.trigger(42); // Logs after 500ms if not triggered again
    *
-   * // Edge case: Rapid triggers only execute the last one
-   * debouncer.trigger(1);
-   * debouncer.trigger(2); // Only 2 will execute after delay
+   * debouncer.trigger(1, 'a');
+   * debouncer.trigger(2, 'b'); // This will execute after 500ms.
    * ```
    */
   public trigger(...args: Parameters<F>): void {
-    this.lastArgs__ = args; // its an array even if triggered without any args
+    this.lastArgs__ = args;
     const firstTrigger = !this.isPending;
 
     if (firstTrigger) {
@@ -90,19 +116,21 @@ export class Debouncer<F extends AnyFunction> {
   }
 
   /**
-   * Cancels any pending debounced execution and cleans up internal state.
-   * Useful for stopping execution when the operation is no longer needed (e.g., component unmount).
+   * Cancels any pending debounced execution.
+   *
+   * This is useful for cleanup, e.g., in a component's lifecycle `unmount` method.
    *
    * @example
-   * ```typescript
+   * ```ts
    * const debouncer = new Debouncer({
-   *   func: () => console.log('Executed'),
+   *   func: () => console.log('This will not be executed.'),
    *   delay: 1000,
    * });
-   * debouncer.trigger();
-   * debouncer.cancel(); // Prevents execution
    *
-   * // Note: After cancel, isPending becomes false
+   * debouncer.trigger();
+   * debouncer.cancel();
+   *
+   * console.log(debouncer.isPending); // false
    * ```
    */
   public cancel(): void {
@@ -116,7 +144,8 @@ export class Debouncer<F extends AnyFunction> {
   }
 
   /**
-   * Cleans up internal state by deleting timer and arguments.
+   * Resets the internal state of the debouncer.
+   * @private
    */
   private cleanup__(): void {
     delete this.timerId__;
@@ -125,21 +154,23 @@ export class Debouncer<F extends AnyFunction> {
   }
 
   /**
-   * Immediately executes the pending function if one exists.
-   * Bypasses the delay and cleans up state. If no pending call, does nothing.
+   * Immediately executes the pending debounced function if one exists.
+   *
+   * This bypasses the delay and then cancels any scheduled execution.
+   * If no pending call exists, this method does nothing.
    *
    * @example
-   * ```typescript
+   * ```ts
    * const debouncer = new Debouncer({
-   *   func: () => console.log('Flushed'),
+   *   func: (val: number) => console.log(`Flushed with: ${val}`),
    *   delay: 1000,
    * });
-   * debouncer.trigger();
-   * setTimeout(() => debouncer.flush(), 500); // Executes immediately
    *
-   * // Edge case: Flush after cancel does nothing
-   * debouncer.cancel();
-   * debouncer.flush(); // No execution
+   * debouncer.trigger(42);
+   * // Before the 1000ms delay passes:
+   * debouncer.flush(); // Logs "Flushed with: 42" immediately.
+   *
+   * console.log(debouncer.isPending); // false
    * ```
    */
   public flush(): void {
@@ -150,10 +181,12 @@ export class Debouncer<F extends AnyFunction> {
   }
 
   /**
-   * The core execution logic.
+   * The core execution logic that calls the debounced function.
+   * @private
    */
   private invoke__(): void {
-    if (this.lastArgs__) { // only call if we have new args (skip trailing call if leading already called)
+    // Only call if we have new args (e.g., skip trailing call if leading already called with same args)
+    if (this.lastArgs__) {
       this.config__.func.apply(this.config__.thisContext, this.lastArgs__);
       this.lastArgs__ = undefined;
     }

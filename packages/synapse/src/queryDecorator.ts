@@ -2,23 +2,30 @@
 import type {DirectiveBase} from './directiveClass.js';
 
 /**
- * A property decorator that queries the directive's element for a selector.
- * The query is performed once and the result is cached.
+ * A property decorator that provides a convenient way to query a single element
+ * within a directive's host element. The result is cached by default for performance.
  *
- * @param selector The CSS selector to query for.
- * @param cache Whether to cache the result on first access. Defaults is true.
+ * @param {string} selector - The CSS selector to query for.
+ * @param {boolean} [cache=true] - Whether to cache the query result.
+ * @returns {PropertyDecorator} A property decorator.
  *
  * @example
  * ```ts
- * @directive('[my-directive]')
- * class MyDirective extends DirectiveBase {
- *   @query('.my-element')
- *   protected myElement?: HTMLDivElement;
+ * @directive('[my-card]')
+ * class MyCardDirective extends DirectiveBase {
+ *   @query('.card-header')
+ *   protected headerElement?: HTMLDivElement;
+ *
+ *   protected override update_() {
+ *     if (this.headerElement) {
+ *       this.headerElement.textContent = 'New Header';
+ *     }
+ *   }
  * }
  * ```
  */
-export function query(selector: string, cache = true) {
-  return function (target: DirectiveBase, propertyKey: string): void {
+export function query(selector: string, cache = true): PropertyDecorator {
+  return function (target: object, propertyKey: string | symbol): void {
     const privateKey = Symbol(`${String(propertyKey)}__`);
 
     Object.defineProperty(target, propertyKey, {
@@ -35,22 +42,30 @@ export function query(selector: string, cache = true) {
 }
 
 /**
- * A property decorator that queries the directive's element for all selectors.
- * The queries are performed once and the result is cached.
+ * A property decorator that provides a convenient way to query all elements
+ * matching a selector within a directive's host element. The result is cached by default.
  *
- * @param selector The CSS selector to query for.
+ * @param {string} selector - The CSS selector to query for.
+ * @param {boolean} [cache=true] - Whether to cache the query result.
+ * @returns {PropertyDecorator} A property decorator.
  *
  * @example
  * ```ts
- * @directive('[my-directive]')
- * class MyDirective extends DirectiveBase {
- *   @queryAll('.my-elements')
- *   protected myElements?: NodeListOf<HTMLDivElement>;
+ * @directive('[my-list]')
+ * class MyListDirective extends DirectiveBase {
+ *   @queryAll('.list-item')
+ *   protected itemElements?: NodeListOf<HTMLLIElement>;
+ *
+ *   protected override update_() {
+ *     this.itemElements?.forEach((item, index) => {
+ *       item.textContent = `Item ${index + 1}`;
+ *     });
+ *   }
  * }
  * ```
  */
-export function queryAll(selector: string, cache = true) {
-  return function (target: DirectiveBase, propertyKey: string): void {
+export function queryAll(selector: string, cache = true): PropertyDecorator {
+  return function (target: object, propertyKey: string | symbol): void {
     const privateKey = Symbol(`${String(propertyKey)}__`);
 
     Object.defineProperty(target, propertyKey, {
