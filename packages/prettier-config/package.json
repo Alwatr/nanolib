@@ -49,7 +49,7 @@
   "sideEffects": false,
   "type": "module",
   "devDependencies": {
-    "prettier": "^3.7.4"
+    "prettier": "^3.8.0"
   },
   "peerDependencies": {
     "prettier": ">=3.0.0"
