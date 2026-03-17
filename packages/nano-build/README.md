@@ -1,13 +1,17 @@
 # Nano build
 
-Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses esbuild for enhanced performance.
+Build/bundle tools for ECMAScript, TypeScript, and JavaScript libraries. It's easy to use, doesn't require any setup, and adheres to best practices. It has no dependencies and uses Bun's built-in bundler for enhanced performance.
+
+## Requirements
+
+This package requires [Bun](https://bun.sh) as the runtime — it uses `Bun.build()` directly.
 
 ## Installation
 
 First, install `@alwatr/nano-build` as a development dependency:
 
 ```bash
-yarn add -D @alwatr/nano-build
+bun add -D @alwatr/nano-build
 ```
 
 ## Usage
@@ -71,23 +75,15 @@ bun run build --preset=module
 {
   entryPoints: ['src/*.ts'],
   outdir: 'dist',
-  logLevel: 'info',
-  target: 'es2020',
+  bundle: true,
   minify: true,
   minifyWhitespace: true,
   treeShaking: true,
   sourcemap: false,
-  sourcesContent: false,
-  bundle: true,
-  charset: 'utf8',
-  legalComments: 'linked',
   define: {
     __package_name__: packageJson.name,
     __package_version__: packageJson.version,
     __dev_mode__: process.env.NODE_ENV !== 'production',
-  },
-  banner: {
-    js: "/* __package_name__ v__package_version__ */"
   },
 }
 ```
@@ -107,7 +103,6 @@ Builds and bundle for single export module.
   cjs: true,
   packages: 'external',
   sourcemap: true,
-  sourcesContent: true
 }
 ```
 
@@ -128,7 +123,6 @@ Builds and bundles multiple entry points in root of `src` directory for multiple
   cjs: true,
   packages: 'external',
   sourcemap: true,
-  sourcesContent: true
 }
 ```
 
@@ -149,9 +143,10 @@ Builds multiple entry points in `src` directory for multiple exports module with
   cjs: true,
   packages: 'external',
   sourcemap: true,
-  sourcesContent: true
 }
 ```
+
+Note: `bundle: false` is not natively supported by Bun's bundler (which always bundles). All dependencies are treated as external instead, which achieves a similar result for library builds.
 
 Note: default production overwrite options not applied.
 
@@ -160,18 +155,9 @@ Note: default production overwrite options not applied.
 ```js
 {
   ...defaultPreset,
-  entryPoints: ['site/_ts/*.ts'],
-  outdir: 'dist/es',
+  entryPoints: ['src/*.ts'],
   platform: 'browser',
   format: 'iife',
-  mangleProps: '_$',
-  target: [
-    'es2018',
-    'chrome62',
-    'edge79',
-    'firefox78',
-    'safari11',
-  ],
   ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
@@ -185,14 +171,6 @@ Note: default production overwrite options not applied.
   outdir: 'dist/es',
   platform: 'browser',
   format: 'iife',
-  mangleProps: '_$',
-  target: [
-    'es2018',
-    'chrome62',
-    'edge79',
-    'firefox78',
-    'safari11',
-  ],
   ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
@@ -202,11 +180,9 @@ Note: default production overwrite options not applied.
 ```js
 {
   ...defaultPreset,
-  entryPoints: ['src/ts/main.ts'],
+  entryPoints: ['src/main.ts'],
   platform: 'node',
   format: 'esm',
-  mangleProps: '_$',
-  target: 'node20',
   ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
@@ -220,14 +196,6 @@ Note: default production overwrite options not applied.
   outdir: 'dist/es',
   platform: 'browser',
   format: 'iife',
-  mangleProps: '_$',
-  target: [
-    'es2018',
-    'chrome62',
-    'edge79',
-    'firefox78',
-    'safari11',
-  ],
   ...(devMode ? developmentOverwriteOptions : productionOverwriteOptions),
 }
 ```
@@ -239,7 +207,6 @@ This preset is used when `NODE_ENV` is not set to `production`. It overwrites al
 ```js
 {
   sourcemap: true,
-  sourcesContent: true,
 }
 ```
 
@@ -250,12 +217,28 @@ you can also add `nano-build-development` field to your `package.json` for overw
 This preset is used when `NODE_ENV` is set to `production`. It overwrites all other presets.
 
 ```js
-{
-  dropLabels: ['__dev_mode__'];
-}
+{}
 ```
 
 you can also add `nano-build-production` field to your `package.json` for overwriting configuration.
+
+## Migration notes from esbuild
+
+This package migrated from [esbuild](https://esbuild.github.io/) to [Bun's built-in bundler](https://bun.sh/docs/bundler). The preset configuration API remains backward-compatible. Key behavioral differences:
+
+| Feature | esbuild | Bun bundler |
+|---|---|---|
+| `target` (ES version) | Syntax downleveling | **Not supported** — ignored |
+| `mangleProps` | Property mangling | **Not supported** — ignored |
+| `dropLabels` | Dead-code label elimination | **Not supported** — ignored |
+| `legalComments` | Legal comment handling | **Not supported** — ignored |
+| `banner` | JS banner comment (`{js: string}`) | Converted to Bun's plain `string` format |
+| `charset` | Output charset | **Not supported** — ignored |
+| `bundle: false` | Transpile-only mode | **Not supported** — external deps used instead |
+| `packages: 'external'` | Auto-externalize packages | Passed through natively (Bun 1.3.10+) |
+| `sourcesContent` | Inline sources in sourcemaps | **Not supported** — ignored |
+| `treeShaking` | Configurable | Always enabled |
+| Watch mode | `context.watch()` API | `fs.watch`-based rebuild |
 
 ## Sponsors
 

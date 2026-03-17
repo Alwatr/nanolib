@@ -5,7 +5,8 @@
     "checkJs": true,
     "noEmit": true,
     "moduleResolution": "Node",
-    "module": "commonjs"
+    "module": "commonjs",
+    "types": ["bun-types"]
   },
   "include": ["*.cjs"]
 }
