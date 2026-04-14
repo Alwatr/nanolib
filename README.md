@@ -1,5 +1,9 @@
 # ECMAScript Nano Libs
 
+> [!IMPORTANT]
+> **This repository has been moved!**
+> All packages in this repository have been migrated to the main [Alwatr monorepo](https://github.com/Alwatr/alwatr/). Please use the new location for the latest updates and contributions.
+
 This repository contains numerous small utility packages. These packages serve various useful purposes and are written in nano ESModule without any dependencies.
 
 Here is a brief overview of the included libraries:
