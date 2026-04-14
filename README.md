@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > **This repository has been moved!**
-> All packages in this repository have been migrated to the main [Alwatr monorepo](https://github.com/Alwatr/alwatr/tree/next/pkg/nanolib). Please use the new location for the latest updates and contributions.
+> All packages in this repository have been migrated to the main [Alwatr monorepo](https://github.com/Alwatr/alwatr/). Please use the new location for the latest updates and contributions.
 
 This repository contains numerous small utility packages. These packages serve various useful purposes and are written in nano ESModule without any dependencies.
 
